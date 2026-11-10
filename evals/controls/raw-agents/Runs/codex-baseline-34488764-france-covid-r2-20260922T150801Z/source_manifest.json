@@ -1,0 +1,26 @@
+[
+  {
+    "role": "health outcome",
+    "url": "https://static.data.gouv.fr/resources/donnees-hospitalieres-relatives-a-lepidemie-de-covid-19/20230331-180159/covid-hospit-2023-03-31-18h01.csv",
+    "retrieved": true,
+    "sha256": "79945ede9e319d5d7289cdcbd4a686ff0e2d06ac9b4232fdde139b0b9e5cfc82"
+  },
+  {
+    "role": "independent PM2.5 monitor exposure",
+    "url": "https://air.discomap.eea.europa.eu/arcgis/rest/services/AirQuality/AQ_Statistics_WM/MapServer/0/query?where=Country_ISO+%3D+%27FR%27+AND+YearOfStatistics+%3D+2016+AND+AirPollutant+%3D+%27PM2.5%27&outFields=%2A&returnGeometry=false&f=json",
+    "retrieved": true,
+    "sha256": "4fde99e317af816c2c790c72b58b23ad27a838376b2808c97441f23b18156fc7"
+  },
+  {
+    "role": "study article supplied locally",
+    "url": "/study/article.pdf",
+    "retrieved": true,
+    "sha256": "9e88f0e848fc1bb744b7841ea84837165ddc79a63f07aeefe42f30fddd2615f3"
+  },
+  {
+    "role": "study supplement supplied locally",
+    "url": "/study/supplements/12940_2021_784_MOESM1_ESM.docx",
+    "retrieved": true,
+    "sha256": "eb4378442d2f3a0f66717ab2d48ee4ba2ada3f1fc2e9e70d66f7b5b57e53db50"
+  }
+]

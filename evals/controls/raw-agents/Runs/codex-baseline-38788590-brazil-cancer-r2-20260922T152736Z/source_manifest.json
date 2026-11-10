@@ -1,0 +1,62 @@
+{
+  "study_id": "PMID-38788590",
+  "retrieval_log": [
+    {
+      "role": "supplied_pubmed_record",
+      "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=38788590&retmode=xml",
+      "retrieved": true,
+      "local_path": "/study/article.xml",
+      "sha256": "da1585735e550f7b8e4ab9c8a219f3a831658311f313f5f059ee9153594d0d28",
+      "attempts": 0,
+      "notes": "Supplied study material; used to identify target."
+    },
+    {
+      "role": "article_reading_copy",
+      "url": "https://doi.org/10.1016/j.jhazmat.2024.134606",
+      "retrieved": true,
+      "local_path": "/study/article.pdf",
+      "sha256": "9c5d16c75615b12d2610b37f485edc4172e451ff9cc579f6b8a3fe67d649f93f",
+      "attempts": 0,
+      "notes": "Supplied reading copy."
+    },
+    {
+      "role": "article_landing_page",
+      "url": "https://research.monash.edu/en/publications/cancer-mortality-risk-from-short-term-pmsub25sub-exposure-and-tem/",
+      "retrieved": true,
+      "local_path": "/output/raw/monash_2.html",
+      "sha256": "ad2827946aec23f32cd72a27b53580a9d313ce623997cec3d03f76c00a7b4730",
+      "attempts": 1,
+      "http_status": 200,
+      "bytes": 71187,
+      "notes": "Confirms DOI and CC BY access statement; no downloadable manuscript linked."
+    },
+    {
+      "role": "article_pdf_attempt",
+      "url": "https://www.sciencedirect.com/science/article/pii/S0304389424011853/pdfft?isDTMRedir=true&download=true",
+      "retrieved": false,
+      "sha256": null,
+      "attempts": 6,
+      "http_status": 403,
+      "bytes": 0,
+      "notes": "Terminal 403. Six attempts occurred because of an erroneous client retry flag; this was a retry-policy deviation, not a scientific substitution."
+    },
+    {
+      "role": "public_health_outcome_candidate_SIM",
+      "url": "https://ftp.datasus.gov.br/dissemin/publicos/SIM/CID10/DADOS/",
+      "retrieved": false,
+      "sha256": null,
+      "attempts": 1,
+      "http_status": 0,
+      "bytes": 0,
+      "notes": "TLS connection timed out after 10 seconds. No retry was attempted because the disk-space policy termination had already been determined."
+    },
+    {
+      "role": "independent_PM25_candidate",
+      "url": "https://disc.gsfc.nasa.gov/datasets/M2T1NXAER_5.12.4/summary",
+      "retrieved": false,
+      "sha256": null,
+      "attempts": 0,
+      "notes": "Candidate independent NASA MERRA-2 aerosol-derived PM2.5 input was not retrieved after disk guard termination."
+    }
+  ]
+}

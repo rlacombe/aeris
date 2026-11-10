@@ -1,0 +1,193 @@
+{
+  "schema_version": 3,
+  "study_id": "38788590-brazil-cancer",
+  "status": "completed_fit",
+  "fidelity": "bounded",
+  "target": {
+    "outcome": "Daily all-cancer deaths (bounded slice; article also specified 25 site-specific outcomes)",
+    "pollutant": "PM2.5",
+    "geography": "Sao Paulo municipality/city, Brazil (bounded from 5,570 municipalities)",
+    "population": "Individual SIM all-cancer death records with municipality of occurrence code 355030",
+    "period": "2019-01-01 through 2019-12-31 (bounded from 2000-2019)",
+    "effect_scale": "Odds ratio per 10 ug/m3",
+    "exposure_assignment": "Daily Sao Paulo city-coordinate PM2.5 estimate, transformed to observed three-day lag 0-2 mean; explicit proxy for article population-weighted municipality grid mean",
+    "model": "Time-stratified case-crossover conditional logistic regression; 3 or 4 same-weekday controls in same calendar month",
+    "covariates": [
+      "NASA POWER coordinate daily temperature (linear and quadratic terms)",
+      "NASA POWER coordinate relative humidity"
+    ],
+    "named_outcome_source": "Brazilian Mortality Information System (SIM)",
+    "specification_evidence": [
+      "/output/article-evidence.json"
+    ]
+  },
+  "sources": [
+    {
+      "role": "outcome",
+      "url": "https://s3.sa-east-1.amazonaws.com/ckan.saude.gov.br/SIM/csv/Mortalidade_Geral_2019_csv.zip",
+      "route_origin": "agent_discovered",
+      "retrieved": true,
+      "sha256": "66501b7348ad77d8e88bcb6306d86dc555496fe65258333440998f2472c66480",
+      "evidence_artifact": "/output/recovery-critic/sim2019.zip"
+    },
+    {
+      "role": "exposure",
+      "url": "https://datacatalogfiles.worldbank.org/ddh-published/0067162/DR0096339/PM25_Latin_America_Caribbean.zip",
+      "route_origin": "agent_discovered",
+      "retrieved": true,
+      "sha256": "c4b60fbe718d6e6c7efddbfbc41189c7a9aa251bb1adb2c97a34b61709a108df",
+      "evidence_artifact": "/output/recovery-critic/pm25-lac.zip"
+    },
+    {
+      "role": "weather",
+      "url": "https://power.larc.nasa.gov/api/temporal/daily/point",
+      "route_origin": "agent_discovered",
+      "retrieved": true,
+      "sha256": "42309a508fc62e298919bf45a827814ef51438bdd9481013d04c3f098b903a15",
+      "evidence_artifact": "/output/recovery-critic/nasa-power-sp-2019.json"
+    }
+  ],
+  "substitutions": [
+    {
+      "dimension": "geography",
+      "change_type": "coverage_subset",
+      "published": "5,570 Brazilian municipalities, 2000-2019",
+      "reanalysis": "Sao Paulo municipality/city, 2019",
+      "reason": "This was the first independently recovered daily outcome/exposure overlap suitable for an executable bounded fit."
+    },
+    {
+      "dimension": "exposure",
+      "change_type": "source",
+      "published": "Population-weighted within-municipality 0.25-degree daily grid PM2.5",
+      "reanalysis": "Public daily city-coordinate PM2.5 estimate",
+      "reason": "The recovered public city series preserves daily PM2.5 and lag calculation but not the article spatial support."
+    },
+    {
+      "dimension": "covariate",
+      "change_type": "covariate_omission",
+      "published": "Population-weighted ERA5 temperature cross-basis, RH, and public holiday",
+      "reanalysis": "NASA POWER coordinate temperature linear/quadratic terms and RH; no holiday term",
+      "reason": "Bounded public-weather implementation; explicitly reduced adjustment."
+    },
+    {
+      "dimension": "outcome",
+      "change_type": "coverage_subset",
+      "published": "All cancer plus 25 site-specific variants and subgroups",
+      "reanalysis": "All-cancer only",
+      "reason": "Only the principal all-cancer bounded slice was fit; variants remain unestimated."
+    }
+  ],
+  "coverage": {
+    "eligible_units": 5570,
+    "included_units": 1,
+    "eligible_times": 365,
+    "included_times": 329,
+    "rule": "Require three consecutive observed calendar days for lag 0-2 PM2.5 and weather on each case and referent date; no imputation.",
+    "notes": "353/365 PM2.5 source dates were recovered (all month-ends missing); 329 consecutive-date lagged days and 16,801 death strata were fitted."
+  },
+  "artifacts": {
+    "code": "code/bounded_sp2019_reanalysis.py",
+    "source_manifest": "source-manifest.json",
+    "exposure": "bounded-sp2019/sp2019-daily-exposure-weather.csv",
+    "analysis_panel": "bounded-sp2019/analysis-panel.csv",
+    "model_output": "bounded-sp2019/model-output.json",
+    "decision_log": "decision-log.json",
+    "research_notebook": "aeris-workspace/.aeris/research-notebook.json",
+    "blocker_ledger": "recovery-report.json",
+    "fidelity_record": "aeris-workspace/.aeris/artifacts/reanalysis-fidelity_reanalysis-fidelity_2026-09-25T150022.3427420000.json",
+    "coverage_diagnostics": "coverage-diagnostics.json",
+    "boundary_route_evidence": "aeris-workspace/.aeris/contracts/agent-contract-amendment-002.json",
+    "study_contract": "aeris-workspace/.aeris/contracts/agent-contract-amendment-002.json"
+  },
+  "blockers": [
+    "The result does not recover the article's national 5,570-municipality, 2000-2019 population-weighted gridded PM2.5 panel.",
+    "The public daily city PM2.5 series omits all 2019 month-end dates and is a city-coordinate spatial proxy.",
+    "Site-specific, sex, age, and multi-period article variants were not fit in this one-city/one-year bounded analysis."
+  ],
+  "stopping_checklist": {
+    "target_specification_complete": true,
+    "complete_article_checked": true,
+    "outcome_routes_attempted": 1,
+    "normal_exposure_source_tested": true,
+    "historical_fallback_applicable": false,
+    "historical_fallback_tested": false,
+    "geographic_batching_applicable": true,
+    "geographic_batching_attempted": false,
+    "fidelity_levels_evaluated": [
+      "bounded"
+    ],
+    "pending_requests": 0,
+    "evidence_artifacts": [
+      "/output/recovery-critic/nasa-power-sp-2019.json",
+      "/output/recovery-critic/pm25-lac.zip",
+      "/output/recovery-critic/sim2019.zip",
+      "aeris-workspace/.aeris/artifacts/reanalysis-fidelity_reanalysis-fidelity_2026-09-25T150022.3427420000.json",
+      "aeris-workspace/.aeris/contracts/agent-contract-amendment-002.json",
+      "aeris-workspace/.aeris/research-notebook.json",
+      "bounded-sp2019/analysis-panel.csv",
+      "bounded-sp2019/model-output.json",
+      "bounded-sp2019/sp2019-daily-exposure-weather.csv",
+      "code/bounded_sp2019_reanalysis.py",
+      "coverage-diagnostics.json",
+      "decision-log.json",
+      "recovery-report.json",
+      "source-manifest.json"
+    ]
+  },
+  "design_provenance": {
+    "contract_id": "38788590-brazil-cancer-reanalysis-invariants",
+    "contract_sha256": "37d9e76cce70bd3b376425071b97528459ad2cd0b265c75570a6bf7e27af26dd",
+    "contract_author": "agent",
+    "geographic_representation": "administrative_area",
+    "assignment_method": "Daily S\u00e3o Paulo city estimate at the catalogued city coordinate (-23.5475, -46.63611) assigned as an explicit city/municipality proxy; not a within-boundary population-weighted grid mean.",
+    "representative_location_rule": null,
+    "maximum_monitor_distance_km": null,
+    "monitor_distance_evidence": "Not applicable to the selected assignment method.",
+    "source_strategy": "Official Ministry of Health public S3 SIM 2019 CSV archive for outcomes; Global PM2.5 Watch World Bank public daily city estimates for PM2.5; NASA POWER daily coordinate weather for adjustment.",
+    "exposure_metric": "Arithmetic 3-day mean (index day plus prior two observed consecutive source dates) of PM2.5 in ug/m3.",
+    "coverage_policy": {
+      "mode": "report_only",
+      "minimum_percent": null,
+      "threshold_source": "none",
+      "evidence": "Include a stratum only if its case and all referent dates have nonmissing lag 0-2 PM2.5 and weather. Report observed coverage: 353/365 PM source days and 351 lagged days."
+    },
+    "decision_rationale": "The executable bounded panel preserves cancer mortality, PM2.5, daily lag 0-2 exposure calculation, time-stratified case-crossover matching, conditional-logistic family, and OR-per-10 contrast. The city proxy source is explicitly different from the article's national population-weighted gridded construct, so it is a source-substituted bounded analysis and is not selected for agreement with published results.",
+    "evidence_basis": [
+      "Official Ministry catalog page enumerates a public S3 2019 SIM CSV archive.",
+      "Downloaded official 2019 SIM CSV archive; SHA-256 66501b7348ad77d8e88bcb6306d86dc555496fe65258333440998f2472c66480.",
+      "Downloaded public daily Latin America city PM2.5 archive; SHA-256 c4b60fbe718d6e6c7efddbfbc41189c7a9aa251bb1adb2c97a34b61709a108df.",
+      "Retained S\u00e3o Paulo municipality/city daily panel with 353 source days and 351 valid three-day lag values."
+    ],
+    "locked_before_exposure": false
+  },
+  "effects": [
+    {
+      "label": "All-cancer mortality, Sao Paulo 2019 bounded slice",
+      "primary": true,
+      "estimate": 0.9710111557808493,
+      "ci_low": 0.9287615171656768,
+      "ci_high": 1.0151827430665052,
+      "scale": "ratio",
+      "contrast": "10 ug/m3 increase in observed PM2.5 lag 0-2 mean",
+      "metric": "OR",
+      "native_estimate": -0.002941732179609983,
+      "native_ci_low": -0.007390328230831152,
+      "native_ci_high": 0.001506863871611186,
+      "native_scale": "conditional-logit coefficient",
+      "native_contrast": "1 ug/m3 increase in PM2.5 lag 0-2 mean"
+    }
+  ],
+  "analysis_diagnostics": {
+    "observations": 67204,
+    "estimated_parameters": 4,
+    "exposure_unique_values": 329,
+    "outcome_unique_values": 2,
+    "joined_rows": 67204,
+    "unmatched_outcome_rows": 0,
+    "unmatched_exposure_rows": 0,
+    "contrast_transformation_verified": true,
+    "reported_variants": [
+      "All-cancer, Sao Paulo 2019 bounded slice; site-specific/subgroup/period variants not fit"
+    ]
+  }
+}

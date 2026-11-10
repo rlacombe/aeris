@@ -1,0 +1,115 @@
+{
+  "schema_version": "aeris-study-contract/v1",
+  "profile": "reanalysis",
+  "contract_id": "36383802-sao-jose-covid-agent-authored",
+  "approved": true,
+  "author": "agent",
+  "objective": "Estimate lag-specific rate ratios for daily COVID-19 hospital admissions among Sao Jose dos Campos residents per 10 ug/m3 O3 (lag 2) and NO2 (lag 3), using an ecological daily time-series negative-binomial model.",
+  "allowed_tools": [
+    "estimate_boundary_exposure",
+    "estimate_boundary_exposure_batch",
+    "estimate_exposure"
+  ],
+  "pollutants": [
+    "o3",
+    "no2"
+  ],
+  "date_window": {
+    "start": "2020-04-01",
+    "end": "2021-04-30"
+  },
+  "temporal_resolutions": [
+    "daily",
+    "hourly"
+  ],
+  "minimum_completeness": null,
+  "coverage_policy": {
+    "mode": "report_only",
+    "minimum_percent": null,
+    "threshold_source": "none",
+    "evidence": "The article gives no numeric completeness exclusion threshold; coverage will be reported, and analytic rows require nonmissing outcome, exposure and weather."
+  },
+  "allowed_fidelity_levels": [
+    "matched",
+    "source_substitution",
+    "reduced_coverage",
+    "reduced_adjustment",
+    "bounded",
+    "supported_sensitivity"
+  ],
+  "resource_limits": {
+    "wall_clock_hours": 8,
+    "maximum_infrastructure_restarts": 1,
+    "maximum_single_download_gib": 10,
+    "maximum_boundary_units": 6000,
+    "maximum_boundary_units_per_call": 25,
+    "maximum_static_units_per_call": 2
+  },
+  "agent_design": {
+    "study_id": "36383802-sao-jose-covid",
+    "research_question": "Estimate lag-specific rate ratios for daily COVID-19 hospital admissions among Sao Jose dos Campos residents per 10 ug/m3 O3 (lag 2) and NO2 (lag 3), using an ecological daily time-series negative-binomial model.",
+    "outcome": "Daily count of COVID-19 hospital admissions of residents of Sao Jose dos Campos (article SIH-SUS target: ICD-10 B34.2).",
+    "pollutants": [
+      "o3",
+      "no2"
+    ],
+    "location_unit": "Sao Jose dos Campos municipality (single city-level ecological series)",
+    "principal_analysis_reference": "Article Table 2: separate single-pollutant lag 0 through lag 7 negative-binomial models; co-primary reported contrasts are O3 lag 2 and NO2 lag 3.",
+    "principal_effect_measure": "Rate ratio exp(beta * 10) for a 10 ug/m3 increase, with 95% Wald confidence interval.",
+    "geographic_representation": "administrative_area",
+    "assignment_method": "nearest_monitor_to_unit_reference",
+    "representative_location_rule": "Article-stated Sao Jose dos Campos coordinate, decimalized to latitude -23.1797, longitude -45.8872.",
+    "maximum_monitor_distance_km": 200.0,
+    "monitor_distance_evidence": "Article calls the CETESB data city-level but does not identify station; source-substituted coordinate model has no monitor distance. Representative coordinate is article's stated municipal location.",
+    "source_strategy": "provider_api",
+    "exposure_metric": "Daily arithmetic mean of hourly modeled/retrieved O3 and NO2 in ug/m3 at the city representative coordinate.",
+    "daily_aggregation": "Arithmetic mean of available hourly concentrations within each local calendar day.",
+    "analysis_aggregation": "Daily count outcome joined to pollutant value lagged 0 through 7 calendar days; principal outputs lag 2 O3 and lag 3 NO2.",
+    "pollutant_combination": "Separate single-pollutant models, matching the article Table 2 layout; no cross-pollutant combination.",
+    "exceedance_thresholds": [],
+    "design_evidence": {
+      "outcome": "article.txt lines 73-76: DATASUS SIH-SUS hospitalization records, ICD-10 B34.2; article.txt lines 34-36 gives dates.",
+      "exposure": "article.txt lines 79-82: daily CETESB PM10, NO2 and O3 concentrations; city-level ecological time series.",
+      "model": "article.txt lines 84-87: negative-binomial regression; lines 96-100: pollutants and weather with day-of-week and calendar-day control.",
+      "covariates": "article.txt lines 79-82 and 96-98: temperature, relative humidity, day of week, calendar day.",
+      "contrast": "article.txt lines 99-102: RR=exp(beta*concentration); 10 ug/m3 increment.",
+      "published_estimate": "article.txt lines 163-171 identifies O3 lag 2 and NO2 lag 3 as the reported primary lag-specific contrasts; no estimate was used in design choices."
+    },
+    "date_window": {
+      "start": "2020-04-01",
+      "end": "2021-04-30"
+    },
+    "temporal_resolutions": [
+      "daily",
+      "hourly"
+    ],
+    "minimum_completeness": null,
+    "coverage_policy": {
+      "mode": "report_only",
+      "minimum_percent": null,
+      "threshold_source": "none",
+      "evidence": "The article gives no numeric completeness exclusion threshold; coverage will be reported, and analytic rows require nonmissing outcome, exposure and weather."
+    },
+    "assignment_rule": "Use the article's municipality-level support. Because a CETESB historical export currently requires login, use the municipal representative coordinate (article location coordinates, decimalized) with a transparent provider-model source substitution; do not call this personal exposure.",
+    "aggregation_rule": "Mean hourly source values by America/Sao_Paulo local calendar day; construct lags by date before joining to outcome counts.",
+    "covariates": [
+      "daily mean temperature",
+      "daily mean relative humidity",
+      "day of week",
+      "linear calendar-day trend"
+    ],
+    "model": "Negative-binomial GLM with log link; each pollutant-lag separately, adjusted for daily mean temperature, daily mean relative humidity, day-of-week indicators, and linear calendar-day trend.",
+    "comparison_contrasts": [
+      "O3 lag 2 RR per 10 ug/m3",
+      "NO2 lag 3 RR per 10 ug/m3"
+    ],
+    "decision_rationale": "The article defines an ecological municipality-level daily comparison. The retained single coordinate represents the city monitor/model location rather than individuals. No article-supported coverage threshold exists, so missingness is reported. The initial regulator portal probe showed authentication; the design therefore permits independently recovered public gridded data while preserving pollutant, unit, period, lags, contrast, and model family.",
+    "evidence_basis": [
+      "/study/article.txt",
+      "/study/article.xml",
+      "/output/qualar_home.html",
+      "/run/contract/study-target.json"
+    ],
+    "locked_before_exposure": true
+  }
+}

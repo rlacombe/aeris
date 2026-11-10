@@ -1,0 +1,10 @@
+{
+  "aeris_workspace": "/output/aeris-workspace/.aeris",
+  "decisions": [
+    "Locked PM10-only target before retrieval.",
+    "Excluded prohibited published exposure and deposited infection values.",
+    "Used public DPC provincial outcome snapshots and Mendeley sampling/density fields.",
+    "Completed all 28 deterministic AERIS batches before coverage evaluation.",
+    "Used every observed positive-count unit for the locked log-log fit."
+  ]
+}

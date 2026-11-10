@@ -1,0 +1,75 @@
+{
+  "schema_version": "aeris-study-contract/v3",
+  "profile": "reanalysis",
+  "contract_id": "34488764-france-covid-reanalysis-invariants",
+  "approved": true,
+  "author": "agent",
+  "objective": "Among residents of the 96 mainland French departments, what is the adjusted association between department-average 1999\u20132016 annual PM2.5 and cumulative in-hospital COVID-19 deaths on 1 May 2020?",
+  "allowed_tools": [
+    "estimate_boundary_exposure",
+    "estimate_boundary_exposure_batch",
+    "estimate_exposure"
+  ],
+  "pollutants": [
+    "pm25"
+  ],
+  "date_window": {
+    "start": "1999-01-01",
+    "end": "2020-05-01"
+  },
+  "temporal_resolutions": [
+    "daily",
+    "hourly"
+  ],
+  "allowed_fidelity_levels": [
+    "matched",
+    "source_substitution",
+    "reduced_coverage",
+    "reduced_adjustment",
+    "bounded",
+    "supported_sensitivity"
+  ],
+  "resource_limits": {
+    "wall_clock_hours": 8,
+    "maximum_infrastructure_restarts": 1,
+    "maximum_single_download_gib": 10,
+    "maximum_boundary_units": 6000,
+    "maximum_boundary_units_per_call": 25,
+    "maximum_static_units_per_call": 2
+  },
+  "scientific_invariants": {
+    "research_question": "Among residents of the 96 mainland French departments, what is the adjusted association between department-average 1999\u20132016 annual PM2.5 and cumulative in-hospital COVID-19 deaths on 1 May 2020?",
+    "target_outcome_and_population": "Cumulative in-hospital COVID-19 deaths on 1 May 2020 among residents of 96 mainland French departments; department population is the offset.",
+    "pollutants": [
+      "pm25"
+    ],
+    "principal_contrast": "Mortality rate ratio per 1 \u00b5g/m\u00b3 increase in department-average long-term PM2.5 (1999\u20132016).",
+    "principal_variants": [
+      "Continuous PM2.5 model on 2020-05-01, adjusted for long-term temperature, health-service, socio-demographic, spatial, and diabetes covariates; article also reports analogous monthly dates and PM2.5-quartile model."
+    ],
+    "broad_geography": "Mainland France, 96 departments (NUTS 3)",
+    "target_geographic_units": 96,
+    "target_geographic_unit_type": "administrative department polygon",
+    "period": {
+      "start": "1999-01-01",
+      "end": "2020-05-01"
+    },
+    "prohibited_evidence": [
+      "Published effect estimates",
+      "Published department PM2.5 values",
+      "Prior reanalysis code/results/source manifests"
+    ]
+  },
+  "article_evidence": [
+    {
+      "artifact": "/output/reanalysis/estimand-ledger.md",
+      "finding": "Primary estimand, full adjustment set, variants, citations, and contract discrepancy are extracted from the complete local article."
+    }
+  ],
+  "article_evidence_map": {
+    "estimand_ledger": "/output/reanalysis/estimand-ledger.md",
+    "article": "/study/article.md"
+  },
+  "execution_design": {},
+  "amendments": []
+}

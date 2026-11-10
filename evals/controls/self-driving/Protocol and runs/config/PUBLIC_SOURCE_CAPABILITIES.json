@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "purpose": "General recovery patterns for lawful public environmental-health data; these are capabilities, not study-specific routes.",
+  "capabilities": [
+    {
+      "source_class": "global_air_quality_observations",
+      "examples": ["OpenAQ API", "OpenAQ public object storage"],
+      "use": "Discover monitors and retrieve historical pollutant observations.",
+      "recovery_patterns": ["API pagination", "public object listing", "bounded geographic batches", "resumable downloads"],
+      "authentication": "Public routes preferred; an existing approved credential may be used."
+    },
+    {
+      "source_class": "national_health_bulk_files",
+      "examples": ["hospital discharge files", "mortality microdata", "public tabulations"],
+      "use": "Recover outcome records or aggregate counts from national reporting systems.",
+      "recovery_patterns": ["catalog inspection", "legacy file endpoints", "bulk-file decoding", "successor portals", "verified public mirrors", "public client source inspection", "package catalog or object-store metadata"],
+      "authentication": "Unauthenticated public releases only unless an approved credential is already available."
+    },
+    {
+      "source_class": "regulatory_monitor_archives",
+      "examples": ["national regulators", "regional air-quality agencies"],
+      "use": "Recover historical station observations when an aggregator lacks the required window or pollutant.",
+      "recovery_patterns": ["download libraries", "reporting-interface inspection", "legacy public subdomains", "HTML form-action inspection", "JavaScript and network-call inspection", "annual archives", "machine-readable exports"],
+      "authentication": "Public regulatory records."
+    },
+    {
+      "source_class": "administrative_boundaries_and_population",
+      "examples": ["official boundary services", "national statistical offices", "public geocoders"],
+      "use": "Resolve study units, representative locations, boundaries, and population covariates.",
+      "recovery_patterns": ["stable identifiers", "boundary downloads", "coordinate lookup", "crosswalk construction"],
+      "authentication": "Public sources."
+    },
+    {
+      "source_class": "public_data_deposits",
+      "examples": ["DOI-linked repositories", "institutional repositories", "Hugging Face Datasets", "Zenodo", "Figshare", "OSF", "GitHub releases", "public object stores"],
+      "use": "Recover article-linked outcomes, covariates, codebooks, and supplements while excluding prohibited published exposure fields.",
+      "recovery_patterns": ["repository API", "catalog search by source name and schema fields", "dataset-card and file-list inspection", "exact filename search", "small-partition transport test", "archive extraction", "field-level sanitization"],
+      "authentication": "Public deposits only."
+    }
+  ]
+}

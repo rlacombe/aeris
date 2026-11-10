@@ -1,0 +1,79 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+site/
+*.egg
+
+# Virtual environments
+.venv/
+.venv-desktop/
+venv/
+ENV/
+env/
+
+# Environment variables
+.env
+.env.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Output directories
+.raw_*/
+raw_static/
+raw_gps_gmaps/
+raw_gps_xgb/
+raw_static_pa/
+
+# Output files
+*.png
+!screenshot.png
+!docs/**/*.png
+*.csv
+!examples/*.csv
+!tests/**/*.csv
+!demo/*.csv
+!evals/**/*.csv
+# Exclude specific example files from git
+examples/short_dynamic_example.csv
+examples/switzerland_example.csv
+
+# Model files - exclude legacy files, but allow standard model files
+# Allow the standard model files in the repo (JSON format preferred to avoid sklearn version issues)
+!xgb_model.json
+!xgb_final.json
+!xgb_model.joblib
+!xgb_final.joblib
+
+# Claude Code / Agent caches
+.claude/
+.ruff_cache/
+
+# Cache
+.aeris_cache.db
+.aeris_exposure_cache.db
+*.sqlite
+
+# Test coverage
+.coverage
+htmlcov/
+.pytest_cache/
+.tox/

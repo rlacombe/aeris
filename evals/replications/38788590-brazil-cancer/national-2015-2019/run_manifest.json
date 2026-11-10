@@ -1,0 +1,124 @@
+{
+  "created_at_utc": "2026-08-15T17:05:26.628951+00:00",
+  "study": {
+    "pmid": "38788590",
+    "window": "2015-01-01 through 2019-12-31",
+    "scope": "Brazil national daily cancer mortality"
+  },
+  "direct_aeris_openaq_audit": {
+    "days": 100,
+    "study_days": 1826,
+    "status": "insufficient for fit"
+  },
+  "fitted_source_record": {
+    "pm25": "IEMA public state-monitor recovery",
+    "weather": "Open-Meteo state-capital mean",
+    "states_with_pm25": [
+      "CE",
+      "ES",
+      "MG",
+      "RJ",
+      "SP"
+    ]
+  },
+  "result": {
+    "run_at_utc": "2026-08-15T17:04:34.502070+00:00",
+    "status": "OK",
+    "published_2015_2019_or_per_10": 1.01,
+    "effect_scale": "Odds ratio per 10 ug/m3 PM2.5 (lag 0--2)",
+    "model": "Weighted conditional logistic likelihood; same-weekday and same-month referents.",
+    "exposure_record": "IEMA public state-monitor network daily mean recovered after the AERIS/OpenAQ archive audit.",
+    "weather_record": "Open-Meteo daily mean across the capitals of states contributing recovered PM2.5 monitors.",
+    "eligible_days": 1824,
+    "cancer_deaths": 929790,
+    "optimizer_message": "A bad approximation caused failure to predict improvement.",
+    "score_norm": 0.0004961651446523032,
+    "normalized_score_norm": 5.336314056424603e-10,
+    "information_min_eigenvalue": 18636.426575810663,
+    "n_case_dates": 1824,
+    "retained_cancer_deaths": 929790,
+    "dropped_cancer_deaths": 0,
+    "effect": {
+      "odds_ratio_per_10_ug_m3": 1.0604425372472974,
+      "ci95_low": 1.0522815902725509,
+      "ci95_high": 1.068666776268717,
+      "log_or": 0.05868630896927004,
+      "standard_error": 0.003941611790611832
+    },
+    "coefficients": {
+      "pm25_ug_m3_lag0_2": 0.05868630896927004,
+      "temperature_c_lag0_2": -0.012211866954505973,
+      "relative_humidity_pct_lag0_2": 0.01933650294991452,
+      "holiday": -0.00030142401590695637
+    }
+  },
+  "input_manifests": [
+    {
+      "path": "data/raw/sim/download_manifest.json",
+      "bytes": 477,
+      "sha256": "80825be953b47a4ad40f02c68bc9b071491a5602e89b22f4ba0beed080703fba"
+    },
+    {
+      "path": "data/raw/iema/iema_download_manifest.json",
+      "bytes": 6858,
+      "sha256": "a09f1d24d18512ecca1cca90dcce4574dee6396ca2ec22d78c4cd0dc65c8dbe6"
+    },
+    {
+      "path": "data/raw/boundary_manifest.json",
+      "bytes": 451,
+      "sha256": "c841c75f340f98c5efa04921ad0bb493f157276416e463046f3800046e52ecc0"
+    },
+    {
+      "path": "data/derived/aeris_national_tool_trace.json",
+      "bytes": 22346,
+      "sha256": "a98c925fcb0684b670469aab65f2c153f6952ba99a37b1cd0ae79a5873da2202"
+    },
+    {
+      "path": "data/derived/iema_pm25_ingestion_summary.json",
+      "bytes": 1640,
+      "sha256": "deca5fcdbfcdcd2ec7061d1a9d806327d8e8f0cdfb1bc4b508b9179811df3817"
+    },
+    {
+      "path": "data/derived/iema_network_weather_manifest.json",
+      "bytes": 2142,
+      "sha256": "9fd36903ed70a3ec6590dd3ed0de41d798de7b5c35e5e4309c1a7b965041ac1d"
+    },
+    {
+      "path": "data/derived/sim_ingestion_summary.json",
+      "bytes": 15101,
+      "sha256": "f2203369195cf42086437fd6a61ac260a2d5179591ccbc49a829c14214d3d33b"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "data/derived/sim_national_daily_cancer_deaths.csv",
+      "bytes": 27409,
+      "sha256": "d8c8fb4ddfa0302ea08fa4d700328f012440b59197e1f002aa67031f6ff329ef"
+    },
+    {
+      "path": "data/derived/iema_pm25_national_daily.csv",
+      "bytes": 63141,
+      "sha256": "550d2b231e13182a8f58f54cbab6f34bc39aed55a4e4ca2653dbfff25964eebd"
+    },
+    {
+      "path": "data/derived/iema_network_weather_daily.csv",
+      "bytes": 46354,
+      "sha256": "f4440d767a2e1505e422f8ba17b1a3442d6ff1cb34e1a1615886fdea1552d84b"
+    },
+    {
+      "path": "data/derived/national_analysis_panel_iema.csv",
+      "bytes": 185190,
+      "sha256": "70530ffd6d930fd4178c63c9f68c4e94425801284f6aa36507bfdbc020e72f6e"
+    },
+    {
+      "path": "outputs/effect_result_iema.json",
+      "bytes": 1308,
+      "sha256": "6142427b0b0b197516aa2e4e41898219a0714349ed42da288ad986ab6419a2d5"
+    },
+    {
+      "path": "RESULT.md",
+      "bytes": 1653,
+      "sha256": "f5fcf48207ec854efa3098b1f4485ed9dfa324eb0ee1a029832a44b9b3ac5674"
+    }
+  ]
+}

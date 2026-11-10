@@ -1,0 +1,72 @@
+{
+  "study_id": "PMID-36383802",
+  "status": "completed_blocker",
+  "target": {
+    "outcome": "Daily SIH/SUS COVID-19 hospitalizations among S\u00e3o Jos\u00e9 dos Campos residents (ICD-10 B34.2)",
+    "pollutant": "O3, NO2, and PM10; lag 0 through 7 days",
+    "geography": "S\u00e3o Jos\u00e9 dos Campos, S\u00e3o Paulo, Brazil (municipality code 354990)",
+    "period": "2020-04-01 through 2021-04-30",
+    "effect_scale": "relative risk per 10 \u00b5g/m\u00b3"
+  },
+  "sources": [
+    {
+      "role": "article and methods",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9668087/",
+      "retrieved": true,
+      "sha256": "a42a246573ef4d63dc36cdd87fb76ff75090d5025e0e1c14fc8991d3658964dc"
+    },
+    {
+      "role": "independent air-pollution exposure",
+      "url": "https://air-quality-api.open-meteo.com/v1/air-quality?latitude=-23.1791&longitude=-45.8872&hourly=ozone,nitrogen_dioxide,pm10&timezone=America%2FSao_Paulo&start_date=2020-04-01&end_date=2021-04-30",
+      "retrieved": true,
+      "sha256": "68624e5396ba8c5b5e08ceb71cc5096b9170cf51852140cdd84693a7b95b3459"
+    },
+    {
+      "role": "meteorological covariates",
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-23.1791&longitude=-45.8872&daily=temperature_2m_max,relative_humidity_2m_mean&timezone=America%2FSao_Paulo&start_date=2020-04-01&end_date=2021-04-30",
+      "retrieved": true,
+      "sha256": "2e8de7635b3e2bbb044640a66696c418b093e45af15ac9e4bfe9589c1ce150ec"
+    },
+    {
+      "role": "SIH/SUS outcome microdata (first required monthly object; remaining URLs in decision log)",
+      "url": "https://ftp.datasus.gov.br/dissemin/publicos/SIHSUS/200801_/Dados/RDSP2004.dbc",
+      "retrieved": false,
+      "sha256": null
+    }
+  ],
+  "substitutions": [
+    {
+      "dimension": "exposure",
+      "published": "CETESB station daily pollutant values",
+      "reanalysis": "Open-Meteo/CAMS gridded hourly fields at municipal coordinates, aggregated O3 daily maximum and NO2/PM10 daily mean",
+      "reason": "Independent public source required; no author exposure data used"
+    },
+    {
+      "dimension": "covariate",
+      "published": "CETESB daily temperature and relative humidity",
+      "reanalysis": "Open-Meteo ERA5-Land daily maximum 2-m temperature and mean 2-m relative humidity",
+      "reason": "Independent public meteorology source required"
+    }
+  ],
+  "coverage": {
+    "eligible_units": 1,
+    "included_units": 0,
+    "eligible_times": 395,
+    "included_times": 0,
+    "notes": "No analysis panel: official raw SIH/SUS outcome object could not be retrieved; the independent air-quality response also contains complete pollutant values for 0/395 requested days."
+  },
+  "effect": null,
+  "artifacts": {
+    "code": "/output/reanalysis.py",
+    "source_manifest": "/output/source_manifest.json",
+    "exposure": "/output/exposure_daily.csv",
+    "analysis_panel": "/output/analysis_panel.csv",
+    "model_output": "/output/model_output.txt",
+    "decision_log": "/output/decision_log.md",
+    "retrieval_log": "/output/retrieval_log.json"
+  },
+  "blockers": [
+    "Official DATASUS SIH/SUS raw outcome microdata request failed by connect timeout; without daily hospitalization counts, the specified negative-binomial model cannot be fit.",
+    "Open-Meteo air-quality endpoint returned hourly timestamps but null O3, NO2, and PM10 values for the requested historical period (0/395 complete daily observations); coverage was not relaxed."
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "exposure": {"url": "https://gis.earthdata.nasa.gov/portal/rest/services/sdei/sdei-global-annual-gwr-pm2-5-modis-misr-seawifs-aod-v4-gl-03/ImageServer", "artifact": "/output/retrieval/nasa_imageserver.json", "retrieved": true},
+  "outcome": {"url": "https://www.data.gouv.fr/fr/datasets/donnees-hospitalieres-relatives-a-lepidemie-de-covid-19/", "artifact": "/output/retrieval/covid_hospit.csv", "retrieved": true},
+  "boundary": {"url": "https://www.geoboundaries.org/api/current/gbOpen/FRA/ADM2/", "artifact": "/output/retrieval/geoboundaries.json", "retrieved": true},
+  "weather": {"url": "https://geodata.ucdavis.edu/climate/worldclim/2_1/base/wc2.1_10m_bio.zip", "artifact": "/output/retrieval/wc2.1_10m_bio.zip", "retrieved": true},
+  "article_covariates": {"url": "local supplied supplement", "artifact": "/output/sanitized_article_covariates.csv", "retrieved": true, "removed_prohibited_fields": ["published PM2.5 Table 2", "published PM2.5 effects Table 3"]}
+}

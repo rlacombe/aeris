@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "run_id": "codex-baseline-33227571-sao-paulo-ami-r2-20260922T143418Z",
+  "condition": "codex-baseline",
+  "study": {
+    "pmid": "33227571",
+    "slug": "sao-paulo-ami",
+    "bundle_sha256": "0fb6bcbefd632e9a4337278e7304db6c2509061c9694df43906db44f55b0a1df",
+    "input_mode": "retrieval_required"
+  },
+  "replicate": 2,
+  "agent": {
+    "host": "Codex CLI",
+    "host_version": "0.155.1",
+    "model": "gpt-5.6-terra",
+    "reasoning_effort": "medium",
+    "session_id_redacted": null
+  },
+  "environment": {
+    "container_image_digest": "sha256:56cc58cd3a1eaebb232130801c1905aa7ec4fdc3d8ed9b895286a7ed77a3745f",
+    "aeris_commit": null,
+    "network_policy_sha256": "961d0161ba4f36b2c9cf69bea0be5831f656c238672b38bceb2b993944a6970c"
+  },
+  "started_at": "2026-09-22T14:34:19.520178+00:00",
+  "ended_at": "2026-09-22T14:37:06.497916+00:00",
+  "status": "completed_blocker",
+  "infrastructure_restarts": 0,
+  "human_scientific_interventions": 0,
+  "artifacts": {
+    "agent.stderr.log": "agent.stderr.log",
+    "baseline_audit.txt": "baseline_audit.txt",
+    "blocker_ledger.md": "blocker_ledger.md",
+    "code/reanalysis.py": "code/reanalysis.py",
+    "container_exit_code.txt": "container_exit_code.txt",
+    "decision_log.md": "decision_log.md",
+    "fidelity_record.json": "fidelity_record.json",
+    "logs/datasus_headers.txt": "logs/datasus_headers.txt",
+    "logs/elsevier_headers.txt": "logs/elsevier_headers.txt",
+    "model_output.txt": "model_output.txt",
+    "preflight_disk_check.json": "preflight_disk_check.json",
+    "raw/article_landing.html": "raw/article_landing.html",
+    "raw/datasus_test.html": "raw/datasus_test.html",
+    "result.json": "result.json",
+    "run_manifest.json": "run_manifest.json",
+    "run_summary.json": "run_summary.json",
+    "schema_validation.log": "schema_validation.log",
+    "schema_validation_exit_code.txt": "schema_validation_exit_code.txt",
+    "source_manifest.json": "source_manifest.json",
+    "transcript.jsonl": "transcript.jsonl"
+  },
+  "termination_reason": "Preflight free disk was 15.69 GiB, below the frozen campaign minimum of 20 GiB."
+}

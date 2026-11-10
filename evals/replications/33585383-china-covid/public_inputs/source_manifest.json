@@ -1,0 +1,35 @@
+{
+  "pmid": "33585383",
+  "accessed": "2026-08-15",
+  "source_url": "https://raw.githubusercontent.com/DavideFornacca/COVID19/master/China/covid_air_china_s5_20200523.csv",
+  "raw_file": "covid_air_china_s5_20200523.csv",
+  "raw_sha256": "9f53ecac262d37d3770fbfadca16ec7a79af3b98148b53b22f96c23ff85b976c",
+  "raw_rows": 348,
+  "model_input_file": "outcomes_without_author_exposure.csv",
+  "model_input_columns": [
+    "subject_id",
+    "province",
+    "prefecture",
+    "pop",
+    "pop_dens",
+    "cases",
+    "cases_100k",
+    "deaths",
+    "deaths_100k",
+    "mortality"
+  ],
+  "excluded_author_exposure_columns": [
+    "CO_s5",
+    "NO2_s5",
+    "O3_s5",
+    "SO2_s5",
+    "Aerosol_s5",
+    "HCHO_s5",
+    "PM25_gr",
+    "PM10_gr",
+    "CO_gr",
+    "NO2_gr",
+    "O3_gr",
+    "SO2_gr"
+  ]
+}

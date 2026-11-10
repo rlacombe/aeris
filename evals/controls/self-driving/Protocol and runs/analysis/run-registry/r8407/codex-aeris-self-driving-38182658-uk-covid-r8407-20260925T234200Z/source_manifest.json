@@ -1,0 +1,6 @@
+[
+  {"role":"outcome","url":"https://raw.githubusercontent.com/tomwhite/covid-19-uk-data/master/data/covid-19-indicators-uk.csv","route_origin":"agent_discovered","retrieved":true,"sha256":"151ecd06edb90e137ddddb822305ac642ca58297f2155362df2e4b7661d4a1f5","evidence_artifact":"/output/data/covid-19-indicators-uk.csv"},
+  {"role":"exposure","url":"https://air-quality-api.open-meteo.com/v1/air-quality","route_origin":"agent_discovered","retrieved":true,"sha256":"57116c2e313c39666aa087fa79e340312fc5ab6e8872496aff32b494f4728506","evidence_artifact":"/output/data/openmeteo_air_england.json"},
+  {"role":"weather","url":"https://archive-api.open-meteo.com/v1/archive","route_origin":"agent_discovered","retrieved":true,"sha256":"2bbfc1e53f0763dd8bd021bb88ae85faf0f3a49723ec48b93ec0776173d4ca97","evidence_artifact":"/output/data/openmeteo_all.json"},
+  {"role":"boundary","url":"https://geodata.ucdavis.edu/gadm/gadm4.1/json/gadm41_GBR_1.json.zip","route_origin":"agent_discovered","retrieved":true,"sha256":"c33981e0fb661f04f914995d13640a9ebd8c67b957490d2fa384ea448bbffcc5","evidence_artifact":"/output/data/gadm41_GBR_1.json"}
+]

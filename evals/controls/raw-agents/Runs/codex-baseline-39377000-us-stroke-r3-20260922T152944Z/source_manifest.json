@@ -1,0 +1,51 @@
+{
+  "retrieval_date_utc": "2026-09-22",
+  "requests": [
+    {
+      "role": "article",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11456533/",
+      "retrieved": true,
+      "local_path": "/study/article.xml",
+      "sha256": "b232c04c24ef27a2de52ad54a22154a5d72f1c1a28d3190bcb57024a9c8efedd"
+    },
+    {
+      "role": "outcome_proxy_incompatible_not_used",
+      "url": "https://data.cdc.gov/api/v3/views/g5fg-bgtw/export.csv?accessType=DOWNLOAD",
+      "retrieved": true,
+      "http_status": 200,
+      "local_path": "/output/raw/cdc_atlas_all_stroke_2018_2020.csv",
+      "sha256": "53f17f576e01021b973e840e93f8590a212595ae848edcd210c64359471c7ee0",
+      "bytes": 16504288,
+      "incompatibility": "All Stroke Mortality, age 35+, 2018-2020 3-year average, age-adjusted and spatially smoothed; target requires ischemic and hemorrhagic mortality among age 65+ for 2016-2020."
+    },
+    {
+      "role": "independent_exposure",
+      "url": "https://aqs.epa.gov/aqsweb/airdata/daily_88101_2020.zip",
+      "retrieved": true,
+      "http_status": 200,
+      "local_path": "/output/raw/daily_88101_2020.zip",
+      "sha256": "18283fe4ffceb53e3091a7fa7de57a2d5b925ce3d56a08d3518021e00212a3ec",
+      "bytes": 7911864,
+      "processing": "EPA AQS daily PM2.5 monitor data; county monitor-day arithmetic means aggregated to a 2020 county monitor mean."
+    },
+    {
+      "role": "outcome_primary_attempt",
+      "url": "https://wonder.cdc.gov/controller/datarequest/D176",
+      "retrieved": false,
+      "http_status": 500,
+      "bytes": 166872,
+      "local_evidence": "/tmp/wonder_headers and /tmp/wonder.html",
+      "note": "Terminal server response. No retry was made because the only captured response was an HTTP 500 render of the public page and an alternative public release was located and assessed; it was outcome-incompatible."
+    },
+    {
+      "role": "mistyped_exposure_url",
+      "url": "https://aqs.epa.gov/aqsweb/airdata/annual_88101_2020.zip",
+      "retrieved": false,
+      "http_status": 404,
+      "bytes": 196,
+      "local_path": "/output/raw/annual_88101_2020.zip",
+      "sha256": "80c3fe2ae1062abf56456f52518bd670f9ec3917b7f85e152b347ac6b6faf880",
+      "note": "Inspected once under policy; corrected only by selecting the documented daily AQS release, not a retry."
+    }
+  ]
+}

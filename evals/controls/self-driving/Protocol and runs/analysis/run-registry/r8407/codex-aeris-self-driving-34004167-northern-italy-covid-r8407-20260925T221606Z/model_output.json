@@ -1,0 +1,46 @@
+{
+  "formula": "log(E[Y]) = intercept + beta_STAP*STAP_NO2 + beta_LTAP*LTAP_NO2 + beta_LOCK*LOCKDOWN; Poisson GEE, AR(1) working correlation, cluster=region",
+  "n_rows": 172,
+  "estimates": [
+    {
+      "outcome": "cases",
+      "term": "stap_no2",
+      "rate_ratio_per_1_ug_m3": 1.0064636709840817,
+      "ci95_low": 1.0040938601550395,
+      "ci95_high": 1.0088390749190959,
+      "coefficient": 0.0064428710439872975,
+      "robust_se": 0.0012027387417420676,
+      "p_value": 8.469315363368719e-08
+    },
+    {
+      "outcome": "cases",
+      "term": "ltap_no2",
+      "rate_ratio_per_1_ug_m3": 1.2706370933999962,
+      "ci95_low": 1.2681706376150437,
+      "ci95_high": 1.2731083461767407,
+      "coefficient": 0.23951842303348622,
+      "robust_se": 0.0009913284800375274,
+      "p_value": 0.0
+    },
+    {
+      "outcome": "deaths",
+      "term": "stap_no2",
+      "rate_ratio_per_1_ug_m3": 1.0073831565054678,
+      "ci95_low": 1.0064572801886127,
+      "ci95_high": 1.008309884569308,
+      "coefficient": 0.007356034421388981,
+      "robust_se": 0.00046913936240705693,
+      "p_value": 2.0774708746508592e-55
+    },
+    {
+      "outcome": "deaths",
+      "term": "ltap_no2",
+      "rate_ratio_per_1_ug_m3": 1.3891852498175954,
+      "ci95_low": 1.3880937920505902,
+      "ci95_high": 1.3902775657975428,
+      "coefficient": 0.3287174240784585,
+      "robust_se": 0.00040101569048648245,
+      "p_value": 0.0
+    }
+  ]
+}

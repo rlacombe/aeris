@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "run_id": "codex-baseline-36383802-sao-jose-covid-r1-20260919T164424Z",
+  "condition": "codex-baseline",
+  "study": {
+    "pmid": "36383802",
+    "slug": "sao-jose-covid",
+    "bundle_sha256": "bce2be928836b2c44c5825e242befa12b4787ddc4b6c9086ce81f01984a89278"
+  },
+  "replicate": 1,
+  "agent": {
+    "host": "Codex CLI",
+    "host_version": "0.155.1",
+    "model": "gpt-5.6-terra",
+    "reasoning_effort": "medium",
+    "session_id_redacted": null
+  },
+  "environment": {
+    "container_image_digest": "sha256:56cc58cd3a1eaebb232130801c1905aa7ec4fdc3d8ed9b895286a7ed77a3745f",
+    "aeris_commit": null,
+    "network_policy_sha256": "c156712dafc65f56d699a51d80b38d934e9b46ab0a0a69204ada2aa0da57c441"
+  },
+  "started_at": "2026-09-19T16:44:25.248608+00:00",
+  "ended_at": "2026-09-19T16:55:17.736276+00:00",
+  "status": "completed_blocker",
+  "infrastructure_restarts": 0,
+  "human_scientific_interventions": 0,
+  "artifacts": {
+    "agent.stderr.log": "agent.stderr.log",
+    "analysis_panel.csv": "analysis_panel.csv",
+    "baseline_audit.txt": "baseline_audit.txt",
+    "container_exit_code.txt": "container_exit_code.txt",
+    "data/openmeteo_air_quality.json": "data/openmeteo_air_quality.json",
+    "data/openmeteo_weather.json": "data/openmeteo_weather.json",
+    "decision_log.md": "decision_log.md",
+    "exposure_daily.csv": "exposure_daily.csv",
+    "model_output.txt": "model_output.txt",
+    "reanalysis.py": "reanalysis.py",
+    "reanalysis.stderr.log": "reanalysis.stderr.log",
+    "reanalysis.stdout.log": "reanalysis.stdout.log",
+    "result.json": "result.json",
+    "retrieval_log.json": "retrieval_log.json",
+    "run_manifest.json": "run_manifest.json",
+    "run_summary.json": "run_summary.json",
+    "schema_validation.log": "schema_validation.log",
+    "schema_validation_exit_code.txt": "schema_validation_exit_code.txt",
+    "source_manifest.json": "source_manifest.json",
+    "transcript.jsonl": "transcript.jsonl"
+  },
+  "termination_reason": null
+}

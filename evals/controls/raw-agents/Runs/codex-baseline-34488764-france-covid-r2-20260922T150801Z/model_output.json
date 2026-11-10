@@ -1,0 +1,13 @@
+{
+  "executed": false,
+  "reason": "No valid 96-department exposure panel: EEA query returned 2 2016 PM2.5 station annual means, not department means or 1999-2016 long-term exposure. Required published covariates and 2019 department population offset were also not reconstructed from a usable author-designated table.",
+  "locked_model": "Negative binomial regression of cumulative hospital deaths at 2020-12-31, log(population) offset; PM2.5 quartiles Q2/Q3/Q4 vs Q1, temperature and published health-service/sociodemographic/diabetes covariates.",
+  "declared_contrasts": [
+    "Q2 vs Q1",
+    "Q3 vs Q1",
+    "Q4 vs Q1"
+  ],
+  "primary_contrast": "Q3 vs Q1",
+  "native_coefficient": null,
+  "confidence_intervals": null
+}

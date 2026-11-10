@@ -1,0 +1,10 @@
+NO MODEL FIT
+{
+  "public_outcome_counties": 3226,
+  "aqs_pm25_counties_any_year": 647,
+  "aqs_pm25_counties_all_2018_2020": 612,
+  "outcome_counties_with_any_aqs_pm25": 646,
+  "outcome_counties_with_3year_aqs_pm25": 612,
+  "model_executed": false,
+  "reason": "Public outcome extract differs from target (all stroke, age 35+, 2018-2020) and AQS monitor exposure lacks near-complete county coverage; published adjustment covariates were not jointly reconstructed."
+}

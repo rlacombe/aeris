@@ -1,0 +1,9 @@
+{"type":"thread.started","thread_id":"01a0dab8-3f06-7eb2-9be4-49d43272904f"}
+{"type":"turn.started"}
+{"type":"error","message":"Reconnecting... 2/5 (stream disconnected before completion: websocket closed by server before response.completed)"}
+{"type":"error","message":"Reconnecting... 3/5 (stream disconnected before completion: websocket closed by server before response.completed)"}
+{"type":"error","message":"Reconnecting... 4/5 (stream disconnected before completion: websocket closed by server before response.completed)"}
+{"type":"error","message":"Reconnecting... 5/5 (stream disconnected before completion: websocket closed by server before response.completed)"}
+{"type":"item.completed","item":{"id":"item_0","type":"error","message":"Falling back from WebSockets to HTTPS transport. stream disconnected before completion: websocket closed by server before response.completed"}}
+{"type":"error","message":"Your access token could not be refreshed because you have since logged out or signed in to another account. Please sign in again."}
+{"type":"turn.failed","error":{"message":"Your access token could not be refreshed because you have since logged out or signed in to another account. Please sign in again."}}

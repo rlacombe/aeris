@@ -1,0 +1,234 @@
+{
+  "schema_version": 3,
+  "study_id": "33484722-oecd-covid",
+  "status": "completed_fit",
+  "fidelity": "source_substitution",
+  "target": {
+    "outcome": "National COVID-19 confirmed case and death rates at day 60 and day 80 after first confirmed case",
+    "pollutant": "PM2.5",
+    "geography": "36 OECD countries as of March 2020, excluding Colombia",
+    "population": "National populations of those countries",
+    "period": "2017 long-term PM2.5 and 2020 COVID-19 epidemics",
+    "effect_scale": "Outcome ratio exp(beta) per 1 ug/m3 PM2.5",
+    "exposure_assignment": "Direct ISO3 country assignment of World Bank population-weighted annual PM2.5",
+    "model": "OLS of log(rate) at each epidemic day, with intercept",
+    "covariates": [
+      "age 65+ percent",
+      "population density",
+      "GDP per capita",
+      "physicians",
+      "hospital beds",
+      "PM2.5 percent above WHO guideline"
+    ],
+    "named_outcome_source": "WHO daily national COVID-19 data (article); JHU CSSE archive used after WHO route failure",
+    "specification_evidence": [
+      "/output/specification-evidence.json"
+    ]
+  },
+  "sources": [
+    {
+      "role": "exposure",
+      "url": "https://api.worldbank.org/v2/country/all/indicator/EN.ATM.PM25.MC.M3?format=json&per_page=20000",
+      "route_origin": "article_named",
+      "retrieved": true,
+      "sha256": null,
+      "evidence_artifact": "/output/data/wb_EN.ATM.PM25.MC.M3.json"
+    },
+    {
+      "role": "outcome",
+      "url": "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv",
+      "route_origin": "agent_discovered",
+      "retrieved": true,
+      "sha256": null,
+      "evidence_artifact": "/output/data/jhu_confirmed_global.csv"
+    },
+    {
+      "role": "covariate",
+      "url": "https://api.worldbank.org/v2/country/all/indicator/NY.GDP.PCAP.CD?format=json&per_page=20000",
+      "route_origin": "agent_discovered",
+      "retrieved": true,
+      "sha256": null,
+      "evidence_artifact": "/output/data/wb_NY.GDP.PCAP.CD.json"
+    }
+  ],
+  "substitutions": [
+    {
+      "dimension": "outcome",
+      "change_type": "source",
+      "published": "WHO daily country series",
+      "reanalysis": "JHU CSSE archived daily country series",
+      "reason": "WHO live historical CSV returned HTTP 403; JHU supplied all target records."
+    },
+    {
+      "dimension": "covariate",
+      "change_type": "source",
+      "published": "OECD GDP 2019",
+      "reanalysis": "World Bank GDP per capita 2019",
+      "reason": "Stable public API with the same covariate construct."
+    },
+    {
+      "dimension": "population",
+      "change_type": "coverage_subset",
+      "published": "36 countries",
+      "reanalysis": "35 complete-case countries",
+      "reason": "USA lacks a physician observation in the article's allowed 2015-2017 window."
+    }
+  ],
+  "coverage": {
+    "eligible_units": 36,
+    "included_units": 35,
+    "eligible_times": 2,
+    "included_times": 2,
+    "rule": "Complete-case per country and epidemic day; no exposure coverage threshold was applied.",
+    "notes": "All 36 countries have PM2.5 and both outcomes; USA is excluded only for missing physician covariate."
+  },
+  "artifacts": {
+    "code": "reanalysis.py",
+    "source_manifest": "source_manifest.json",
+    "exposure": "analysis_panel.csv",
+    "analysis_panel": "analysis_panel.csv",
+    "model_output": "effects.json",
+    "decision_log": "decision-log.json",
+    "research_notebook": "research-notebook.json",
+    "blocker_ledger": "data/who_route_error.txt",
+    "fidelity_record": "aeris-workspace/.aeris/artifacts/reanalysis-fidelity_reanalysis-fidelity_2026-09-25T221426.2792680000.json",
+    "coverage_diagnostics": "coverage_diagnostics.json",
+    "boundary_route_evidence": "aeris-workspace/.aeris/contracts/agent-contract-amendment-001.json",
+    "study_contract": "aeris-workspace/.aeris/contracts/agent-contract-amendment-001.json"
+  },
+  "blockers": [
+    "WHO live historical CSV endpoint returned HTTP 403; source substitution retained all country-day outcome records.",
+    "USA lacks physician data in 2015-2017, producing a 35/36 complete-case sample."
+  ],
+  "stopping_checklist": {
+    "target_specification_complete": true,
+    "complete_article_checked": true,
+    "outcome_routes_attempted": 1,
+    "normal_exposure_source_tested": true,
+    "historical_fallback_applicable": false,
+    "historical_fallback_tested": false,
+    "geographic_batching_applicable": true,
+    "geographic_batching_attempted": true,
+    "fidelity_levels_evaluated": [
+      "source_substitution"
+    ],
+    "pending_requests": 0,
+    "evidence_artifacts": [
+      "/output/data/jhu_confirmed_global.csv",
+      "/output/data/wb_EN.ATM.PM25.MC.M3.json",
+      "/output/data/wb_NY.GDP.PCAP.CD.json",
+      "aeris-workspace/.aeris/artifacts/reanalysis-fidelity_reanalysis-fidelity_2026-09-25T221426.2792680000.json",
+      "aeris-workspace/.aeris/contracts/agent-contract-amendment-001.json",
+      "analysis_panel.csv",
+      "coverage_diagnostics.json",
+      "data/who_route_error.txt",
+      "decision-log.json",
+      "effects.json",
+      "reanalysis.py",
+      "research-notebook.json",
+      "source_manifest.json"
+    ]
+  },
+  "design_provenance": {
+    "contract_id": "33484722-oecd-covid-reanalysis-invariants",
+    "contract_sha256": "20502f9a7c2aeea76d76fcc552af3143dac6f2f0b264951599d3659479f1426c",
+    "contract_author": "agent",
+    "geographic_representation": "administrative_area",
+    "assignment_method": "Direct assignment of public World Bank country-level population-weighted PM2.5 indicator to its ISO3 national administrative unit; no monitor interpolation is applicable.",
+    "representative_location_rule": null,
+    "maximum_monitor_distance_km": null,
+    "monitor_distance_evidence": "Not applicable to the selected assignment method.",
+    "source_strategy": "local_model",
+    "exposure_metric": "2017 annual population-weighted mean PM2.5 concentration in \u00b5g/m\u00b3 (World Bank EN.ATM.PM25.MC.M3).",
+    "coverage_policy": {
+      "mode": "report-only complete-case analytic coverage",
+      "minimum_percent": null,
+      "threshold_source": "Article specifies no numeric coverage threshold",
+      "evidence": "All 36 countries have PM2.5; USA has no allowed-window physician value, leaving 35 complete countries per model."
+    },
+    "decision_rationale": "The article itself defines population-weighted national PM2.5, so a public country indicator is the matching spatial and temporal support; monitor assignment would change the exposure construct.",
+    "evidence_basis": [
+      "All 36 ISO3 units contain a 2017 PM2.5 value; exposure is directly country-level and population-weighted.",
+      "The only complete-case loss is the USA physician covariate, not exposure coverage."
+    ],
+    "locked_before_exposure": false
+  },
+  "effects": [
+    {
+      "label": "day-60 case-rate ratio per 1 ug/m3 PM2.5",
+      "primary": true,
+      "estimate": 1.1464274270821027,
+      "ci_low": 0.9734368915470697,
+      "ci_high": 1.350160300045027,
+      "scale": "ratio",
+      "contrast": "1 ug/m3 higher 2017 population-weighted PM2.5",
+      "metric": "outcome_ratio",
+      "native_estimate": 0.13665052177643247,
+      "native_ci_low": -0.026922282622439564,
+      "native_ci_high": 0.3002233261753045,
+      "native_scale": "OLS coefficient on log rate",
+      "native_contrast": "1 ug/m3 PM2.5"
+    },
+    {
+      "label": "day-60 death-rate ratio per 1 ug/m3 PM2.5",
+      "primary": true,
+      "estimate": 1.1809024534141734,
+      "ci_low": 0.9356988001469596,
+      "ci_high": 1.4903627152889276,
+      "scale": "ratio",
+      "contrast": "1 ug/m3 higher 2017 population-weighted PM2.5",
+      "metric": "outcome_ratio",
+      "native_estimate": 0.16627893720289966,
+      "native_ci_low": -0.06646164900636117,
+      "native_ci_high": 0.3990195234121605,
+      "native_scale": "OLS coefficient on log rate",
+      "native_contrast": "1 ug/m3 PM2.5"
+    },
+    {
+      "label": "day-80 case-rate ratio per 1 ug/m3 PM2.5",
+      "primary": true,
+      "estimate": 1.0736874861887384,
+      "ci_low": 0.9399304761772739,
+      "ci_high": 1.2264788164830922,
+      "scale": "ratio",
+      "contrast": "1 ug/m3 higher 2017 population-weighted PM2.5",
+      "metric": "outcome_ratio",
+      "native_estimate": 0.07109897254113662,
+      "native_ci_low": -0.0619493679669135,
+      "native_ci_high": 0.20414731304918673,
+      "native_scale": "OLS coefficient on log rate",
+      "native_contrast": "1 ug/m3 PM2.5"
+    },
+    {
+      "label": "day-80 death-rate ratio per 1 ug/m3 PM2.5",
+      "primary": true,
+      "estimate": 1.0302730672642948,
+      "ci_low": 0.8437717668573186,
+      "ci_high": 1.2579972864980573,
+      "scale": "ratio",
+      "contrast": "1 ug/m3 higher 2017 population-weighted PM2.5",
+      "metric": "outcome_ratio",
+      "native_estimate": 0.029823880953907894,
+      "native_ci_low": -0.1698732393713319,
+      "native_ci_high": 0.22952100127914768,
+      "native_scale": "OLS coefficient on log rate",
+      "native_contrast": "1 ug/m3 PM2.5"
+    }
+  ],
+  "analysis_diagnostics": {
+    "observations": 35,
+    "estimated_parameters": 8,
+    "exposure_unique_values": 36,
+    "outcome_unique_values": 35,
+    "joined_rows": 72,
+    "unmatched_outcome_rows": 0,
+    "unmatched_exposure_rows": 0,
+    "contrast_transformation_verified": true,
+    "reported_variants": [
+      "day-60 case rate",
+      "day-60 death rate",
+      "day-80 case rate",
+      "day-80 death rate"
+    ]
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "study_id": "PMID:34488764",
+  "status": "completed_blocker",
+  "target": {
+    "outcome": "Cumulative COVID-19 deaths in hospital",
+    "pollutant": "Long-term annual mean PM2.5",
+    "geography": "96 mainland-France departments (NUTS 3)",
+    "period": "01 May through 31 December 2020 at nine specified cumulative snapshots; exposure period 1999–2016",
+    "effect_scale": "Negative-binomial mortality-rate ratio (exponentiated coefficient)"
+  },
+  "sources": [
+    {
+      "role": "official outcome data",
+      "url": "https://static.data.gouv.fr/resources/donnees-hospitalieres-relatives-a-lepidemie-de-covid-19/20230331-180159/covid-hospit-2023-03-31-18h01.csv",
+      "retrieved": true,
+      "sha256": "79945ede9e319d5d7289cdcbd4a686ff0e2d06ac9b4232fdde139b0b9e5cfc82"
+    },
+    {
+      "role": "independent PM2.5 source catalogue",
+      "url": "https://sites.wustl.edu/acag/surface-pm2-5/",
+      "retrieved": true,
+      "sha256": "41c0182b448b94327b201ef34036489cd37d22f7c8eb327a473bd3a0b81213fc"
+    },
+    {
+      "role": "independent PM2.5 Europe grid payload",
+      "url": "https://wustl.box.com/v/ACAG-V5GL0502-GWRPM25c0p05",
+      "retrieved": false,
+      "sha256": "320054fc135b1910035decf29709dcc67b58f5725650ae4eaa7fdea472033404"
+    }
+  ],
+  "substitutions": [],
+  "coverage": {
+    "eligible_units": 96,
+    "included_units": 0,
+    "eligible_times": 9,
+    "included_times": 0,
+    "notes": "Official outcome extraction covers 96 departments x 9 snapshots. No analytic rows were included because independent department PM2.5 exposure values and a complete published-covariate panel were not retrieved."
+  },
+  "effect": null,
+  "artifacts": {
+    "code": "/output/analysis.py",
+    "source_manifest": "/output/source_manifest.json",
+    "exposure": "/output/exposure_table.csv",
+    "analysis_panel": "/output/analysis_panel.csv",
+    "model_output": "/output/model_output.txt",
+    "decision_log": "/output/decision_log.md",
+    "outcome": "/output/outcome_table.csv",
+    "coverage_check": "/output/coverage_check.json",
+    "run_summary": "/output/run_summary.json"
+  },
+  "blockers": [
+    "The independently identified ACAG PM2.5 catalogue was reachable but its nested Europe raster payload was not delivered through the public Box endpoint in this run; no 1999–2016 department exposure can be assigned without inventing values.",
+    "A complete independent 96-department panel for all ten published adjustment covariates was not retrieved.",
+    "Consequently the principal adjusted negative-binomial comparison was not executed."
+  ]
+}

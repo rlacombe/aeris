@@ -1,0 +1,134 @@
+{
+  "retrieved_at_utc": "2026-08-15T16:30:28.960872+00:00",
+  "n_monitor_locations": 18,
+  "n_days": 1826,
+  "calls": [
+    {
+      "monitor_index": 0,
+      "latitude": -23.03235096,
+      "longitude": -45.57580502,
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-23.03235096&longitude=-45.57580502&start_date=2015-01-01&end_date=2019-12-31&daily=temperature_2m_mean%2Crelative_humidity_2m_mean&timezone=UTC",
+      "sha256": "bb3a7aaa57f042198bcdceb1c19b6d8a3925330a9875b7e69593021bafd43c0f"
+    },
+    {
+      "monitor_index": 1,
+      "latitude": -23.56634178,
+      "longitude": -46.73741428,
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-23.56634178&longitude=-46.73741428&start_date=2015-01-01&end_date=2019-12-31&daily=temperature_2m_mean%2Crelative_humidity_2m_mean&timezone=UTC",
+      "sha256": "215eff6fbb876369f3a972b396e83102f465d92f5d56f38d0c8e74cd18d66a60"
+    },
+    {
+      "monitor_index": 2,
+      "latitude": -23.52672142,
+      "longitude": -46.79207766,
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-23.52672142&longitude=-46.79207766&start_date=2015-01-01&end_date=2019-12-31&daily=temperature_2m_mean%2Crelative_humidity_2m_mean&timezone=UTC",
+      "sha256": "77b962f09e63386d3254d9b2f4464a5182f243a43da11a284570c428ae56251e"
+    },
+    {
+      "monitor_index": 3,
+      "latitude": -23.56145989,
+      "longitude": -46.70201651,
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-23.56145989&longitude=-46.70201651&start_date=2015-01-01&end_date=2019-12-31&daily=temperature_2m_mean%2Crelative_humidity_2m_mean&timezone=UTC",
+      "sha256": "3bc36f609d5169b1bbc756c25aa2af125371dbea65da271bd46dc163ef88a63c"
+    },
+    {
+      "monitor_index": 4,
+      "latitude": -23.61632008,
+      "longitude": -46.66346553,
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-23.61632008&longitude=-46.66346553&start_date=2015-01-01&end_date=2019-12-31&daily=temperature_2m_mean%2Crelative_humidity_2m_mean&timezone=UTC",
+      "sha256": "027d7dcecb1d0ad8797648d6aa438da6bb6c51c34a1875ec58a0188b4a1c4362"
+    },
+    {
+      "monitor_index": 5,
+      "latitude": -23.77626598,
+      "longitude": -46.69696108,
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-23.77626598&longitude=-46.69696108&start_date=2015-01-01&end_date=2019-12-31&daily=temperature_2m_mean%2Crelative_humidity_2m_mean&timezone=UTC",
+      "sha256": "599ef2e304a980c27d2a3bd60e4120639a01058192acd3836542751460f38de2"
+    },
+    {
+      "monitor_index": 6,
+      "latitude": -22.94672842,
+      "longitude": -47.11928086,
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-22.94672842&longitude=-47.11928086&start_date=2015-01-01&end_date=2019-12-31&daily=temperature_2m_mean%2Crelative_humidity_2m_mean&timezone=UTC",
+      "sha256": "02f1a6b605a4e2b0c44af901295086d78511dd4aafa124b1584fe61bb1788918"
+    },
+    {
+      "monitor_index": 7,
+      "latitude": -23.45553426,
+      "longitude": -46.5185334,
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-23.45553426&longitude=-46.5185334&start_date=2015-01-01&end_date=2019-12-31&daily=temperature_2m_mean%2Crelative_humidity_2m_mean&timezone=UTC",
+      "sha256": "d5c9907f86e05e14329d8d21000e23e3a080d99458a43ef7cb23ec5fcc190275"
+    },
+    {
+      "monitor_index": 8,
+      "latitude": -23.59184199,
+      "longitude": -46.6606875,
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-23.59184199&longitude=-46.6606875&start_date=2015-01-01&end_date=2019-12-31&daily=temperature_2m_mean%2Crelative_humidity_2m_mean&timezone=UTC",
+      "sha256": "057967ccd567bedbf1a3ebeb325f26e4a5374d75da967783b00a0e9842731b13"
+    },
+    {
+      "monitor_index": 9,
+      "latitude": -23.50154736,
+      "longitude": -46.42073684,
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-23.50154736&longitude=-46.42073684&start_date=2015-01-01&end_date=2019-12-31&daily=temperature_2m_mean%2Crelative_humidity_2m_mean&timezone=UTC",
+      "sha256": "495d7cdfc66a6a31e4e0dba3bafc7bdb176aead59df473268fd36bc512534490"
+    },
+    {
+      "monitor_index": 10,
+      "latitude": -23.54484566,
+      "longitude": -46.62767559,
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-23.54484566&longitude=-46.62767559&start_date=2015-01-01&end_date=2019-12-31&daily=temperature_2m_mean%2Crelative_humidity_2m_mean&timezone=UTC",
+      "sha256": "792963471f8b5fe930146afa361adc6bd22412196b5f8ec679349616a800a762"
+    },
+    {
+      "monitor_index": 11,
+      "latitude": -23.4562689,
+      "longitude": -46.76609776,
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-23.4562689&longitude=-46.76609776&start_date=2015-01-01&end_date=2019-12-31&daily=temperature_2m_mean%2Crelative_humidity_2m_mean&timezone=UTC",
+      "sha256": "18225ac24a731ddc18dd9db90087a1bbcd9cfc9b52c55fba49f7522490454064"
+    },
+    {
+      "monitor_index": 12,
+      "latitude": -21.17706594,
+      "longitude": -47.81898767,
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-21.17706594&longitude=-47.81898767&start_date=2015-01-01&end_date=2019-12-31&daily=temperature_2m_mean%2Crelative_humidity_2m_mean&timezone=UTC",
+      "sha256": "342ef2bb66af4e0d8e9c739b0d0d67af728685ba18be2be84bf79cd23183a505"
+    },
+    {
+      "monitor_index": 13,
+      "latitude": -23.69867109,
+      "longitude": -46.54623219,
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-23.69867109&longitude=-46.54623219&start_date=2015-01-01&end_date=2019-12-31&daily=temperature_2m_mean%2Crelative_humidity_2m_mean&timezone=UTC",
+      "sha256": "863310cff1cf2a8229f2585370420c84bf49022c6bc42e0c4ce6e91ee7c36a2c"
+    },
+    {
+      "monitor_index": 14,
+      "latitude": -23.22364548,
+      "longitude": -45.8908,
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-23.22364548&longitude=-45.8908&start_date=2015-01-01&end_date=2019-12-31&daily=temperature_2m_mean%2Crelative_humidity_2m_mean&timezone=UTC",
+      "sha256": "11d3dfa52c30798a48e43a05d281d66d1e0f7e033d03fef6104a15b4cccbd973"
+    },
+    {
+      "monitor_index": 15,
+      "latitude": -23.50599272,
+      "longitude": -46.6289603,
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-23.50599272&longitude=-46.6289603&start_date=2015-01-01&end_date=2019-12-31&daily=temperature_2m_mean%2Crelative_humidity_2m_mean&timezone=UTC",
+      "sha256": "402799b44a157aa54a6fd91b52ecfacd1f20fb481f29e6a83d701f5951cc3867"
+    },
+    {
+      "monitor_index": 16,
+      "latitude": -23.98129516,
+      "longitude": -46.30050959,
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-23.98129516&longitude=-46.30050959&start_date=2015-01-01&end_date=2019-12-31&daily=temperature_2m_mean%2Crelative_humidity_2m_mean&timezone=UTC",
+      "sha256": "7e9dc24779b4614bea6bb1f43772b8f165766192040d5dd1b10d9111cebcd558"
+    },
+    {
+      "monitor_index": 17,
+      "latitude": -20.78468928,
+      "longitude": -49.39827779,
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-20.78468928&longitude=-49.39827779&start_date=2015-01-01&end_date=2019-12-31&daily=temperature_2m_mean%2Crelative_humidity_2m_mean&timezone=UTC",
+      "sha256": "0cc9b96ac2c042ba3bb0f1b93f6aa15f64167552bdddd12997aaa19c36566437"
+    }
+  ],
+  "aggregation": "Unweighted daily mean across retained AERIS monitor locations."
+}

@@ -1,0 +1,15 @@
+{
+  "n_studies": 3,
+  "mean_absolute_log_effect_error": 0.1449141253263079,
+  "mean_signed_log_effect_error": 0.02480161787323053,
+  "geometric_mean_reconstructed_to_published_ratio": 1.0251117365047546,
+  "published_effect_within_aeris_ci": 1,
+  "studies_with_aeris_ci": 3,
+  "raw_scale_calibration_intercept": 0.4154734197005481,
+  "raw_scale_calibration_slope": 0.7263523549554033,
+  "raw_scale_r_squared": 0.4856622758454109,
+  "pearson_r_raw_effects": 0.6968947379952085,
+  "pearson_p_value": 0.5091289300706351,
+  "spearman_rho_raw_effects": 0.5,
+  "spearman_p_value": 0.6666666666666667
+}

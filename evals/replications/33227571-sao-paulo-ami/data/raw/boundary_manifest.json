@@ -1,0 +1,8 @@
+{
+  "retrieved_at_utc": "2026-08-15T16:13:17.838285+00:00",
+  "municipality_source": "https://servicodados.ibge.gov.br/api/v1/localidades/estados/35/municipios",
+  "boundary_url_template": "https://servicodados.ibge.gov.br/api/v3/malhas/municipios/{code}?formato=application/vnd.geo+json&qualidade=minima",
+  "n_municipalities": 39,
+  "boundary_file": "ARTIFACT_INPUT/sao_paulo_metropolitan_39.geojson",
+  "sha256": "ae123c97e9c1b9e9e9d5a8a8c2f8c4d6e3d3657b05a68c40686b4a65baf5cf28"
+}

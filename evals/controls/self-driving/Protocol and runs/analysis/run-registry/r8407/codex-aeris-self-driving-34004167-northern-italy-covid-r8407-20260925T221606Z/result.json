@@ -1,0 +1,222 @@
+{
+  "schema_version": 3,
+  "study_id": "34004167-northern-italy-covid",
+  "status": "completed_fit",
+  "fidelity": "bounded",
+  "target": {
+    "outcome": "Daily incident reported COVID-19 cases and deaths",
+    "pollutant": "NO2",
+    "geography": "Lombardia and Veneto, Italy",
+    "population": "Residents of the two regions",
+    "period": "2020-02-21 through 2020-05-19 (outcomes available from 2020-02-24)",
+    "effect_scale": "Rate ratio per 1 \u00b5g/m\u00b3",
+    "exposure_assignment": "Unweighted mean of validated EEA station-day means within each public regional polygon; LTAP is the 2013-01-01 through 2020-05-19 mean.",
+    "model": "Poisson log-link GEE with AR(1) working correlation, clustered by region; STAP, LTAP, and lockdown.",
+    "covariates": [
+      "lockdown indicator from 2020-02-22"
+    ],
+    "named_outcome_source": "Italian Ministry of Health daily reports (article); public Italian Civil Protection regional series used as source substitution",
+    "specification_evidence": [
+      "/output/evidence/article-specification.json"
+    ]
+  },
+  "sources": [
+    {
+      "role": "outcome",
+      "url": "https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-regioni/dpc-covid19-ita-regioni.csv",
+      "route_origin": "agent_discovered",
+      "retrieved": true,
+      "sha256": null,
+      "evidence_artifact": "/output/data/dpc-regioni.csv"
+    },
+    {
+      "role": "exposure",
+      "url": "https://eeadmz1-downloads-api-appservice.azurewebsites.net/ParquetFile/urls",
+      "route_origin": "article_named",
+      "retrieved": true,
+      "sha256": null,
+      "evidence_artifact": "/output/evidence/eea-urls3.txt"
+    },
+    {
+      "role": "boundary",
+      "url": "https://www.geoboundaries.org/api/current/gbOpen/ITA/ADM2",
+      "route_origin": "agent_discovered",
+      "retrieved": true,
+      "sha256": "a01b6408d7d9061318034f8f4f54b377b99b5f8dcf5a7f84c5fa1e8ee3c86549",
+      "evidence_artifact": "/output/data/italy-adm2.geojson"
+    }
+  ],
+  "substitutions": [
+    {
+      "dimension": "outcome",
+      "change_type": "source",
+      "published": "Italian Ministry daily reports",
+      "reanalysis": "Italian Civil Protection public regional time series",
+      "reason": "Machine-readable public regional series; daily incidents derived from cumulative fields."
+    },
+    {
+      "dimension": "covariate",
+      "change_type": "covariate_omission",
+      "published": "Meteorology and co-pollutant supplement variants",
+      "reanalysis": "Primary lockdown-adjusted model only",
+      "reason": "Exact meteorological covariates/source were not specified; primary article model preserved."
+    }
+  ],
+  "coverage": {
+    "eligible_units": 2,
+    "included_units": 2,
+    "eligible_times": 86,
+    "included_times": 86,
+    "rule": "Report-only completeness policy; include a region-day only when STAP and outcome are nonmissing.",
+    "notes": "Both regions have 86/86 exposure days after EEA recovery; all 172 joined rows were fitted."
+  },
+  "artifacts": {
+    "code": "code/fit_reanalysis.py",
+    "source_manifest": "source-manifest.json",
+    "exposure": "data/eea_no2_daily.csv",
+    "analysis_panel": "analysis_panel.csv",
+    "model_output": "model_output.json",
+    "decision_log": "decision-log.json",
+    "research_notebook": "aeris-workspace/.aeris/research-notebook.json",
+    "blocker_ledger": "blocker-ledger.json",
+    "fidelity_record": "aeris-workspace/.aeris/artifacts/reanalysis-fidelity_reanalysis-fidelity_2026-09-25T222719.2430000000.json",
+    "coverage_diagnostics": "coverage_diagnostics.csv",
+    "boundary_route_evidence": "data/italy-adm2.geojson",
+    "study_contract": "aeris-workspace/.aeris/contracts/agent-contract-amendment-001.json"
+  },
+  "blockers": [
+    "Meteorology and co-pollutant sensitivity variants not reconstructed; primary article model is fitted.",
+    "Only two regions support the fixed LTAP contrast, limiting independent geographic inference."
+  ],
+  "stopping_checklist": {
+    "target_specification_complete": true,
+    "complete_article_checked": true,
+    "outcome_routes_attempted": 1,
+    "normal_exposure_source_tested": true,
+    "historical_fallback_applicable": false,
+    "historical_fallback_tested": false,
+    "geographic_batching_applicable": true,
+    "geographic_batching_attempted": true,
+    "fidelity_levels_evaluated": [
+      "bounded"
+    ],
+    "pending_requests": 0,
+    "evidence_artifacts": [
+      "/output/data/dpc-regioni.csv",
+      "/output/data/italy-adm2.geojson",
+      "/output/evidence/eea-urls3.txt",
+      "aeris-workspace/.aeris/artifacts/reanalysis-fidelity_reanalysis-fidelity_2026-09-25T222719.2430000000.json",
+      "aeris-workspace/.aeris/contracts/agent-contract-amendment-001.json",
+      "aeris-workspace/.aeris/research-notebook.json",
+      "analysis_panel.csv",
+      "blocker-ledger.json",
+      "code/fit_reanalysis.py",
+      "coverage_diagnostics.csv",
+      "data/eea_no2_daily.csv",
+      "data/italy-adm2.geojson",
+      "decision-log.json",
+      "model_output.json",
+      "source-manifest.json"
+    ]
+  },
+  "design_provenance": {
+    "contract_id": "34004167-northern-italy-covid-reanalysis-invariants",
+    "contract_sha256": "c156a0d86034de1db7e244c5afdefb8753934e6155f4bafab5f5adb7cde630ff",
+    "contract_author": "agent",
+    "geographic_representation": "administrative_area",
+    "assignment_method": "For each explicit regional polygon, unweighted mean of all eligible daily station means whose coordinates fall within the polygon.",
+    "representative_location_rule": null,
+    "maximum_monitor_distance_km": null,
+    "monitor_distance_evidence": "Not applicable to the selected assignment method.",
+    "source_strategy": "public_monitor_network",
+    "exposure_metric": "NO2 concentration in \u00b5g/m\u00b3: daily regional monitor mean (STAP) and 2013-01-01 to 2020-05-19 regional monitor mean (LTAP).",
+    "coverage_policy": {
+      "mode": "report_only",
+      "minimum_percent": null,
+      "threshold_source": "none",
+      "evidence": "Report completeness for every region and day; fit only rows with nonmissing outcome and STAP. No numeric exclusion threshold is asserted by article."
+    },
+    "decision_rationale": "Records the complete executable implementation of the article-defined exposure construct and authorizes the historical period needed for LTAP, without modifying outcome period or invariants.",
+    "evidence_basis": [
+      "Article section 2.1 defines region-day mean STAP and the January 2013\u2013May 2020 LTAP mean.",
+      "Public ISTAT-sourced geoBoundaries file supplies the two named regional polygons."
+    ],
+    "locked_before_exposure": false
+  },
+  "effects": [
+    {
+      "label": "Cases, STAP NO2",
+      "primary": true,
+      "estimate": 1.0064636709840817,
+      "ci_low": 1.0040938601550395,
+      "ci_high": 1.0088390749190959,
+      "scale": "ratio",
+      "contrast": "1 \u00b5g/m\u00b3 higher region-day NO2",
+      "metric": "RR",
+      "native_estimate": 0.0064428710439872975,
+      "native_ci_low": 0.004085504117172845,
+      "native_ci_high": 0.00880023797080175,
+      "native_scale": "log rate coefficient",
+      "native_contrast": "1 \u00b5g/m\u00b3"
+    },
+    {
+      "label": "Cases, LTAP NO2",
+      "primary": true,
+      "estimate": 1.2706370933999962,
+      "ci_low": 1.2681706376150437,
+      "ci_high": 1.2731083461767407,
+      "scale": "ratio",
+      "contrast": "1 \u00b5g/m\u00b3 higher 2013-2020 regional NO2",
+      "metric": "RR",
+      "native_estimate": 0.23951842303348622,
+      "native_ci_low": 0.2375754192126132,
+      "native_ci_high": 0.2414614268543592,
+      "native_scale": "log rate coefficient",
+      "native_contrast": "1 \u00b5g/m\u00b3"
+    },
+    {
+      "label": "Deaths, STAP NO2",
+      "primary": true,
+      "estimate": 1.0073831565054678,
+      "ci_low": 1.0064572801886127,
+      "ci_high": 1.008309884569308,
+      "scale": "ratio",
+      "contrast": "1 \u00b5g/m\u00b3 higher region-day NO2",
+      "metric": "RR",
+      "native_estimate": 0.007356034421388981,
+      "native_ci_low": 0.006436521695211506,
+      "native_ci_high": 0.008275547147566455,
+      "native_scale": "log rate coefficient",
+      "native_contrast": "1 \u00b5g/m\u00b3"
+    },
+    {
+      "label": "Deaths, LTAP NO2",
+      "primary": true,
+      "estimate": 1.3891852498175954,
+      "ci_low": 1.3880937920505902,
+      "ci_high": 1.3902775657975428,
+      "scale": "ratio",
+      "contrast": "1 \u00b5g/m\u00b3 higher 2013-2020 regional NO2",
+      "metric": "RR",
+      "native_estimate": 0.3287174240784585,
+      "native_ci_low": 0.327931433307104,
+      "native_ci_high": 0.329503414849813,
+      "native_scale": "log rate coefficient",
+      "native_contrast": "1 \u00b5g/m\u00b3"
+    }
+  ],
+  "analysis_diagnostics": {
+    "observations": 172,
+    "estimated_parameters": 4,
+    "exposure_unique_values": 172,
+    "outcome_unique_values": 159,
+    "joined_rows": 172,
+    "unmatched_outcome_rows": 0,
+    "unmatched_exposure_rows": 0,
+    "contrast_transformation_verified": true,
+    "reported_variants": [
+      "primary cases STAP+LTAP+lockdown",
+      "primary deaths STAP+LTAP+lockdown"
+    ]
+  }
+}

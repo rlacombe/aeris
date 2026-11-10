@@ -1,0 +1,84 @@
+{
+  "schema_version": "aeris-study-contract/v3",
+  "profile": "reanalysis",
+  "contract_id": "33484722-oecd-covid-reanalysis-invariants",
+  "approved": true,
+  "author": "agent",
+  "objective": "Among populations of 36 OECD countries, is country-level population-weighted long-term PM2.5 associated with log COVID-19 case and death rates per total population at 60 and 80 days after the first confirmed national case?",
+  "allowed_tools": [
+    "estimate_boundary_exposure",
+    "estimate_boundary_exposure_batch",
+    "estimate_exposure"
+  ],
+  "pollutants": [
+    "pm25"
+  ],
+  "date_window": {
+    "start": "2017-01-01",
+    "end": "2017-12-31"
+  },
+  "temporal_resolutions": [
+    "daily",
+    "hourly"
+  ],
+  "allowed_fidelity_levels": [
+    "matched",
+    "source_substitution",
+    "reduced_coverage",
+    "reduced_adjustment",
+    "bounded",
+    "supported_sensitivity"
+  ],
+  "resource_limits": {
+    "wall_clock_hours": 8,
+    "maximum_infrastructure_restarts": 1,
+    "maximum_single_download_gib": 10,
+    "maximum_boundary_units": 6000,
+    "maximum_boundary_units_per_call": 25,
+    "maximum_static_units_per_call": 2
+  },
+  "scientific_invariants": {
+    "research_question": "Among populations of 36 OECD countries, is country-level population-weighted long-term PM2.5 associated with log COVID-19 case and death rates per total population at 60 and 80 days after the first confirmed national case?",
+    "target_outcome_and_population": "National cumulative confirmed COVID-19 case rate and death rate per total population among the 36 OECD countries, each measured on epidemic day 60 and day 80 after the first confirmed national case.",
+    "pollutants": [
+      "pm25"
+    ],
+    "principal_contrast": "Per 1 ug/m3 higher population-weighted annual PM2.5 concentration in 2017; log-outcome coefficient exponentiated to a case/death-rate ratio.",
+    "principal_variants": [
+      "Day-60 case rate",
+      "Day-60 death rate",
+      "Day-80 case rate",
+      "Day-80 death rate"
+    ],
+    "broad_geography": "36 OECD member countries listed in article Methods section 2.1 (as of March 2020; excluding Colombia)",
+    "target_geographic_units": 36,
+    "target_geographic_unit_type": "country administrative area",
+    "period": {
+      "start": "2017-01-01",
+      "end": "2017-12-31"
+    },
+    "prohibited_evidence": [
+      "published_effect",
+      "prior_aeris_effect",
+      "prior_reanalysis_code",
+      "prior_exposure_values"
+    ]
+  },
+  "article_evidence": [
+    {
+      "artifact": "/study/article.md",
+      "finding": "Methods 2.1-2.2 defines 36 countries, WHO COVID outcomes, covariates, population-weighted PM2.5 in 2015-2017, and log linear regression at days 60 and 80."
+    },
+    {
+      "artifact": "/study/article.md",
+      "finding": "Table 1 specifies the four 2017 PM2.5 concentration models and five adjustment variables."
+    }
+  ],
+  "article_evidence_map": {
+    "exposure": "/study/article.md lines 170-172 and Table 1",
+    "outcome_and_model": "/study/article.md lines 140-145, 203-208, 327-353",
+    "covariates": "/study/article.md lines 147-168 and Table 1"
+  },
+  "execution_design": {},
+  "amendments": []
+}

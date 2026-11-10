@@ -1,0 +1,2 @@
+NO MODEL FIT. The locked multivariable OLS comparison was not executed.
+Outcome query did not yield an outcome table; EPA monitor-based PM2.5 exists only for 2016 and 2020 locally and is not census-wide; and none of the 12 locked covariates was assembled.

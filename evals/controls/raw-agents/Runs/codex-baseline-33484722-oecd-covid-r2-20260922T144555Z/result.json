@@ -1,0 +1,194 @@
+{
+  "study_id": "33484722",
+  "status": "completed_fit",
+  "target": {
+    "outcome": "National confirmed COVID-19 case rate and death rate at 60/80 days after first reported case",
+    "pollutant": "2017 population-weighted annual PM2.5",
+    "geography": "36 OECD countries as of March 2020",
+    "period": "first reported case through day 80 in 2020; PM2.5 2017",
+    "effect_scale": "exponentiated OLS coefficient: outcome ratio per +1 ug/m3 PM2.5"
+  },
+  "sources": [
+    {
+      "role": "health_outcomes",
+      "url": "https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/owid-covid-data.csv",
+      "retrieved": true,
+      "sha256": "8473d0f0fdf962e1ffbd5b85b18726fc96a49bab109e271186c339725a12b10c",
+      "local_path": "/output/raw/owid-covid-data.csv",
+      "attempts": [
+        {
+          "attempt": 1,
+          "status_code": 200,
+          "bytes": 98391483,
+          "delay_seconds": 0
+        }
+      ]
+    },
+    {
+      "role": "independent_exposure",
+      "url": "https://ourworldindata.org/grapher/pm25-air-pollution.csv",
+      "retrieved": true,
+      "sha256": "4f065a0a82ee79b788f6cc4566374ec962905d777264c6c1cd6e8b3ca26f0359",
+      "local_path": "/output/raw/satpm_pm25.csv",
+      "attempts": [
+        {
+          "attempt": 1,
+          "status_code": 200,
+          "bytes": 170822,
+          "delay_seconds": 0
+        }
+      ]
+    },
+    {
+      "role": "independent_exposure",
+      "url": "https://ourworldindata.org/grapher/pm25-air-pollution.metadata.json",
+      "retrieved": true,
+      "sha256": "6b646f61afc5ac85c4afbf6a19d3645063cba648b76e65d8f57b2e8e602316bc",
+      "local_path": "/output/raw/satpm_pm25.metadata.json",
+      "attempts": [
+        {
+          "attempt": 1,
+          "status_code": 200,
+          "bytes": 2954,
+          "delay_seconds": 0
+        }
+      ]
+    },
+    {
+      "role": "covariate",
+      "url": "https://api.worldbank.org/v2/country/AUS;AUT;BEL;CAN;CHL;CZE;DNK;EST;FIN;FRA;DEU;GRC;HUN;ISL;IRL;ISR;ITA;JPN;KOR;LVA;LTU;LUX;MEX;NLD;NZL;NOR;POL;PRT;SVK;SVN;ESP;SWE;CHE;TUR;GBR;USA/indicator/SP.POP.65UP.TO.ZS?format=json&per_page=20000",
+      "retrieved": true,
+      "sha256": "f93178a364be01271085f5499ddd48e1d074969507c572184f07f10dc74911ad",
+      "local_path": "/output/raw/SP.POP.65UP.TO.ZS.json",
+      "attempts": [
+        {
+          "attempt": 1,
+          "status_code": 200,
+          "bytes": 583836,
+          "delay_seconds": 0
+        }
+      ]
+    },
+    {
+      "role": "covariate",
+      "url": "https://api.worldbank.org/v2/country/AUS;AUT;BEL;CAN;CHL;CZE;DNK;EST;FIN;FRA;DEU;GRC;HUN;ISL;IRL;ISR;ITA;JPN;KOR;LVA;LTU;LUX;MEX;NLD;NZL;NOR;POL;PRT;SVK;SVN;ESP;SWE;CHE;TUR;GBR;USA/indicator/EN.POP.DNST?format=json&per_page=20000",
+      "retrieved": true,
+      "sha256": "5498f1ee40132da1dd553ee567d30ceab0ce598a42f64617a1768f54ef5fc238",
+      "local_path": "/output/raw/EN.POP.DNST.json",
+      "attempts": [
+        {
+          "attempt": 1,
+          "status_code": 200,
+          "bytes": 562335,
+          "delay_seconds": 0
+        }
+      ]
+    },
+    {
+      "role": "covariate",
+      "url": "https://api.worldbank.org/v2/country/AUS;AUT;BEL;CAN;CHL;CZE;DNK;EST;FIN;FRA;DEU;GRC;HUN;ISL;IRL;ISR;ITA;JPN;KOR;LVA;LTU;LUX;MEX;NLD;NZL;NOR;POL;PRT;SVK;SVN;ESP;SWE;CHE;TUR;GBR;USA/indicator/NY.GDP.MKTP.CD?format=json&per_page=20000",
+      "retrieved": true,
+      "sha256": "eeed78f63246561015fd383fd21d0516c5825df0b71fdd6088c6e5b68349d47c",
+      "local_path": "/output/raw/NY.GDP.MKTP.CD.json",
+      "attempts": [
+        {
+          "attempt": 1,
+          "status_code": 200,
+          "bytes": 490570,
+          "delay_seconds": 0
+        }
+      ]
+    },
+    {
+      "role": "covariate",
+      "url": "https://api.worldbank.org/v2/country/AUS;AUT;BEL;CAN;CHL;CZE;DNK;EST;FIN;FRA;DEU;GRC;HUN;ISL;IRL;ISR;ITA;JPN;KOR;LVA;LTU;LUX;MEX;NLD;NZL;NOR;POL;PRT;SVK;SVN;ESP;SWE;CHE;TUR;GBR;USA/indicator/SH.MED.PHYS.ZS?format=json&per_page=20000",
+      "retrieved": true,
+      "sha256": "7d7ac7a17397e6649770559e155d77e170e8de40c36061128f6493bb18715e1a",
+      "local_path": "/output/raw/SH.MED.PHYS.ZS.json",
+      "attempts": [
+        {
+          "attempt": 1,
+          "status_code": 200,
+          "bytes": 494284,
+          "delay_seconds": 0
+        }
+      ]
+    },
+    {
+      "role": "covariate",
+      "url": "https://api.worldbank.org/v2/country/AUS;AUT;BEL;CAN;CHL;CZE;DNK;EST;FIN;FRA;DEU;GRC;HUN;ISL;IRL;ISR;ITA;JPN;KOR;LVA;LTU;LUX;MEX;NLD;NZL;NOR;POL;PRT;SVK;SVN;ESP;SWE;CHE;TUR;GBR;USA/indicator/SH.MED.BEDS.ZS?format=json&per_page=20000",
+      "retrieved": true,
+      "sha256": "808fab8f7b5f738ac65092cf034e8185f6350448be6aeb0b8006ae5e0a3278c5",
+      "local_path": "/output/raw/SH.MED.BEDS.ZS.json",
+      "attempts": [
+        {
+          "attempt": 1,
+          "status_code": 200,
+          "bytes": 505700,
+          "delay_seconds": 0
+        }
+      ]
+    },
+    {
+      "role": "covariate",
+      "url": "https://api.worldbank.org/v2/country/AUS;AUT;BEL;CAN;CHL;CZE;DNK;EST;FIN;FRA;DEU;GRC;HUN;ISL;IRL;ISR;ITA;JPN;KOR;LVA;LTU;LUX;MEX;NLD;NZL;NOR;POL;PRT;SVK;SVN;ESP;SWE;CHE;TUR;GBR;USA/indicator/SP.POP.TOTL?format=json&per_page=20000",
+      "retrieved": true,
+      "sha256": "79123e99f6f04ab6264b2bffa69778195edcfd6156c971662a8f582ede805730",
+      "local_path": "/output/raw/SP.POP.TOTL.json",
+      "attempts": [
+        {
+          "attempt": 1,
+          "status_code": 200,
+          "bytes": 466548,
+          "delay_seconds": 0
+        }
+      ]
+    }
+  ],
+  "substitutions": [
+    {
+      "dimension": "exposure",
+      "published": "World Bank PM2.5 population-weighted exposure 2017",
+      "reanalysis": "SatPM/Atmospheric Composition Analysis Group country-level population-weighted PM2.5 2017 via OWID",
+      "reason": "required independent pollution source; no author pollution values used"
+    },
+    {
+      "dimension": "outcome",
+      "published": "WHO daily situation reports",
+      "reanalysis": "OWID historical COVID-19 country series",
+      "reason": "public machine-readable historical daily series; WHO snapshot table not reused"
+    },
+    {
+      "dimension": "model",
+      "published": "GDP unit unspecified",
+      "reanalysis": "2019 World Bank total GDP, current USD, expressed in billions",
+      "reason": "documented unit needed for executable reconstruction"
+    }
+  ],
+  "coverage": {
+    "eligible_units": 36,
+    "included_units": 35,
+    "eligible_times": 4,
+    "included_times": 4,
+    "notes": "All 36 countries had exposure and outcomes; complete-case model count reflects covariate availability. See analysis_panel.csv."
+  },
+  "effect": {
+    "estimate": 0.9604835504078558,
+    "ci_low": 0.8516781869983873,
+    "ci_high": 1.083189242940922,
+    "scale": "outcome ratio",
+    "contrast": "+1 ug/m3 PM2.5; primary = confirmed-case rate at day 80"
+  },
+  "artifacts": {
+    "code": "/output/reanalyze.py",
+    "source_manifest": "/output/source_manifest.json",
+    "exposure": "/output/exposure_table.csv",
+    "analysis_panel": "/output/analysis_panel.csv",
+    "model_output": "/output/model_output.csv",
+    "decision_log": "/output/decision_log.md",
+    "fidelity_record": "/output/fidelity_record.json",
+    "covariate_sanitization": "/output/covariate_sanitization.json",
+    "retrieval_log": "/output/retrieval_log.json"
+  },
+  "blockers": []
+}

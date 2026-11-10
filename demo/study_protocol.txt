@@ -1,0 +1,45 @@
+STUDY: Wearable Cardiac Biomarkers and Ambient Air Quality in Southern California
+PI: [Demo — Synthetic Data]
+IRB: Approved (exempt — synthetic data for demonstration)
+
+OBJECTIVE:
+Examine the association between residential PM2.5 exposure and
+cardiac autonomic function — measured via wearable-derived heart
+rate variability (HRV) and resting heart rate (RHR) — in adults
+across a pollution gradient in Southern California.
+
+MOTIVATION:
+PM2.5 has been linked to autonomic dysfunction in controlled
+exposure studies. HRV (RMSSD) decreases and RHR increases with
+pollution exposure, reflecting sympatho-vagal imbalance. Wearable
+devices now make it feasible to capture these biomarkers passively
+at population scale. Southern California offers a natural pollution
+gradient from clean coastal areas to heavily impacted inland and
+port-adjacent communities.
+
+COHORT:
+- 15 adults aged 27-55 wearing consumer activity trackers
+- Recruited from 8 ZIP codes spanning coastal LA (90401),
+  Westside (90034), Downtown (90012), Lincoln Heights (90031),
+  Pasadena (91101), Long Beach port area (90802, 90744),
+  and the Inland Empire (91762, 92507)
+- Observation period: January 15 – March 15, 2024
+
+OUTCOMES:
+- Primary: Mean HRV (RMSSD, ms) over observation period
+- Secondary: Mean resting heart rate (bpm)
+
+COVARIATES:
+- Age, sex, BMI, smoking status
+- Physical activity (mean daily steps)
+- Sleep duration (hours/night)
+
+EXPOSURE OF INTEREST:
+- Ambient PM2.5 concentration at residential ZIP code
+- Need to integrate monitoring network data for study period
+
+ANALYSIS PLAN:
+- Linear regression: HRV ~ PM2.5 + age + sex + bmi + smoker + activity + sleep
+- Same for RHR
+- Assess effect modification by smoking status
+- Sensitivity: try NO2 as alternative exposure

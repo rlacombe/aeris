@@ -1,0 +1,104 @@
+{
+  "analysis": "OLS log-log; exposure metric: observed 2018 daily PM10 >50 ug/m3 count",
+  "n_sample_frame": 55,
+  "n_exposure_observed": 42,
+  "n_exposure_positive_complete_case": 32,
+  "models": {
+    "20200317": {
+      "outcome": "cumulative confirmed infections on 20200317",
+      "nobs": 32,
+      "parameters": {
+        "const": -0.5989607796259478,
+        "log_pm10_exceedance_days_gt50": 0.26397271118214966,
+        "log_density_2019_per_km2": 0.805753641277301
+      },
+      "standard_errors": {
+        "const": 1.8578133009903837,
+        "log_pm10_exceedance_days_gt50": 0.2776832869239642,
+        "log_density_2019_per_km2": 0.2528262478051813
+      },
+      "pvalues": {
+        "const": 0.7494617998480321,
+        "log_pm10_exceedance_days_gt50": 0.3496506854687079,
+        "log_density_2019_per_km2": 0.003430535762282399
+      },
+      "r_squared": 0.29029265259474235,
+      "residual_df": 29.0,
+      "pm10_beta": 0.26397271118214966,
+      "pm10_beta_ci95": [
+        -0.3039533783595823,
+        0.8318988007238817
+      ],
+      "outcome_ratio_per_doubling_pm10_exceedance_days": 1.2007807143024714,
+      "outcome_ratio_ci95": [
+        0.8100296498507201,
+        1.7800266003923135
+      ],
+      "source": "statsmodels OLS conventional covariance"
+    },
+    "20200407": {
+      "outcome": "cumulative confirmed infections on 20200407",
+      "nobs": 32,
+      "parameters": {
+        "const": 2.048124896146916,
+        "log_pm10_exceedance_days_gt50": 0.20203761632815598,
+        "log_density_2019_per_km2": 0.6877335453667586
+      },
+      "standard_errors": {
+        "const": 1.1885815403435154,
+        "log_pm10_exceedance_days_gt50": 0.1776546807603269,
+        "log_density_2019_per_km2": 0.16175178146014854
+      },
+      "pvalues": {
+        "const": 0.09550690807121888,
+        "log_pm10_exceedance_days_gt50": 0.26474383931733647,
+        "log_density_2019_per_km2": 0.00020116178258873678
+      },
+      "r_squared": 0.41615382705424286,
+      "residual_df": 29.0,
+      "pm10_beta": 0.20203761632815598,
+      "pm10_beta_ci95": [
+        -0.16130700282648697,
+        0.5653822354827989
+      ],
+      "outcome_ratio_per_doubling_pm10_exceedance_days": 1.1503218860519138,
+      "outcome_ratio_ci95": [
+        0.8942145943291312,
+        1.4797795181622706
+      ],
+      "source": "statsmodels OLS conventional covariance"
+    },
+    "20200427": {
+      "outcome": "cumulative confirmed infections on 20200427",
+      "nobs": 32,
+      "parameters": {
+        "const": 2.2200073094119452,
+        "log_pm10_exceedance_days_gt50": 0.22316487292125647,
+        "log_density_2019_per_km2": 0.7058613056577497
+      },
+      "standard_errors": {
+        "const": 1.1269305004282906,
+        "log_pm10_exceedance_days_gt50": 0.1684398347923204,
+        "log_density_2019_per_km2": 0.15336180971931515
+      },
+      "pvalues": {
+        "const": 0.05845952759479296,
+        "log_pm10_exceedance_days_gt50": 0.1955518876842834,
+        "log_density_2019_per_km2": 7.644696238662724e-05
+      },
+      "r_squared": 0.45855345607618925,
+      "residual_df": 29.0,
+      "pm10_beta": 0.22316487292125647,
+      "pm10_beta_ci95": [
+        -0.12133327011193257,
+        0.5676630159544456
+      ],
+      "outcome_ratio_per_doubling_pm10_exceedance_days": 1.1672914936694847,
+      "outcome_ratio_ci95": [
+        0.9193376498072579,
+        1.4821207762771427
+      ],
+      "source": "statsmodels OLS conventional covariance"
+    }
+  }
+}

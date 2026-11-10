@@ -1,0 +1,14 @@
+{
+  "studies": 9,
+  "result_statuses": {
+    "completed_blocker": 1,
+    "completed_fit": 5,
+    "completed_sensitivity": 3
+  },
+  "fitted_or_sensitivity": 8,
+  "semantic_valid": 9,
+  "zero_intervention": 9,
+  "total_effects": 34,
+  "total_warnings": 19,
+  "total_duration_minutes": 136.562
+}

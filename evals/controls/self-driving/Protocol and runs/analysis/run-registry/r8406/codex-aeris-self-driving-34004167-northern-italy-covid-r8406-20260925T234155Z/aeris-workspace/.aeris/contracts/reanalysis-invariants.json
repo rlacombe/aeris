@@ -1,0 +1,92 @@
+{
+  "schema_version": "aeris-study-contract/v3",
+  "profile": "reanalysis",
+  "contract_id": "34004167-northern-italy-covid-reanalysis-invariants",
+  "approved": true,
+  "author": "agent",
+  "objective": "For the Lombardy and Veneto regional daily COVID-19 panel during 21 February\u201319 May 2020, what are the associations of contemporaneous regional ambient NO2 and PM2.5 (short-term exposure) and regional mean pollution over January 2013\u201319 May 2020 (long-term exposure) with daily reported COVID-19 cases and deaths, adjusted for lockdown using log-link AR(1) GEE?",
+  "allowed_tools": [
+    "estimate_boundary_exposure",
+    "estimate_boundary_exposure_batch",
+    "estimate_exposure"
+  ],
+  "pollutants": [
+    "no2",
+    "pm25"
+  ],
+  "date_window": {
+    "start": "2013-01-01",
+    "end": "2020-05-19"
+  },
+  "temporal_resolutions": [
+    "daily",
+    "hourly"
+  ],
+  "allowed_fidelity_levels": [
+    "matched",
+    "source_substitution",
+    "reduced_coverage",
+    "reduced_adjustment",
+    "bounded",
+    "supported_sensitivity"
+  ],
+  "resource_limits": {
+    "wall_clock_hours": 8,
+    "maximum_infrastructure_restarts": 1,
+    "maximum_single_download_gib": 10,
+    "maximum_boundary_units": 6000,
+    "maximum_boundary_units_per_call": 25,
+    "maximum_static_units_per_call": 2
+  },
+  "scientific_invariants": {
+    "research_question": "For the Lombardy and Veneto regional daily COVID-19 panel during 21 February\u201319 May 2020, what are the associations of contemporaneous regional ambient NO2 and PM2.5 (short-term exposure) and regional mean pollution over January 2013\u201319 May 2020 (long-term exposure) with daily reported COVID-19 cases and deaths, adjusted for lockdown using log-link AR(1) GEE?",
+    "target_outcome_and_population": "Daily reported COVID-19 cases and deaths among residents of Lombardia and Veneto, Italy; fatality ratio is an article-reported secondary outcome but counts are the principal target in the contract.",
+    "pollutants": [
+      "no2",
+      "pm25"
+    ],
+    "principal_contrast": "Rate ratio per 1 \u00b5g/m\u00b3 increase in pollutant, separately for STAP (same-day regional mean) and LTAP (regional mean over 2013-01-01 to 2020-05-19), for daily cases and deaths.",
+    "principal_variants": [
+      "single-pollutant STAP + LTAP + lockdown log-link GEE with AR(1), cases",
+      "single-pollutant STAP + LTAP + lockdown log-link GEE with AR(1), deaths",
+      "meteorology-adjusted sensitivity (temperature and relative humidity) reported in Tables S2-S4"
+    ],
+    "broad_geography": "Lombardia and Veneto, Italy (two administrative regions)",
+    "target_geographic_units": 2,
+    "target_geographic_unit_type": "administrative region",
+    "period": {
+      "start": "2013-01-01",
+      "end": "2020-05-19"
+    },
+    "prohibited_evidence": [
+      "published effect estimates",
+      "published exposure values",
+      "prior AERIS effect estimates",
+      "prior reanalysis code",
+      "prior source manifests",
+      "prior results"
+    ]
+  },
+  "article_evidence": [
+    {
+      "artifact": "/study/article.md",
+      "finding": "Methods \u00a7\u00a72.1\u20132.3 describe EEA monitoring data from January 2013 to May 2020, daily regional STAP, long-term regional LTAP, daily cases/deaths February 21\u2013May 19, lockdown, and log-link GEE AR(1)."
+    },
+    {
+      "artifact": "/study/article.md",
+      "finding": "Results Tables 1\u20134 report pollutant models and define the one \u00b5g/m\u00b3 exposure contrast."
+    },
+    {
+      "artifact": "/study/supplements/mmc1.docx",
+      "finding": "Tables S1\u2013S4 document meteorology-adjusted sensitivity analyses."
+    }
+  ],
+  "article_evidence_map": {
+    "dates": "article.md lines 102\u2013115, 121\u2013132",
+    "model": "article.md lines 136\u2013151, 414\u2013426",
+    "contrasts": "article.md lines 589\u2013603",
+    "sensitivity": "article.md lines 754\u2013763; supplement Tables S2\u2013S4"
+  },
+  "execution_design": {},
+  "amendments": []
+}

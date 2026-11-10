@@ -1,0 +1,58 @@
+{
+  "sources": [
+    {
+      "role": "health_outcome_raw",
+      "url": "https://storage.googleapis.com/covid19-open-data/v3/epidemiology.csv",
+      "retrieved": true,
+      "sha256": "acdcb8a6c8c16a8eae9f4b897b80576f1c3e1d6e6663f791dcd9a231017befd1"
+    },
+    {
+      "role": "pm25_GB_ENG.json",
+      "url": "https://air-quality-api.open-meteo.com/v1/air-quality?latitude=52.3555&longitude=-1.1743&hourly=pm2_5&start_date=2020-03-26&end_date=2020-09-15&timezone=UTC",
+      "retrieved": true,
+      "sha256": "0ea74eeae6713d57920afbc8f2cf691a198de97ba8ffaf569dd5ee670b17abe7"
+    },
+    {
+      "role": "weather_GB_ENG.json",
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=52.3555&longitude=-1.1743&start_date=2020-03-26&end_date=2020-09-15&daily=temperature_2m_mean,relative_humidity_2m_mean,shortwave_radiation_sum&timezone=GMT",
+      "retrieved": true,
+      "sha256": "b13c4a5bd7dded02157a8638471acbdf9e0c18f06b6ed5bbedd1b6a37ae31939"
+    },
+    {
+      "role": "pm25_GB_SCT.json",
+      "url": "https://air-quality-api.open-meteo.com/v1/air-quality?latitude=56.4907&longitude=-4.2026&hourly=pm2_5&start_date=2020-03-26&end_date=2020-09-15&timezone=UTC",
+      "retrieved": true,
+      "sha256": "0718c4d49c9bd53bdc9f4a45977de1e7a4dfc38ac4dd3eb783c00f2b9da8a3d0"
+    },
+    {
+      "role": "weather_GB_SCT.json",
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=56.4907&longitude=-4.2026&start_date=2020-03-26&end_date=2020-09-15&daily=temperature_2m_mean,relative_humidity_2m_mean,shortwave_radiation_sum&timezone=GMT",
+      "retrieved": true,
+      "sha256": "d1782f0d49af48e6826937b64648eeea81ee1c9eb0da7a5d1a88cc74d292a16b"
+    },
+    {
+      "role": "pm25_GB_WLS.json",
+      "url": "https://air-quality-api.open-meteo.com/v1/air-quality?latitude=52.1307&longitude=-3.7837&hourly=pm2_5&start_date=2020-03-26&end_date=2020-09-15&timezone=UTC",
+      "retrieved": true,
+      "sha256": "cbc888be156bd7d6f3715ba060d8e7394592cf7d944300135c76f52b6cb4cd31"
+    },
+    {
+      "role": "weather_GB_WLS.json",
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=52.1307&longitude=-3.7837&start_date=2020-03-26&end_date=2020-09-15&daily=temperature_2m_mean,relative_humidity_2m_mean,shortwave_radiation_sum&timezone=GMT",
+      "retrieved": true,
+      "sha256": "c6cbb41676237e23b3252c565fd3e8f6e861799f25434d1b15fe4e73f23eacdd"
+    },
+    {
+      "role": "pm25_GB_NIR.json",
+      "url": "https://air-quality-api.open-meteo.com/v1/air-quality?latitude=54.7877&longitude=-6.4923&hourly=pm2_5&start_date=2020-03-26&end_date=2020-09-15&timezone=UTC",
+      "retrieved": true,
+      "sha256": "b286386938bae5f87cd7f80233af92c8d9b817650062ba37736c254a76c17d13"
+    },
+    {
+      "role": "weather_GB_NIR.json",
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=54.7877&longitude=-6.4923&start_date=2020-03-26&end_date=2020-09-15&daily=temperature_2m_mean,relative_humidity_2m_mean,shortwave_radiation_sum&timezone=GMT",
+      "retrieved": true,
+      "sha256": "24f16bfa59ef71e534e454da9ef0d4364a3069d6688f35474e85293b62333375"
+    }
+  ]
+}

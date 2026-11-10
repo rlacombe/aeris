@@ -1,0 +1,239 @@
+{
+  "schema_version": 3,
+  "study_id": "34488764-france-covid",
+  "status": "completed_fit",
+  "fidelity": "source_substitution",
+  "target": {
+    "outcome": "Cumulative in-hospital COVID-19 deaths on 1 May 2020",
+    "pollutant": "PM2.5",
+    "geography": "96 mainland French departments (NUTS 3)",
+    "population": "Residents of mainland French departments",
+    "period": "PM2.5 annual means 1999-2016; COVID-19 outcome through 2020-05-01",
+    "effect_scale": "mortality rate ratio",
+    "exposure_assignment": "Unweighted department-polygon mean of annual PM2.5 rasters, then mean across 1999-2016",
+    "model": "NB2 negative-binomial count regression with log population offset",
+    "covariates": [
+      "temperature",
+      "resuscitation beds",
+      "intensive-care beds",
+      "medical density",
+      "age 60+ share",
+      "male share",
+      "unemployment",
+      "poverty",
+      "urban population",
+      "population density",
+      "diabetes"
+    ],
+    "named_outcome_source": "French Ministry of Health data.gouv.fr hospital dataset",
+    "specification_evidence": [
+      "/output/article-specification.md"
+    ]
+  },
+  "sources": [
+    {
+      "role": "outcome",
+      "url": "https://static.data.gouv.fr/resources/donnees-hospitalieres-relatives-a-lepidemie-de-covid-19/20230331-180159/covid-hospit-2023-03-31-18h01.csv",
+      "route_origin": "article_named",
+      "retrieved": true,
+      "sha256": null,
+      "evidence_artifact": "/output/outcome_may1.csv"
+    },
+    {
+      "role": "exposure",
+      "url": "https://gis.earthdata.nasa.gov/portal/rest/services/sdei/sdei-global-annual-gwr-pm2-5-modis-misr-seawifs-aod-v4-gl-03/ImageServer/exportImage",
+      "route_origin": "article_named",
+      "retrieved": true,
+      "sha256": null,
+      "evidence_artifact": "/output/exposure_pm25_department.csv"
+    },
+    {
+      "role": "weather",
+      "url": "https://geodata.ucdavis.edu/climate/worldclim/2_1/base/wc2.1_2.5m_tavg.zip",
+      "route_origin": "article_named",
+      "retrieved": true,
+      "sha256": null,
+      "evidence_artifact": "/output/temperature_department.csv"
+    },
+    {
+      "role": "boundary",
+      "url": "https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/FRA/ADM2/geoBoundaries-FRA-ADM2.geojson",
+      "route_origin": "agent_discovered",
+      "retrieved": true,
+      "sha256": null,
+      "evidence_artifact": "/output/source-recovery.md"
+    }
+  ],
+  "substitutions": [
+    {
+      "dimension": "exposure",
+      "change_type": "source",
+      "published": "Article-described NASA SEDAC/GOME-era gridded PM2.5 product",
+      "reanalysis": "NASA SEDAC V4.GL.03 ImageServer annual rasters, same 1999-2016 window",
+      "reason": "Direct public, executable source version."
+    },
+    {
+      "dimension": "covariate",
+      "change_type": "source",
+      "published": "WorldClim department temperature mean stated for 2001-2012",
+      "reanalysis": "WorldClim v2.1 1970-2000 tavg normal zonal mean",
+      "reason": "Exact time-specific public raster was not directly recovered."
+    }
+  ],
+  "coverage": {
+    "eligible_units": 96,
+    "included_units": 96,
+    "eligible_times": 18,
+    "included_times": 18,
+    "rule": "Report-only coverage; no article-supported numeric exclusion threshold.",
+    "notes": "All 96 departments had all 18 PM2.5 annual means; minimum valid cells per department-year was 129."
+  },
+  "artifacts": {
+    "code": "reanalysis.py",
+    "source_manifest": "source_manifest.json",
+    "exposure": "exposure_pm25_department.csv",
+    "analysis_panel": "analysis_panel.csv",
+    "model_output": "model_native_output.json",
+    "decision_log": "decision_log.md",
+    "research_notebook": "aeris-workspace/.aeris/research-notebook.json",
+    "blocker_ledger": "blocker_ledger.md",
+    "fidelity_record": "aeris-workspace/.aeris/artifacts/reanalysis-fidelity_reanalysis-fidelity_2026-09-25T140521.6565680000.json",
+    "coverage_diagnostics": "coverage_diagnostics.csv",
+    "boundary_route_evidence": "source-recovery.md",
+    "study_contract": "aeris-workspace/.aeris/contracts/agent-contract-amendment-001.json",
+    "audit": "audit.md"
+  },
+  "blockers": [],
+  "stopping_checklist": {
+    "target_specification_complete": true,
+    "complete_article_checked": true,
+    "outcome_routes_attempted": 1,
+    "normal_exposure_source_tested": true,
+    "historical_fallback_applicable": false,
+    "historical_fallback_tested": false,
+    "geographic_batching_applicable": true,
+    "geographic_batching_attempted": true,
+    "fidelity_levels_evaluated": [
+      "source_substitution"
+    ],
+    "pending_requests": 0,
+    "evidence_artifacts": [
+      "/output/exposure_pm25_department.csv",
+      "/output/outcome_may1.csv",
+      "/output/source-recovery.md",
+      "/output/temperature_department.csv",
+      "aeris-workspace/.aeris/artifacts/reanalysis-fidelity_reanalysis-fidelity_2026-09-25T140521.6565680000.json",
+      "aeris-workspace/.aeris/contracts/agent-contract-amendment-001.json",
+      "aeris-workspace/.aeris/research-notebook.json",
+      "analysis_panel.csv",
+      "audit.md",
+      "blocker_ledger.md",
+      "coverage_diagnostics.csv",
+      "decision_log.md",
+      "exposure_pm25_department.csv",
+      "model_native_output.json",
+      "reanalysis.py",
+      "source-recovery.md",
+      "source_manifest.json"
+    ]
+  },
+  "design_provenance": {
+    "contract_id": "34488764-france-covid-reanalysis-invariants",
+    "contract_sha256": "bc8982b466c649401de436c0e48a838cb0743db48ca110aab8ff3489e14a7f71",
+    "contract_author": "agent",
+    "geographic_representation": "administrative_area",
+    "assignment_method": "unweighted zonal mean of valid 0.01-degree annual raster cells whose centers lie within each department polygon",
+    "representative_location_rule": null,
+    "maximum_monitor_distance_km": null,
+    "monitor_distance_evidence": "Not applicable to the selected assignment method.",
+    "source_strategy": "local_model",
+    "exposure_metric": "mean of annual mean PM2.5 (\u00b5g/m\u00b3) across 1999\u20132016 for each department",
+    "coverage_policy": {
+      "mode": "report-only",
+      "minimum_percent": null,
+      "threshold_source": "No article or source-supported exclusion threshold",
+      "evidence": "Report raster-cell count and 18-year raster completeness per department; retain valid departments."
+    },
+    "decision_rationale": "The article specifies 1 km-grid PM2.5 averaged to departments over 1999\u20132016. Direct extraction of the NASA/SEDAC gridded annual product preserves pollutant, time window, department spatial support, and mean aggregation. The source is a later V4 product/service rather than the article's unrecoverable exact 2016 release, a documented source-version substitution.",
+    "evidence_basis": [
+      "NASA/SEDAC ImageServer feasibility probe returned a readable France 1999 PM2.5 GeoTIFF and exposes annual 1998\u20132019 slices; public boundary source has 96 departments."
+    ],
+    "locked_before_exposure": false
+  },
+  "effects": [
+    {
+      "label": "Continuous PM2.5, fully adjusted",
+      "primary": true,
+      "estimate": 1.355144,
+      "ci_low": 1.192515,
+      "ci_high": 1.539952,
+      "scale": "ratio",
+      "contrast": "per 1 ug/m3 higher 1999-2016 PM2.5",
+      "metric": "RR",
+      "native_estimate": 0.303908,
+      "native_ci_low": 0.176063,
+      "native_ci_high": 0.431753,
+      "native_scale": "log rate ratio",
+      "native_contrast": "per 1 ug/m3"
+    },
+    {
+      "label": "PM2.5 Q2 vs Q1, fully adjusted",
+      "primary": false,
+      "estimate": 1.390285,
+      "ci_low": 0.938788,
+      "ci_high": 2.058922,
+      "scale": "ratio",
+      "contrast": "Q2 vs Q1",
+      "metric": "RR",
+      "native_estimate": 0.329509,
+      "native_ci_low": -0.063165,
+      "native_ci_high": 0.722183,
+      "native_scale": "log rate ratio",
+      "native_contrast": "Q2 vs Q1"
+    },
+    {
+      "label": "PM2.5 Q3 vs Q1, fully adjusted",
+      "primary": false,
+      "estimate": 2.840383,
+      "ci_low": 1.712485,
+      "ci_high": 4.711151,
+      "scale": "ratio",
+      "contrast": "Q3 vs Q1",
+      "metric": "RR",
+      "native_estimate": 1.043939,
+      "native_ci_low": 0.537945,
+      "native_ci_high": 1.549933,
+      "native_scale": "log rate ratio",
+      "native_contrast": "Q3 vs Q1"
+    },
+    {
+      "label": "PM2.5 Q4 vs Q1, fully adjusted",
+      "primary": false,
+      "estimate": 3.747079,
+      "ci_low": 1.838902,
+      "ci_high": 7.635316,
+      "scale": "ratio",
+      "contrast": "Q4 vs Q1",
+      "metric": "RR",
+      "native_estimate": 1.320976,
+      "native_ci_low": 0.609051,
+      "native_ci_high": 2.032901,
+      "native_scale": "log rate ratio",
+      "native_contrast": "Q4 vs Q1"
+    }
+  ],
+  "analysis_diagnostics": {
+    "observations": 96,
+    "estimated_parameters": 14,
+    "exposure_unique_values": 96,
+    "outcome_unique_values": 65,
+    "joined_rows": 96,
+    "unmatched_outcome_rows": 0,
+    "unmatched_exposure_rows": 0,
+    "contrast_transformation_verified": true,
+    "reported_variants": [
+      "continuous_fully_adjusted",
+      "quartile_fully_adjusted"
+    ]
+  }
+}

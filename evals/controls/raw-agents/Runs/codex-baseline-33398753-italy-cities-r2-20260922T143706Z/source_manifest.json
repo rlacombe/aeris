@@ -1,0 +1,592 @@
+[
+  {
+    "role": "health_outcome",
+    "url": "https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-province/dpc-covid19-ita-province.csv",
+    "retrieved": true,
+    "sha256": "d9f39377b0c3b0e8f4ac68b8e57cd9c1e953a4b922574b9438dc62094fb6446f"
+  },
+  {
+    "role": "exposure_station_index",
+    "url": "https://air.discomap.eea.europa.eu/arcgis/rest/services/AirQuality/AirQualityDownloadServiceEUMonitoringStations/MapServer/0/query?where=CountryCode%3D%27IT%27&outFields=*&returnGeometry=true&f=geojson",
+    "retrieved": true,
+    "sha256": "274821aa486bc512bc9d0c5f3bbb450280a94bd39f22ac0549337e46678b2a57"
+  },
+  {
+    "role": "exposure_download_url_list",
+    "url": "https://eeadmz1-downloads-api-appservice.azurewebsites.net/ParquetFile/urls (POST: IT, PM10, daily, verified/E1a, 2018-01-01..2018-12-31)",
+    "retrieved": true,
+    "sha256": "1c745f6ba8a036e48c1daaf02b17aca254912f23a3d40010a21e7c3dbfcc1a17"
+  },
+  {
+    "role": "covariate_population",
+    "url": "https://esploradati.istat.it/SDMXWS/rest/data/IT1,22_289?format=csvfile",
+    "retrieved": true,
+    "sha256": "2d1b5ee3b2432d541bc2ef604c13fe2b2f5116442030221fea3156a0f4540e64"
+  },
+  {
+    "role": "covariate_area",
+    "url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/geojson/NUTS_RG_01M_2021_4326_LEVL_3.geojson",
+    "retrieved": true,
+    "sha256": "554336d416056abcd1d6f3239e3d5893560ca180056971557403c6fd8ff66d2c"
+  },
+  {
+    "role": "exposure_measurement",
+    "url": "EEA URL recorded in station_assignment.csv",
+    "retrieved": true,
+    "sha256": "031417bb6c9ac33609cfb5bc1d63706d6895cf84ba7aba47cd1b7f86c5111684",
+    "local_file": "/output/raw/pm10_IT0187A.parquet"
+  },
+  {
+    "role": "exposure_measurement",
+    "url": "EEA URL recorded in station_assignment.csv",
+    "retrieved": true,
+    "sha256": "26d00f34fae07550d2819ab6661b0c7a737368072cde0ca85e1d8c2e840ac9df",
+    "local_file": "/output/raw/pm10_IT0469A.parquet"
+  },
+  {
+    "role": "exposure_measurement",
+    "url": "EEA URL recorded in station_assignment.csv",
+    "retrieved": true,
+    "sha256": "df3a02847cc2c8b3a53b61119ce580d07eccd61fb1acc2df2d8f0f0b02862966",
+    "local_file": "/output/raw/pm10_IT0594A.parquet"
+  },
+  {
+    "role": "exposure_measurement",
+    "url": "EEA URL recorded in station_assignment.csv",
+    "retrieved": true,
+    "sha256": "a9fff7762b69aad8fbdc44651cf4d67ff0991a1e6ff9376e6fa8885bcfb98d54",
+    "local_file": "/output/raw/pm10_IT0643A.parquet"
+  },
+  {
+    "role": "exposure_measurement",
+    "url": "EEA URL recorded in station_assignment.csv",
+    "retrieved": true,
+    "sha256": "5d54e131e92975bb5fffa726e5ac088a912d83cc3ca524dc9dc1d898beb63b53",
+    "local_file": "/output/raw/pm10_IT0702A.parquet"
+  },
+  {
+    "role": "exposure_measurement",
+    "url": "EEA URL recorded in station_assignment.csv",
+    "retrieved": true,
+    "sha256": "f6cbb4825a3323ecac1515d45d6e762e9d4472ceeccb5603de3ba27a267c6425",
+    "local_file": "/output/raw/pm10_IT0705A.parquet"
+  },
+  {
+    "role": "exposure_measurement",
+    "url": "EEA URL recorded in station_assignment.csv",
+    "retrieved": true,
+    "sha256": "56632140ccc6dc85b96c3a9f4ded2865031f9a6e20a5cfa7c9fd380f64347e45",
+    "local_file": "/output/raw/pm10_IT0771A.parquet"
+  },
+  {
+    "role": "exposure_measurement",
+    "url": "EEA URL recorded in station_assignment.csv",
+    "retrieved": true,
+    "sha256": "b9998250ddb7ca2564b8479aef7b715e31194ec08d0899906d2bd6301178c479",
+    "local_file": "/output/raw/pm10_IT0804A.parquet"
+  },
+  {
+    "role": "exposure_measurement",
+    "url": "EEA URL recorded in station_assignment.csv",
+    "retrieved": true,
+    "sha256": "393b21d3a568cca1eacded21960a7c8bb73e4536f05e113afa0ab9ff9681d6ec",
+    "local_file": "/output/raw/pm10_IT0832A.parquet"
+  },
+  {
+    "role": "exposure_measurement",
+    "url": "EEA URL recorded in station_assignment.csv",
+    "retrieved": true,
+    "sha256": "a8cb5c272cdbfa37b79a2f2d858c9e7118f71cc6da17d2765634e243a6e3a094",
+    "local_file": "/output/raw/pm10_IT0854A.parquet"
+  },
+  {
+    "role": "exposure_measurement",
+    "url": "EEA URL recorded in station_assignment.csv",
+    "retrieved": true,
+    "sha256": "21c1addcca8f6dd619764ece6d827c10fb8e17de4e01a6c2898b95db5a28b7a9",
+    "local_file": "/output/raw/pm10_IT0863A.parquet"
+  },
+  {
+    "role": "exposure_measurement",
+    "url": "EEA URL recorded in station_assignment.csv",
+    "retrieved": true,
+    "sha256": "b0366b06a6b6c0407876624d3d866f42f95af44d0db2015f2a1e26a956efcc53",
+    "local_file": "/output/raw/pm10_IT0867A.parquet"
+  },
+  {
+    "role": "exposure_measurement",
+    "url": "EEA URL recorded in station_assignment.csv",
+    "retrieved": true,
+    "sha256": "19b10790bb36ce72376029d8f02a86a0956ebfa80837e70490fb5c025a8b994c",
+    "local_file": "/output/raw/pm10_IT0869A.parquet"
+  },
+  {
+    "role": "exposure_measurement",
+    "url": "EEA URL recorded in station_assignment.csv",
+    "retrieved": true,
+    "sha256": "27e2cba559e090aff50464d79253d6534fd33a2c903829714deafed7e06f0761",
+    "local_file": "/output/raw/pm10_IT0895A.parquet"
+  },
+  {
+    "role": "exposure_measurement",
+    "url": "EEA URL recorded in station_assignment.csv",
+    "retrieved": true,
+    "sha256": "a5626009b67f2d4586e99e709efbe12f2e2d39999583af51336a1f8682b74252",
+    "local_file": "/output/raw/pm10_IT0906A.parquet"
+  },
+  {
+    "role": "exposure_measurement",
+    "url": "EEA URL recorded in station_assignment.csv",
+    "retrieved": true,
+    "sha256": "c1d790e67e00ab7dfb51a5637f5b10c54778d66c44b47256db1f79f70429619b",
+    "local_file": "/output/raw/pm10_IT0912A.parquet"
+  },
+  {
+    "role": "exposure_measurement",
+    "url": "EEA URL recorded in station_assignment.csv",
+    "retrieved": true,
+    "sha256": "fe35b5f5fdfd9566f0a14a1f377bc4439bd1620cee68b88161862a211adf23d0",
+    "local_file": "/output/raw/pm10_IT0934A.parquet"
+  },
+  {
+    "role": "exposure_measurement",
+    "url": "EEA URL recorded in station_assignment.csv",
+    "retrieved": true,
+    "sha256": "b1d9ebce8144e712ba7069a68a84793e5e6f1d9560defc38562a419a86380bf9",
+    "local_file": "/output/raw/pm10_IT0936A.parquet"
+  },
+  {
+    "role": "exposure_measurement",
+    "url": "EEA URL recorded in station_assignment.csv",
+    "retrieved": true,
+    "sha256": "9f9b82d8772c51840671a2b5d07ee92afc2c76f24a6b9cfc76a7304e24a20f54",
+    "local_file": "/output/raw/pm10_IT0948A.parquet"
+  },
+  {
+    "role": "exposure_measurement",
+    "url": "EEA URL recorded in station_assignment.csv",
+    "retrieved": true,
+    "sha256": "1dbd0f50d9093ccb34b98c68a5543da6bd7adcef8667f80240a6e06b8184ff2d",
+    "local_file": "/output/raw/pm10_IT0966A.parquet"
+  },
+  {
+    "role": "exposure_measurement",
+    "url": "EEA URL recorded in station_assignment.csv",
+    "retrieved": true,
+    "sha256": "b843ed154db0f666f01e80aeed3dc98555fa415067cbc73a82bd774b25c29257",
+    "local_file": "/output/raw/pm10_IT0997A.parquet"
+  },
+  {
+    "role": "exposure_measurement",
+    "url": "EEA URL recorded in station_assignment.csv",
+    "retrieved": true,
+    "sha256": "d3a59024190cffa6c510059bb2ab26698a375efb209104c397968c719a53bd3b",
+    "local_file": "/output/raw/pm10_IT1001A.parquet"
+  },
+  {
+    "role": "exposure_measurement",
+    "url": "EEA URL recorded in station_assignment.csv",
+    "retrieved": true,
+    "sha256": "40b07eb075ba5e44135e4b996ae3a4b5b69e2e909c68b6fb1f4cbf0c088d26b2",
+    "local_file": "/output/raw/pm10_IT1011A.parquet"
+  },
+  {
+    "role": "exposure_measurement",
+    "url": "EEA URL recorded in station_assignment.csv",
+    "retrieved": true,
+    "sha256": "b615d37fb0bd780d2a9a09e2bf2d04f3686b4719c8c885239ee82416d1e6ad6a",
+    "local_file": "/output/raw/pm10_IT1043A.parquet"
+  },
+  {
+    "role": "exposure_measurement",
+    "url": "EEA URL recorded in station_assignment.csv",
+    "retrieved": true,
+    "sha256": "1e166afc0979cde5fc571e8195125fa2bf92151c5ea7931abe666e3617f8dba5",
+    "local_file": "/output/raw/pm10_IT1048A.parquet"
+  },
+  {
+    "role": "exposure_measurement",
+    "url": "EEA URL recorded in station_assignment.csv",
+    "retrieved": true,
+    "sha256": "60ecbf08c2e80ef24b1fb8405e65b620844b0888d359b488208f27200a25d413",
+    "local_file": "/output/raw/pm10_IT1153A.parquet"
+  },
+  {
+    "role": "exposure_measurement",
+    "url": "EEA URL recorded in station_assignment.csv",
+    "retrieved": true,
+    "sha256": "24bf3b66044f24fdae11d5a4bd33a3d4baed2641dc72245b10693013e3b42b98",
+    "local_file": "/output/raw/pm10_IT1159A.parquet"
+  },
+  {
+    "role": "exposure_measurement",
+    "url": "EEA URL recorded in station_assignment.csv",
+    "retrieved": true,
+    "sha256": "881a38736e533b82660de58a98e9e3121e8c06f2c5397196487d5e6ca05d26d6",
+    "local_file": "/output/raw/pm10_IT1247A.parquet"
+  },
+  {
+    "role": "exposure_measurement",
+    "url": "EEA URL recorded in station_assignment.csv",
+    "retrieved": true,
+    "sha256": "c167d9f8804cabf82cef09f6384cd0d259eb3129ff65e17a1ada4fc65d703561",
+    "local_file": "/output/raw/pm10_IT1264A.parquet"
+  },
+  {
+    "role": "exposure_measurement",
+    "url": "EEA URL recorded in station_assignment.csv",
+    "retrieved": true,
+    "sha256": "0741b48513385e5a23b16afbb8d3ec6557e0674dafc3c6386ee93eb67857bd0b",
+    "local_file": "/output/raw/pm10_IT1348A.parquet"
+  },
+  {
+    "role": "exposure_measurement",
+    "url": "EEA URL recorded in station_assignment.csv",
+    "retrieved": true,
+    "sha256": "70adf2e2a81c09534932bc7ed80a500a34543a9da16c3f34959d2e13585c58b5",
+    "local_file": "/output/raw/pm10_IT1409A.parquet"
+  },
+  {
+    "role": "exposure_measurement",
+    "url": "EEA URL recorded in station_assignment.csv",
+    "retrieved": true,
+    "sha256": "ead293b65af1146ac5ece5ee658bb4ca046c3326b204f1d1d5a045508810afed",
+    "local_file": "/output/raw/pm10_IT1456A.parquet"
+  },
+  {
+    "role": "exposure_measurement",
+    "url": "EEA URL recorded in station_assignment.csv",
+    "retrieved": true,
+    "sha256": "6033d405d3611577951117e60240836bf7d6e873c897709e156194cbd7bce5eb",
+    "local_file": "/output/raw/pm10_IT1487A.parquet"
+  },
+  {
+    "role": "exposure_measurement",
+    "url": "EEA URL recorded in station_assignment.csv",
+    "retrieved": true,
+    "sha256": "f38637a1b65923edd14bb8c30c6e5366d5aecf303fbad891ed46da9af7743150",
+    "local_file": "/output/raw/pm10_IT1492A.parquet"
+  },
+  {
+    "role": "exposure_measurement",
+    "url": "EEA URL recorded in station_assignment.csv",
+    "retrieved": true,
+    "sha256": "941999e18ca0695322f8ebf49b32aa940f39b6a151dedb364c53606607c6aec0",
+    "local_file": "/output/raw/pm10_IT1504A.parquet"
+  },
+  {
+    "role": "exposure_measurement",
+    "url": "EEA URL recorded in station_assignment.csv",
+    "retrieved": true,
+    "sha256": "0b76b79b1d7549a844cb2eee9f356fbe75ac1a82af1330948f9dcc133cb44886",
+    "local_file": "/output/raw/pm10_IT1510A.parquet"
+  },
+  {
+    "role": "exposure_measurement",
+    "url": "EEA URL recorded in station_assignment.csv",
+    "retrieved": true,
+    "sha256": "aeef2d723db4502e3cc81504f59d7ebfdcdf3642f91a199646c354b9fe1336f4",
+    "local_file": "/output/raw/pm10_IT1529A.parquet"
+  },
+  {
+    "role": "exposure_measurement",
+    "url": "EEA URL recorded in station_assignment.csv",
+    "retrieved": true,
+    "sha256": "327bb5ad57fc71f260eb03191a50ba44a34e85bad006a1750121edd39ab59b3c",
+    "local_file": "/output/raw/pm10_IT1537A.parquet"
+  },
+  {
+    "role": "exposure_measurement",
+    "url": "EEA URL recorded in station_assignment.csv",
+    "retrieved": true,
+    "sha256": "f8eb85f02b4c3e0760f96e569677aa9c6a0eed85d89a5ae51ec16f64482dcf67",
+    "local_file": "/output/raw/pm10_IT1560A.parquet"
+  },
+  {
+    "role": "exposure_measurement",
+    "url": "EEA URL recorded in station_assignment.csv",
+    "retrieved": true,
+    "sha256": "64c91ef7e5346e7f696910d92c8bd4a1dddfaf95c1752400902e91edaba25468",
+    "local_file": "/output/raw/pm10_IT1571A.parquet"
+  },
+  {
+    "role": "exposure_measurement",
+    "url": "EEA URL recorded in station_assignment.csv",
+    "retrieved": true,
+    "sha256": "ab09e6d806caf966c6ebdc55230f5ccb42b16f76142cc1d9a36fceb412e59e74",
+    "local_file": "/output/raw/pm10_IT1578A.parquet"
+  },
+  {
+    "role": "exposure_measurement",
+    "url": "EEA URL recorded in station_assignment.csv",
+    "retrieved": true,
+    "sha256": "f6b5f6c7169fe46d311edcd402e962240a135a27760c8caeee7424c7682ca146",
+    "local_file": "/output/raw/pm10_IT1583A.parquet"
+  },
+  {
+    "role": "exposure_measurement",
+    "url": "EEA URL recorded in station_assignment.csv",
+    "retrieved": true,
+    "sha256": "8eb621206810ea65bc828d5649937e74856d89b4d7704597efa45e08eb167322",
+    "local_file": "/output/raw/pm10_IT1587A.parquet"
+  },
+  {
+    "role": "exposure_measurement",
+    "url": "EEA URL recorded in station_assignment.csv",
+    "retrieved": true,
+    "sha256": "7d822402bef735b51292f036f25f7cdd0eac851e0dd3a1561451a9278d60761d",
+    "local_file": "/output/raw/pm10_IT1588A.parquet"
+  },
+  {
+    "role": "exposure_measurement",
+    "url": "EEA URL recorded in station_assignment.csv",
+    "retrieved": true,
+    "sha256": "661629ab02c0d5ef4438d0c0f3abc8776c229acbec44173a21119b22af4be140",
+    "local_file": "/output/raw/pm10_IT1592A.parquet"
+  },
+  {
+    "role": "exposure_measurement",
+    "url": "EEA URL recorded in station_assignment.csv",
+    "retrieved": true,
+    "sha256": "88dd465b9db506ea4a2fdfd167e72b5d35cd08d651429d122a14a71a7d6562b9",
+    "local_file": "/output/raw/pm10_IT1654A.parquet"
+  },
+  {
+    "role": "exposure_measurement",
+    "url": "EEA URL recorded in station_assignment.csv",
+    "retrieved": true,
+    "sha256": "40b9a42f58f04f97baa6246c8ba62d5b66422a549355859bf76df239ce320529",
+    "local_file": "/output/raw/pm10_IT1676A.parquet"
+  },
+  {
+    "role": "exposure_measurement",
+    "url": "EEA URL recorded in station_assignment.csv",
+    "retrieved": true,
+    "sha256": "a388ef0ecb7fd687a0aaa2bf8d5082b6aa421e09a403a6756af7efb9e7dbe286",
+    "local_file": "/output/raw/pm10_IT1706A.parquet"
+  },
+  {
+    "role": "exposure_measurement",
+    "url": "EEA URL recorded in station_assignment.csv",
+    "retrieved": true,
+    "sha256": "ecc882a0c2aaeeb0d3988616f941a4e0927342431e1ffe49915ff370fff8b294",
+    "local_file": "/output/raw/pm10_IT1743A.parquet"
+  },
+  {
+    "role": "exposure_measurement",
+    "url": "EEA URL recorded in station_assignment.csv",
+    "retrieved": true,
+    "sha256": "50a653cf98b7a399be3b4466d4e8607c88291f3958d5a5c083450b5c6ba2af53",
+    "local_file": "/output/raw/pm10_IT1744A.parquet"
+  },
+  {
+    "role": "exposure_measurement",
+    "url": "EEA URL recorded in station_assignment.csv",
+    "retrieved": true,
+    "sha256": "73454b23e288a295aa76219109028ddea727bdde2ea99d6e9a1cafd4ae594b7f",
+    "local_file": "/output/raw/pm10_IT1771A.parquet"
+  },
+  {
+    "role": "exposure_measurement",
+    "url": "EEA URL recorded in station_assignment.csv",
+    "retrieved": true,
+    "sha256": "eb3078219f45c4b19b103a53333f459800e1496a2126ed3ef10d5d1e5d345ece",
+    "local_file": "/output/raw/pm10_IT1795A.parquet"
+  },
+  {
+    "role": "exposure_measurement",
+    "url": "EEA URL recorded in station_assignment.csv",
+    "retrieved": true,
+    "sha256": "319df98bc4e2d6bc80e6a346d61185f85f3d852f83f67eb018ae16a75a10ade3",
+    "local_file": "/output/raw/pm10_IT1796A.parquet"
+  },
+  {
+    "role": "exposure_measurement",
+    "url": "EEA URL recorded in station_assignment.csv",
+    "retrieved": true,
+    "sha256": "dbc0593406ba1a5c7b83b2599dfc13eac9b8c8f76597a28c0c4f612d650f6b33",
+    "local_file": "/output/raw/pm10_IT1826A.parquet"
+  },
+  {
+    "role": "exposure_measurement",
+    "url": "EEA URL recorded in station_assignment.csv",
+    "retrieved": true,
+    "sha256": "05919db169a64d1c686d6a3c6d3496826c92bd5bf9c56c9ec01b3a57f1007b26",
+    "local_file": "/output/raw/pm10_IT1827A.parquet"
+  },
+  {
+    "role": "exposure_measurement",
+    "url": "EEA URL recorded in station_assignment.csv",
+    "retrieved": true,
+    "sha256": "8bba610768622f68300515c1b92bfcb02a64b026188276b03d4b9c0e06a39a71",
+    "local_file": "/output/raw/pm10_IT1829A.parquet"
+  },
+  {
+    "role": "exposure_measurement",
+    "url": "EEA URL recorded in station_assignment.csv",
+    "retrieved": true,
+    "sha256": "fc18b7208f459e7aeebd3e770b08b6445bc8bd0c672d056979ab34a88a3ed498",
+    "local_file": "/output/raw/pm10_IT1843A.parquet"
+  },
+  {
+    "role": "exposure_measurement",
+    "url": "EEA URL recorded in station_assignment.csv",
+    "retrieved": true,
+    "sha256": "2721ba44d32e410fd73e6ab8aa515d7e068919e7f291f4fbe55656cabb891dee",
+    "local_file": "/output/raw/pm10_IT1856A.parquet"
+  },
+  {
+    "role": "exposure_measurement",
+    "url": "EEA URL recorded in station_assignment.csv",
+    "retrieved": true,
+    "sha256": "9714f5df3f4c825c3b6e079b82f4542dc791af7681a9cafe7181cc93275ea904",
+    "local_file": "/output/raw/pm10_IT1857A.parquet"
+  },
+  {
+    "role": "exposure_measurement",
+    "url": "EEA URL recorded in station_assignment.csv",
+    "retrieved": true,
+    "sha256": "20c0cee7fcfd5d88a746cb81c7bc928183518f2c28a920646b1527eb84b23620",
+    "local_file": "/output/raw/pm10_IT1868A.parquet"
+  },
+  {
+    "role": "exposure_measurement",
+    "url": "EEA URL recorded in station_assignment.csv",
+    "retrieved": true,
+    "sha256": "dac302398a6c1e04e34c401aa08615a80d5a31ae31d139b97d82435aaf21da8b",
+    "local_file": "/output/raw/pm10_IT1890A.parquet"
+  },
+  {
+    "role": "exposure_measurement",
+    "url": "EEA URL recorded in station_assignment.csv",
+    "retrieved": true,
+    "sha256": "c837a2f0051daebeba96ac0860223bfe44878b9ac4e3699fc9b6de464f2fcdf1",
+    "local_file": "/output/raw/pm10_IT1898A.parquet"
+  },
+  {
+    "role": "exposure_measurement",
+    "url": "EEA URL recorded in station_assignment.csv",
+    "retrieved": true,
+    "sha256": "12512f35801478e6168e46b7c485ae4959ee964c3ffddf454035624fdb00fe51",
+    "local_file": "/output/raw/pm10_IT1903A.parquet"
+  },
+  {
+    "role": "exposure_measurement",
+    "url": "EEA URL recorded in station_assignment.csv",
+    "retrieved": true,
+    "sha256": "e1550ddf58b87526682b8ff37861eb6d8620fd42ed3353b4cbf17023a70a376e",
+    "local_file": "/output/raw/pm10_IT1906A.parquet"
+  },
+  {
+    "role": "exposure_measurement",
+    "url": "EEA URL recorded in station_assignment.csv",
+    "retrieved": true,
+    "sha256": "fcd2c7085533be86f67c1e3b1ef7e3d54bbc869186d036a0ccc1d630a7bf38dd",
+    "local_file": "/output/raw/pm10_IT1923A.parquet"
+  },
+  {
+    "role": "exposure_measurement",
+    "url": "EEA URL recorded in station_assignment.csv",
+    "retrieved": true,
+    "sha256": "73223624962e789b603cf5d1ccfc8447a060d8020a869f33df8fa50fe4bdd570",
+    "local_file": "/output/raw/pm10_IT1938A.parquet"
+  },
+  {
+    "role": "exposure_measurement",
+    "url": "EEA URL recorded in station_assignment.csv",
+    "retrieved": true,
+    "sha256": "f8f72a70fb004e2f098714850986c4350d81ae951cb15b4ad50d20f07aa4d3f6",
+    "local_file": "/output/raw/pm10_IT1965A.parquet"
+  },
+  {
+    "role": "exposure_measurement",
+    "url": "EEA URL recorded in station_assignment.csv",
+    "retrieved": true,
+    "sha256": "ba6a83c39674e9cf0bdec661db5806ed07b7448bf5f334835be0d2ca2738c15d",
+    "local_file": "/output/raw/pm10_IT1989A.parquet"
+  },
+  {
+    "role": "exposure_measurement",
+    "url": "EEA URL recorded in station_assignment.csv",
+    "retrieved": true,
+    "sha256": "05e4ff7878e4d329cbf4cfb24360aedfef14c85ae2afda86e50a229e64a09a38",
+    "local_file": "/output/raw/pm10_IT2004A.parquet"
+  },
+  {
+    "role": "exposure_measurement",
+    "url": "EEA URL recorded in station_assignment.csv",
+    "retrieved": true,
+    "sha256": "537ed55082a9005b69b1fa1a5a516882f538fc963dbb5e7351d212bdbcf8936d",
+    "local_file": "/output/raw/pm10_IT2013A.parquet"
+  },
+  {
+    "role": "exposure_measurement",
+    "url": "EEA URL recorded in station_assignment.csv",
+    "retrieved": true,
+    "sha256": "af98e2dd16b2a0cac6f002b69b94ad41fbedb9249dfb2a0c0bfc63a0597c637a",
+    "local_file": "/output/raw/pm10_IT2033A.parquet"
+  },
+  {
+    "role": "exposure_measurement",
+    "url": "EEA URL recorded in station_assignment.csv",
+    "retrieved": true,
+    "sha256": "9372eaac3b2961634ebd5248aff28837e5b8045514fb0aee2aaeb6015261b1e2",
+    "local_file": "/output/raw/pm10_IT2038A.parquet"
+  },
+  {
+    "role": "exposure_measurement",
+    "url": "EEA URL recorded in station_assignment.csv",
+    "retrieved": true,
+    "sha256": "6d910a0692bc9b2acad80a9e87345f0230db36d395686ebba8059193b1c996df",
+    "local_file": "/output/raw/pm10_IT2088A.parquet"
+  },
+  {
+    "role": "exposure_measurement",
+    "url": "EEA URL recorded in station_assignment.csv",
+    "retrieved": true,
+    "sha256": "33f684ba57136ce7af4077e127f7f2e10585506af8ed27f554fe027ac3a1f13f",
+    "local_file": "/output/raw/pm10_IT2089A.parquet"
+  },
+  {
+    "role": "exposure_measurement",
+    "url": "EEA URL recorded in station_assignment.csv",
+    "retrieved": true,
+    "sha256": "689683927234e03602f1d0629ad99b1a39340f92bd3989776590b920f9e99ba3",
+    "local_file": "/output/raw/pm10_IT2092A.parquet"
+  },
+  {
+    "role": "exposure_measurement",
+    "url": "EEA URL recorded in station_assignment.csv",
+    "retrieved": true,
+    "sha256": "519b4d770f59874bdf811730bd44713537f35f8bf111d2e2ca512c05023639a1",
+    "local_file": "/output/raw/pm10_IT2166A.parquet"
+  },
+  {
+    "role": "exposure_measurement",
+    "url": "EEA URL recorded in station_assignment.csv",
+    "retrieved": true,
+    "sha256": "227ee8cad7263d7c94661da0fa71319ef1783205473242d49d0436b18c55c254",
+    "local_file": "/output/raw/pm10_IT2184A.parquet"
+  },
+  {
+    "role": "exposure_measurement",
+    "url": "EEA URL recorded in station_assignment.csv",
+    "retrieved": true,
+    "sha256": "1503c34247ccc1cad8e4cc95889211a6e4c15d89cb52c3becfbc8605998a39bf",
+    "local_file": "/output/raw/pm10_IT2241A.parquet"
+  },
+  {
+    "role": "exposure_measurement",
+    "url": "EEA URL recorded in station_assignment.csv",
+    "retrieved": true,
+    "sha256": "a7c6282be81d658f0ff284c1bec930c92e5d5d3ba9e5f71fdd8dc6102986606c",
+    "local_file": "/output/raw/pm10_IT2306A.parquet"
+  },
+  {
+    "role": "exposure_measurement",
+    "url": "EEA URL recorded in station_assignment.csv",
+    "retrieved": true,
+    "sha256": "5f4b9e9928b71bf8b9c652b5aaf3e51ec736634cfbe12add0426a6dcf72357cc",
+    "local_file": "/output/raw/pm10_IT2311A.parquet"
+  }
+]

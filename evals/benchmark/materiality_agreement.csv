@@ -1,0 +1,16 @@
+study,effect_scale,published_ratio,aeris_ratio,published_point_status,aeris_point_status,published_interval_status,aeris_interval_status,included_primary_meta
+UK COVID-19,OR per 10 ug/m3 PM2.5,1.13,1.4576,positive_material,positive_material,positive_material,positive_material,True
+Italy COVID-19,OR per doubling PM10 exceedance days,1.7569,1.7408,positive_material,positive_material,,positive_material,True
+France COVID-19,rate ratio per 1 ug/m3 PM2.5,1.244,1.048509,positive_material,negligible,positive_material,indeterminate,True
+OECD COVID-19,"rate ratio per 1 ug/m3 PM2.5, day 60 cases",1.0202013,0.9981993,negligible,negligible,,indeterminate,True
+OECD COVID-19,"rate ratio per 1 ug/m3 PM2.5, day 60 deaths",1.0304545,1.0156307,negligible,negligible,,indeterminate,True
+OECD COVID-19,"rate ratio per 1 ug/m3 PM2.5, day 80 cases",1.0202013,0.970943,negligible,negligible,,indeterminate,True
+OECD COVID-19,"rate ratio per 1 ug/m3 PM2.5, day 80 deaths",1.0090406,0.9705941,negligible,negligible,,indeterminate,True
+Israel COVID-19,rate ratio per 1 SD pollutant,1.0898063283051287,0.9984013620850758,positive_material,negligible,,indeterminate,False
+Northern Italy COVID-19,"rate ratio per 1 ug/m3 NO2, incidence",1.0,1.05056,negligible,positive_material,,indeterminate,True
+Northern Italy COVID-19,"rate ratio per 1 ug/m3 NO2, mortality",1.0,0.98813,negligible,negligible,,negligible,True
+Sao Jose COVID admissions,"rate ratio per 10 ug/m3 O3, lag 2",1.061,1.003,positive_material,negligible,indeterminate,negligible,True
+Sao Jose COVID admissions,"rate ratio per 10 ug/m3 NO2, lag 3",1.125,1.034,positive_material,negligible,indeterminate,indeterminate,True
+Sao Paulo AMI admissions,"rate ratio, high-pollution cluster",1.09,1.0688491129,positive_material,positive_material,,indeterminate,True
+Brazil cancer mortality,OR per 10 ug/m3 PM2.5,1.01,1.06,negligible,positive_material,negligible,positive_material,True
+US stroke mortality,rate ratio per 10 ug/m3 PM2.5,1.1317073170731706,1.110793424679586,positive_material,positive_material,,indeterminate,True

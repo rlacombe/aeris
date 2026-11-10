@@ -1,0 +1,62 @@
+[
+  {
+    "day": 60,
+    "outcome": "cases",
+    "status": "fit",
+    "n": 35,
+    "r_squared": 0.5234744152431805,
+    "model_f_pvalue": 0.0011550384183526326,
+    "pm25_native_log_rate_ratio_per_1_ug_m3": 0.10605507215506382,
+    "ci_low": -0.01029929905475764,
+    "ci_high": 0.22240944336488527,
+    "rate_ratio_per_1_ug_m3": 1.1118831086193939,
+    "rr_ci_low": 0.9897535571096348,
+    "rr_ci_high": 1.2490827018024893,
+    "primary": false
+  },
+  {
+    "day": 60,
+    "outcome": "deaths",
+    "status": "fit",
+    "n": 35,
+    "r_squared": 0.45684055764630327,
+    "model_f_pvalue": 0.005701547786646382,
+    "pm25_native_log_rate_ratio_per_1_ug_m3": 0.1720188182529113,
+    "ci_low": 0.007638022418728407,
+    "ci_high": 0.3363996140870942,
+    "rate_ratio_per_1_ug_m3": 1.1877001834460439,
+    "rr_ci_low": 1.0076672665202486,
+    "rr_ci_high": 1.399898332143967,
+    "primary": false
+  },
+  {
+    "day": 80,
+    "outcome": "cases",
+    "status": "fit",
+    "n": 35,
+    "r_squared": 0.5258983492576723,
+    "model_f_pvalue": 0.0010841745237491149,
+    "pm25_native_log_rate_ratio_per_1_ug_m3": 0.06526648083304978,
+    "ci_low": -0.029101636995652866,
+    "ci_high": 0.15963459866175245,
+    "rate_ratio_per_1_ug_m3": 1.0674434397039396,
+    "rr_ci_low": 0.9713177376328631,
+    "rr_ci_high": 1.1730821468820538,
+    "primary": true
+  },
+  {
+    "day": 80,
+    "outcome": "deaths",
+    "status": "fit",
+    "n": 35,
+    "r_squared": 0.4603391257914783,
+    "model_f_pvalue": 0.005276962177842874,
+    "pm25_native_log_rate_ratio_per_1_ug_m3": 0.0791733592334053,
+    "ci_low": -0.06380900621190175,
+    "ci_high": 0.22215572467871234,
+    "rate_ratio_per_1_ug_m3": 1.082391948444889,
+    "rr_ci_low": 0.9381841697685015,
+    "rr_ci_high": 1.2487658263807742,
+    "primary": false
+  }
+]

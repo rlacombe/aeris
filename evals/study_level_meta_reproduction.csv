@@ -1,0 +1,9 @@
+study,contrasts_aggregated,published_ratio,aeris_ratio,published_group,aeris_group,mean_absolute_log_error,within_10_percent
+UK COVID-19,1,1.13,1.4576,positive_material,positive_material,0.2545736147993077,False
+Italy COVID-19,1,1.7569,1.7408,positive_material,positive_material,0.00920611470938504,True
+France COVID-19,1,1.244,1.048509,positive_material,negligible,0.1709628393030027,False
+OECD COVID-19,4,1.0199462876578917,0.9886580702231484,negligible,negligible,0.0311567067275796,True
+Sao Jose COVID admissions,2,1.0925314640778085,1.0183820501167526,positive_material,negligible,0.07028230511109688,True
+Sao Paulo AMI admissions,1,1.09,1.0688491129,positive_material,positive_material,0.019595222055675054,True
+Brazil cancer mortality,1,1.01,1.06,negligible,positive_material,0.04831857727080773,True
+US stroke mortality,1,1.1317073170731706,1.110793424679586,positive_material,positive_material,0.018652835540731615,True

@@ -1,0 +1,3 @@
+# Exceptions
+
+::: aeris.exposure.exceptions

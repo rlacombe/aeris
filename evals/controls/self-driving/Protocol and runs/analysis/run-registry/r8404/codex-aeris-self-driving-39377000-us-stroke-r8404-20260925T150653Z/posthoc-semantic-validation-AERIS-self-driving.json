@@ -1,0 +1,7 @@
+{
+  "valid": true,
+  "errors": [],
+  "warnings": [
+    "reported variants exceed numerical effects; unavailable variants must remain limitations rather than completed results"
+  ]
+}

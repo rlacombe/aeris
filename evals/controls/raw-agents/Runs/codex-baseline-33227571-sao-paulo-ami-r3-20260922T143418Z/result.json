@@ -1,0 +1,57 @@
+{
+  "study_id": "pmid:33227571",
+  "status": "completed_blocker",
+  "target": {
+    "outcome": "Daily acute myocardial infarction hospital admissions (intended DataSUS SIH-SUS, ICD-10 I21)",
+    "pollutant": "PM2.5, PM10, and nitrogen dioxide as a clustered environmental mixture",
+    "geography": "39 municipalities in metropolitan São Paulo, Brazil",
+    "period": "2012-2015 as stated in the supplied abstract; exact analytic dates unresolved",
+    "effect_scale": "Published comparison described as admissions/day and percent increase; no model-native scale was available"
+  },
+  "sources": [
+    {
+      "role": "article citation and abstract",
+      "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=33227571&retmode=xml",
+      "retrieved": true,
+      "sha256": "9d9e00109ca8d7f56baaeed6117e210d0be3b0d6093fe985d7da8825be4b50f6"
+    },
+    {
+      "role": "official DataSUS SIH-SUS outcome microdata",
+      "url": "https://ftp.datasus.gov.br/dissemin/publicos/SIHSUS/200801_/Dados/RDSP1201.dbc",
+      "retrieved": false,
+      "sha256": null
+    },
+    {
+      "role": "independent Open-Meteo historical exposure endpoint",
+      "url": "https://air-quality-api.open-meteo.com/v1/air-quality",
+      "retrieved": true,
+      "sha256": null
+    }
+  ],
+  "substitutions": [],
+  "coverage": {
+    "eligible_units": 39,
+    "included_units": 0,
+    "eligible_times": 1461,
+    "included_times": 0,
+    "notes": "No usable daily outcome or exposure rows. The four-year count follows the stated inclusive 2012-2015 calendar interval; supplied abstract metadata are internally inconsistent about analytic dates."
+  },
+  "effect": null,
+  "artifacts": {
+    "code": "/output/code/reanalysis.py",
+    "source_manifest": "/output/source_manifest.json",
+    "exposure": "/output/exposure_daily.csv",
+    "analysis_panel": "/output/analysis_panel.csv",
+    "model_output": "/output/model_output.txt",
+    "decision_log": "/output/decision_log.md",
+    "blocker_ledger": "/output/blocker_ledger.md",
+    "fidelity_record": "/output/fidelity_record.json",
+    "sanitization": "/output/health_column_sanitization.json",
+    "request_log": "/output/request_log.json"
+  },
+  "blockers": [
+    "Official DataSUS daily SIH-SUS outcome microdata were unreachable; the alternate official portal query returned HTTP 500.",
+    "Independent Open-Meteo archival exposure request rejected 2012 and returned all-null variables for 2013-2015.",
+    "The supplied article materials do not resolve the exact analytic period, clustering specification, or model."
+  ]
+}

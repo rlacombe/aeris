@@ -1,0 +1,6 @@
+[
+  {"role":"outcome","url":"https://data.cdc.gov/api/views/g5fg-bgtw/rows.csv?accessType=DOWNLOAD","route_origin":"article_named","retrieved":true,"evidence_artifact":"/output/raw/cdc_stroke_2018_2020.csv"},
+  {"role":"exposure","url":"https://data.cdc.gov/resource/53mz-4zqd.json","route_origin":"agent_discovered","retrieved":true,"evidence_artifact":"/output/raw/cdc_pm25_county_2016_2020.json"},
+  {"role":"covariate","url":"https://data.cdc.gov/api/views/dv4u-3x3q/rows.csv?accessType=DOWNLOAD","route_origin":"agent_discovered","retrieved":true,"evidence_artifact":"/output/raw/cdc_places_2020.csv"},
+  {"role":"exposure","url":"OpenAQ archive through AERIS","route_origin":"agent_discovered","retrieved":true,"evidence_artifact":"exposure_pm25_2026-09-26T001600.4546910000"}
+]

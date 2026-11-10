@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "study_id": "38182658-uk-covid",
+  "status": "sensitivity",
+  "fidelity": "bounded",
+  "target": {
+    "outcome": "Daily instantaneous COVID-19 case-fatality risk (back-projected deaths / cases in article; fixed 8-day death-shift proxy in fitted sensitivity)",
+    "pollutant": "PM2.5",
+    "geography": "England, Northern Ireland, Scotland and Wales, nation-day",
+    "population": "Laboratory-confirmed COVID-19 cases in the four UK nations",
+    "period": "Article: 2020-03-26 to 2020-09-15; fit: 2020-03-26 to 2020-07-24",
+    "effect_scale": "Odds ratio per 10 µg/m³ PM2.5",
+    "exposure_assignment": "Article: daily nation monitor mean; fit: hourly modeled PM2.5 at nation centroid, daily mean, then 11-day mean",
+    "model": "Article: binomial mixed DLNM; fit: binomial logit GLM with robust covariance and an 11-day linear lag-average predictor",
+    "covariates": ["temperature 11-day mean", "daylight duration 11-day mean", "relative humidity 11-day mean", "nation fixed effects", "weekday fixed effects"],
+    "named_outcome_source": "PHE/ONS in article; public GitHub preservation of UK dashboard indicators in fit",
+    "specification_evidence": ["/study/article.txt", "/study/supplements/41598_2023_50474_MOESM1_ESM.docx", "/output/aeris-workspace/.aeris/contracts/reanalysis-invariants.json"]
+  },
+  "sources": [
+    {"role":"outcome","url":"https://raw.githubusercontent.com/tomwhite/covid-19-uk-data/master/data/covid-19-indicators-uk.csv","route_origin":"agent_discovered","retrieved":true,"sha256":"151ecd06edb90e137ddddb822305ac642ca58297f2155362df2e4b7661d4a1f5","evidence_artifact":"/output/data/covid-19-indicators-uk.csv"},
+    {"role":"exposure","url":"https://air-quality-api.open-meteo.com/v1/air-quality","route_origin":"agent_discovered","retrieved":true,"sha256":"57116c2e313c39666aa087fa79e340312fc5ab6e8872496aff32b494f4728506","evidence_artifact":"/output/data/openmeteo_air_england.json"},
+    {"role":"weather","url":"https://archive-api.open-meteo.com/v1/archive","route_origin":"agent_discovered","retrieved":true,"sha256":"2bbfc1e53f0763dd8bd021bb88ae85faf0f3a49723ec48b93ec0776173d4ca97","evidence_artifact":"/output/data/openmeteo_all.json"}
+  ],
+  "substitutions": [
+    {"dimension":"exposure","change_type":"source","published":"DEFRA country monitor averages","reanalysis":"Open-Meteo atmospheric-composition PM2.5 at nation centroids","reason":"AERIS historical monitor batch did not complete during this run."},
+    {"dimension":"outcome","change_type":"construct_change","published":"backprojNP gamma delay reconstruction","reanalysis":"daily reported deaths shifted 8 days","reason":"Exact delay distribution and author outcome extract were unavailable."},
+    {"dimension":"period","change_type":"coverage_subset","published":"2020-03-26 to 2020-09-15","reanalysis":"2020-03-26 to 2020-07-24","reason":"Recovered archive ended 2020-08-01 and alignment removes subsequent dates."},
+    {"dimension":"model","change_type":"construct_change","published":"nonlinear DLNM cross-bases and country random effect","reanalysis":"linear 11-day mean with country fixed effects","reason":"A bounded, executable fit retained the binomial family and lag window but cannot reproduce spline DLNM."}
+  ],
+  "coverage": {"eligible_units":4,"included_units":4,"eligible_times":174,"included_times":121,"rule":"Complete cases after 11 daily exposure/covariate observations and fixed 8-day death alignment; no numerical coverage threshold.","notes":"449 nation-day rows fitted. All four nations retained; public outcome archive and alignment limited usable calendar dates."},
+  "effects": [{"label":"Bounded PM2.5 association","primary":true,"estimate":0.7022175276,"ci_low":0.6962171726,"ci_high":0.7082695968,"scale":"ratio","contrast":"Per 10 µg/m³ higher 11-day mean PM2.5","metric":"OR","native_estimate":-0.3535120546,"native_ci_low":-0.362093638,"native_ci_high":-0.344930471,"native_scale":"log odds ratio","native_contrast":"Per 10 µg/m³ higher 11-day mean PM2.5"}],
+  "analysis_diagnostics": {"observations":449,"estimated_parameters":14,"exposure_unique_values":448,"outcome_unique_values":154,"joined_rows":449,"unmatched_outcome_rows":6,"unmatched_exposure_rows":0,"contrast_transformation_verified":true,"reported_variants":["Article Model 6 specified but not exactly identifiable","Bounded source-substituted linear 11-day binomial GLM fitted"]},
+  "artifacts": {"code":"/output/code/reanalyse_uk_covid_pm25.py","source_manifest":"/output/source_manifest.json","exposure":"/output/data/openmeteo_air_england.json; /output/data/openmeteo_air_other.json","analysis_panel":"/output/analysis_panel.csv","model_output":"/output/model_output.txt","decision_log":"/output/aeris-workspace/.aeris/contracts/agent-contract-amendment-001.json","research_notebook":"/output/aeris-workspace/.aeris/research-notebook.json","blocker_ledger":"/output/blocker_ledger.json","fidelity_record":"/output/aeris-workspace/.aeris/artifacts/reanalysis-fidelity_reanalysis-fidelity_2026-09-25T234804.8334830000.json","coverage_diagnostics":"/output/coverage_report.csv","boundary_route_evidence":"/output/aeris-pm25-checkpoint.json (not created; job ID in blocker ledger)","study_contract":"/output/aeris-workspace/.aeris/contracts/reanalysis-invariants.json; /output/aeris-workspace/.aeris/contracts/agent-contract-amendment-001.json"},
+  "blockers": ["AERIS/OpenAQ administrative-boundary historical PM2.5 job remained running without durable output.","Exact backprojNP delay distribution and full-period official outcome extract were not recovered." ]
+}

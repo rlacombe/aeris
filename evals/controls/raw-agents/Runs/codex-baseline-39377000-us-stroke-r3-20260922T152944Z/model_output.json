@@ -1,0 +1,11 @@
+{
+  "executed": false,
+  "reason": "Fail-closed: no retrieved public input simultaneously supplies county-level ischemic and hemorrhagic stroke mortality for adults aged 65+ in 2016-2020 and the published adjustment covariates. The downloaded CDC Atlas file is an incompatible all-stroke, age-35+, 2018-2020 three-year age-adjusted/smoothed release and was not used as an outcome substitution.",
+  "locked_contrasts_not_estimated": [
+    "Primary: adjusted ischemic-stroke mortality rate difference per +1 ug/m3 PM2.5 among all eligible US counties",
+    "Adjusted hemorrhagic-stroke mortality rate difference per +1 ug/m3 PM2.5 among all eligible US counties",
+    "Published subgroup contrasts by majority race/ethnicity, persistent poverty, and education"
+  ],
+  "native_scale": "deaths per 100,000 per +1 ug/m3 PM2.5",
+  "positive_ratio_transform": "Not applicable: a linear rate-difference coefficient has no valid OR/RR/outcome-ratio transformation without a specified baseline and link."
+}

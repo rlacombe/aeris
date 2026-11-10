@@ -1,0 +1,238 @@
+{
+  "schema_version": 3,
+  "study_id": "33484722-oecd-covid",
+  "status": "completed_fit",
+  "fidelity": "source_substitution",
+  "target": {
+    "outcome": "Log cumulative confirmed COVID-19 case rate and log death rate at days 60 and 80 after each country's first confirmed case",
+    "pollutant": "PM2.5",
+    "geography": "36 OECD countries listed in article Methods 2.1",
+    "population": "National populations of the 36 countries",
+    "period": "2017 annual PM2.5; country-specific 2020 epidemic day 60 and day 80 outcomes",
+    "effect_scale": "Rate ratio per 1 ug/m3 PM2.5, from exponentiated OLS coefficient on log rate",
+    "exposure_assignment": "Direct national population-weighted annual World Bank PM2.5 indicator (EN.ATM.PM25.MC.M3)",
+    "model": "Separate conventional OLS regressions of log case/death rate at days 60 and 80, adjusted for article Table 1 covariates",
+    "covariates": [
+      "age 65+ percentage",
+      "population density",
+      "GDP per capita (thousand USD)",
+      "physicians per 100,000",
+      "hospital beds per 100,000",
+      "population exposed above WHO PM2.5 guideline percentage"
+    ],
+    "named_outcome_source": "WHO daily COVID-19 data in article; independently recovered from JHU CSSE global time series",
+    "specification_evidence": [
+      "/output/article-specification.md",
+      "/study/article.md",
+      "/study/supplements/mmc1.docx"
+    ]
+  },
+  "sources": [
+    {
+      "role": "exposure",
+      "url": "https://api.worldbank.org/v2/country/all/indicator/EN.ATM.PM25.MC.M3?format=json&per_page=20000",
+      "route_origin": "article_named",
+      "retrieved": true,
+      "sha256": null,
+      "evidence_artifact": "/output/raw/worldbank_EN.ATM.PM25.MC.M3.json"
+    },
+    {
+      "role": "outcome",
+      "url": "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv",
+      "route_origin": "agent_discovered",
+      "retrieved": true,
+      "sha256": null,
+      "evidence_artifact": "/output/raw/jhu_confirmed_global.csv"
+    },
+    {
+      "role": "outcome",
+      "url": "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv",
+      "route_origin": "agent_discovered",
+      "retrieved": true,
+      "sha256": null,
+      "evidence_artifact": "/output/raw/jhu_deaths_global.csv"
+    },
+    {
+      "role": "covariate",
+      "url": "https://api.worldbank.org/v2/country/all/indicator/",
+      "route_origin": "article_named",
+      "retrieved": true,
+      "sha256": null,
+      "evidence_artifact": "/output/source_manifest.json"
+    }
+  ],
+  "substitutions": [
+    {
+      "dimension": "outcome",
+      "change_type": "source",
+      "published": "WHO daily country COVID-19 data",
+      "reanalysis": "JHU CSSE global historical country time series",
+      "reason": "Independent executable public historical source used to reconstruct first-case dates and country-specific day 60/80 counts."
+    },
+    {
+      "dimension": "covariate",
+      "change_type": "source",
+      "published": "US physician density in article's 2015-17 fallback window",
+      "reanalysis": "2018 World Bank physician density for US",
+      "reason": "Current WDI response contains no US value in 2015-17; nearest available WDI record retained the full 36-country model."
+    }
+  ],
+  "coverage": {
+    "eligible_units": 36,
+    "included_units": 36,
+    "eligible_times": 2,
+    "included_times": 2,
+    "rule": "Report-only completeness; article gives no numeric threshold.",
+    "notes": "All 36 countries have retrieved 2017 PM2.5, all specified covariates, and positive day-60/day-80 case and death rates. See coverage_report.json."
+  },
+  "artifacts": {
+    "code": "retrieve_and_fit.py",
+    "source_manifest": "source_manifest.json",
+    "exposure": "analysis_panel.csv",
+    "analysis_panel": "analysis_panel.csv",
+    "model_output": "model_output.json",
+    "decision_log": "decision_log.json",
+    "research_notebook": "aeris-workspace/.aeris/research-notebook.json",
+    "blocker_ledger": "blocker_ledger.json",
+    "fidelity_record": "aeris-workspace/.aeris/artifacts/reanalysis-fidelity_reanalysis-fidelity_2026-09-25T160603.9437680000.json",
+    "coverage_diagnostics": "coverage_report.json",
+    "boundary_route_evidence": "aeris-workspace/.aeris/contracts/agent-contract-amendment-001.json",
+    "study_contract": "aeris-workspace/.aeris/contracts/agent-contract-amendment-001.json"
+  },
+  "blockers": [
+    "Exact WHO source snapshot not used; JHU source substitution documented.",
+    "US physician covariate uses 2018 due to absent 2015-17 current-WDI record."
+  ],
+  "stopping_checklist": {
+    "target_specification_complete": true,
+    "complete_article_checked": true,
+    "outcome_routes_attempted": 2,
+    "normal_exposure_source_tested": true,
+    "historical_fallback_applicable": false,
+    "historical_fallback_tested": false,
+    "geographic_batching_applicable": true,
+    "geographic_batching_attempted": true,
+    "fidelity_levels_evaluated": [
+      "source_substitution"
+    ],
+    "pending_requests": 0,
+    "evidence_artifacts": [
+      "/output/raw/jhu_confirmed_global.csv",
+      "/output/raw/jhu_deaths_global.csv",
+      "/output/raw/worldbank_EN.ATM.PM25.MC.M3.json",
+      "/output/source_manifest.json",
+      "aeris-workspace/.aeris/artifacts/reanalysis-fidelity_reanalysis-fidelity_2026-09-25T160603.9437680000.json",
+      "aeris-workspace/.aeris/contracts/agent-contract-amendment-001.json",
+      "aeris-workspace/.aeris/research-notebook.json",
+      "analysis_panel.csv",
+      "blocker_ledger.json",
+      "coverage_report.json",
+      "decision_log.json",
+      "model_output.json",
+      "retrieve_and_fit.py",
+      "source_manifest.json"
+    ]
+  },
+  "design_provenance": {
+    "contract_id": "33484722-oecd-covid-reanalysis-invariants",
+    "contract_sha256": "192d816b2bc411e226f61c3669e1ba15b2057ddebc91fe5a93381afae5ab3980",
+    "contract_author": "agent",
+    "geographic_representation": "administrative_area",
+    "assignment_method": "Direct retrieval of World Bank national population-weighted exposure indicator; no monitor assignment.",
+    "representative_location_rule": null,
+    "maximum_monitor_distance_km": null,
+    "monitor_distance_evidence": "Not applicable to the selected assignment method.",
+    "source_strategy": "provider_api",
+    "exposure_metric": "2017 annual population-weighted PM2.5 mean (ug/m3), World Bank EN.ATM.PM25.MC.M3.",
+    "coverage_policy": {
+      "mode": "report-only",
+      "minimum_percent": null,
+      "threshold_source": "Article does not state a numerical coverage threshold.",
+      "evidence": "All 36 listed countries have independently retrieved 2017 PM2.5 values; documented in coverage_report.json."
+    },
+    "decision_rationale": "The article's exposure is already an administrative population-weighted annual metric, so deriving unweighted monitor means would change the construct. Direct World Bank indicator retrieval preserves the specified spatial support.",
+    "evidence_basis": [
+      "36/36 eligible countries have 2017 PM2.5 exposure records and complete analysis rows.",
+      "Executable direct World Bank API retrieval and annual country-level integration."
+    ],
+    "locked_before_exposure": false
+  },
+  "effects": [
+    {
+      "label": "Day-60 case-rate ratio",
+      "primary": true,
+      "estimate": 1.1346876449,
+      "ci_low": 0.9566246783,
+      "ci_high": 1.3458946658,
+      "scale": "ratio",
+      "contrast": "1 ug/m3 increase in 2017 population-weighted PM2.5",
+      "metric": "RR",
+      "native_estimate": 0.1263574104,
+      "native_ci_low": -0.0443441502,
+      "native_ci_high": 0.2970589709,
+      "native_scale": "log rate difference",
+      "native_contrast": "1 ug/m3 PM2.5"
+    },
+    {
+      "label": "Day-60 death-rate ratio",
+      "primary": true,
+      "estimate": 1.0569050086,
+      "ci_low": 0.8657046289,
+      "ci_high": 1.2903340931,
+      "scale": "ratio",
+      "contrast": "1 ug/m3 increase in 2017 population-weighted PM2.5",
+      "metric": "RR",
+      "native_estimate": 0.055344834,
+      "native_ci_low": -0.1442115037,
+      "native_ci_high": 0.2549011717,
+      "native_scale": "log rate difference",
+      "native_contrast": "1 ug/m3 PM2.5"
+    },
+    {
+      "label": "Day-80 case-rate ratio",
+      "primary": true,
+      "estimate": 1.0752178952,
+      "ci_low": 0.9442740176,
+      "ci_high": 1.2243199544,
+      "scale": "ratio",
+      "contrast": "1 ug/m3 increase in 2017 population-weighted PM2.5",
+      "metric": "RR",
+      "native_estimate": 0.0725233343,
+      "native_ci_low": -0.0573388821,
+      "native_ci_high": 0.2023855506,
+      "native_scale": "log rate difference",
+      "native_contrast": "1 ug/m3 PM2.5"
+    },
+    {
+      "label": "Day-80 death-rate ratio",
+      "primary": true,
+      "estimate": 1.0262037331,
+      "ci_low": 0.8437855939,
+      "ci_high": 1.2480588782,
+      "scale": "ratio",
+      "contrast": "1 ug/m3 increase in 2017 population-weighted PM2.5",
+      "metric": "RR",
+      "native_estimate": 0.0258662973,
+      "native_ci_low": -0.1698568523,
+      "native_ci_high": 0.2215894469,
+      "native_scale": "log rate difference",
+      "native_contrast": "1 ug/m3 PM2.5"
+    }
+  ],
+  "analysis_diagnostics": {
+    "observations": 36,
+    "estimated_parameters": 8,
+    "exposure_unique_values": 36,
+    "outcome_unique_values": 36,
+    "joined_rows": 72,
+    "unmatched_outcome_rows": 0,
+    "unmatched_exposure_rows": 0,
+    "contrast_transformation_verified": true,
+    "reported_variants": [
+      "case day 60",
+      "death day 60",
+      "case day 80",
+      "death day 80"
+    ]
+  }
+}

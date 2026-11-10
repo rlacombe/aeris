@@ -1,0 +1,80 @@
+{
+  "schema_version": "aeris-study-contract/v3",
+  "profile": "reanalysis",
+  "contract_id": "34488764-france-covid-reanalysis-invariants",
+  "approved": true,
+  "author": "agent",
+  "objective": "Among residents of the 96 mainland French departments, what was the adjusted association between department-level long-term mean PM2.5 (1999\u20132016) and cumulative in-hospital COVID-19 death counts/rates on 1 May 2020?",
+  "allowed_tools": [
+    "estimate_boundary_exposure",
+    "estimate_boundary_exposure_batch",
+    "estimate_exposure"
+  ],
+  "pollutants": [
+    "pm25"
+  ],
+  "date_window": {
+    "start": "1999-01-01",
+    "end": "2020-05-01"
+  },
+  "temporal_resolutions": [
+    "daily",
+    "hourly"
+  ],
+  "allowed_fidelity_levels": [
+    "matched",
+    "source_substitution",
+    "reduced_coverage",
+    "reduced_adjustment",
+    "bounded",
+    "supported_sensitivity"
+  ],
+  "resource_limits": {
+    "wall_clock_hours": 8,
+    "maximum_infrastructure_restarts": 1,
+    "maximum_single_download_gib": 10,
+    "maximum_boundary_units": 6000,
+    "maximum_boundary_units_per_call": 25,
+    "maximum_static_units_per_call": 2
+  },
+  "scientific_invariants": {
+    "research_question": "Among residents of the 96 mainland French departments, what was the adjusted association between department-level long-term mean PM2.5 (1999\u20132016) and cumulative in-hospital COVID-19 death counts/rates on 1 May 2020?",
+    "target_outcome_and_population": "Cumulative in-hospital COVID-19 deaths through 2020-05-01 among residents of 96 mainland French departments; count model with department population offset.",
+    "pollutants": [
+      "pm25"
+    ],
+    "principal_contrast": "Rate ratio per 1 \u00b5g/m\u00b3 increase in department-level long-term mean PM2.5",
+    "principal_variants": [
+      "Adjusted continuous-PM2.5 negative-binomial model at 1 May 2020 with population offset",
+      "Article-reported adjusted PM2.5-quartile model (Q2/Q3/Q4 vs Q1) at 1 May 2020"
+    ],
+    "broad_geography": "Mainland France, department (NUTS 3) level",
+    "target_geographic_units": 96,
+    "target_geographic_unit_type": "department (NUTS 3)",
+    "period": {
+      "start": "1999-01-01",
+      "end": "2020-05-01"
+    },
+    "prohibited_evidence": [
+      "Published PM2.5 exposure values",
+      "Published effect estimates",
+      "Prior reanalysis code, source manifests, or results"
+    ]
+  },
+  "article_evidence": [
+    {
+      "artifact": "/output/evidence/article.txt",
+      "finding": "Methods report 96 mainland departments, 1999\u20132016 GOME/NASA SEDAC 1-km PM2.5 aggregated by department, cumulative hospital COVID deaths, and fully adjusted negative-binomial models."
+    },
+    {
+      "artifact": "/output/evidence/supplement.docx",
+      "finding": "Supplementary material is retained for inspection of article-linked tabular supporting information; any PM2.5 fields will be excluded from fitted data."
+    }
+  ],
+  "article_evidence_map": {
+    "model": "article.txt Statistical analysis and Table 3: PM2.5 and temperature together; beds, medical density, age 60+, male share, unemployment, poverty, urban population, density and diabetes.",
+    "discrepancy": "The study target omitted some article-listed covariates; article controls the full adjustment set."
+  },
+  "execution_design": {},
+  "amendments": []
+}

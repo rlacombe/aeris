@@ -1,0 +1,102 @@
+{
+  "study_id": "PMID:33227571",
+  "status": "completed_blocker",
+  "target": {
+    "outcome": "Daily SUS hospital admissions with principal ICD-10 I21 (acute myocardial infarction)",
+    "pollutant": "PM2.5, PM10, and nitrogen dioxide in a joint environmental cluster",
+    "geography": "39 municipalities of the S\u00e3o Paulo metropolitan region, Brazil",
+    "period": "Reported as 2012\u20132015; reanalysis panel used 2012-01-01 through 2015-12-31",
+    "effect_scale": "Difference in daily AMI admissions between hierarchical environmental clusters (reported 9% increase)"
+  },
+  "sources": [
+    {
+      "role": "study citation/full-text metadata",
+      "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=33227571&retmode=xml",
+      "retrieved": true,
+      "sha256": "9d9e00109ca8d7f56baaeed6117e210d0be3b0d6093fe985d7da8825be4b50f6"
+    },
+    {
+      "role": "publisher full-text landing page",
+      "url": "https://www.sciencedirect.com/science/article/pii/S0147956320301564",
+      "retrieved": false,
+      "sha256": null
+    },
+    {
+      "role": "publisher article API metadata",
+      "url": "https://api.elsevier.com/content/article/PII:S0147956320301564?httpAccept=text/xml",
+      "retrieved": true,
+      "sha256": "d196c19d06be12e6d2e4da2a68c74b1abf13cb38d353012d129b98d8b5543ac7"
+    },
+    {
+      "role": "health outcome: SIH-RD public DATASUS mirror, 2012-01 through 2016-04, SP",
+      "url": "https://data.sidneybissoli.com/sih/rd/ano=YYYY/mes=MM/uf=SP/part-0.parquet",
+      "retrieved": true,
+      "sha256": null
+    },
+    {
+      "role": "municipality reference",
+      "url": "https://servicodados.ibge.gov.br/api/v1/localidades/municipios",
+      "retrieved": true,
+      "sha256": "86ecdccdf97d72e7e5e46f0854cfcea8bacc28154cc1bc4ed0e6110e3a6c9c02"
+    },
+    {
+      "role": "weather covariates",
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-23.5505&longitude=-46.6333&start_date=2012-01-01&end_date=2015-12-31",
+      "retrieved": true,
+      "sha256": "0b412bf2a3f4fcf88b0333c6bf087d1c2248d4f9ba7707654c5869ffb7e17ab2"
+    },
+    {
+      "role": "independent historical PM2.5/PM10/NO2 exposure",
+      "url": "not available: no credential-free source retrieved that provided all required daily pollutants",
+      "retrieved": false,
+      "sha256": null
+    }
+  ],
+  "substitutions": [
+    {
+      "dimension": "outcome",
+      "published": "DataSUS daily MI admissions; exact filtering details unavailable from supplied abstract/citation",
+      "reanalysis": "SIH-RD records with DIAG_PRINC beginning I21, admission date DT_INTER, and residence in the 39 RM S\u00e3o Paulo municipalities",
+      "reason": "This is the directly available public microdata implementation; it produced 51,689 admissions, not the reported 30,423, so equivalence was not assumed."
+    },
+    {
+      "dimension": "geography",
+      "published": "39 municipalities of S\u00e3o Paulo",
+      "reanalysis": "39 current RM S\u00e3o Paulo municipalities identified with IBGE codes and matched to SIH six-digit municipality stems",
+      "reason": "Article did not provide municipality codes/list in supplied material."
+    },
+    {
+      "dimension": "covariate",
+      "published": "Daily temperature variation, rainfall, humidity, NO2, PM2.5, PM10",
+      "reanalysis": "Open-Meteo daily temperature maximum/minimum, precipitation, and mean relative humidity at S\u00e3o Paulo city coordinate; pollutants unavailable",
+      "reason": "Independent archived weather was retrieved, but no complete credential-free public historical pollution series was retrieved."
+    },
+    {
+      "dimension": "model",
+      "published": "Hierarchical cluster analysis of six environmental variables, then admissions compared among clusters",
+      "reanalysis": "Not fitted",
+      "reason": "All three pollutant variables are required for the published cluster definition; outcome total and clustered-day count also fail to reconcile."
+    }
+  ],
+  "coverage": {
+    "eligible_units": 39,
+    "included_units": 39,
+    "eligible_times": 1461,
+    "included_times": 1461,
+    "notes": "Outcome and weather are complete for every calendar day. SIH competence files through 2016-04 were read to mitigate billing lag, then deduplicated by AIH number and restricted to 2012\u20132015 admission dates. No pollutant days were available."
+  },
+  "effect": null,
+  "artifacts": {
+    "code": "/output/code/reanalysis.py",
+    "source_manifest": "/output/source_manifest.json",
+    "exposure": "/output/exposure_daily.csv",
+    "analysis_panel": "/output/analysis_panel.csv",
+    "model_output": "/output/model_output.json",
+    "decision_log": "/output/decision_log.md"
+  },
+  "blockers": [
+    "No independent, credential-free daily historical source providing PM2.5, PM10, and NO2 was successfully retrieved; clusters cannot be reconstructed with pollutants missing.",
+    "The supplied article says 30,423 patients and three clusters totaling 1,092 days, whereas the transparent 2012\u20132015 I21/residence extraction has 51,689 admissions and 1,461 days. The supplied materials lack sufficient methods to resolve this without silently changing the outcome/period.",
+    "Publisher full text was inaccessible: ScienceDirect returned HTTP 403 and the Elsevier API returned metadata only (openaccess=false)."
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "retrieved_at_utc": "2026-08-15T16:20:57.391615+00:00",
+  "url": "https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/BRA/ADM0/geoBoundaries-BRA-ADM0_simplified.geojson",
+  "output": "ARTIFACT_INPUT/brazil_adm0.geojson",
+  "bytes": 959430,
+  "sha256": "80cdee9ebac45697023cf03ee6cb8ff7a94df491c6c7ca4c4d9da686108e92ea"
+}

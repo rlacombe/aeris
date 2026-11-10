@@ -1,0 +1,80 @@
+{
+  "selection_rule": "one final protocol-accepted result per study; retries count only toward resources",
+  "campaigns": {
+    "8404": {
+      "accepted_studies": 9,
+      "fitted_studies": 8,
+      "complete_nine_study_campaign": false,
+      "aeris_records": 9,
+      "retry_directories": 9,
+      "runtime_minutes_including_retries": 136.562,
+      "tokens_including_retries": {
+        "input_tokens": 47768480,
+        "cached_input_tokens": 45969664,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 270297,
+        "reasoning_output_tokens": 51798
+      }
+    },
+    "8406": {
+      "accepted_studies": 9,
+      "fitted_studies": 9,
+      "complete_nine_study_campaign": true,
+      "aeris_records": 9,
+      "retry_directories": 12,
+      "runtime_minutes_including_retries": 150.96,
+      "tokens_including_retries": {
+        "input_tokens": 70809098,
+        "cached_input_tokens": 68944431,
+        "cache_write_input_tokens": 1125501,
+        "output_tokens": 329971,
+        "reasoning_output_tokens": 60135
+      }
+    },
+    "8407": {
+      "accepted_studies": 9,
+      "fitted_studies": 6,
+      "complete_nine_study_campaign": false,
+      "aeris_records": 8,
+      "retry_directories": 10,
+      "runtime_minutes_including_retries": 91.045,
+      "tokens_including_retries": {
+        "input_tokens": 42909751,
+        "cached_input_tokens": 41419629,
+        "cache_write_input_tokens": 670770,
+        "output_tokens": 225718,
+        "reasoning_output_tokens": 44581
+      }
+    }
+  },
+  "fitted_studies_per_campaign": {
+    "values": [
+      8,
+      9,
+      6
+    ],
+    "mean": 7.666666666666667,
+    "sample_sd": 1.5275252316519465,
+    "pooled": 23,
+    "attempts": 27
+  },
+  "complete_nine_study_campaigns": 1,
+  "runtime_hours_including_retries": {
+    "values": [
+      2.2760333333333334,
+      2.516,
+      1.5174166666666666
+    ],
+    "mean": 2.10315,
+    "sample_sd": 0.5212568019806659
+  },
+  "output_tokens_per_campaign_including_retries": {
+    "values": [
+      270297,
+      329971,
+      225718
+    ],
+    "mean": 275328.6666666667,
+    "sample_sd": 52308.319169452705
+  }
+}

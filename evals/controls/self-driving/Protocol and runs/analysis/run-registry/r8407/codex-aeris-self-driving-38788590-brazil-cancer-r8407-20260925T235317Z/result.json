@@ -1,0 +1,214 @@
+{
+  "schema_version": 3,
+  "study_id": "38788590-brazil-cancer",
+  "status": "completed_fit",
+  "fidelity": "bounded",
+  "target": {
+    "outcome": "Daily all-cancer and site-specific cancer deaths",
+    "pollutant": "PM2.5",
+    "geography": "Brazilian municipalities",
+    "population": "Cancer deaths recorded across Brazilian municipalities",
+    "period": "2000-01-01 through 2019-12-31",
+    "effect_scale": "Odds ratio per 10 \u00b5g/m\u00b3",
+    "exposure_assignment": "Population-weighted municipal mean of daily 0.25\u00b0 grid values; three-day lag 0-2 mean",
+    "model": "Time-stratified case-crossover conditional logistic regression",
+    "covariates": [
+      "temperature",
+      "relative humidity",
+      "public holidays"
+    ],
+    "named_outcome_source": "Brazilian Mortality Information System (SIM)",
+    "specification_evidence": [
+      "/output/article-specification.json"
+    ]
+  },
+  "sources": [
+    {
+      "role": "outcome",
+      "url": "https://s3.sa-east-1.amazonaws.com/ckan.saude.gov.br/SIM/csv/Mortalidade_Geral_2000_csv.zip",
+      "route_origin": "agent_discovered",
+      "retrieved": true,
+      "sha256": null,
+      "evidence_artifact": "/output/sim-sp-cancer-2000-diagnostics.json"
+    },
+    {
+      "role": "exposure",
+      "url": "https://api.osf.io/v2/nodes/dn7ya/files/osfstorage/",
+      "route_origin": "article_linked",
+      "retrieved": true,
+      "sha256": null,
+      "evidence_artifact": "/output/osf-pm-files.json"
+    },
+    {
+      "role": "weather",
+      "url": "https://archive-api.open-meteo.com/v1/archive",
+      "route_origin": "agent_discovered",
+      "retrieved": true,
+      "sha256": null,
+      "evidence_artifact": "/output/openmeteo-era5-sao-paulo-2000-05.json"
+    },
+    {
+      "role": "weather",
+      "url": "https://archive-api.open-meteo.com/v1/archive",
+      "route_origin": "agent_discovered",
+      "retrieved": true,
+      "sha256": null,
+      "evidence_artifact": "/output/openmeteo-era5-sao-paulo-2000-05.json"
+    }
+  ],
+  "substitutions": [
+    {
+      "dimension": "outcome",
+      "change_type": "source",
+      "published": "SIM individual deaths",
+      "reanalysis": "Official SIM annual CSV transport",
+      "reason": "Outcome construct preserved."
+    },
+    {
+      "dimension": "geography",
+      "change_type": "coverage_subset",
+      "published": "5,570 Brazilian municipalities, 2000-2019",
+      "reanalysis": "Sao Paulo municipality, May 2000",
+      "reason": "Retained decoded PM partition and outcome slice overlap here."
+    },
+    {
+      "dimension": "exposure",
+      "change_type": "construct_change",
+      "published": "Population-weighted municipal grid mean",
+      "reanalysis": "Unweighted mean of three in-polygon grid centres",
+      "reason": "Population weights unavailable in retained bounded slice."
+    },
+    {
+      "dimension": "covariate",
+      "change_type": "source",
+      "published": "ERA5 municipality weather",
+      "reanalysis": "Open-Meteo ERA5-backed point weather",
+      "reason": "Fit-ready bounded public route."
+    },
+    {
+      "dimension": "covariate",
+      "change_type": "covariate_omission",
+      "published": "Public-holiday adjustment",
+      "reanalysis": "Holiday field retained but omitted",
+      "reason": "Zero analytic-panel variation."
+    },
+    {
+      "dimension": "model",
+      "change_type": "construct_change",
+      "published": "Conditional logistic model with temperature cross-basis",
+      "reanalysis": "Conditional logistic model with linear daily temperature term",
+      "reason": "Exact cross-basis specification was unavailable and the 29-day bounded panel does not support a defensible reconstruction of that flexible term."
+    }
+  ],
+  "coverage": {
+    "eligible_units": 5570,
+    "included_units": 1,
+    "eligible_times": 7305,
+    "included_times": 29,
+    "rule": "Deterministic bounded overlap: Sao Paulo municipality, May 2000, with complete PM2.5 lag 0-2 and weather.",
+    "notes": "922 of 991 May cancer deaths included; 69 deaths on May 1-2 lacked preceding retained PM days; three grid centres contributed daily."
+  },
+  "artifacts": {
+    "code": "decode_pm_rds.py",
+    "source_manifest": "source-manifest-independent.json",
+    "exposure": "sao-paulo-pm25-daily-2000-05.csv",
+    "analysis_panel": "bounded-case-crossover-panel.csv",
+    "model_output": "bounded-case-crossover-model-output.json",
+    "decision_log": "aeris-bounded-fit-registration.json",
+    "research_notebook": "research-notebook.json",
+    "blocker_ledger": "blocker-ledger.json",
+    "fidelity_record": "aeris-workspace/.aeris/artifacts/reanalysis-fidelity_reanalysis-fidelity_2026-09-26T001003.4147090000.json",
+    "coverage_diagnostics": "bounded-case-crossover-coverage.json",
+    "boundary_route_evidence": "sao-paulo-boundary.geojson",
+    "study_contract": "aeris-workspace/.aeris/contracts/agent-contract-amendment-002.json"
+  },
+  "blockers": [
+    "National 2000-2019 coverage and population-weighted municipal aggregation are unavailable in retained bounded materials; this is a bounded feasibility estimate."
+  ],
+  "stopping_checklist": {
+    "target_specification_complete": true,
+    "complete_article_checked": true,
+    "outcome_routes_attempted": 1,
+    "normal_exposure_source_tested": true,
+    "historical_fallback_applicable": false,
+    "historical_fallback_tested": false,
+    "geographic_batching_applicable": true,
+    "geographic_batching_attempted": false,
+    "fidelity_levels_evaluated": [
+      "bounded"
+    ],
+    "pending_requests": 0,
+    "evidence_artifacts": [
+      "/output/openmeteo-era5-sao-paulo-2000-05.json",
+      "/output/osf-pm-files.json",
+      "/output/sim-sp-cancer-2000-diagnostics.json",
+      "aeris-bounded-fit-registration.json",
+      "aeris-workspace/.aeris/artifacts/reanalysis-fidelity_reanalysis-fidelity_2026-09-26T001003.4147090000.json",
+      "aeris-workspace/.aeris/contracts/agent-contract-amendment-002.json",
+      "blocker-ledger.json",
+      "bounded-case-crossover-coverage.json",
+      "bounded-case-crossover-model-output.json",
+      "bounded-case-crossover-panel.csv",
+      "decode_pm_rds.py",
+      "research-notebook.json",
+      "sao-paulo-boundary.geojson",
+      "sao-paulo-pm25-daily-2000-05.csv",
+      "source-manifest-independent.json"
+    ]
+  },
+  "design_provenance": {
+    "contract_id": "38788590-brazil-cancer-reanalysis-invariants",
+    "contract_sha256": "a3b5d13dcbce18744ce6bd4265545f64f2e142ac574b38aa59b79f0a4b003b08",
+    "contract_author": "agent",
+    "geographic_representation": "administrative_area",
+    "assignment_method": "Unweighted mean of 0.25-degree grid-cell centres inside the Sao Paulo municipal polygon; declared substitute for population-weighted municipal aggregation.",
+    "representative_location_rule": null,
+    "maximum_monitor_distance_km": null,
+    "monitor_distance_evidence": "Not applicable to the selected assignment method.",
+    "source_strategy": "Official SIM annual CSV outcomes; article-linked OSF all-source PM2.5 0.25-degree product; Open-Meteo archival ERA5-backed daily weather.",
+    "exposure_metric": "Three-day lag 0-2 mean all-source PM2.5 in micrograms per cubic metre.",
+    "coverage_policy": {
+      "mode": "report_only",
+      "minimum_percent": null,
+      "threshold_source": "none",
+      "evidence": "Report-only; retain all events with complete lagged PM2.5 and weather in this bounded slice."
+    },
+    "decision_rationale": "Recovered records support a stronger article-linked gridded analysis than the earlier monitor-proxy route. Bounded geography, unweighted aggregation, and holiday non-identifiability are explicit.",
+    "evidence_basis": [
+      "Decoded article-linked RDS contains daily PM2.5 grid-day records.",
+      "Three grid centres fall in the municipal polygon and yield 31 daily values.",
+      "Twenty-nine complete lag/weather days and 922 eligible death strata support a fit."
+    ],
+    "locked_before_exposure": false
+  },
+  "effects": [
+    {
+      "label": "All-cancer mortality, Sao Paulo May 2000 bounded slice",
+      "primary": true,
+      "estimate": 0.7941872236440768,
+      "ci_low": 0.6325054842161077,
+      "ci_high": 0.9971982250575784,
+      "scale": "ratio",
+      "contrast": "10 micrograms per cubic metre increase in lag 0-2 PM2.5",
+      "metric": "OR",
+      "native_estimate": -0.23043604749059093,
+      "native_ci_low": -0.45806638772064856,
+      "native_ci_high": -0.00280570726053328,
+      "native_scale": "log odds ratio",
+      "native_contrast": "10 micrograms per cubic metre increase in lag 0-2 PM2.5"
+    }
+  ],
+  "analysis_diagnostics": {
+    "observations": 3855,
+    "estimated_parameters": 3,
+    "exposure_unique_values": 29,
+    "outcome_unique_values": 2,
+    "joined_rows": 3855,
+    "unmatched_outcome_rows": 69,
+    "unmatched_exposure_rows": 0,
+    "contrast_transformation_verified": true,
+    "reported_variants": [
+      "All-cancer mortality, lag 0-2 PM2.5, conditional logistic regression"
+    ]
+  }
+}

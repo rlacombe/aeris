@@ -1,0 +1,54 @@
+{
+  "sources": [
+    {
+      "role": "health outcomes: daily reported confirmed cases/deaths",
+      "url": "https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/owid-covid-data.csv",
+      "retrieved": true,
+      "sha256": "8473d0f0fdf962e1ffbd5b85b18726fc96a49bab109e271186c339725a12b10c"
+    },
+    {
+      "role": "alternate health-outcome endpoint (terminal DNS failure; see failed_endpoint_evidence.txt)",
+      "url": "https://api.coronavirus.data.gov.uk/v2/data?areaType=nation&metric=newCasesByPublishDate&metric=newDeaths28DaysByPublishDate&format=csv",
+      "retrieved": false,
+      "sha256": null
+    },
+    {
+      "role": "independent PM2.5 exposure: Open-Meteo/CAMS country-centroid hourly values",
+      "url": "https://air-quality-api.open-meteo.com/v1/air-quality",
+      "retrieved": true,
+      "sha256": null
+    },
+    {
+      "role": "weather covariates: Open-Meteo historical archive",
+      "url": "https://archive-api.open-meteo.com/v1/archive",
+      "retrieved": true,
+      "sha256": null
+    }
+  ],
+  "request_log": "request_log.json",
+  "outcome_nonmissing_counts": {
+    "new_cases": {
+      "England": 0,
+      "Northern Ireland": 0,
+      "Scotland": 0,
+      "Wales": 0
+    },
+    "new_deaths": {
+      "England": 0,
+      "Northern Ireland": 0,
+      "Scotland": 0,
+      "Wales": 0
+    }
+  },
+  "files": {
+    "weather_England.json": "dcbcba778d80bf63a754de3d7c7347166c76c436fa0b0caa4d193d6c6ed3c080",
+    "weather_Wales.json": "5d4336b3189b8c78ffa33aab15ad6bd489b10e8e161c8a210f22e71b30b6139d",
+    "air_Wales.json": "81275deda4834f1ff409318054a9648aaf4707d28609c2597a537419a6b12783",
+    "owid-covid-data.csv": "8473d0f0fdf962e1ffbd5b85b18726fc96a49bab109e271186c339725a12b10c",
+    "air_England.json": "76303aac88cb120ba3b083adb883bf99a1018aa38ffe5f6196ccb72a2ceb1d0c",
+    "weather_Northern_Ireland.json": "5eb7a3b5e81696787bea04bb19175fac931f901df4b905c6b5ebe017cfef3aa5",
+    "air_Scotland.json": "cfc6bd925bfd343af54b16a4df1506426f3357ab695a5776be82c9d986dd37fc",
+    "weather_Scotland.json": "7771927517a0cae2b00ffa47e17fbcc4914d7d576d70827686cc63a4e032ef91",
+    "air_Northern_Ireland.json": "6655bca73033cb3b487c0da5c5201d650c395a08ce672ee0bee40eb6823dd1a9"
+  }
+}

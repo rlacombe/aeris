@@ -1,0 +1,8 @@
+{
+  "valid": true,
+  "errors": [],
+  "warnings": [
+    "analysis diagnostics omit locked principal variants",
+    "reported variants exceed numerical effects; unavailable variants must remain limitations rather than completed results"
+  ]
+}

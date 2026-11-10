@@ -1,0 +1,15 @@
+re_pm25
+temperature
+humidity
+windspeed
+winddirection
+precipitation
+dist_hwy
+dist_art
+OS
+WA
+ISF
+TC
+EL
+weekday
+

@@ -1,0 +1,203 @@
+{
+  "schema_version": 3,
+  "study_id": "33484722-oecd-covid",
+  "status": "completed_fit",
+  "fidelity": "reduced_coverage",
+  "target": {
+    "outcome": "Cumulative confirmed COVID-19 case rate and death rate per national population on days 60 and 80 after the first confirmed case",
+    "pollutant": "Population-weighted annual PM2.5 concentration in 2017",
+    "geography": "36 OECD member countries listed in article Methods section 2.1",
+    "population": "National populations of the 36 article-listed OECD countries",
+    "period": "Long-term exposure: 2017; COVID outcomes: 2020 epidemic day 60/day 80",
+    "effect_scale": "Exponentiated coefficient from a linear regression of natural-log rate; outcome-rate ratio",
+    "exposure_assignment": "Country-level population-weighted annual PM2.5 from World Bank indicator EN.ATM.PM25.MC.M3",
+    "model": "OLS of natural-log case/death rate per 100,000 on PM2.5 and the five article-specified covariates",
+    "covariates": [
+      "population age 65+ (%)",
+      "population density (population / surface area)",
+      "GDP per capita (current US dollars)",
+      "physicians per 1,000 population",
+      "hospital beds per 1,000 population"
+    ],
+    "named_outcome_source": "WHO COVID-19 website in article; daily JHU CSSE historical national series used as the documented retrieval substitution",
+    "specification_evidence": [
+      "/study/article.md Methods sections 2.1-2.2",
+      "/study/article.md Table 1",
+      "/output/aeris-workspace/.aeris/contracts/reanalysis-invariants.json"
+    ]
+  },
+  "sources": [
+    {
+      "role": "exposure",
+      "url": "https://api.worldbank.org/v2/country/AUS;AUT;BEL;CAN;CHL;CZE;DNK;EST;FIN;FRA;DEU;GRC;HUN;ISL;IRL;ISR;ITA;JPN;KOR;LVA;LTU;LUX;MEX;NLD;NZL;NOR;POL;PRT;SVK;SVN;ESP;SWE;CHE;TUR;GBR;USA/indicator/EN.ATM.PM25.MC.M3?date=2017&format=json&per_page=1000",
+      "route_origin": "article_named",
+      "retrieved": true,
+      "sha256": null,
+      "evidence_artifact": "/output/worldbank_EN_ATM_PM25_MC_M3_2017.json"
+    },
+    {
+      "role": "outcome",
+      "url": "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv",
+      "route_origin": "agent_discovered",
+      "retrieved": true,
+      "sha256": null,
+      "evidence_artifact": "/output/time_series_covid19_confirmed_global.csv"
+    },
+    {
+      "role": "outcome",
+      "url": "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv",
+      "route_origin": "agent_discovered",
+      "retrieved": true,
+      "sha256": null,
+      "evidence_artifact": "/output/time_series_covid19_deaths_global.csv"
+    }
+  ],
+  "substitutions": [
+    {
+      "dimension": "outcome",
+      "change_type": "source",
+      "published": "WHO daily national COVID-19 records",
+      "reanalysis": "JHU CSSE daily national cumulative COVID-19 records",
+      "reason": "The direct current WHO archive was recovered but is weekly, so it cannot provide exact values at days 60 and 80 without unsupported interpolation."
+    },
+    {
+      "dimension": "population",
+      "change_type": "coverage_subset",
+      "published": "36 OECD countries",
+      "reanalysis": "35 complete-case countries",
+      "reason": "The US physician value is null in World Bank records for every article-authorized fallback year, 2015-2017."
+    }
+  ],
+  "coverage": {
+    "eligible_units": 36,
+    "included_units": 35,
+    "eligible_times": 4,
+    "included_times": 4,
+    "rule": "Complete-case only for the exact article covariate set; no imputation or year expansion.",
+    "notes": "All 36 have 2017 PM2.5 and each outcome. US is excluded only from fitted models for missing physician data in the stated fallback window."
+  },
+  "artifacts": {
+    "code": "reanalysis.py",
+    "source_manifest": "source_manifest.json",
+    "exposure": "analysis_panel.csv",
+    "analysis_panel": "analysis_panel.csv",
+    "model_output": "model_output.json",
+    "decision_log": "decision_log.json",
+    "research_notebook": "aeris-workspace/.aeris/research-notebook.json",
+    "blocker_ledger": "decision_log.json",
+    "fidelity_record": "aeris-workspace/.aeris/artifacts/reanalysis-fidelity_reanalysis-fidelity_2026-09-25T223216.8141240000.json",
+    "coverage_diagnostics": "coverage_diagnostics.json",
+    "boundary_route_evidence": null,
+    "study_contract": "aeris-workspace/.aeris/contracts/reanalysis-invariants.json"
+  },
+  "blockers": [
+    "The direct WHO archive is weekly rather than daily; a daily JHU source was used for the exact required epidemic days.",
+    "US physician data are absent for all article-authorized World Bank fallback years, so the full-adjustment models have 35 rather than 36 countries."
+  ],
+  "stopping_checklist": {
+    "target_specification_complete": true,
+    "complete_article_checked": true,
+    "outcome_routes_attempted": 2,
+    "normal_exposure_source_tested": true,
+    "historical_fallback_applicable": false,
+    "historical_fallback_tested": false,
+    "geographic_batching_applicable": true,
+    "geographic_batching_attempted": true,
+    "fidelity_levels_evaluated": [
+      "reduced_coverage"
+    ],
+    "pending_requests": 0,
+    "evidence_artifacts": [
+      "/output/time_series_covid19_confirmed_global.csv",
+      "/output/time_series_covid19_deaths_global.csv",
+      "/output/worldbank_EN_ATM_PM25_MC_M3_2017.json",
+      "aeris-workspace/.aeris/artifacts/reanalysis-fidelity_reanalysis-fidelity_2026-09-25T223216.8141240000.json",
+      "aeris-workspace/.aeris/contracts/reanalysis-invariants.json",
+      "aeris-workspace/.aeris/research-notebook.json",
+      "analysis_panel.csv",
+      "coverage_diagnostics.json",
+      "decision_log.json",
+      "model_output.json",
+      "reanalysis.py",
+      "source_manifest.json"
+    ]
+  },
+  "effects": [
+    {
+      "label": "Day-60 case rate",
+      "primary": true,
+      "estimate": 1.111084,
+      "ci_low": 0.98738,
+      "ci_high": 1.250287,
+      "scale": "ratio",
+      "contrast": "per 1 ug/m3 higher PM2.5",
+      "metric": "outcome_ratio",
+      "native_estimate": 0.105336,
+      "native_ci_low": -0.012701,
+      "native_ci_high": 0.223373,
+      "native_scale": "log outcome-rate slope",
+      "native_contrast": "per 1 ug/m3 higher PM2.5"
+    },
+    {
+      "label": "Day-60 death rate",
+      "primary": true,
+      "estimate": 1.18695,
+      "ci_low": 1.004608,
+      "ci_high": 1.402389,
+      "scale": "ratio",
+      "contrast": "per 1 ug/m3 higher PM2.5",
+      "metric": "outcome_ratio",
+      "native_estimate": 0.171387,
+      "native_ci_low": 0.004597,
+      "native_ci_high": 0.338177,
+      "native_scale": "log outcome-rate slope",
+      "native_contrast": "per 1 ug/m3 higher PM2.5"
+    },
+    {
+      "label": "Day-80 case rate",
+      "primary": true,
+      "estimate": 1.064637,
+      "ci_low": 0.967775,
+      "ci_high": 1.171193,
+      "scale": "ratio",
+      "contrast": "per 1 ug/m3 higher PM2.5",
+      "metric": "outcome_ratio",
+      "native_estimate": 0.062634,
+      "native_ci_low": -0.032756,
+      "native_ci_high": 0.158023,
+      "native_scale": "log outcome-rate slope",
+      "native_contrast": "per 1 ug/m3 higher PM2.5"
+    },
+    {
+      "label": "Day-80 death rate",
+      "primary": true,
+      "estimate": 1.077049,
+      "ci_low": 0.932485,
+      "ci_high": 1.244025,
+      "scale": "ratio",
+      "contrast": "per 1 ug/m3 higher PM2.5",
+      "metric": "outcome_ratio",
+      "native_estimate": 0.074225,
+      "native_ci_low": -0.069902,
+      "native_ci_high": 0.218352,
+      "native_scale": "log outcome-rate slope",
+      "native_contrast": "per 1 ug/m3 higher PM2.5"
+    }
+  ],
+  "analysis_diagnostics": {
+    "observations": 35,
+    "estimated_parameters": 7,
+    "exposure_unique_values": 35,
+    "outcome_unique_values": 35,
+    "joined_rows": 36,
+    "unmatched_outcome_rows": 0,
+    "unmatched_exposure_rows": 0,
+    "contrast_transformation_verified": true,
+    "reported_variants": [
+      "Day-60 case rate",
+      "Day-60 death rate",
+      "Day-80 case rate",
+      "Day-80 death rate"
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+# Include license file
+include LICENSE
+include README.md
+include CHANGELOG.md
+include CONTRIBUTING.md
+
+# Include example data files
+recursive-include examples *.csv
+
+# Include standard model files if present
+include xgb_model.json
+include xgb_final.json
+include features.txt
+
+# Include environment example file
+include .env.example
+

@@ -1,0 +1,9 @@
+{
+  "study": {"pmid": "39377000", "title": "United States stroke mortality"},
+  "retrieval_log": [
+    {"role": "public_health_outcome", "url": "https://data.cdc.gov/api/views/g5fg-bgtw/rows.csv?accessType=DOWNLOAD", "local_path": "/output/raw/outcome_atlas_2018_2020.csv", "sha256": "7a08a1db579bbbcf1f98d253dfeba354267b449ea4c6ec6ae1bea45baa085b8c", "http_status": 200, "attempts": 1, "delay_seconds": 0},
+    {"role": "independent_pm25_monitor_data_2018", "url": "https://aqs.epa.gov/aqsweb/airdata/annual_conc_by_monitor_2018.zip", "local_path": "/output/raw/annual_conc_by_monitor_2018.zip", "sha256": "0a6ab33afcfb48faa66d5554d69b731cf01adbe2ad3fc4f88a05ee6dd825a4b8", "http_status": 200, "attempts": 1, "delay_seconds": 0},
+    {"role": "independent_pm25_monitor_data_2019", "url": "https://aqs.epa.gov/aqsweb/airdata/annual_conc_by_monitor_2019.zip", "local_path": "/output/raw/annual_conc_by_monitor_2019.zip", "sha256": "09808acc29300c80df07b0bced65b6d69d088049b26c2be5c2de297a1b08201f", "http_status": 200, "attempts": 1, "delay_seconds": 0},
+    {"role": "independent_pm25_monitor_data_2020", "url": "https://aqs.epa.gov/aqsweb/airdata/annual_conc_by_monitor_2020.zip", "local_path": "/output/raw/annual_conc_by_monitor_2020.zip", "sha256": "b2c0c6b89dfc125e740cf9f941cf1b05a3ab0d5026db6315720cab45eb7a5a80", "http_status": 200, "attempts": 1, "delay_seconds": 0}
+  ]
+}

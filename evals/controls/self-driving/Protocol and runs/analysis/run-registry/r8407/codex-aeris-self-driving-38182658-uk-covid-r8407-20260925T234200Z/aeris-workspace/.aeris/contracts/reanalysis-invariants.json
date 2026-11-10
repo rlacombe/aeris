@@ -1,0 +1,80 @@
+{
+  "schema_version": "aeris-study-contract/v3",
+  "profile": "reanalysis",
+  "contract_id": "38182658-uk-covid-reanalysis-invariants",
+  "approved": true,
+  "author": "agent",
+  "objective": "Association of daily country-level PM2.5 over the 10-day infection-course lag window with COVID-19 instantaneous case fatality risk.",
+  "allowed_tools": [
+    "estimate_boundary_exposure",
+    "estimate_boundary_exposure_batch",
+    "estimate_exposure"
+  ],
+  "pollutants": [
+    "pm25"
+  ],
+  "date_window": {
+    "start": "2020-03-26",
+    "end": "2020-09-15"
+  },
+  "temporal_resolutions": [
+    "daily",
+    "hourly"
+  ],
+  "allowed_fidelity_levels": [
+    "matched",
+    "source_substitution",
+    "reduced_coverage",
+    "reduced_adjustment",
+    "bounded",
+    "supported_sensitivity"
+  ],
+  "resource_limits": {
+    "wall_clock_hours": 8,
+    "maximum_infrastructure_restarts": 1,
+    "maximum_single_download_gib": 10,
+    "maximum_boundary_units": 6000,
+    "maximum_boundary_units_per_call": 25,
+    "maximum_static_units_per_call": 2
+  },
+  "scientific_invariants": {
+    "research_question": "Association of daily country-level PM2.5 over the 10-day infection-course lag window with COVID-19 instantaneous case fatality risk.",
+    "target_outcome_and_population": "Daily back-projected COVID-19 deaths divided by laboratory-confirmed daily cases in England, Northern Ireland, Scotland and Wales.",
+    "pollutants": [
+      "pm25"
+    ],
+    "principal_contrast": "Cumulative PM2.5 association over maximum lag 10 days, with figure reference 10 \u00b5g/m\u00b3.",
+    "principal_variants": [
+      "Model 6 binomial GLMM/DLNM: temperature, sunshine, PM2.5 cross-bases; humidity at exposure date; weekday; country random effect.",
+      "Source-substituted bounded binomial country-day model retaining outcome, pollutant, geography, period, and per-10 \u00b5g/m\u00b3 contrast."
+    ],
+    "broad_geography": "England, Northern Ireland, Scotland, Wales",
+    "target_geographic_units": 4,
+    "target_geographic_unit_type": "nation-day",
+    "period": {
+      "start": "2020-03-26",
+      "end": "2020-09-15"
+    },
+    "prohibited_evidence": [
+      "published_effect",
+      "prior_aeris_effect",
+      "prior_reanalysis_code",
+      "prior_exposure_values"
+    ]
+  },
+  "article_evidence": [
+    {
+      "artifact": "/study/article.txt",
+      "finding": "Methods state source, period, daily country pollution averaging, back-projection and binomial DLNM."
+    },
+    {
+      "artifact": "/study/supplements/41598_2023_50474_MOESM1_ESM.docx",
+      "finding": "Supplement states selected Model 6 and Table S1 country-level PM2.5 summaries."
+    }
+  ],
+  "article_evidence_map": {
+    "contract_discrepancy": "The contract target does not mention article's humidity, weekday, back-projection and DLNM; locked primary target retains them."
+  },
+  "execution_design": {},
+  "amendments": []
+}

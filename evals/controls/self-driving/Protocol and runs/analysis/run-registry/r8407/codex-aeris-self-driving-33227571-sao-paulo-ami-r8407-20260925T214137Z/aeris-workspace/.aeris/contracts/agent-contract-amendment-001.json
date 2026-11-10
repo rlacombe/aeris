@@ -1,0 +1,132 @@
+{
+  "schema_version": "aeris-study-contract/v3",
+  "profile": "reanalysis",
+  "contract_id": "33227571-sao-paulo-ami-reanalysis-invariants",
+  "approved": true,
+  "author": "agent",
+  "objective": "Among daily environmental clusters in metropolitan S\u00e3o Paulo, did the high temperature-variation/low-humidity/high-pollution cluster have higher daily acute myocardial infarction admissions or in-hospital mortality than the low-temperature-variation/intermediate-humidity/low-pollution reference cluster?",
+  "allowed_tools": [
+    "estimate_boundary_exposure",
+    "estimate_boundary_exposure_batch",
+    "estimate_exposure"
+  ],
+  "pollutants": [
+    "no2",
+    "pm25",
+    "pm10"
+  ],
+  "date_window": {
+    "start": "2012-10-01",
+    "end": "2015-09-30"
+  },
+  "temporal_resolutions": [
+    "daily",
+    "hourly"
+  ],
+  "allowed_fidelity_levels": [
+    "matched",
+    "source_substitution",
+    "reduced_coverage",
+    "reduced_adjustment",
+    "bounded",
+    "supported_sensitivity"
+  ],
+  "resource_limits": {
+    "wall_clock_hours": 8,
+    "maximum_infrastructure_restarts": 1,
+    "maximum_single_download_gib": 10,
+    "maximum_boundary_units": 6000,
+    "maximum_boundary_units_per_call": 25,
+    "maximum_static_units_per_call": 2
+  },
+  "scientific_invariants": {
+    "research_question": "Among daily environmental clusters in metropolitan S\u00e3o Paulo, did the high temperature-variation/low-humidity/high-pollution cluster have higher daily acute myocardial infarction admissions or in-hospital mortality than the low-temperature-variation/intermediate-humidity/low-pollution reference cluster?",
+    "target_outcome_and_population": "Daily acute myocardial infarction admissions and in-hospital deaths among SUS-hospital patients in 39 municipalities of metropolitan S\u00e3o Paulo.",
+    "pollutants": [
+      "no2",
+      "pm25",
+      "pm10"
+    ],
+    "principal_contrast": "High temperature-variation/low-humidity/high-pollution environmental cluster versus low temperature-variation/intermediate-humidity/low-pollution cluster.",
+    "principal_variants": [
+      "Daily AMI admissions across all three hierarchical environmental clusters",
+      "Daily in-hospital AMI mortality across all three hierarchical environmental clusters"
+    ],
+    "broad_geography": "39 municipalities in metropolitan S\u00e3o Paulo, Brazil",
+    "target_geographic_units": 39,
+    "target_geographic_unit_type": "metropolitan-area daily aggregate",
+    "period": {
+      "start": "2012-10-01",
+      "end": "2015-09-30"
+    },
+    "prohibited_evidence": [
+      "published_effect",
+      "prior_aeris_effect",
+      "prior_reanalysis_code",
+      "prior_exposure_values"
+    ]
+  },
+  "article_evidence": [
+    {
+      "artifact": "/output/article-specification-evidence.md",
+      "finding": "Supplied PubMed record identifies outcome/population, pollutant-weather feature set, source names, and compares admissions/mortality across hierarchical clusters."
+    },
+    {
+      "artifact": "/output/article-specification-evidence.md",
+      "finding": "ScienceDirect public Methods snippet establishes October 2012 through September 2015, correcting the broader contract period."
+    }
+  ],
+  "article_evidence_map": {
+    "discrepancy_with_study_target": "Article evidence specifies Oct 2012\u2013Sep 2015; contract says Jan 2012\u2013Dec 2015. Article-derived period controls.",
+    "full_text_status": "Supplied PDF is an abstract record; ScienceDirect landing page inspected but full article body route blocked."
+  },
+  "execution_design": {
+    "geographic_representation": "administrative_area",
+    "assignment_method": "metropolitan representative coordinate for weather sensitivity; no valid pollutant assignment",
+    "source_strategy": "public modeled weather archive after public monitor archive failure",
+    "exposure_metric": "daily tmax, tmin, temperature variation, precipitation and relative humidity; explicitly no pollutant metric",
+    "daily_aggregation": "provider daily values in America/Sao_Paulo",
+    "analysis_aggregation": "one metropolitan daily row",
+    "coverage_policy": {
+      "mode": "report_only",
+      "minimum_percent": 0,
+      "threshold_source": "none",
+      "evidence": "complete 1095-day weather series; pollutant coverage was 0% from tested public routes"
+    },
+    "intended_use": "bounded proxy sensitivity only, not the article-aligned pollutant analysis"
+  },
+  "amendments": [
+    {
+      "sequence": 1,
+      "changed_dimensions": {
+        "geographic_representation": "administrative_area",
+        "assignment_method": "metropolitan representative coordinate for weather sensitivity; no valid pollutant assignment",
+        "source_strategy": "public modeled weather archive after public monitor archive failure",
+        "exposure_metric": "daily tmax, tmin, temperature variation, precipitation and relative humidity; explicitly no pollutant metric",
+        "daily_aggregation": "provider daily values in America/Sao_Paulo",
+        "analysis_aggregation": "one metropolitan daily row",
+        "coverage_policy": {
+          "mode": "report_only",
+          "minimum_percent": 0,
+          "threshold_source": "none",
+          "evidence": "complete 1095-day weather series; pollutant coverage was 0% from tested public routes"
+        },
+        "intended_use": "bounded proxy sensitivity only, not the article-aligned pollutant analysis"
+      },
+      "evidence": [
+        {
+          "artifact": "/output/coverage_diagnostics.json",
+          "finding": "Documents complete weather coverage and zero usable pollutant coverage from tested public routes."
+        },
+        {
+          "artifact": "/output/aeris_pm25_openAQ_exposure.csv",
+          "finding": "Retained AERIS export of the no-observation historical PM2.5 route."
+        }
+      ],
+      "scientific_justification": "Feasibility probes found no usable OpenAQ historical PM2.5 record, and the article-named CETESB historical export is account-gated. A weather-only proxy sensitivity is retained separately while preserving the pollutant-cluster target as unrecovered.",
+      "fidelity_impact": "construct_change",
+      "agreement_independent": true
+    }
+  ],
+  "parent_contract_sha256": "bfdd986de2c3710dbfdd3bb9c656933ba2acf4be3b461c4b95a862593740dcac"
+}

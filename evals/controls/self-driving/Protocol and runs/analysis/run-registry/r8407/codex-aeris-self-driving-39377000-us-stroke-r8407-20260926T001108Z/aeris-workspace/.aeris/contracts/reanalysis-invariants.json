@@ -1,0 +1,84 @@
+{
+  "schema_version": "aeris-study-contract/v3",
+  "profile": "reanalysis",
+  "contract_id": "39377000-us-stroke-reanalysis-invariants",
+  "approved": true,
+  "author": "agent",
+  "objective": "Across US counties, what is the adjusted additive association of county-level annual PM2.5 concentration with ischemic and hemorrhagic stroke mortality rates among adults aged 65 years and older during 2016\u20132020?",
+  "allowed_tools": [
+    "estimate_boundary_exposure",
+    "estimate_boundary_exposure_batch",
+    "estimate_exposure"
+  ],
+  "pollutants": [
+    "pm25"
+  ],
+  "date_window": {
+    "start": "2016-01-01",
+    "end": "2020-12-31"
+  },
+  "temporal_resolutions": [
+    "daily",
+    "hourly"
+  ],
+  "allowed_fidelity_levels": [
+    "matched",
+    "source_substitution",
+    "reduced_coverage",
+    "reduced_adjustment",
+    "bounded",
+    "supported_sensitivity"
+  ],
+  "resource_limits": {
+    "wall_clock_hours": 8,
+    "maximum_infrastructure_restarts": 1,
+    "maximum_single_download_gib": 10,
+    "maximum_boundary_units": 6000,
+    "maximum_boundary_units_per_call": 25,
+    "maximum_static_units_per_call": 2
+  },
+  "scientific_invariants": {
+    "research_question": "Across US counties, what is the adjusted additive association of county-level annual PM2.5 concentration with ischemic and hemorrhagic stroke mortality rates among adults aged 65 years and older during 2016\u20132020?",
+    "target_outcome_and_population": "County annual ischemic and hemorrhagic stroke mortality rates per 100,000 among adults aged 65 years and older, United States residents.",
+    "pollutants": [
+      "pm25"
+    ],
+    "principal_contrast": "Additive change in mortality rate (deaths per 100,000) per 1 \u00b5g/m\u00b3 increase in county-level annual-average PM2.5; report 10 \u00b5g/m\u00b3 as a linear rescaling only.",
+    "principal_variants": [
+      "Univariable OLS: ischemic stroke mortality rate ~ PM2.5",
+      "Multivariable OLS: ischemic stroke mortality rate ~ PM2.5 + CAD + hypertension + hyperlipidemia + diabetes + obesity + smoking + median household income + Gini + poverty + uninsured + park access",
+      "Univariable and multivariable OLS for hemorrhagic stroke mortality",
+      "Article-described subgroup OLS models by majority race/ethnicity, persistent poverty, and education where recoverable"
+    ],
+    "broad_geography": "United States counties and county equivalents excluding Puerto Rico, American Samoa, Guam, and US Virgin Islands.",
+    "target_geographic_units": 3142,
+    "target_geographic_unit_type": "county",
+    "period": {
+      "start": "2016-01-01",
+      "end": "2020-12-31"
+    },
+    "prohibited_evidence": [
+      "Published exposure values",
+      "Published effect estimates",
+      "Prior reanalysis code",
+      "Prior source manifests",
+      "Prior reanalysis results"
+    ]
+  },
+  "article_evidence": [
+    {
+      "artifact": "/output/article_estimand_ledger.json",
+      "finding": "Complete-article estimand ledger: county 2016\u20132020, age 65+, ischemic and hemorrhagic mortality, annual PM2.5, additive linear OLS and listed covariates."
+    },
+    {
+      "artifact": "/output/article_estimand_ledger.json",
+      "finding": "Complete article contradicts supplied rate-ratio contrast; linear additive contrast is locked."
+    }
+  ],
+  "article_evidence_map": {
+    "estimand_ledger": "/output/article_estimand_ledger.json",
+    "article": "/study/article.md"
+  },
+  "execution_design": {},
+  "amendments": []
+}

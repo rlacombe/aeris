@@ -1,0 +1,16 @@
+{
+  "valid": true,
+  "errors": [],
+  "warnings": [
+    "design_provenance contract_id differs from the locked contract",
+    "design_provenance contract_sha256 differs from the locked contract",
+    "design_provenance contract_author differs from the locked contract",
+    "locked contract lacks principal-analysis fields: analysis_aggregation, assignment_method, coverage_policy, daily_aggregation, exposure_metric, geographic_representation, intended_use, source_strategy",
+    "reanalysis contract lacks an evidence-backed executable-design amendment",
+    "result substitutions differ from the AERIS fidelity record",
+    "included coverage exceeds eligible coverage",
+    "aggregate coverage_diagnostics must explain eligible and included time coverage",
+    "analysis diagnostics omit locked principal variants",
+    "reported variants exceed numerical effects; unavailable variants must remain limitations rather than completed results"
+  ]
+}

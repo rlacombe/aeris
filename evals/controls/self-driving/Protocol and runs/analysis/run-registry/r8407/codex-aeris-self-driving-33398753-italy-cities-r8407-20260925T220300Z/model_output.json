@@ -1,0 +1,58 @@
+{
+  "models": [
+    {
+      "variant": "cases_2020_03_17",
+      "n": 4,
+      "parameters": 3,
+      "beta_loglog_pm10": -0.46056121698311653,
+      "se": 1.1930428092038214,
+      "ci_beta": [
+        -15.619607410054964,
+        14.698484976088732
+      ],
+      "outcome_ratio_per_doubling": 0.7267035116644707,
+      "ci_ratio_per_doubling": [
+        1.9862305117427608e-05,
+        26587.95093234719
+      ],
+      "r_squared": 0.21813561747900245,
+      "model_summary": "                            OLS Regression Results                            \n==============================================================================\nDep. Variable:              log_cases   R-squared:                       0.218\nModel:                            OLS   Adj. R-squared:                 -1.346\nMethod:                 Least Squares   F-statistic:                    0.1395\nDate:                Fri, 25 Sep 2026   Prob (F-statistic):              0.884\nTime:                        22:08:32   Log-Likelihood:                -4.5532\nNo. Observations:                   4   AIC:                             15.11\nDf Residuals:                       1   BIC:                             13.27\nDf Model:                           2                                         \nCovariance Type:            nonrobust                                         \n=======================================================================================\n                          coef    std err          t      P>|t|      [0.025      0.975]\n---------------------------------------------------------------------------------------\nconst                  -2.1458     16.056     -0.134      0.915    -206.152     201.860\nlog_exceedance_days    -0.4606      1.193     -0.386      0.765     -15.620      14.698\nlog_density             1.1455      2.185      0.524      0.693     -26.615      28.906\n==============================================================================\nOmnibus:                          nan   Durbin-Watson:                   1.350\nProb(Omnibus):                    nan   Jarque-Bera (JB):                0.201\nSkew:                           0.067   Prob(JB):                        0.904\nKurtosis:                       1.909   Cond. No.                         190.\n==============================================================================\n\nNotes:\n[1] Standard Errors assume that the covariance matrix of the errors is correctly specified."
+    },
+    {
+      "variant": "cases_2020_04_07",
+      "n": 4,
+      "parameters": 3,
+      "beta_loglog_pm10": -0.24973022140030907,
+      "se": 1.0905203705720123,
+      "ci_beta": [
+        -14.106105319138097,
+        13.606644876337478
+      ],
+      "outcome_ratio_per_doubling": 0.8410536744546437,
+      "ci_ratio_per_doubling": [
+        5.670732705393762e-05,
+        12474.072047882559
+      ],
+      "r_squared": 0.1203214105011361,
+      "model_summary": "                            OLS Regression Results                            \n==============================================================================\nDep. Variable:              log_cases   R-squared:                       0.120\nModel:                            OLS   Adj. R-squared:                 -1.639\nMethod:                 Least Squares   F-statistic:                   0.06839\nDate:                Fri, 25 Sep 2026   Prob (F-statistic):              0.938\nTime:                        22:08:32   Log-Likelihood:                -4.1938\nNo. Observations:                   4   AIC:                             14.39\nDf Residuals:                       1   BIC:                             12.55\nDf Model:                           2                                         \nCovariance Type:            nonrobust                                         \n=======================================================================================\n                          coef    std err          t      P>|t|      [0.025      0.975]\n---------------------------------------------------------------------------------------\nconst                   2.8033     14.676      0.191      0.880    -183.672     189.278\nlog_exceedance_days    -0.2497      1.091     -0.229      0.857     -14.106      13.607\nlog_density             0.7112      1.997      0.356      0.782     -24.664      26.086\n==============================================================================\nOmnibus:                          nan   Durbin-Watson:                   1.350\nProb(Omnibus):                    nan   Jarque-Bera (JB):                0.201\nSkew:                           0.067   Prob(JB):                        0.904\nKurtosis:                       1.909   Cond. No.                         190.\n==============================================================================\n\nNotes:\n[1] Standard Errors assume that the covariance matrix of the errors is correctly specified."
+    },
+    {
+      "variant": "cases_2020_04_27",
+      "n": 4,
+      "parameters": 3,
+      "beta_loglog_pm10": -0.26304309514630164,
+      "se": 1.131485773790854,
+      "ci_beta": [
+        -14.639932993293183,
+        14.11384680300058
+      ],
+      "outcome_ratio_per_doubling": 0.8333283142047269,
+      "ci_ratio_per_doubling": [
+        3.916886927238349e-05,
+        17729.285837334945
+      ],
+      "r_squared": 0.10033163720168559,
+      "model_summary": "                            OLS Regression Results                            \n==============================================================================\nDep. Variable:              log_cases   R-squared:                       0.100\nModel:                            OLS   Adj. R-squared:                 -1.699\nMethod:                 Least Squares   F-statistic:                   0.05576\nDate:                Fri, 25 Sep 2026   Prob (F-statistic):              0.949\nTime:                        22:08:32   Log-Likelihood:                -4.3413\nNo. Observations:                   4   AIC:                             14.68\nDf Residuals:                       1   BIC:                             12.84\nDf Model:                           2                                         \nCovariance Type:            nonrobust                                         \n=======================================================================================\n                          coef    std err          t      P>|t|      [0.025      0.975]\n---------------------------------------------------------------------------------------\nconst                   3.5237     15.227      0.231      0.855    -189.956     197.004\nlog_exceedance_days    -0.2630      1.131     -0.232      0.855     -14.640      14.114\nlog_density             0.6819      2.072      0.329      0.798     -25.646      27.010\n==============================================================================\nOmnibus:                          nan   Durbin-Watson:                   1.350\nProb(Omnibus):                    nan   Jarque-Bera (JB):                0.201\nSkew:                           0.067   Prob(JB):                        0.904\nKurtosis:                       1.909   Cond. No.                         190.\n==============================================================================\n\nNotes:\n[1] Standard Errors assume that the covariance matrix of the errors is correctly specified."
+    }
+  ]
+}

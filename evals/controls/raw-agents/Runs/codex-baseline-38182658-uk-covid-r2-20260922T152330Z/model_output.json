@@ -1,0 +1,17 @@
+{
+  "formula": "logit(assigned_deaths/cases) = PM2.5(t-3)+temperature(t-3)+shortwave radiation(t-3)+humidity(t-3)+nation fixed effects+weekday fixed effects",
+  "nobs": 682,
+  "native_pm25_coefficient_per_ug_m3": 0.04314373045307094,
+  "native_ci_95": [
+    0.04287566560867287,
+    0.04341179529746901
+  ],
+  "primary_contrast": {
+    "estimate": 1.4744625847488653,
+    "ci_low": 1.4709096081485988,
+    "ci_high": 1.4780241435506838,
+    "scale": "odds ratio",
+    "contrast": "PM2.5 19 versus 10 ug/m3 at lag 3 days (nearest available proxy for one day after symptom onset)"
+  },
+  "fit_summary": "                 Generalized Linear Model Regression Results                  \n==============================================================================\nDep. Variable:                      y   No. Observations:                  682\nModel:                            GLM   Df Residuals:                   359900\nModel Family:                Binomial   Df Model:                           13\nLink Function:                  Logit   Scale:                          1.0000\nMethod:                          IRLS   Log-Likelihood:                -75342.\nDate:                Tue, 22 Sep 2026   Deviance:                       10819.\nTime:                        15:26:57   Pearson chi2:                 1.02e+04\nNo. Iterations:                     6   Pseudo R-squ. (CS):              1.000\nCovariance Type:                  HC1                                         \n===========================================================================================\n                              coef    std err          z      P>|z|      [0.025      0.975]\n-------------------------------------------------------------------------------------------\nconst                      -0.3303      0.014    -22.852      0.000      -0.359      -0.302\nnation_Northern Ireland    -0.0232      0.014     -1.629      0.103      -0.051       0.005\nnation_Scotland             0.2423      0.005     47.887      0.000       0.232       0.252\nnation_Wales               -0.3959      0.005    -72.363      0.000      -0.407      -0.385\nweekday_Monday             -0.1105      0.004    -30.336      0.000      -0.118      -0.103\nweekday_Saturday            0.2457      0.004     59.007      0.000       0.238       0.254\nweekday_Sunday              0.3097      0.004     71.319      0.000       0.301       0.318\nweekday_Thursday           -0.1059      0.004    -28.753      0.000      -0.113      -0.099\nweekday_Tuesday            -0.0634      0.003    -18.921      0.000      -0.070      -0.057\nweekday_Wednesday          -0.0483      0.003    -14.218      0.000      -0.055      -0.042\nlag3_pm25                   0.0431      0.000    315.452      0.000       0.043       0.043\nlag3_temperature           -0.1538      0.000   -523.874      0.000      -0.154      -0.153\nlag3_shortwave_mj_m2        0.0171      0.000     75.682      0.000       0.017       0.018\nlag3_humidity              -0.0155      0.000    -87.810      0.000      -0.016      -0.015\n==========================================================================================="
+}

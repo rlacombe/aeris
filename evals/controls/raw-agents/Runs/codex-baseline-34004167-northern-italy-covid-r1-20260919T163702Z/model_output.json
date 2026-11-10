@@ -1,0 +1,21 @@
+{
+  "fit_executed": false,
+  "requested_model": "Poisson log-link GEE, AR(1), daily deaths ~ STAP SO2 + LTAP SO2 + lockdown",
+  "reason": [
+    "The reconstructed panel has only two regional clusters (Lombardia and Veneto); cluster-robust GEE inference is not defensible with two clusters.",
+    "The long-term SO2 predictor has only two region-level values, so its principal between-region comparison is based on two exposure groups.",
+    "The publicly archived regional outcome series begins 2020-02-24; daily incident outcomes can only be derived from 2020-02-25, leaving four of the article's 89 target dates unavailable."
+  ],
+  "n_rows": 170,
+  "n_regions": 2,
+  "n_dates": 85,
+  "date_range": [
+    "2020-02-25",
+    "2020-05-19"
+  ],
+  "ltap_by_region": {
+    "Lombardia": 3.334267645221736,
+    "Veneto": 3.2120705808869454
+  },
+  "missing_merge_rows": 0
+}

@@ -1,0 +1,34 @@
+{
+  "sources": [
+    {
+      "role": "article",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11456533/",
+      "retrieved": true,
+      "sha256": "b232c04c24ef27a2de52ad54a22154a5d72f1c1a28d3190bcb57024a9c8efedd"
+    },
+    {
+      "role": "outcome_request_form",
+      "url": "https://wonder.cdc.gov/ucd-icd10.html",
+      "retrieved": true,
+      "sha256": "c39f20926aa2694a8ffa9bdc65021b34a52cb9d34fc2384688ffdfe4c1bf397c"
+    },
+    {
+      "role": "outcome_query_attempt",
+      "url": "https://wonder.cdc.gov/controller/datarequest/D76",
+      "retrieved": false,
+      "sha256": "6824409d9667e94904995f488282e82042aa7b86714f2591a1b5cad5b80fac4e"
+    },
+    {
+      "role": "independent_exposure_2016",
+      "url": "https://aqs.epa.gov/aqsweb/airdata/annual_conc_by_monitor_2016.zip",
+      "retrieved": true,
+      "sha256": "e693e5f87409cf22147664a18546f54f91c9769493019fde87a8eaa5eb0ae157"
+    },
+    {
+      "role": "independent_exposure_2020",
+      "url": "https://aqs.epa.gov/aqsweb/airdata/annual_conc_by_monitor_2020.zip",
+      "retrieved": true,
+      "sha256": "b2c0c6b89dfc125e740cf9f941cf1b05a3ab0d5026db6315720cab45eb7a5a80"
+    }
+  ]
+}

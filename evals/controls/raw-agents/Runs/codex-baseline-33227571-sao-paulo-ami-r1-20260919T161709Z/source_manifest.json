@@ -1,0 +1,49 @@
+{
+  "study_id": "PMID:33227571",
+  "sources": [
+    {
+      "role": "study citation/full-text metadata",
+      "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=33227571&retmode=xml",
+      "retrieved": true,
+      "sha256": "9d9e00109ca8d7f56baaeed6117e210d0be3b0d6093fe985d7da8825be4b50f6"
+    },
+    {
+      "role": "publisher full-text landing page",
+      "url": "https://www.sciencedirect.com/science/article/pii/S0147956320301564",
+      "retrieved": false,
+      "sha256": null
+    },
+    {
+      "role": "publisher article API metadata",
+      "url": "https://api.elsevier.com/content/article/PII:S0147956320301564?httpAccept=text/xml",
+      "retrieved": true,
+      "sha256": "d196c19d06be12e6d2e4da2a68c74b1abf13cb38d353012d129b98d8b5543ac7"
+    },
+    {
+      "role": "health outcome: SIH-RD public DATASUS mirror, 2012-01 through 2016-04, SP",
+      "url": "https://data.sidneybissoli.com/sih/rd/ano=YYYY/mes=MM/uf=SP/part-0.parquet",
+      "retrieved": true,
+      "sha256": null
+    },
+    {
+      "role": "municipality reference",
+      "url": "https://servicodados.ibge.gov.br/api/v1/localidades/municipios",
+      "retrieved": true,
+      "sha256": "86ecdccdf97d72e7e5e46f0854cfcea8bacc28154cc1bc4ed0e6110e3a6c9c02"
+    },
+    {
+      "role": "weather covariates",
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-23.5505&longitude=-46.6333&start_date=2012-01-01&end_date=2015-12-31",
+      "retrieved": true,
+      "sha256": "0b412bf2a3f4fcf88b0333c6bf087d1c2248d4f9ba7707654c5869ffb7e17ab2"
+    },
+    {
+      "role": "independent historical PM2.5/PM10/NO2 exposure",
+      "url": "not available: no credential-free source retrieved that provided all required daily pollutants",
+      "retrieved": false,
+      "sha256": null
+    }
+  ],
+  "request_log": "/output/logs/request_log.json",
+  "notes": "The SIH mirror identifies itself as a byte-identical redistribution of public DATASUS RD files; per-competence retrieval details are in raw/sih_provenance.json."
+}

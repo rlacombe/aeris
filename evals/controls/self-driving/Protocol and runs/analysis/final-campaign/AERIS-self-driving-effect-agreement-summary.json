@@ -1,0 +1,53 @@
+{
+  "comparison_rule": "Use the article-specified contrast when the autonomous run reports it on the same scale. Score direction or null retention for every interpretable fitted target. Exclude rounded article-null estimates and materially changed effect scales from numerical magnitude metrics. Choices were fixed from study semantics, without selecting among estimates by agreement.",
+  "campaigns": {
+    "8404": {
+      "comparable_contrasts": 13,
+      "positive_same_direction": 4,
+      "positive_denominator": 6,
+      "null_retained": 5,
+      "null_denominator": 7,
+      "effect_size_contrasts": 10,
+      "effect_size_studies": 6,
+      "median_study_absolute_log_difference": 0.07164281358763361,
+      "geometric_mean_reconstructed_to_published": 0.9696896994913434,
+      "pearson_ratio_study_level": 0.5069474760265797
+    },
+    "8406": {
+      "comparable_contrasts": 14,
+      "positive_same_direction": 6,
+      "positive_denominator": 7,
+      "null_retained": 5,
+      "null_denominator": 7,
+      "effect_size_contrasts": 11,
+      "effect_size_studies": 7,
+      "median_study_absolute_log_difference": 0.16868245514548805,
+      "geometric_mean_reconstructed_to_published": 0.9707787959343143,
+      "pearson_ratio_study_level": 0.0912494995737906
+    },
+    "8407": {
+      "comparable_contrasts": 10,
+      "positive_same_direction": 1,
+      "positive_denominator": 3,
+      "null_retained": 4,
+      "null_denominator": 7,
+      "effect_size_contrasts": 7,
+      "effect_size_studies": 4,
+      "median_study_absolute_log_difference": 0.3580580328237778,
+      "geometric_mean_reconstructed_to_published": 0.7094435233045513,
+      "pearson_ratio_study_level": -0.1696815815898941
+    }
+  },
+  "pooled": {
+    "comparable_contrasts": 37,
+    "positive_same_direction": 11,
+    "positive_denominator": 16,
+    "null_retained": 14,
+    "null_denominator": 21,
+    "effect_size_contrasts": 28,
+    "effect_size_studies": 17,
+    "median_study_absolute_log_difference": 0.16868245514548805,
+    "geometric_mean_reconstructed_to_published": 0.901364785442895,
+    "pearson_ratio_study_level": 0.07534922055606137
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "valid": true,
+  "errors": [],
+  "warnings": [
+    "coverage_diagnostics lacks columns: boundary_level, boundary_source, coverage_pct, exclusion_reason, inclusion_status, unit_name, window_end, window_start",
+    "geographic construct change lacks boundary_route_evidence"
+  ]
+}

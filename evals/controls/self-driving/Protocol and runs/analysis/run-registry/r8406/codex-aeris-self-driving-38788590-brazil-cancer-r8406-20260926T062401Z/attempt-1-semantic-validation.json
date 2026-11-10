@@ -1,0 +1,7 @@
+{
+  "valid": false,
+  "errors": [
+    "reanalysis contract lacks an evidence-backed executable-design amendment"
+  ],
+  "warnings": []
+}

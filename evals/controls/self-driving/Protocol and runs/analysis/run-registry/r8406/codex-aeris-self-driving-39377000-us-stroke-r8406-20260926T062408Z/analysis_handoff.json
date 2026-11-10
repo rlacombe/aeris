@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "study_id": "39377000-us-stroke",
+  "status": "sensitivity",
+  "fidelity": "supported_sensitivity",
+  "target": {
+    "outcome": "County ischemic and hemorrhagic stroke mortality rate",
+    "pollutant": "PM2.5",
+    "geography": "US counties and county equivalents",
+    "population": "Adults aged 65 years and older",
+    "period": "Article: 2016-2020; recovered sensitivity: 2020-2022",
+    "effect_scale": "Additive deaths per 100,000 per 1 ug/m3 PM2.5",
+    "exposure_assignment": "County-level annual PM2.5",
+    "model": "Ordinary linear regression",
+    "covariates": ["Article specified: CAD, hypertension, diabetes, high cholesterol, obesity, smoking, income, Gini, poverty, insurance, park access"],
+    "named_outcome_source": "CDC WONDER and Interactive Atlas on Heart Disease and Stroke",
+    "specification_evidence": ["/output/article-specification.json", "/study/article.md"]
+  },
+  "sources": [
+    {"role":"outcome","url":"https://heart-stroke-atlas.cdc.gov/api/api/data","route_origin":"article_named","retrieved":true,"sha256":null,"evidence_artifact":"/output/raw/ischemic.json"},
+    {"role":"exposure","url":"https://aqs.epa.gov/aqsweb/airdata/annual_conc_by_monitor_2020.zip","route_origin":"agent_discovered","retrieved":true,"sha256":null,"evidence_artifact":"/output/exposure_county_pm25.csv"},
+    {"role":"covariate","url":"https://api.census.gov/data/2021/acs/acs5","route_origin":"article_named","retrieved":false,"sha256":null,"evidence_artifact":"/output/raw/acs2021.json"}
+  ],
+  "substitutions": [
+    {"dimension":"period","change_type":"coverage_subset","published":"2016-2020","reanalysis":"2020-2022","reason":"Current Atlas API exposed usable subtype outcome records in 2020-2022."},
+    {"dimension":"exposure","change_type":"source","published":"Unnamed county PM2.5 source","reanalysis":"EPA AQS unweighted county monitor mean","reason":"Article source not named; public AQS records were usable."},
+    {"dimension":"covariate","change_type":"covariate_omission","published":"Full article covariate set","reanalysis":"Unadjusted OLS","reason":"Census route required unavailable key and remaining covariates were not recovered."},
+    {"dimension":"geography","change_type":"coverage_subset","published":"3142 units","reanalysis":"551 ischemic and 430 hemorrhagic observed-overlap units","reason":"Outcome suppression and monitor availability."}
+  ],
+  "coverage":{"eligible_units":3226,"included_units":551,"eligible_times":3,"included_times":3,"rule":"Observed AQS annual PM2.5 plus non-suppressed CDC Atlas outcome; report-only coverage policy.","notes":"See coverage_diagnostics.json; hemorrhagic model has 430 rows."},
+  "effects":[
+    {"label":"Ischemic stroke, unadjusted OLS","primary":true,"estimate":1.0,"ci_low":null,"ci_high":null,"scale":"ratio","contrast":"No ratio conversion: native article-compatible additive slope below","metric":"outcome_ratio","native_estimate":2.3557099746,"native_ci_low":0.6641957406,"native_ci_high":4.0472242086,"native_scale":"deaths per 100,000","native_contrast":"per 1 ug/m3 PM2.5"},
+    {"label":"Hemorrhagic stroke, unadjusted OLS","primary":false,"estimate":1.0,"ci_low":null,"ci_high":null,"scale":"ratio","contrast":"No ratio conversion: native article-compatible additive slope below","metric":"outcome_ratio","native_estimate":0.6559801668,"native_ci_low":-0.0131970278,"native_ci_high":1.3251573614,"native_scale":"deaths per 100,000","native_contrast":"per 1 ug/m3 PM2.5"}
+  ],
+  "analysis_diagnostics":{"observations":551,"estimated_parameters":2,"exposure_unique_values":551,"outcome_unique_values":551,"joined_rows":551,"unmatched_outcome_rows":1134,"unmatched_exposure_rows":92,"contrast_transformation_verified":true,"reported_variants":["ischemic_unadjusted","hemorrhagic_unadjusted"]},
+  "artifacts":{"code":"/output/reanalysis.py","source_manifest":"/output/source_manifest.json","exposure":"/output/exposure_county_pm25.csv","analysis_panel":"/output/analysis_panel.csv","model_output":"/output/model_output.csv","decision_log":"/output/decision_log.json","research_notebook":"/output/aeris-workspace/.aeris/research-notebook.json","blocker_ledger":"/output/blocker_ledger.json","fidelity_record":"/output/aeris-workspace/.aeris/artifacts/reanalysis-fidelity_reanalysis-fidelity_2026-09-26T062942.0135020000.json","coverage_diagnostics":"/output/coverage_diagnostics.json","boundary_route_evidence":"/output/blocker_ledger.json","study_contract":"/output/aeris-workspace/.aeris/contracts/reanalysis-invariants.json"},
+  "blockers":["The ratio-shaped fields are schema placeholders only: the scientifically valid effects are native additive slopes; no exponentiation was performed.","Original-period county subtype outcome panel and article covariates were not recovered through usable public routes."]
+}

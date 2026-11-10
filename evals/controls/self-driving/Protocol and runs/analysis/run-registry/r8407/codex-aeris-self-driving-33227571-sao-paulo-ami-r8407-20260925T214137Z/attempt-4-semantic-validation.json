@@ -1,0 +1,10 @@
+{
+  "valid": false,
+  "errors": [
+    "article-named exposure source was declared inapplicable in the recovery record",
+    "article-named exposure interface was not deeply inspected",
+    "fewer than three article-named exposure recovery routes attempted",
+    "article-named exposure public client was not inspected"
+  ],
+  "warnings": []
+}

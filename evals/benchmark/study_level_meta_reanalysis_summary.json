@@ -1,0 +1,12 @@
+{
+  "n_studies": 8,
+  "pearson_r": 0.8339865811232745,
+  "pearson_r_95_ci_fisher": [
+    0.31361588233249044,
+    0.9691206905241285
+  ],
+  "pearson_r_p_value": 0.010061591049186771,
+  "median_absolute_log_effect_error": 0.03973764199919365,
+  "mean_absolute_log_effect_error": 0.07784352693969826,
+  "within_10_percent": 6
+}

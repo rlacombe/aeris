@@ -1,0 +1,15 @@
+{
+  "outcome": {
+    "provider": "Unicamp REDU Dataverse Climaterna",
+    "catalog": "https://redu.unicamp.br/api/datasets/:persistentId?persistentId=doi:10.25824/redu/ZE4IJM",
+    "file_id": 17721,
+    "member": "health/sim_2019.parquet",
+    "transport": "HTTP byte range 993765226-1044639251",
+    "sha256_file": "/output/recovery/review2/sim_2019.parquet.sha256"
+  },
+  "exposure": {
+    "provider": "CETESB archive retained in Climaterna public pollution archive",
+    "file": "/output/recovery/cetesb_mp25.parquet",
+    "metric": "Observed hourly MP2.5, aggregated to qualifying station days and then equal-station city daily means"
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "study_id": "PMID_34004167",
+  "status": "completed_blocker",
+  "target": {
+    "outcome": "Daily reported COVID-19 cases and deaths (with fatality rate as secondary outcome)",
+    "pollutant": "NO2, O3, PM2.5, PM10, and SO2",
+    "geography": "Lombardy and Veneto, Italy",
+    "period": "2020-02-21 through 2020-05-19",
+    "effect_scale": "Published comparison: outcome ratio per 1 microgram/m3 increment in STAP or LTAP"
+  },
+  "sources": [
+    {
+      "role": "COVID-19 outcomes",
+      "url": "https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-regioni/dpc-covid19-ita-regioni.csv",
+      "retrieved": true,
+      "sha256": "3438a0a85bdb0bca56a48a2edd0c69f3005d6c1c20c4a2a75bed668a8f01ead7"
+    },
+    {
+      "role": "independent Lombardy exposure candidate",
+      "url": "https://www.arpalombardia.it/media/lo4mdame/013_aria_qa_dati_2020.xls",
+      "retrieved": true,
+      "sha256": "b2776a8572dda17e5d44564600c272da0b20cca78ddd48b911b03e251ae3d919"
+    },
+    {
+      "role": "independent Veneto exposure candidate",
+      "url": "https://www.arpa.veneto.it/dati-ambientali/dati-storici/aria/dati-parametro",
+      "retrieved": true,
+      "sha256": "be9423e013de6fd6f2366c48aea63ac06835d3af8a3edd087cb8de2515b8b054"
+    }
+  ],
+  "substitutions": [
+    {
+      "dimension": "outcome",
+      "published": "Italian Ministry of Health daily reports cited by article",
+      "reanalysis": "Italian Civil Protection regional public CSV",
+      "reason": "Public machine-readable regional release; it preserves the target construct but starts on 2020-02-24."
+    },
+    {
+      "dimension": "exposure",
+      "published": "Authors' EEA-derived 2013-2020 STAP/LTAP values",
+      "reanalysis": "No substituted exposure values used",
+      "reason": "Contract prohibits author exposure fields; independent sources did not yield a complete comparable panel."
+    }
+  ],
+  "coverage": {
+    "eligible_units": 2,
+    "included_units": 2,
+    "eligible_times": 89,
+    "included_times": 86,
+    "notes": "Outcomes exist for both regions on 2020-02-24 through 2020-05-19 only. Exposure coverage is zero for the required complete independent STAP/LTAP panel."
+  },
+  "effect": null,
+  "artifacts": {
+    "code": "/output/code/reanalysis.py",
+    "source_manifest": "/output/source_manifest.json",
+    "exposure": "/output/exposure_table.csv",
+    "analysis_panel": "/output/analysis_panel.csv",
+    "model_output": "/output/model_output.txt",
+    "decision_log": "/output/decision_log.md",
+    "blocker_ledger": "/output/blocker_ledger.md",
+    "outcome_sanitization": "/output/outcome_sanitization.json",
+    "fidelity_record": "/output/fidelity_record.json",
+    "run_summary": "/output/run_summary.json"
+  },
+  "blockers": [
+    "No independent public daily STAP and 2013-2020 LTAP source was recovered for every pollutant in both regions.",
+    "The outcome release begins after the paper's LOCK start date, making LOCK identically one and the stated adjusted model non-estimable.",
+    "Three of 89 target dates are absent from the outcome release."
+  ]
+}

@@ -1,0 +1,176 @@
+{
+  "schema_version": 1,
+  "study_id": "33398753-italy-cities",
+  "status": "sensitivity",
+  "fidelity": "bounded",
+  "target": {
+    "outcome": "Cumulative reported COVID-19 cases (three dates)",
+    "pollutant": "PM10",
+    "geography": "Italian provincial-capital cities",
+    "population": "Article sample of 55 cities; bounded probe subset",
+    "period": "2018 exposure; March-April 2020 outcomes",
+    "effect_scale": "outcome ratio per doubling of annual PM10 exceedance days",
+    "exposure_assignment": "nearest public monitor within 100 km",
+    "model": "log-log OLS with log population density",
+    "covariates": [
+      "2019 municipal population density proxy"
+    ],
+    "named_outcome_source": "Italian Civil Protection province-level historical feed",
+    "specification_evidence": [
+      "/study/article.txt Tables 6-7",
+      "/output/aeris-workspace/.aeris/contracts/reanalysis-invariants.json"
+    ]
+  },
+  "sources": [
+    {
+      "role": "outcome",
+      "url": "https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-province/dpc-covid19-ita-province.csv",
+      "route_origin": "agent_discovered",
+      "retrieved": true,
+      "sha256": "d9f39377b0c3b0e8f4ac68b8e57cd9c1e953a4b922574b9438dc62094fb6446f",
+      "evidence_artifact": "/output/raw/dpc_province.csv"
+    },
+    {
+      "role": "exposure",
+      "url": "AERIS/OpenAQ public archive",
+      "route_origin": "agent_discovered",
+      "retrieved": true,
+      "sha256": null,
+      "evidence_artifact": "/output/data/pm10_daily_observations_combined.csv"
+    }
+  ],
+  "substitutions": [
+    {
+      "dimension": "outcome",
+      "change_type": "construct_change",
+      "published": "city infected individuals",
+      "reanalysis": "province-level cumulative cases matched to capital name",
+      "reason": "Public national historical feed is published by province, while article city identities and city-level outcome source are unavailable."
+    },
+    {
+      "dimension": "geography",
+      "change_type": "coverage_subset",
+      "published": "55 randomly selected provincial-capital cities",
+      "reanalysis": "four-city deterministic feasibility subset",
+      "reason": "Article does not identify its sample; one of five exposure probes lacked a usable daily PM10 series."
+    },
+    {
+      "dimension": "covariate",
+      "change_type": "source",
+      "published": "ISTAT 2019 city density",
+      "reanalysis": "explicit municipal-density proxy values in executable code",
+      "reason": "Bounded fit uses retained public-value proxy pending recoverable machine-readable ISTAT route."
+    }
+  ],
+  "coverage": {
+    "eligible_units": 55,
+    "included_units": 4,
+    "eligible_times": 365,
+    "included_times": 1332,
+    "rule": "Bounded feasibility subset; retained cities with usable 2018 PM10 daily records and positive threshold counts; coverage reported, no source-supported completeness threshold.",
+    "notes": "Four of five probe capitals had usable daily data; observed days range 316-343."
+  },
+  "effects": [
+    {
+      "label": "cases_2020_03_17",
+      "primary": true,
+      "estimate": 0.7267035116644707,
+      "ci_low": 1.9862305117427608e-05,
+      "ci_high": 26587.95093234719,
+      "scale": "ratio",
+      "contrast": "doubling of annual PM10 >50 ug/m3 days",
+      "metric": "outcome_ratio",
+      "native_estimate": -0.46056121698311653,
+      "native_ci_low": -15.619607410054964,
+      "native_ci_high": 14.698484976088732,
+      "native_scale": "log outcome per log exposure",
+      "native_contrast": "one-unit increase in log annual exceedance days"
+    },
+    {
+      "label": "cases_2020_04_07",
+      "primary": false,
+      "estimate": 0.8410536744546437,
+      "ci_low": 5.670732705393762e-05,
+      "ci_high": 12474.072047882559,
+      "scale": "ratio",
+      "contrast": "doubling of annual PM10 >50 ug/m3 days",
+      "metric": "outcome_ratio",
+      "native_estimate": -0.24973022140030907,
+      "native_ci_low": -14.106105319138097,
+      "native_ci_high": 13.606644876337478,
+      "native_scale": "log outcome per log exposure",
+      "native_contrast": "one-unit increase in log annual exceedance days"
+    },
+    {
+      "label": "cases_2020_04_27",
+      "primary": false,
+      "estimate": 0.8333283142047269,
+      "ci_low": 3.916886927238349e-05,
+      "ci_high": 17729.285837334945,
+      "scale": "ratio",
+      "contrast": "doubling of annual PM10 >50 ug/m3 days",
+      "metric": "outcome_ratio",
+      "native_estimate": -0.26304309514630164,
+      "native_ci_low": -14.639932993293183,
+      "native_ci_high": 14.11384680300058,
+      "native_scale": "log outcome per log exposure",
+      "native_contrast": "one-unit increase in log annual exceedance days"
+    }
+  ],
+  "analysis_diagnostics": {
+    "observations": 4,
+    "estimated_parameters": 3,
+    "exposure_unique_values": 4,
+    "outcome_unique_values": 12,
+    "joined_rows": 4,
+    "unmatched_outcome_rows": 0,
+    "unmatched_exposure_rows": 0,
+    "contrast_transformation_verified": true,
+    "reported_variants": [
+      "Multivariable log-log OLS for 17 March 2020",
+      "Multivariable log-log OLS for 7 April 2020",
+      "Multivariable log-log OLS for 27 April 2020",
+      "Article-supported pollution-stratified density regressions: not identifiable in four-city bounded slice"
+    ]
+  },
+  "artifacts": {
+    "code": "/output/code/reanalyze.py",
+    "source_manifest": "/output/source_manifest.json",
+    "exposure": "/output/data/exposure_exceedance_counts.csv",
+    "analysis_panel": "/output/data/analysis_panel.csv",
+    "model_output": "/output/model_output.json",
+    "decision_log": "/output/aeris-workspace/.aeris/contracts/agent-contract-amendment-001.json",
+    "research_notebook": "/output/aeris-workspace/.aeris/research-notebook.json",
+    "blocker_ledger": "/output/blocker_ledger.json",
+    "fidelity_record": "/output/fidelity_record.json",
+    "coverage_diagnostics": "/output/coverage_diagnostics.json",
+    "boundary_route_evidence": null,
+    "study_contract": "/output/aeris-workspace/.aeris/contracts/reanalysis-invariants.json"
+  },
+  "blockers": [
+    "Article city identities absent from supplied materials; exact 55-city replication cannot be verified.",
+    "Outcome public source is province-level, not city-level.",
+    "Four-city bounded model has one residual degree of freedom and is not substantively interpretable."
+  ],
+  "stopping_checklist": {
+    "target_specification_complete": true,
+    "complete_article_checked": true,
+    "outcome_routes_attempted": 1,
+    "normal_exposure_source_tested": true,
+    "historical_fallback_applicable": true,
+    "historical_fallback_tested": true,
+    "geographic_batching_applicable": true,
+    "geographic_batching_attempted": true,
+    "fidelity_levels_evaluated": [
+      "matched",
+      "source_substitution",
+      "reduced_coverage",
+      "bounded"
+    ],
+    "pending_requests": 0,
+    "evidence_artifacts": [
+      "/output/source_manifest.json",
+      "/output/coverage_diagnostics.json"
+    ]
+  }
+}

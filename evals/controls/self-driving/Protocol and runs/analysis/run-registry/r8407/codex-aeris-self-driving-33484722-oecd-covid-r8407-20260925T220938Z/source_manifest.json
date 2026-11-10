@@ -1,0 +1,60 @@
+{
+  "covid_source_used": "JHU CSSE archived global time series (WHO live historical route unusable)",
+  "files": [
+    {
+      "path": "/output/data/jhu_confirmed_global.csv",
+      "sha256": "e6234a59eec4359d2577358b5220e1a7e3da74c162913cdb7d882db1413f98c2",
+      "bytes": 1819904
+    },
+    {
+      "path": "/output/data/jhu_deaths_global.csv",
+      "sha256": "4e87757a3e059c45650a1e1856614f8e339ee3c70653c378a7ba6f7b0ee8c72e",
+      "bytes": 1255258
+    },
+    {
+      "path": "/output/data/wb_AG.SRF.TOTL.K2.json",
+      "sha256": "742da113f18e68ec96aca66fb622a6b15a2532c24c73976399be03d2d73d7ea5",
+      "bytes": 3607498
+    },
+    {
+      "path": "/output/data/wb_EN.ATM.PM25.MC.M3.json",
+      "sha256": "f437564441e74f3ee3438e13910a8697ad2358f769af970d3dfbe04dd3afeb35",
+      "bytes": 4586324
+    },
+    {
+      "path": "/output/data/wb_EN.ATM.PM25.MC.ZS.json",
+      "sha256": "d5f126d3b5ac6e668e285f3b118bd29d48783594428b517bddb4e3f64b82b4a3",
+      "bytes": 4882806
+    },
+    {
+      "path": "/output/data/wb_NY.GDP.PCAP.CD.json",
+      "sha256": "5866c23fd1310b2605c59543936d39dc58b988ec617337d4b0de1cebba670621",
+      "bytes": 3874533
+    },
+    {
+      "path": "/output/data/wb_SH.MED.BEDS.ZS.json",
+      "sha256": "876cd0c8d3951fbb5c41255722bd353936dc4810b65f3063ab805c37e3959aa5",
+      "bytes": 3799093
+    },
+    {
+      "path": "/output/data/wb_SH.MED.PHYS.ZS.json",
+      "sha256": "4755e655894a9a4d548b43817e686b65cc2d56746a52c4563dc84c13e3a5f54d",
+      "bytes": 3722586
+    },
+    {
+      "path": "/output/data/wb_SP.POP.65UP.TO.ZS.json",
+      "sha256": "636063df15888077cfa3a12e7ccf75278e07e251947913d13481c022de2dac63",
+      "bytes": 4378769
+    },
+    {
+      "path": "/output/data/wb_SP.POP.TOTL.json",
+      "sha256": "21816454b5ea6e6b7a602aa7e1b10d8d275bf2bb59f38f882477e4d1ed3b09ab",
+      "bytes": 3512353
+    },
+    {
+      "path": "/output/data/who_route_error.txt",
+      "sha256": "abcb7fbd1aab6b5082c74e50485ee8b24e4c869895fdd66c49ec29d0dea9d9f9",
+      "bytes": 29
+    }
+  ]
+}

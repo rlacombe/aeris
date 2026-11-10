@@ -1,0 +1,29 @@
+{
+  "sources": [
+    {
+      "role": "article and methods",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9668087/",
+      "retrieved": true,
+      "sha256": "a42a246573ef4d63dc36cdd87fb76ff75090d5025e0e1c14fc8991d3658964dc"
+    },
+    {
+      "role": "independent air-pollution exposure",
+      "url": "https://air-quality-api.open-meteo.com/v1/air-quality?latitude=-23.1791&longitude=-45.8872&hourly=ozone,nitrogen_dioxide,pm10&timezone=America%2FSao_Paulo&start_date=2020-04-01&end_date=2021-04-30",
+      "retrieved": true,
+      "sha256": "68624e5396ba8c5b5e08ceb71cc5096b9170cf51852140cdd84693a7b95b3459"
+    },
+    {
+      "role": "meteorological covariates",
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-23.1791&longitude=-45.8872&daily=temperature_2m_max,relative_humidity_2m_mean&timezone=America%2FSao_Paulo&start_date=2020-04-01&end_date=2021-04-30",
+      "retrieved": true,
+      "sha256": "2e8de7635b3e2bbb044640a66696c418b093e45af15ac9e4bfe9589c1ce150ec"
+    },
+    {
+      "role": "SIH/SUS outcome microdata (first required monthly object; remaining URLs in decision log)",
+      "url": "https://ftp.datasus.gov.br/dissemin/publicos/SIHSUS/200801_/Dados/RDSP2004.dbc",
+      "retrieved": false,
+      "sha256": null
+    }
+  ],
+  "request_log": "/output/retrieval_log.json"
+}

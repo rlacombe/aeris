@@ -1,0 +1,45 @@
+{
+  "study_id": "PMID-39377000",
+  "status": "completed_blocker",
+  "target": {
+    "outcome": "county ischemic-stroke mortality among adults aged 65 years or older",
+    "pollutant": "annual PM2.5 concentration (ug/m3)",
+    "geography": "U.S. counties and county equivalents, excluding Puerto Rico, American Samoa, Guam, and U.S. Virgin Islands",
+    "period": "2016-2020, as reported by article",
+    "effect_scale": "adjusted linear-regression change in deaths per 100,000 per 1 ug/m3 PM2.5"
+  },
+  "sources": [
+    {"role": "public_health_outcome", "url": "https://data.cdc.gov/api/views/g5fg-bgtw/rows.csv?accessType=DOWNLOAD", "retrieved": true, "sha256": "7a08a1db579bbbcf1f98d253dfeba354267b449ea4c6ec6ae1bea45baa085b8c"},
+    {"role": "independent_pm25_monitor_data_2018", "url": "https://aqs.epa.gov/aqsweb/airdata/annual_conc_by_monitor_2018.zip", "retrieved": true, "sha256": "0a6ab33afcfb48faa66d5554d69b731cf01adbe2ad3fc4f88a05ee6dd825a4b8"},
+    {"role": "independent_pm25_monitor_data_2019", "url": "https://aqs.epa.gov/aqsweb/airdata/annual_conc_by_monitor_2019.zip", "retrieved": true, "sha256": "09808acc29300c80df07b0bced65b6d69d088049b26c2be5c2de297a1b08201f"},
+    {"role": "independent_pm25_monitor_data_2020", "url": "https://aqs.epa.gov/aqsweb/airdata/annual_conc_by_monitor_2020.zip", "retrieved": true, "sha256": "b2c0c6b89dfc125e740cf9f941cf1b05a3ab0d5026db6315720cab45eb7a5a80"}
+  ],
+  "substitutions": [
+    {"dimension": "outcome", "published": "ischemic-stroke mortality, age 65+, 2016-2020", "reanalysis": "CDC public CSV offers all-stroke, age-adjusted age 35+, 2018-2020", "reason": "This public extract cannot reproduce the target outcome; it was retained only as evidence, not used to fit a substitute model."},
+    {"dimension": "exposure", "published": "undisclosed county annual PM2.5 product", "reanalysis": "EPA AQS parameter 88101 county monitor averages, 2018-2020", "reason": "Independent public exposure source required; monitoring covers only a subset of counties."},
+    {"dimension": "covariate", "published": "12-variable adjusted model specified in article", "reanalysis": "not fitted", "reason": "Joint public reconstruction of all stated covariates was not completed because target outcome and coverage already failed."}
+  ],
+  "coverage": {
+    "eligible_units": 3226,
+    "included_units": 612,
+    "eligible_times": 3,
+    "included_times": 3,
+    "notes": "CDC public outcome extract has 3,226 county records. EPA AQS PM2.5 has 647 counties with any observation and 612 with all 2018-2020 observations; 612 is 19.0% of the article's stated 3,142 all-county target. Outcome definition also differs materially."
+  },
+  "effect": null,
+  "artifacts": {
+    "code": "/output/reanalysis.py",
+    "source_manifest": "/output/source_manifest.json",
+    "exposure": "/output/exposure_table.csv",
+    "analysis_panel": "/output/analysis_panel.csv",
+    "model_output": "/output/model_output.txt",
+    "decision_log": "/output/decision_log.md",
+    "outcome_extract": "/output/outcome_public_extract.csv",
+    "coverage_summary": "/output/coverage_summary.json"
+  },
+  "blockers": [
+    "Available public CDC outcome extract is all-stroke age 35+ for 2018-2020, not ischemic stroke age 65+ for 2016-2020.",
+    "Independent EPA AQS monitor PM2.5 covers only 612 counties in all three 2018-2020 years, insufficient to represent the article's national all-county analysis.",
+    "The specified adjusted model cannot be executed without material outcome, coverage, and covariate substitutions."
+  ]
+}

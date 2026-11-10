@@ -1,0 +1,236 @@
+{
+  "schema_version": 3,
+  "study_id": "36383802-sao-jose-covid",
+  "status": "completed_fit",
+  "fidelity": "source_substitution",
+  "target": {
+    "outcome": "Daily COVID-19 hospital admissions among Sao Jose dos Campos residents",
+    "pollutant": "O3 and NO2 (separate single-pollutant lag models)",
+    "geography": "Sao Jose dos Campos, Sao Paulo, Brazil",
+    "population": "Residents admitted for COVID-19",
+    "period": "2020-04-01 through 2021-04-30",
+    "effect_scale": "Rate ratio per 10 ug/m3",
+    "exposure_assignment": "Daily mean of hourly values at municipal representative grid cell, America/Sao_Paulo local day",
+    "model": "Negative-binomial log-link regression",
+    "covariates": [
+      "daily mean temperature",
+      "daily mean relative humidity",
+      "day of week",
+      "linear calendar day"
+    ],
+    "named_outcome_source": "Article: DATASUS SIH-SUS B34.2; reanalysis: official SIVEP-Gripe confirmed-COVID hospital notifications",
+    "specification_evidence": [
+      "/study/article.txt lines 34-36, 73-103, 163-184",
+      "/output/aeris-workspace/.aeris/contracts/agent-study-contract.json"
+    ]
+  },
+  "sources": [
+    {
+      "role": "outcome",
+      "url": "https://s3.sa-east-1.amazonaws.com/ckan.saude.gov.br/SRAG/2020/INFLUD20-23-03-2026.parquet",
+      "route_origin": "agent_discovered",
+      "retrieved": true,
+      "sha256": "371723b91c0e4de1ae4067c8a6ee04887430869fa8d3c561d4b9106fb89e0c0b",
+      "evidence_artifact": "/output/outcome_daily_sivep_proxy.csv"
+    },
+    {
+      "role": "outcome",
+      "url": "https://s3.sa-east-1.amazonaws.com/ckan.saude.gov.br/SRAG/2021/INFLUD21-23-03-2026.parquet",
+      "route_origin": "agent_discovered",
+      "retrieved": true,
+      "sha256": "ecad01062f23715551a1e5e82fa1d9b28f0ea25e2c486a49518a15bf489ee790",
+      "evidence_artifact": "/output/outcome_daily_sivep_proxy.csv"
+    },
+    {
+      "role": "exposure",
+      "url": "https://opendap.nccs.nasa.gov/dods/gmao/geos-cf/assim/aqc_tavg_1hr_g1440x721_v1",
+      "route_origin": "agent_discovered",
+      "retrieved": true,
+      "sha256": "cb3b4ab112a3a2564fc4cf23fc7c16cd76bc17348c686be9ff86ab9ccd9de2ba",
+      "evidence_artifact": "/output/data/geoscf_provenance.json"
+    },
+    {
+      "role": "weather",
+      "url": "https://archive-api.open-meteo.com/v1/archive",
+      "route_origin": "agent_discovered",
+      "retrieved": true,
+      "sha256": "b24f4fdc77a88ec730706c315d52e28355ad503bd716608fb22a75bed9b3cf24",
+      "evidence_artifact": "/output/data/openmeteo_weather.json"
+    },
+    {
+      "role": "exposure",
+      "url": "https://qualar.cetesb.sp.gov.br/qualar/home.do",
+      "route_origin": "article_named",
+      "retrieved": false,
+      "sha256": null,
+      "evidence_artifact": "/output/qualar_home.html"
+    },
+    {
+      "role": "outcome",
+      "url": "https://ftp.datasus.gov.br/dissemin/publicos/SIHSUS/",
+      "route_origin": "article_named",
+      "retrieved": false,
+      "sha256": null,
+      "evidence_artifact": "/output/datasus_ftp_curl.log"
+    }
+  ],
+  "substitutions": [
+    {
+      "dimension": "outcome",
+      "change_type": "source",
+      "published": "SIH-SUS B34.2 admissions",
+      "reanalysis": "SIVEP-Gripe confirmed-COVID hospital notifications",
+      "reason": "SIH-SUS public transport timed out in retained attempt."
+    },
+    {
+      "dimension": "exposure",
+      "change_type": "source",
+      "published": "CETESB daily measurements",
+      "reanalysis": "NASA GEOS-CF hourly gridded model at nearest grid cell",
+      "reason": "CETESB route required authentication; retained Open-Meteo pollutant payload was null."
+    }
+  ],
+  "coverage": {
+    "eligible_units": 1,
+    "included_units": 1,
+    "eligible_times": 395,
+    "included_times": 395,
+    "rule": "Retain only GEOS-CF local calendar days with 24 O3 and NO2 records; then apply the specified lag and complete-case covariate requirements.",
+    "notes": "All target-period local dates have complete hourly GEOS-CF coverage after retrieval of the three UTC edge hours needed for the final local date. SIVEP-Gripe notifications are a registry/source substitution for SIH-SUS B34.2 admissions."
+  },
+  "artifacts": {
+    "code": "analyze_geoscf.py",
+    "source_manifest": "source_manifest.json",
+    "exposure": "exposure_daily_geoscf.csv",
+    "analysis_panel": "analysis_panel.csv",
+    "model_output": "native_model_output.txt",
+    "decision_log": "aeris_analysis_artifacts.json",
+    "research_notebook": "aeris-workspace/.aeris/research-notebook.json",
+    "blocker_ledger": "source_manifest.json",
+    "fidelity_record": "aeris_analysis_artifacts.json",
+    "coverage_diagnostics": "coverage_diagnostics.json",
+    "boundary_route_evidence": "qualar_home.html",
+    "study_contract": "aeris-workspace/.aeris/contracts/agent-study-contract.json"
+  },
+  "blockers": [
+    "Article-named CETESB historical export was not publicly usable through tested route; GEOS-CF used as source substitute.",
+    "Article-named SIH-SUS transport timed out; SIVEP-Gripe used as source substitute."
+  ],
+  "stopping_checklist": {
+    "target_specification_complete": true,
+    "complete_article_checked": true,
+    "outcome_routes_attempted": 3,
+    "normal_exposure_source_tested": true,
+    "historical_fallback_applicable": false,
+    "historical_fallback_tested": false,
+    "geographic_batching_applicable": false,
+    "geographic_batching_attempted": false,
+    "fidelity_levels_evaluated": [
+      "source_substitution"
+    ],
+    "pending_requests": 0,
+    "evidence_artifacts": [
+      "/output/data/geoscf_provenance.json",
+      "/output/data/openmeteo_weather.json",
+      "/output/datasus_ftp_curl.log",
+      "/output/outcome_daily_sivep_proxy.csv",
+      "/output/qualar_home.html",
+      "aeris-workspace/.aeris/contracts/agent-study-contract.json",
+      "aeris-workspace/.aeris/research-notebook.json",
+      "aeris_analysis_artifacts.json",
+      "analysis_panel.csv",
+      "analyze_geoscf.py",
+      "coverage_diagnostics.json",
+      "exposure_daily_geoscf.csv",
+      "native_model_output.txt",
+      "qualar_home.html",
+      "source_manifest.json"
+    ]
+  },
+  "design_provenance": {
+    "contract_id": "36383802-sao-jose-covid-agent-authored",
+    "contract_sha256": "d085fd7d62928d17280adc9e52703e6971c436676178c79d9b3cdbb446ec093c",
+    "contract_author": "agent",
+    "geographic_representation": "administrative_area",
+    "assignment_method": "nearest_monitor_to_unit_reference",
+    "representative_location_rule": "Article-stated Sao Jose dos Campos coordinate, decimalized to latitude -23.1797, longitude -45.8872.",
+    "maximum_monitor_distance_km": 200.0,
+    "monitor_distance_evidence": "Article calls the CETESB data city-level but does not identify station; source-substituted coordinate model has no monitor distance. Representative coordinate is article's stated municipal location.",
+    "source_strategy": "provider_api",
+    "exposure_metric": "Daily arithmetic mean of hourly modeled/retrieved O3 and NO2 in ug/m3 at the city representative coordinate.",
+    "coverage_policy": {
+      "mode": "report_only",
+      "minimum_percent": null,
+      "threshold_source": "none",
+      "evidence": "The article gives no numeric completeness exclusion threshold; coverage will be reported, and analytic rows require nonmissing outcome, exposure and weather."
+    },
+    "decision_rationale": "The article defines an ecological municipality-level daily comparison. The retained single coordinate represents the city monitor/model location rather than individuals. No article-supported coverage threshold exists, so missingness is reported. The initial regulator portal probe showed authentication; the design therefore permits independently recovered public gridded data while preserving pollutant, unit, period, lags, contrast, and model family.",
+    "evidence_basis": [
+      "/study/article.txt",
+      "/study/article.xml",
+      "/output/qualar_home.html",
+      "/run/contract/study-target.json"
+    ],
+    "locked_before_exposure": true
+  },
+  "effects": [
+    {
+      "label": "O3 lag 2",
+      "primary": true,
+      "estimate": 1.0263742977173338,
+      "ci_low": 0.9953033539791288,
+      "ci_high": 1.058415200554866,
+      "scale": "ratio",
+      "contrast": "10 ug/m3 increase",
+      "metric": "RR",
+      "native_estimate": 0.0026032492810638,
+      "native_ci_low": -0.0004707710161001885,
+      "native_ci_high": 0.005677269578227789,
+      "native_scale": "negative-binomial log rate coefficient per ug/m3",
+      "native_contrast": "1 ug/m3 increase"
+    },
+    {
+      "label": "NO2 lag 3",
+      "primary": true,
+      "estimate": 1.5249606083355989,
+      "ci_low": 1.2130071598296124,
+      "ci_high": 1.9171402560409747,
+      "scale": "ratio",
+      "contrast": "10 ug/m3 increase",
+      "metric": "RR",
+      "native_estimate": 0.0421968579126151,
+      "native_ci_low": 0.019310253071928733,
+      "native_ci_high": 0.06508346275330146,
+      "native_scale": "negative-binomial log rate coefficient per ug/m3",
+      "native_contrast": "1 ug/m3 increase"
+    }
+  ],
+  "analysis_diagnostics": {
+    "observations": 392,
+    "estimated_parameters": 12,
+    "exposure_unique_values": 392,
+    "outcome_unique_values": 36,
+    "joined_rows": 395,
+    "unmatched_outcome_rows": 0,
+    "unmatched_exposure_rows": 0,
+    "contrast_transformation_verified": true,
+    "reported_variants": [
+      "o3 lag 0",
+      "o3 lag 1",
+      "o3 lag 2",
+      "o3 lag 3",
+      "o3 lag 4",
+      "o3 lag 5",
+      "o3 lag 6",
+      "o3 lag 7",
+      "no2 lag 0",
+      "no2 lag 1",
+      "no2 lag 2",
+      "no2 lag 3",
+      "no2 lag 4",
+      "no2 lag 5",
+      "no2 lag 6",
+      "no2 lag 7"
+    ]
+  }
+}

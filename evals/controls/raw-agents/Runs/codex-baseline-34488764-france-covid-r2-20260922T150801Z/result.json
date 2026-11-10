@@ -1,0 +1,38 @@
+{
+  "study_id": "PMID:34488764",
+  "status": "completed_blocker",
+  "target": {
+    "outcome": "Cumulative COVID-19 deaths in hospital (all sexes), department level",
+    "pollutant": "Long-term PM2.5",
+    "geography": "96 metropolitan French departments (NUTS-3)",
+    "period": "2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-09-01, 2020-10-01, 2020-11-01, 2020-12-01, and 2020-12-31",
+    "effect_scale": "Mortality rate ratio; native negative-binomial log rate-ratio coefficient, exponentiated to a positive rate ratio"
+  },
+  "sources": [
+    {"role": "health outcome", "url": "https://static.data.gouv.fr/resources/donnees-hospitalieres-relatives-a-lepidemie-de-covid-19/20230331-180159/covid-hospit-2023-03-31-18h01.csv", "retrieved": true, "sha256": "79945ede9e319d5d7289cdcbd4a686ff0e2d06ac9b4232fdde139b0b9e5cfc82"},
+    {"role": "independent PM2.5 monitor exposure", "url": "https://air.discomap.eea.europa.eu/arcgis/rest/services/AirQuality/AQ_Statistics_WM/MapServer/0/query", "retrieved": true, "sha256": "4fde99e317af816c2c790c72b58b23ad27a838376b2808c97441f23b18156fc7"}
+  ],
+  "substitutions": [
+    {"dimension": "exposure", "published": "1999-2016 NASA/SEDAC GOME 1-km PM2.5 averaged by department", "reanalysis": "EEA validated 2016 French PM2.5 annual-mean monitor query", "reason": "Independent public source required; it was used only for coverage assessment and not as a scientific replacement because it covers two stations rather than 96 department means."},
+    {"dimension": "other", "published": "Author says full dataset publicly accessible", "reanalysis": "No author table used", "reason": "No usable author-designated table URL or table was supplied; avoiding its use also avoids author-derived analysis fields."}
+  ],
+  "coverage": {"eligible_units": 96, "included_units": 0, "eligible_times": 9, "included_times": 0, "notes": "Outcome coverage was 96 departments at all nine dates; valid independent exposure coverage was zero departments because the EEA query returned two monitor points, not department exposure assignments."},
+  "effect": null,
+  "artifacts": {
+    "code": "/output/reanalyse.py",
+    "source_manifest": "/output/source_manifest.json",
+    "exposure": "/output/exposure_eea_pm25_2016_stations.csv",
+    "analysis_panel": "/output/analysis_panel.csv",
+    "model_output": "/output/model_output.json",
+    "decision_log": "/output/decision_log.md",
+    "fidelity_record": "/output/fidelity_record.json",
+    "blocker_ledger": "/output/blocker_ledger.md",
+    "sanitization": "/output/sanitization.json",
+    "request_log": "/output/request_log.json"
+  },
+  "blockers": [
+    "Independent PM2.5 source returned two 2016 station observations, not department-level 1999-2016 exposure for 96 departments.",
+    "Required adjusted covariates and population offset were not reconstructable from a usable public author-designated table.",
+    "The article does not state the negative-binomial offset; no unannounced model specification was chosen."
+  ]
+}

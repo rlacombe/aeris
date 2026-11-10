@@ -1,0 +1,7 @@
+{
+  "executed": false,
+  "reason": "No independent daily municipality PM2.5 table covering all 5,570 municipalities and 2000-01-01 through 2019-12-31 was retrieved. A complete matched exposure panel is required; partial sources were not substituted.",
+  "native_coefficient": null,
+  "native_ci": null,
+  "contrasts": []
+}

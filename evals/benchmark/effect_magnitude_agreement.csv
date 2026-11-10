@@ -1,0 +1,16 @@
+study,effect_scale,published_ratio,aeris_ratio,reconstructed_to_published_ratio,absolute_log_error,within_5_percent,within_10_percent,same_point_direction,note,included_primary_meta
+UK COVID-19,OR per 10 ug/m3 PM2.5,1.13,1.4576,1.2899115044247789,0.2545736147993077,False,False,True,,True
+Italy COVID-19,OR per doubling PM10 exceedance days,1.7569,1.7408,0.9908361318230975,0.00920611470938504,True,True,True,,True
+France COVID-19,rate ratio per 1 ug/m3 PM2.5,1.244,1.048509,0.8428528938906752,0.1709628393030027,False,False,True,,True
+OECD COVID-19,"rate ratio per 1 ug/m3 PM2.5, day 60 cases",1.0202013,0.9981993,0.9784336679437675,0.0218022839749725,True,True,False,,True
+OECD COVID-19,"rate ratio per 1 ug/m3 PM2.5, day 60 deaths",1.0304545,1.0156307,0.9856143090257745,0.014490168222052088,True,True,True,,True
+OECD COVID-19,"rate ratio per 1 ug/m3 PM2.5, day 80 cases",1.0202013,0.970943,0.9517170777963132,0.049487475548382114,False,True,False,,True
+OECD COVID-19,"rate ratio per 1 ug/m3 PM2.5, day 80 deaths",1.0090406,0.9705941,0.9618979652553128,0.03884689916491169,True,True,False,,True
+Israel COVID-19,rate ratio per 1 SD pollutant,1.0898063283051287,0.9984013620850758,0.9161273302916066,0.08759991710000009,False,True,False,No usable spatially varying PM2.5 exposure panel for the study dates.,False
+Northern Italy COVID-19,"rate ratio per 1 ug/m3 NO2, incidence",1.0,1.05056,1.05056,0.04932335533109074,False,True,,,True
+Northern Italy COVID-19,"rate ratio per 1 ug/m3 NO2, mortality",1.0,0.98813,0.98813,0.01194101094265129,True,True,,,True
+Sao Jose COVID admissions,"rate ratio per 10 ug/m3 O3, lag 2",1.061,1.003,0.945334590009425,0.05621635065204769,False,True,True,,True
+Sao Jose COVID admissions,"rate ratio per 10 ug/m3 NO2, lag 3",1.125,1.034,0.9191111111111111,0.08434825957014608,False,True,True,,True
+Sao Paulo AMI admissions,"rate ratio, high-pollution cluster",1.09,1.0688491129,0.9805955164220183,0.019595222055675054,True,True,True,,True
+Brazil cancer mortality,OR per 10 ug/m3 PM2.5,1.01,1.06,1.0495049504950495,0.04831857727080773,True,True,True,,True
+US stroke mortality,rate ratio per 10 ug/m3 PM2.5,1.1317073170731706,1.110793424679586,0.9815200519798067,0.018652835540731615,True,True,True,,True

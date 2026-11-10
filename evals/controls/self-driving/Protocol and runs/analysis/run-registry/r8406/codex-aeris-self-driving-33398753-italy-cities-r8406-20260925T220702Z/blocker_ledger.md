@@ -1,0 +1,1 @@
+No terminal blocker. Limits: 13 city-reference points had no retrieved PM10 series; 10 observed cities had zero PM10>50 days and cannot enter the specified log exposure; monitor concentration is not personal or population-weighted exposure.

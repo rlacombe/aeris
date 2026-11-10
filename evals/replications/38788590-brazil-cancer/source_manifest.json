@@ -1,0 +1,38 @@
+{
+  "accessed_utc": "2026-08-15",
+  "study": {
+    "pmid": "38788590",
+    "doi": "10.1016/j.jhazmat.2024.134606",
+    "title": "Cancer mortality risk from short-term PM2.5 exposure and temporal variations in Brazil",
+    "article_url": "https://www.sciencedirect.com/science/article/pii/S0304389424011853",
+    "full_text_url": "https://www.researchgate.net/publication/380561503_Cancer_Mortality_Risk_from_Short-Term_PM25_Exposure_and_Temporal_Variations_in_Brazil"
+  },
+  "outcomes": {
+    "name": "Sistema de Informacoes sobre Mortalidade (SIM)",
+    "official_catalog_url": "https://www.gov.br/saude/pt-br/acesso-a-informacao/sic/dados-em-transparencia-ativa/svsa/mortalidade",
+    "official_transfer_url": "https://ftp.datasus.gov.br/dissemin/publicos/SIM/CID10/DORES/DOSP2019.dbc",
+    "mirror_url": "https://datasus-ftp-mirror.nyc3.digitaloceanspaces.com/SIM/CID10/DORES/DOSP2019.dbc",
+    "file": "DOSP2019.dbc",
+    "scope": "2019 deaths of residents of Sao Paulo state; the analysis filters residential municipality 355030 (Sao Paulo)."
+  },
+  "boundary": {
+    "provider": "Instituto Brasileiro de Geografia e Estatistica",
+    "url": "https://servicodados.ibge.gov.br/api/v3/malhas/municipios/3550308?formato=application/vnd.geo+json&qualidade=minima",
+    "scope": "Sao Paulo municipality, IBGE code 3550308."
+  },
+  "weather": {
+    "provider": "Open-Meteo historical weather API",
+    "url_template": "https://archive-api.open-meteo.com/v1/archive?latitude=-23.5505&longitude=-46.6333&start_date=2019-01-01&end_date=2019-12-31&daily=temperature_2m_mean,relative_humidity_2m_mean&timezone=America%2FSao_Paulo",
+    "scope": "No-auth daily municipality-centroid weather substitute. The published study used population-weighted ERA5 grid cells, not this API."
+  },
+  "exposure": {
+    "provider": "OpenAQ v3 through AERIS",
+    "url": "https://api.openaq.org/v3/",
+    "estimand": "Unweighted mean of daily monitor means within the supplied municipality polygon. This is a source substitution for the published population-weighted 0.25-degree all-source PM2.5 surface.",
+    "historical_recovery": {
+      "provider": "CETESB public historical station form",
+      "url": "https://sistemasinter.cetesb.sp.gov.br/Ar/php/ar_dados_horarios_resultado.php",
+      "scope": "Official 2019 PM2.5 daily values for AERIS-selected station 31, Cid.Universitaria-USP-Ipen. Used only after the recorded AERIS/OpenAQ boundary run returned NO_OBSERVATIONS."
+    }
+  }
+}

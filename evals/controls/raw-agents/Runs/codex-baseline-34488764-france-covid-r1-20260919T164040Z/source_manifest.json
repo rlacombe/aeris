@@ -1,0 +1,42 @@
+{
+  "study_id": "PMID:34488764",
+  "retrieval_date_utc": "2026-09-19",
+  "sources": [
+    {
+      "role": "supplied article",
+      "url": "local:/study/article.pdf",
+      "retrieved": true,
+      "sha256": "9e88f0e848fc1bb744b7841ea84837165ddc79a63f07aeefe42f30fddd2615f3",
+      "local_file": "/study/article.pdf"
+    },
+    {
+      "role": "official outcome dataset metadata",
+      "url": "https://www.data.gouv.fr/api/1/datasets/donnees-hospitalieres-relatives-a-lepidemie-de-covid-19/",
+      "retrieved": true,
+      "sha256": "3a29d78717ce387ffb04f98fb0c539684f96e4e071937da1b77ee883d23d7bd7",
+      "local_file": "/output/data_gouv_dataset.json"
+    },
+    {
+      "role": "official cumulative departmental hospital outcome data",
+      "url": "https://static.data.gouv.fr/resources/donnees-hospitalieres-relatives-a-lepidemie-de-covid-19/20230331-180159/covid-hospit-2023-03-31-18h01.csv",
+      "retrieved": true,
+      "sha256": "79945ede9e319d5d7289cdcbd4a686ff0e2d06ac9b4232fdde139b0b9e5cfc82",
+      "local_file": "/output/covid_hospit.csv"
+    },
+    {
+      "role": "independent PM2.5 catalogue and methodology",
+      "url": "https://sites.wustl.edu/acag/surface-pm2-5/",
+      "retrieved": true,
+      "sha256": "41c0182b448b94327b201ef34036489cd37d22f7c8eb327a473bd3a0b81213fc",
+      "local_file": "/output/acag_page.html"
+    },
+    {
+      "role": "independent PM2.5 Europe-grid delivery endpoint",
+      "url": "https://wustl.box.com/v/ACAG-V5GL0502-GWRPM25c0p05",
+      "retrieved": false,
+      "sha256": "320054fc135b1910035decf29709dcc67b58f5725650ae4eaa7fdea472033404",
+      "local_file": "/output/vpage.html",
+      "note": "Catalog shared-folder metadata retrieved, but requested nested Europe raster payload was not delivered."
+    }
+  ]
+}

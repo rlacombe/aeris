@@ -1,0 +1,37 @@
+[
+  {
+    "role": "published_article",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9668087/fullTextXML",
+    "retrieved": true,
+    "sha256": "a42a246573ef4d63dc36cdd87fb76ff75090d5025e0e1c14fc8991d3658964dc",
+    "local_source": "/study/article.xml"
+  },
+  {
+    "role": "health_outcome_microdata",
+    "url": "https://huggingface.co/datasets/SidneyBissoli/sih-rd/raw/main/README.md",
+    "retrieved": true,
+    "sha256": null,
+    "details": "Public SIH-RD re-release of official DATASUS files. The documented partition path healthbr-data/sih/rd/ano=YYYY/mes=MM/uf=SP/ was queried for 2020-04 through 2021-04. Only MUNIC_RES, DIAG_PRINC, DT_INTER were read; all other source fields were dropped before inspection."
+  },
+  {
+    "role": "independent_air_pollution_exposure",
+    "url": "https://air-quality-api.open-meteo.com/v1/air-quality?latitude=-23.1826&longitude=-45.8872&hourly=ozone,nitrogen_dioxide,pm10,temperature_2m,relative_humidity_2m&timezone=America%2FSao_Paulo&start_date=2020-03-25&end_date=2021-04-30",
+    "retrieved": true,
+    "sha256": "9566e3312e72b8bc8a7f31f4cd93fd5793ccf64a37ac0bceed94223cabbc0894",
+    "details": "HTTP 200, 424971 bytes. All 402 daily pollutant aggregates were missing; preserved as raw/openmeteo_hourly.json."
+  },
+  {
+    "role": "weather_covariates",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-23.1826&longitude=-45.8872&hourly=temperature_2m,relative_humidity_2m&timezone=America%2FSao_Paulo&start_date=2020-03-25&end_date=2021-04-30",
+    "retrieved": true,
+    "sha256": "0c5c97682cefad68281e9405ac7d9fc6696e1da4c47199c25d9d9ca1331abf9a",
+    "details": "HTTP 200, 260857 bytes. Used only to demonstrate available covariate coverage; no model was fitted."
+  },
+  {
+    "role": "failed_original_outcome_endpoint",
+    "url": "https://ftp.datasus.gov.br/dissemin/publicos/SIHSUS/200801_/Dados/RDSP/RDSP2004.dbc",
+    "retrieved": false,
+    "sha256": null,
+    "details": "Direct request timed out after 30 seconds. A public re-release of the same SIH-RD construct was then used, as allowed by the retry policy."
+  }
+]

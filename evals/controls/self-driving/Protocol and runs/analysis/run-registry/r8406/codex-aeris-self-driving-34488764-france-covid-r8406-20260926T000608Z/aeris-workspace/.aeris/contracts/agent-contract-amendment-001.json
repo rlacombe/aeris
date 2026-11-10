@@ -1,0 +1,121 @@
+{
+  "schema_version": "aeris-study-contract/v3",
+  "profile": "reanalysis",
+  "contract_id": "34488764-france-covid-reanalysis-invariants",
+  "approved": true,
+  "author": "agent",
+  "objective": "Among residents of the 96 mainland French departments, what was the adjusted association between department-level long-term mean PM2.5 (1999\u20132016) and cumulative in-hospital COVID-19 death counts/rates on 1 May 2020?",
+  "allowed_tools": [
+    "estimate_boundary_exposure",
+    "estimate_boundary_exposure_batch",
+    "estimate_exposure"
+  ],
+  "pollutants": [
+    "pm25"
+  ],
+  "date_window": {
+    "start": "1999-01-01",
+    "end": "2020-05-01"
+  },
+  "temporal_resolutions": [
+    "daily",
+    "hourly"
+  ],
+  "allowed_fidelity_levels": [
+    "matched",
+    "source_substitution",
+    "reduced_coverage",
+    "reduced_adjustment",
+    "bounded",
+    "supported_sensitivity"
+  ],
+  "resource_limits": {
+    "wall_clock_hours": 8,
+    "maximum_infrastructure_restarts": 1,
+    "maximum_single_download_gib": 10,
+    "maximum_boundary_units": 6000,
+    "maximum_boundary_units_per_call": 25,
+    "maximum_static_units_per_call": 2
+  },
+  "scientific_invariants": {
+    "research_question": "Among residents of the 96 mainland French departments, what was the adjusted association between department-level long-term mean PM2.5 (1999\u20132016) and cumulative in-hospital COVID-19 death counts/rates on 1 May 2020?",
+    "target_outcome_and_population": "Cumulative in-hospital COVID-19 deaths through 2020-05-01 among residents of 96 mainland French departments; count model with department population offset.",
+    "pollutants": [
+      "pm25"
+    ],
+    "principal_contrast": "Rate ratio per 1 \u00b5g/m\u00b3 increase in department-level long-term mean PM2.5",
+    "principal_variants": [
+      "Adjusted continuous-PM2.5 negative-binomial model at 1 May 2020 with population offset",
+      "Article-reported adjusted PM2.5-quartile model (Q2/Q3/Q4 vs Q1) at 1 May 2020"
+    ],
+    "broad_geography": "Mainland France, department (NUTS 3) level",
+    "target_geographic_units": 96,
+    "target_geographic_unit_type": "department (NUTS 3)",
+    "period": {
+      "start": "1999-01-01",
+      "end": "2020-05-01"
+    },
+    "prohibited_evidence": [
+      "Published PM2.5 exposure values",
+      "Published effect estimates",
+      "Prior reanalysis code, source manifests, or results"
+    ]
+  },
+  "article_evidence": [
+    {
+      "artifact": "/output/evidence/article.txt",
+      "finding": "Methods report 96 mainland departments, 1999\u20132016 GOME/NASA SEDAC 1-km PM2.5 aggregated by department, cumulative hospital COVID deaths, and fully adjusted negative-binomial models."
+    },
+    {
+      "artifact": "/output/evidence/supplement.docx",
+      "finding": "Supplementary material is retained for inspection of article-linked tabular supporting information; any PM2.5 fields will be excluded from fitted data."
+    }
+  ],
+  "article_evidence_map": {
+    "model": "article.txt Statistical analysis and Table 3: PM2.5 and temperature together; beds, medical density, age 60+, male share, unemployment, poverty, urban population, density and diabetes.",
+    "discrepancy": "The study target omitted some article-listed covariates; article controls the full adjustment set."
+  },
+  "execution_design": {
+    "geographic_representation": "96 geoBoundaries France ADM2 department polygons (official IGN source stated in GeoBoundaries metadata); all mainland departments.",
+    "assignment_method": "Unweighted zonal mean over every valid 0.01-degree PM2.5 grid cell whose center falls in each department polygon; no monitor assignment.",
+    "source_strategy": "NASA Earthdata ImageServer public multidimensional Global Annual PM2.5 Grids (V4.GL.03), explicitly selecting each 1999\u20132016 annual slice; WorldClim v2.1 BIO1 used for temperature adjustment.",
+    "exposure_metric": "Arithmetic mean of 18 department annual PM2.5 zonal means, 1999\u20132016, \u00b5g/m\u00b3.",
+    "daily_aggregation": "Not applicable: annual satellite-derived grids.",
+    "analysis_aggregation": "Department-level 18-year arithmetic mean; 18/18 annual raster slices observed for every department.",
+    "coverage_policy": "Report-only: retain departments with all 18 valid annual PM2.5 means. WorldClim 10-arcminute cell containing the centroid is used only for Paris because its polygon contains no 10-arcminute cell center.",
+    "intended_use": "Continuous PM2.5 and PM2.5 quartile terms in article-aligned negative-binomial mortality-count models with a log population offset."
+  },
+  "amendments": [
+    {
+      "sequence": 1,
+      "changed_dimensions": {
+        "geographic_representation": "96 geoBoundaries France ADM2 department polygons (official IGN source stated in GeoBoundaries metadata); all mainland departments.",
+        "assignment_method": "Unweighted zonal mean over every valid 0.01-degree PM2.5 grid cell whose center falls in each department polygon; no monitor assignment.",
+        "source_strategy": "NASA Earthdata ImageServer public multidimensional Global Annual PM2.5 Grids (V4.GL.03), explicitly selecting each 1999\u20132016 annual slice; WorldClim v2.1 BIO1 used for temperature adjustment.",
+        "exposure_metric": "Arithmetic mean of 18 department annual PM2.5 zonal means, 1999\u20132016, \u00b5g/m\u00b3.",
+        "daily_aggregation": "Not applicable: annual satellite-derived grids.",
+        "analysis_aggregation": "Department-level 18-year arithmetic mean; 18/18 annual raster slices observed for every department.",
+        "coverage_policy": "Report-only: retain departments with all 18 valid annual PM2.5 means. WorldClim 10-arcminute cell containing the centroid is used only for Paris because its polygon contains no 10-arcminute cell center.",
+        "intended_use": "Continuous PM2.5 and PM2.5 quartile terms in article-aligned negative-binomial mortality-count models with a log population offset."
+      },
+      "evidence": [
+        {
+          "artifact": "/output/retrieval/nasa_imageserver.json",
+          "finding": "NASA ImageServer metadata identifies the public global annual PM2.5 raster service, WGS84, 0.01-degree pixels, annual temporal dimension."
+        },
+        {
+          "artifact": "/output/retrieval/department_environment.csv",
+          "finding": "Independent zonal processing yielded 18/18 annual PM2.5 values for each of 96 departments; output includes mean/range and temperature coverage."
+        },
+        {
+          "artifact": "/output/retrieval/geoboundaries.json",
+          "finding": "GeoBoundaries metadata reports France ADM2/Department, official IGN source, and 96 units."
+        }
+      ],
+      "scientific_justification": "This directly implements the article's GOME/NASA SEDAC 1999\u20132016 department-level spatial mean construct using a maintained public NASA Earthdata distribution. It does not use author-published PM2.5 values. The covariate temperature source is a WorldClim climatology rather than the article-stated 2001\u20132012 aggregation, so that covariate substitution is declared separately.",
+      "fidelity_impact": "source_substitution",
+      "agreement_independent": true
+    }
+  ],
+  "parent_contract_sha256": "eaf64e372a7210a3cb33d94649bf31bf7e977eeec6fd063788b4dc83458fe6be"
+}

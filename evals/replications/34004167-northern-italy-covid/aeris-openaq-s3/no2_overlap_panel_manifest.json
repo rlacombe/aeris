@@ -1,0 +1,17 @@
+{
+  "study": "PMID 34004167",
+  "window": {
+    "start_date": "2020-05-06",
+    "end_date": "2020-05-19"
+  },
+  "rows": 28,
+  "regions": {
+    "Lombardia": 14,
+    "Veneto": 14
+  },
+  "exposure": "AERIS/OpenAQ monitor-weighted boundary mean of daily NO2 means",
+  "outcomes": {
+    "daily_cases": "Italian Civil Protection nuovi_positivi",
+    "daily_deaths": "first difference of Italian Civil Protection deceduti"
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "retrieved_at_utc": "2026-08-15T16:36:34.074641+00:00",
+  "provider": "Instituto de Energia e Meio Ambiente (IEMA)",
+  "landing_page": "https://energiaeambiente.org.br/qualidadedoar/",
+  "records": [
+    {
+      "uf": "BA",
+      "folder_url": "https://drive.google.com/drive/folders/1XxgIbz4Nl4ZjvOGhTq_03O5PVIidROLj",
+      "file_id": "1rnXlwp3hXshB89TOo8MkGM0YJtqBI01L",
+      "file_name": "BA.rar",
+      "download_url": "https://drive.usercontent.google.com/download?id=1rnXlwp3hXshB89TOo8MkGM0YJtqBI01L&export=download&confirm=t",
+      "path": "ARTIFACT_INPUT/BA_BA.rar",
+      "bytes": 3704615,
+      "sha256": "6be858573cda4d738c3458749bb163fe5f48793a88d7666adcaf4184a8150bb8"
+    },
+    {
+      "uf": "CE",
+      "folder_url": "https://drive.google.com/drive/folders/1tIw3Gfu-pt2B7bwZZhu8C2aK8PXFYayR",
+      "file_id": "19VO1bnsLCnVlUK25Kuq4UAPRgsOok3XD",
+      "file_name": "CE.rar",
+      "download_url": "https://drive.usercontent.google.com/download?id=19VO1bnsLCnVlUK25Kuq4UAPRgsOok3XD&export=download&confirm=t",
+      "path": "ARTIFACT_INPUT/CE_CE.rar",
+      "bytes": 332867,
+      "sha256": "9436155f834d89f09e29a015afaf2092f6b64d8aea1a349964332011c6b89d23"
+    },
+    {
+      "uf": "DF",
+      "folder_url": "https://drive.google.com/drive/folders/1FAL3CFlKsBljcNl_9smEgTZfgIxYBgpW",
+      "file_id": "1I-gqlKXEE0HrvQeQoLwnY6osl6nq0Fvk",
+      "file_name": "DF.rar",
+      "download_url": "https://drive.usercontent.google.com/download?id=1I-gqlKXEE0HrvQeQoLwnY6osl6nq0Fvk&export=download&confirm=t",
+      "path": "ARTIFACT_INPUT/DF_DF.rar",
+      "bytes": 14273,
+      "sha256": "04418182ba5d17778c4cdcc70d6befe39d66b870791d06cf2c34b77f2ec17606"
+    },
+    {
+      "uf": "ES",
+      "folder_url": "https://drive.google.com/drive/folders/1wB4QRKtIgjLLAv3NKj11_aXxWikYVM8x",
+      "file_id": "1uDZZItmz3cDuglQBdfZUvsxEWE7uHh__",
+      "file_name": "ES.rar",
+      "download_url": "https://drive.usercontent.google.com/download?id=1uDZZItmz3cDuglQBdfZUvsxEWE7uHh__&export=download&confirm=t",
+      "path": "ARTIFACT_INPUT/ES_ES.rar",
+      "bytes": 18120144,
+      "sha256": "1ab2d07679bfdb64c2c07e841d74491c488f572e671291fddb48130e0382c2a0"
+    },
+    {
+      "uf": "GO",
+      "folder_url": "https://drive.google.com/drive/folders/1mr7D3M3Wh3KVl1kKnm6ceLFMzSH9Weud",
+      "file_id": "14n8KgNUntVKqxAMU8TzEnUbsNhiq6v7g",
+      "file_name": "GO.rar",
+      "download_url": "https://drive.usercontent.google.com/download?id=14n8KgNUntVKqxAMU8TzEnUbsNhiq6v7g&export=download&confirm=t",
+      "path": "ARTIFACT_INPUT/GO_GO.rar",
+      "bytes": 2050,
+      "sha256": "0ee7844a001023ced5eab00d5976290a52b53a8576c9d1f36b3f2da6d3dc9a78"
+    },
+    {
+      "uf": "MG",
+      "folder_url": "https://drive.google.com/drive/folders/1WE8KWKfj8fo1IE_7YKUfjxzzCwqtAmjH",
+      "file_id": "1iata9XUOnwCo1hPFqgOnyRyk99s-hgcr",
+      "file_name": "MG.rar",
+      "download_url": "https://drive.usercontent.google.com/download?id=1iata9XUOnwCo1hPFqgOnyRyk99s-hgcr&export=download&confirm=t",
+      "path": "ARTIFACT_INPUT/MG_MG.rar",
+      "bytes": 42048903,
+      "sha256": "dda805182ba648ed1020f4c7261df8137c475b320029ef6589f3fbcc2ef67c97"
+    },
+    {
+      "uf": "PE",
+      "folder_url": "https://drive.google.com/drive/folders/1RvxoBTiU2_2If5N5imCqyn48YDuFj6zi",
+      "file_id": "1NWQGs1Hsu8pMpjeXOMx4xTi7xa8Gsy56",
+      "file_name": "PE.rar",
+      "download_url": "https://drive.usercontent.google.com/download?id=1NWQGs1Hsu8pMpjeXOMx4xTi7xa8Gsy56&export=download&confirm=t",
+      "path": "ARTIFACT_INPUT/PE_PE.rar",
+      "bytes": 3384447,
+      "sha256": "3272ae6855a6e3dae8a37643cb5e4f785a9d64f41ba43734e2b72366aee79f16"
+    },
+    {
+      "uf": "PR",
+      "folder_url": "https://drive.google.com/drive/folders/1QJGHU2lyGFTEvgfX7kl4RKCdVzTdObbS",
+      "file_id": "17sqX2SmkVPXKjOY-ANoxqJ9fK0sz_S2J",
+      "file_name": "PR.rar",
+      "download_url": "https://drive.usercontent.google.com/download?id=17sqX2SmkVPXKjOY-ANoxqJ9fK0sz_S2J&export=download&confirm=t",
+      "path": "ARTIFACT_INPUT/PR_PR.rar",
+      "bytes": 3553721,
+      "sha256": "d453aa5176309bafb32d568dc02f3201ebec55c48853dbcb327cc077aafdaab8"
+    },
+    {
+      "uf": "RJ",
+      "folder_url": "https://drive.google.com/drive/folders/1MA1LA61CD8Twpozc3bwyDaZEKVWp9ckH",
+      "file_id": "1U6V4_MP8ZCrBu6hkisZG963ena4tk87B",
+      "file_name": "RJ.rar",
+      "download_url": "https://drive.usercontent.google.com/download?id=1U6V4_MP8ZCrBu6hkisZG963ena4tk87B&export=download&confirm=t",
+      "path": "ARTIFACT_INPUT/RJ_RJ.rar",
+      "bytes": 67531082,
+      "sha256": "78323e66f04a846d00175a1134e957477ceb78ee9545961456fff5848f626884"
+    },
+    {
+      "uf": "RS",
+      "folder_url": "https://drive.google.com/drive/folders/1h3NF13_8xAk4RvhWZbVrfEAf7yn7_j0z",
+      "file_id": "1-bULrR-UiJYOCxgNo5Qu1nTy49nZtvtk",
+      "file_name": "RS.rar",
+      "download_url": "https://drive.usercontent.google.com/download?id=1-bULrR-UiJYOCxgNo5Qu1nTy49nZtvtk&export=download&confirm=t",
+      "path": "ARTIFACT_INPUT/RS_RS.rar",
+      "bytes": 5651286,
+      "sha256": "9499e732f76fc4a8ee153c5e24b5fc4a90f1cece83b84b568b88ca974da4019b"
+    },
+    {
+      "uf": "SP",
+      "folder_url": "https://drive.google.com/drive/folders/1S225sgjyNDA-2xTm_uFDr2KxDLu5KrAW",
+      "file_id": "19uSa0yhq4HDfEJv_j61dHCx42LABSm7S",
+      "file_name": "SP.rar",
+      "download_url": "https://drive.usercontent.google.com/download?id=19uSa0yhq4HDfEJv_j61dHCx42LABSm7S&export=download&confirm=t",
+      "path": "ARTIFACT_INPUT/SP_SP.rar",
+      "bytes": 43828919,
+      "sha256": "715cf3777367f9055f80667fad861f44f1f4f1f4791159681ae7d39223102cec"
+    }
+  ],
+  "failures": []
+}

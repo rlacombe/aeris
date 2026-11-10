@@ -1,0 +1,5 @@
+MODEL NOT RUN
+
+Reason: mandatory pre-study disk guard failed (15.69 GiB observed; 20 GiB required).
+No exposure table or analysis panel was constructed. No coefficient, CI, P value,
+or transformed OR/RR/outcome ratio exists for this run.

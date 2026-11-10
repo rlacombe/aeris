@@ -1,0 +1,80 @@
+"""Fit the closest published city-level association for PMID 33398753."""
+
+from __future__ import annotations
+
+import json
+from pathlib import Path
+
+import numpy as np
+import pandas as pd
+from scipy.stats import t
+
+
+RUN_DIRECTORY = Path(__file__).resolve().parent
+PM10_DAILY_LIMIT_UG_M3 = 50.0
+MIN_OBSERVED_DAYS = 274  # 75% of the 365-day 2018 window.
+
+
+def main() -> int:
+    outcomes = pd.read_csv(RUN_DIRECTORY / "public_outcomes_and_covariates.csv")
+    daily = pd.read_csv(RUN_DIRECTORY / "aeris_pm10_daily.csv", parse_dates=["date"])
+    daily = daily[(daily["date"] >= "2018-01-01") & (daily["date"] <= "2018-12-31")].copy()
+    exposure = (
+        daily.groupby("subject_id", as_index=False)
+        .agg(
+            observed_days=("date", "nunique"),
+            pm10_exceedance_days=("mean", lambda values: int((values > PM10_DAILY_LIMIT_UG_M3).sum())),
+            pm10_mean=("mean", "mean"),
+        )
+        .query("observed_days >= @MIN_OBSERVED_DAYS and pm10_exceedance_days > 0")
+    )
+    panel = outcomes.merge(exposure, on="subject_id", how="inner")
+    panel.to_csv(RUN_DIRECTORY / "analysis_panel.csv", index=False)
+    if len(panel) < 4:
+        result = {
+            "status": "not_fit",
+            "reason": "Fewer than four city records passed the predeclared 75% daily-coverage gate.",
+            "n_eligible_cities": len(panel),
+            "n_input_cities": len(outcomes),
+        }
+    else:
+        outcome = np.log(panel["infected_2020_04_07"].to_numpy())
+        design = np.column_stack(
+            [
+                np.ones(len(panel)),
+                np.log(panel["pm10_exceedance_days"].to_numpy()),
+                np.log(panel["density_per_km2"].to_numpy()),
+            ]
+        )
+        coefficients, _, _, _ = np.linalg.lstsq(design, outcome, rcond=None)
+        residuals = outcome - design @ coefficients
+        degrees_of_freedom = len(panel) - design.shape[1]
+        residual_variance = float(residuals @ residuals / degrees_of_freedom)
+        standard_errors = np.sqrt(np.diag(residual_variance * np.linalg.inv(design.T @ design)))
+        critical_value = float(t.ppf(0.975, degrees_of_freedom))
+        coefficient = float(coefficients[1])
+        standard_error = float(standard_errors[1])
+        total_sum_squares = float(((outcome - outcome.mean()) ** 2).sum())
+        r_squared = 1 - float(residuals @ residuals) / total_sum_squares
+        result = {
+            "status": "fit",
+            "n_eligible_cities": int(len(panel)),
+            "n_input_cities": int(len(outcomes)),
+            "estimand": "OLS coefficient of log AERIS PM10 exceedance days (>50 ug/m3) on log confirmed infections on 2020-04-07, adjusted for log population density.",
+            "aeris_pm10_log_coefficient": coefficient,
+            "standard_error": standard_error,
+            "ci95": [coefficient - critical_value * standard_error, coefficient + critical_value * standard_error],
+            "p_value": float(2 * t.sf(abs(coefficient / standard_error), degrees_of_freedom)),
+            "model_r_squared": r_squared,
+            "published_coefficient": 0.813,
+            "published_model": "Table 6, log days exceeding PM10 or ozone limits in 2018 predicting log infected people on 2020-04-07, adjusted for log density.",
+        }
+    (RUN_DIRECTORY / "effect_result.json").write_text(
+        json.dumps(result, indent=2) + "\n", encoding="utf-8"
+    )
+    print(json.dumps(result, indent=2))
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

@@ -1,0 +1,41 @@
+{
+  "sources": [
+    {
+      "role": "study article",
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9668087/fullTextXML",
+      "retrieved": true,
+      "sha256": "a42a246573ef4d63dc36cdd87fb76ff75090d5025e0e1c14fc8991d3658964dc"
+    },
+    {
+      "role": "independent air-pollution exposure (attempted)",
+      "url": "https://air-quality-api.open-meteo.com/v1/air-quality?latitude=-23.1797&longitude=-45.8872&hourly=ozone,nitrogen_dioxide,pm10&start_date=2020-04-01&end_date=2021-04-30&timezone=America%2FSao_Paulo",
+      "retrieved": true,
+      "sha256": "94a9ea8500c3d20b01907d4a70bb2370110991aebeceadfd34afc0c0de095a68"
+    },
+    {
+      "role": "weather covariates",
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-23.1797&longitude=-45.8872&hourly=temperature_2m,relative_humidity_2m&start_date=2020-04-01&end_date=2021-04-30&timezone=America%2FSao_Paulo",
+      "retrieved": true,
+      "sha256": "625aebaeaf1295118b35e5ea22a27300c270b4fc4e8c74b43d850d4c575b4a00"
+    },
+    {
+      "role": "health outcome (SIVEP-Gripe)",
+      "url": "https://s3.sa-east-1.amazonaws.com/ckan.saude.gov.br/SRAG/2020/INFLUD20-23-03-2026.parquet",
+      "retrieved": true,
+      "sha256": "371723b91c0e4de1ae4067c8a6ee04887430869fa8d3c561d4b9106fb89e0c0b"
+    },
+    {
+      "role": "health outcome (SIVEP-Gripe)",
+      "url": "https://s3.sa-east-1.amazonaws.com/ckan.saude.gov.br/SRAG/2021/INFLUD21-23-03-2026.parquet",
+      "retrieved": true,
+      "sha256": "ecad01062f23715551a1e5e82fa1d9b28f0ea25e2c486a49518a15bf489ee790"
+    }
+  ],
+  "requests_log": "/output/request_log.csv",
+  "article_inputs": [
+    "/study/article.pdf",
+    "/study/article.xml"
+  ],
+  "author_exposure_used": false,
+  "author_derived_data_used": false
+}

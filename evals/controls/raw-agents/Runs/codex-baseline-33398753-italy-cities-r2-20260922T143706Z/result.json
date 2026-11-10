@@ -1,0 +1,87 @@
+{
+  "study_id": "PMC7781409",
+  "status": "completed_fit",
+  "target": {
+    "outcome": "Cumulative confirmed COVID-19 cases",
+    "pollutant": "2018 PM10 daily-maximum exceedance days (>50 ug/m3)",
+    "geography": "Italian provincial capitals/provinces",
+    "period": "2020-03-17 (primary); 2020-04-07 and 2020-04-27 (declared comparisons)",
+    "effect_scale": "log-log OLS PM10 elasticity; transformed to outcome ratio for doubling PM10 exceedance days"
+  },
+  "sources": [
+    {
+      "role": "health_outcome",
+      "url": "https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-province/dpc-covid19-ita-province.csv",
+      "retrieved": true,
+      "sha256": "d9f39377b0c3b0e8f4ac68b8e57cd9c1e953a4b922574b9438dc62094fb6446f"
+    },
+    {
+      "role": "independent_exposure",
+      "url": "https://eeadmz1-downloads-api-appservice.azurewebsites.net/ParquetFile/urls",
+      "retrieved": true,
+      "sha256": null
+    },
+    {
+      "role": "covariate_population",
+      "url": "https://esploradati.istat.it/SDMXWS/rest/data/IT1,22_289?format=csvfile",
+      "retrieved": true,
+      "sha256": "2d1b5ee3b2432d541bc2ef604c13fe2b2f5116442030221fea3156a0f4540e64"
+    }
+  ],
+  "substitutions": [
+    {
+      "dimension": "geography",
+      "published": "Unidentified random sample of 55 provincial-capital cities",
+      "reanalysis": "107 eligible province/capital frame; 18 complete cases",
+      "reason": "The article does not supply the sampled-city roster or selection seed."
+    },
+    {
+      "dimension": "outcome",
+      "published": "City infected-individual counts",
+      "reanalysis": "Civil Protection province cumulative confirmed-case counts",
+      "reason": "The public official archive provides province, rather than municipal/capital, series."
+    },
+    {
+      "dimension": "exposure",
+      "published": "Author's PM10-or-ozone city exceedance series (Table 6 labels PM10)",
+      "reanalysis": "Nearest-station EEA PM10 daily-max days >50 ug/m3 in 2018",
+      "reason": "Required independent public exposure source; PM10 follows the principal-table wording."
+    },
+    {
+      "dimension": "covariate",
+      "published": "2019 city population density",
+      "reanalysis": "Istat NUTS3 2019 population divided by GISCO NUTS3 area",
+      "reason": "Article does not provide city-level covariate values or sample roster."
+    }
+  ],
+  "coverage": {
+    "eligible_units": 107,
+    "included_units": 18,
+    "eligible_times": 3,
+    "included_times": 3,
+    "notes": "64 nearest-station assignments were available; 35 had positive PM10 exceedance counts; 18 had all log-model inputs."
+  },
+  "effect": {
+    "estimate": 0.6801064566,
+    "ci_low": 0.3239684352,
+    "ci_high": 1.4277464777,
+    "scale": "outcome ratio",
+    "contrast": "Primary 2020-03-17 model: fitted case ratio for doubling 2018 PM10 exceedance days, exp(beta_PM10*ln(2)); native log-log beta=-0.5561675 (95% CI -1.6260748, 0.5137398)."
+  },
+  "artifacts": {
+    "code": "/output/code/reanalysis.py",
+    "source_manifest": "/output/source_manifest.json",
+    "exposure": "/output/exposure_table.csv",
+    "analysis_panel": "/output/analysis_panel.csv",
+    "model_output": "/output/model_output.csv",
+    "decision_log": "/output/decision_log.md",
+    "blocker_ledger": "/output/blocker_ledger.md",
+    "sanitization_record": "/output/sanitization_record.json",
+    "fidelity_record": "/output/fidelity_record.json"
+  },
+  "blockers": [
+    "The article's 55-city sample cannot be reconstructed because its roster and selection procedure are not supplied.",
+    "The fitted panel uses province outcomes and province density, not city values.",
+    "Only 18 complete positive-exposure records support the log-log model."
+  ]
+}

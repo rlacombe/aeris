@@ -1,0 +1,47 @@
+{
+  "study_id": "PMID:34004167",
+  "status": "completed_blocker",
+  "target": {
+    "outcome": "Accumulated confirmed COVID-19 cases and deaths by region-day (principal published count outcomes)",
+    "pollutant": "SO2 principal; NO2, O3, PM2.5, and PM10 reconstructed as additional declared contrasts",
+    "geography": "Lombardy and Veneto, Italy",
+    "period": "Published: 2020-02-21 to 2020-05-19; reconstructed: 2020-02-24 to 2020-05-19; LTAP window 2013-01-01 to 2020-05-19",
+    "effect_scale": "Native log rate ratio and exp(beta) RR per 1 ug/m3"
+  },
+  "sources": [
+    {"role": "health outcomes", "url": "https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-regioni/dpc-covid19-ita-regioni.csv", "retrieved": true, "sha256": "3438a0a85bdb0bca56a48a2edd0c69f3005d6c1c20c4a2a75bed668a8f01ead7"},
+    {"role": "raw exposure", "url": "https://eeadmz1-downloads-api-appservice.azurewebsites.net/ParquetFile/urls", "retrieved": true, "sha256": "d09d890b61556bcdaa2c56c6ff60c0372bb4e2f95597312c0dbd2f9b4cdc47ec"},
+    {"role": "station metadata", "url": "https://discomap.eea.europa.eu/map/fme/metadata/PanEuropean_metadata.csv", "retrieved": true, "sha256": "7373040062adf22d4c7a4bb1a51aa01bdcebd7caf4e1c865b5911d559e9b22da"},
+    {"role": "boundary assignment", "url": "https://geodata.ucdavis.edu/gadm/gadm4.1/json/gadm41_ITA_1.json.zip", "retrieved": true, "sha256": "f42fb1f30d4c72695fa6e48d7ac0179af4c38f426514f41c58e9057604d3939c"}
+  ],
+  "substitutions": [
+    {"dimension": "period", "published": "2020-02-21 through 2020-05-19", "reanalysis": "2020-02-24 through 2020-05-19", "reason": "The independent national regional time series begins 2020-02-24; the unavailable dates were not imputed."},
+    {"dimension": "exposure", "published": "Author-aggregated EEA regional STAP/LTAP", "reanalysis": "Independent aggregation of raw EEA E1a station observations with GADM polygon assignment", "reason": "Author-derived exposure fields were prohibited."},
+    {"dimension": "other", "published": "Calendar-complete long-term mean implied by 2013--2020 period", "reanalysis": "Observed-day mean: 2,331 days per pollutant-region", "reason": "No gap filling was used."},
+    {"dimension": "model", "published": "GEE adjusted for lockdown", "reanalysis": "No valid principal fit; specified-form diagnostic fits retained only", "reason": "The substituted outcome period has no pre-lockdown observations, so lockdown is constant and collinear with intercept; only two GEE clusters also invalidate robust inference."}
+  ],
+  "coverage": {
+    "eligible_units": 2,
+    "included_units": 2,
+    "eligible_times": 89,
+    "included_times": 86,
+    "notes": "Both regions have all 86 available outcome dates and complete STAP values. Long-term exposure has 2,331 observed dates rather than 2,696 calendar dates per pollutant-region."
+  },
+  "effect": null,
+  "artifacts": {
+    "code": "/output/reanalysis.py",
+    "source_manifest": "/output/source_manifest.json",
+    "exposure": "/output/exposure_table.csv",
+    "analysis_panel": "/output/analysis_panel.csv",
+    "model_output": "/output/model_output.csv",
+    "decision_log": "/output/decision_log.md",
+    "blocker_ledger": "/output/blocker_ledger.md",
+    "fidelity_record": "/output/fidelity_record.json",
+    "sanitization": "/output/sanitization.json",
+    "machine_readable_run_summary": "/output/run_summary.json"
+  },
+  "blockers": [
+    "The lockdown covariate is constant after the unavoidable public-outcome date substitution and is perfectly collinear with the intercept.",
+    "Only two regional clusters are available for AR(1) GEE; robust covariance warnings and diagnostic intervals are not valid inferential confidence intervals."
+  ]
+}

@@ -1,0 +1,8 @@
+# Decision log — PMID 36383802
+
+- The article specifies an ecological daily time series of COVID-19 admissions among residents of São José dos Campos, Brazil, 2020-04-01 through 2021-04-30. Its modeled pollutants are O3, NO2, and PM10 at lags 0--7; adjustment is temperature, relative humidity, day of week, and calendar day in negative-binomial regression.
+- The intended outcome construct was SIH-SUS admissions with diagnosis B34.2. The public `ftp.datasus.gov.br` SIH object request timed out. This terminal transport failure is logged in the run notes; it was not retried as a scientific substitution.
+- A Ministry of Health SIVEP-Gripe annual Parquet release was retrieved as an explicitly non-identical fallback outcome: hospital-admission notifications where `CO_MUN_RES=354990`, `CLASSI_FIN=5` (COVID-19), and `DT_INTERNA` is within the period. It supports daily counting, but does not make the result equivalent to SIH-SUS B34.2.
+- Pollution and weather were requested independently from Open-Meteo, at the municipality coordinates, rather than from any author-released exposure table or analysis field. Weather was complete. The historical air-quality response was syntactically valid but had null O3, NO2, and PM10 values for every requested hour/date.
+- The locked coverage standard was complete daily pollutant coverage for the 395-day study period. Because zero dates had all required exposure data, no model was fit. The empty model output is an intentional no-fit artifact, not a failed regression.
+- No author pollution values, exposure tables, fitted values, derived fields, or code were read or used. Therefore no author-table sanitization step was applicable.

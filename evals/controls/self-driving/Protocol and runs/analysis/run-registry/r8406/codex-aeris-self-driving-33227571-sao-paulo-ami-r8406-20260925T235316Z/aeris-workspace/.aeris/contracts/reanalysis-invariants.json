@@ -1,0 +1,82 @@
+{
+  "schema_version": "aeris-study-contract/v3",
+  "profile": "reanalysis",
+  "contract_id": "33227571-sao-paulo-ami-reanalysis-invariants",
+  "approved": true,
+  "author": "agent",
+  "objective": "Reconstruct the article's daily climatic-and-pollutant hierarchical-cluster comparison of acute myocardial infarction admissions and in-hospital mortality in metropolitan Sao Paulo.",
+  "allowed_tools": [
+    "estimate_boundary_exposure",
+    "estimate_boundary_exposure_batch",
+    "estimate_exposure"
+  ],
+  "pollutants": [
+    "no2",
+    "pm25",
+    "pm10"
+  ],
+  "date_window": {
+    "start": "2012-01-01",
+    "end": "2015-12-31"
+  },
+  "temporal_resolutions": [
+    "daily",
+    "hourly"
+  ],
+  "allowed_fidelity_levels": [
+    "matched",
+    "source_substitution",
+    "reduced_coverage",
+    "reduced_adjustment",
+    "bounded",
+    "supported_sensitivity"
+  ],
+  "resource_limits": {
+    "wall_clock_hours": 8,
+    "maximum_infrastructure_restarts": 1,
+    "maximum_single_download_gib": 10,
+    "maximum_boundary_units": 6000,
+    "maximum_boundary_units_per_call": 25,
+    "maximum_static_units_per_call": 2
+  },
+  "scientific_invariants": {
+    "research_question": "Reconstruct the article's daily climatic-and-pollutant hierarchical-cluster comparison of acute myocardial infarction admissions and in-hospital mortality in metropolitan Sao Paulo.",
+    "target_outcome_and_population": "Daily acute myocardial infarction admissions and in-hospital mortality among patients admitted in 39 metropolitan Sao Paulo municipalities.",
+    "pollutants": [
+      "no2",
+      "pm25",
+      "pm10"
+    ],
+    "principal_contrast": "Comparison of daily admissions and in-hospital mortality across the three joint weather-pollution clusters; the abstract identifies high-pollution versus low-pollution clusters as the principal directional comparison.",
+    "principal_variants": [
+      "Daily AMI admissions across weather-pollution clusters",
+      "Daily in-hospital AMI mortality across weather-pollution clusters"
+    ],
+    "broad_geography": "39 municipalities in metropolitan Sao Paulo, Brazil",
+    "target_geographic_units": 39,
+    "target_geographic_unit_type": "municipality",
+    "period": {
+      "start": "2012-01-01",
+      "end": "2015-12-31"
+    },
+    "prohibited_evidence": [
+      "published effect estimates",
+      "published exposure values",
+      "prior reanalysis code",
+      "prior source manifests",
+      "prior results"
+    ]
+  },
+  "article_evidence": [
+    {
+      "artifact": "/output/article-specification-evidence.md",
+      "finding": "The supplied PDF/XML are abstract-only and specify the population, period, DataSUS outcome source, named exposure/weather sources, pollutants, hierarchical clustering, and admissions/mortality comparisons; model details are absent."
+    }
+  ],
+  "article_evidence_map": {
+    "supplied_article": "/output/article-specification-evidence.md",
+    "discrepancy": "Supplied materials are not the complete article despite task instruction; full-method details unavailable in supplied corpus."
+  },
+  "execution_design": {},
+  "amendments": []
+}

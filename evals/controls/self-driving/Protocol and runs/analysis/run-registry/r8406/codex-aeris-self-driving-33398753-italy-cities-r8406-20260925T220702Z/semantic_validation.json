@@ -1,0 +1,7 @@
+{
+  "valid": true,
+  "errors": [],
+  "warnings": [
+    "aggregate coverage_diagnostics must explain eligible and included time coverage"
+  ]
+}

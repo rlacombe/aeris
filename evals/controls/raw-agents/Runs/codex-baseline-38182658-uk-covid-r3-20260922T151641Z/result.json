@@ -1,0 +1,66 @@
+{
+  "study_id": "PMID-38182658",
+  "status": "completed_blocker",
+  "target": {
+    "outcome": "instantaneous COVID-19 case-fatality probability",
+    "pollutant": "PM2.5 (ug/m3)",
+    "geography": "England, Northern Ireland, Scotland, and Wales",
+    "period": "2020-03-26 through 2020-09-15",
+    "effect_scale": "odds ratio"
+  },
+  "sources": [
+    {
+      "role": "health outcomes: daily reported confirmed cases/deaths",
+      "url": "https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/owid-covid-data.csv",
+      "retrieved": true,
+      "sha256": "8473d0f0fdf962e1ffbd5b85b18726fc96a49bab109e271186c339725a12b10c"
+    },
+    {
+      "role": "alternate health-outcome endpoint (terminal DNS failure; see failed_endpoint_evidence.txt)",
+      "url": "https://api.coronavirus.data.gov.uk/v2/data?areaType=nation&metric=newCasesByPublishDate&metric=newDeaths28DaysByPublishDate&format=csv",
+      "retrieved": false,
+      "sha256": null
+    },
+    {
+      "role": "independent PM2.5 exposure: Open-Meteo/CAMS country-centroid hourly values",
+      "url": "https://air-quality-api.open-meteo.com/v1/air-quality",
+      "retrieved": true,
+      "sha256": null
+    },
+    {
+      "role": "weather covariates: Open-Meteo historical archive",
+      "url": "https://archive-api.open-meteo.com/v1/archive",
+      "retrieved": true,
+      "sha256": null
+    }
+  ],
+  "substitutions": [
+    {
+      "dimension": "exposure",
+      "published": "DEFRA Air Information Resource",
+      "reanalysis": "Open-Meteo/CAMS country-centroid values",
+      "reason": "independent exposure required"
+    }
+  ],
+  "coverage": {
+    "eligible_units": 4,
+    "included_units": 0,
+    "eligible_times": 174,
+    "included_times": 0,
+    "notes": "OWID rows for the four constituent countries contain zero nonmissing daily cases and deaths. UK aggregate data are not a permissible geographic substitution."
+  },
+  "effect": null,
+  "artifacts": {
+    "code": "/output/reanalysis.py",
+    "source_manifest": "/output/source_manifest.json",
+    "exposure": "/output/exposure_table.csv",
+    "analysis_panel": "/output/analysis_panel.csv",
+    "model_output": "/output/model_output.txt",
+    "decision_log": "/output/decision_log.md",
+    "fidelity_record": "/output/fidelity_record.json",
+    "sanitization": "/output/sanitization.json"
+  },
+  "blockers": [
+    "No public four-country outcome panel was obtained from the tested OWID release: zero nonmissing case and death values for England, Northern Ireland, Scotland, and Wales. The principal four-country binomial model therefore cannot execute."
+  ]
+}

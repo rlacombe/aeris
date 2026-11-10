@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="448" viewBox="0 0 1120 448">
+  <defs>
+    <style>
+      text { font-family: Helvetica, Arial, sans-serif; fill: #111418; }
+      .panel-title { font-size: 18.5px; font-weight: 700; fill: #111418; }
+      .panel-sub { font-size: 14.2px; font-weight: 400; fill: #363B42; }
+      .axis { stroke: #5A5E66; stroke-width: 1.6; }
+      .grid { stroke: #E6EAF0; stroke-width: 1.1; }
+      .tick { font-size: 16px; font-weight: 500; fill: #1B1F24; }
+      .cat-label { font-size: 16.5px; font-weight: 700; fill: #111418; }
+      .cat-sub { font-size: 14.5px; font-weight: 400; fill: #3E444C; }
+      .val-label { font-size: 17px; font-weight: 700; }
+      .seed-label { font-size: 14.5px; font-weight: 500; fill: #363B42; }
+      .badge-text { font-size: 16px; font-weight: 700; }
+      .axis-title { font-size: 16.5px; font-weight: 700; fill: #111418; }
+    </style>
+  </defs>
+
+  <!-- ==================== PANEL A: COMPLETION PER CAMPAIGN ==================== -->
+  <text x="8" y="28" class="panel-title">a. Reanalysis Completion Across Campaigns</text>
+  <text x="8" y="52" class="panel-sub">Fitted studies per 9-study campaign (bars = mean; dots = C1–C3)</text>
+
+  <!-- Y-axis gridlines for Panel A: x=46 to 418 (3 cols at 108, 228, 348 -> 120px spacing) -->
+  <!-- y=360 (0) to y=117 (9), 27px per study -->
+  <line x1="46" y1="360" x2="418" y2="360" class="grid"/>
+  <text x="36" y="366" text-anchor="end" class="tick">0</text>
+  <line x1="46" y1="279" x2="418" y2="279" class="grid"/>
+  <text x="36" y="285" text-anchor="end" class="tick">3</text>
+  <line x1="46" y1="198" x2="418" y2="198" class="grid"/>
+  <text x="36" y="204" text-anchor="end" class="tick">6</text>
+  <line x1="46" y1="117" x2="418" y2="117" class="grid"/>
+  <text x="36" y="123" text-anchor="end" class="tick">9</text>
+
+  <text x="16" y="238" text-anchor="middle" class="axis-title" transform="rotate(-90 16 238)">Fitted studies per campaign</text>
+
+  <!-- Bar 1: AERIS + Researcher Review (9 / 9) -->
+  <!-- x center = 108, width = 74 (x=71..145) -->
+  <rect x="71" y="117" width="74" height="243" rx="6" fill="#DCEFEB" stroke="#0B7A75" stroke-width="2.2"/>
+  <circle cx="108" cy="117" r="6" fill="#0B7A75" stroke="#FFFFFF" stroke-width="1.6"/>
+  <text x="108" y="80" text-anchor="middle" class="seed-label">(100%)</text>
+  <text x="108" y="100" text-anchor="middle" class="val-label" fill="#0B7A75">9 / 9</text>
+
+  <text x="108" y="388" text-anchor="middle" class="cat-label">AERIS +</text>
+  <text x="108" y="409" text-anchor="middle" class="cat-label">Review</text>
+  <text x="108" y="431" text-anchor="middle" class="cat-sub">1 campaign</text>
+
+  <!-- Bar 2: Self-Driving AERIS (7.7 / 9 = 23 / 27; campaigns: 8, 9, 6) -->
+  <!-- mean = 7.667 -> height = 207, y = 153. x center = 228, width = 74 (x=191..265) -->
+  <rect x="191" y="153" width="74" height="207" rx="6" fill="#E3EEFD" stroke="#1C78D8" stroke-width="2.2"/>
+  <!-- Campaign dots: C2=9 (y=117, x=220), C1=8 (y=144, x=236), C3=6 (y=198, x=244) -->
+  <circle cx="220" cy="117" r="5.8" fill="#1C78D8" stroke="#FFFFFF" stroke-width="1.5"/>
+  <text x="208" y="122" text-anchor="end" class="seed-label">C2 (9)</text>
+  <circle cx="236" cy="144" r="5.8" fill="#1C78D8" stroke="#FFFFFF" stroke-width="1.5"/>
+  <text x="224" y="149" text-anchor="end" class="seed-label">C1 (8)</text>
+  <circle cx="244" cy="198" r="5.8" fill="#1C78D8" stroke="#FFFFFF" stroke-width="1.5"/>
+  <text x="232" y="203" text-anchor="end" class="seed-label">C3 (6)</text>
+  <text x="228" y="80" text-anchor="middle" class="seed-label">(23/27)</text>
+  <text x="228" y="100" text-anchor="middle" class="val-label" fill="#1C78D8">7.7 ± 1.5</text>
+
+  <text x="228" y="388" text-anchor="middle" class="cat-label">Self-Driving</text>
+  <text x="228" y="409" text-anchor="middle" class="cat-label">AERIS</text>
+  <text x="228" y="431" text-anchor="middle" class="cat-sub">3 campaigns</text>
+
+  <!-- Bar 3: Raw Agent without AERIS (2.3 / 9 = 7 / 27; campaigns: 3, 3, 1) -->
+  <!-- mean = 2.333 -> height = 63, y = 297. x center = 348, width = 74 (x=311..385) -->
+  <rect x="311" y="297" width="74" height="63" rx="6" fill="#EFE0F2" stroke="#8A308F" stroke-width="2.2"/>
+  <circle cx="336" cy="279" r="5.8" fill="#8A308F" stroke="#FFFFFF" stroke-width="1.5"/>
+  <circle cx="360" cy="279" r="5.8" fill="#8A308F" stroke="#FFFFFF" stroke-width="1.5"/>
+  <text x="348" y="264" text-anchor="middle" class="seed-label">C1, C2 (3)</text>
+  <circle cx="366" cy="333" r="5.8" fill="#8A308F" stroke="#FFFFFF" stroke-width="1.5"/>
+  <text x="354" y="338" text-anchor="end" class="seed-label">C3 (1)</text>
+  <text x="348" y="216" text-anchor="middle" class="seed-label">(7/27)</text>
+  <text x="348" y="236" text-anchor="middle" class="val-label" fill="#8A308F">2.3 ± 1.2</text>
+
+  <text x="348" y="388" text-anchor="middle" class="cat-label">Raw Agent</text>
+  <text x="348" y="409" text-anchor="middle" class="cat-label">(No AERIS)</text>
+  <text x="348" y="431" text-anchor="middle" class="cat-sub">3 campaigns</text>
+
+  <!-- Callout badge in Panel A: 3.3x lift (placed cleanly at y=114..172 above Bar 3) -->
+  <rect x="276" y="114" width="154" height="56" rx="10" fill="#F4F8FE" stroke="#7BAEF4" stroke-width="1.7"/>
+  <text x="353" y="137" text-anchor="middle" class="badge-text" fill="#1C78D8">3.3× completion</text>
+  <text x="353" y="158" text-anchor="middle" class="seed-label" style="font-size:13.5px;">26/27 vs. 0/27 prov.</text>
+
+  <!-- Panel A Axes -->
+  <line x1="46" y1="104" x2="46" y2="360" class="axis"/>
+  <line x1="46" y1="360" x2="418" y2="360" class="axis"/>
+
+
+  <!-- ==================== PANEL B: SCIENTIFIC CALIBRATION & STABILITY ==================== -->
+  <text x="468" y="28" class="panel-title">b. Effect Calibration &amp; Campaign Stability</text>
+  <text x="468" y="52" class="panel-sub">Median log-effect error | Δ log R | (left) and study-level Pearson r by campaign (right)</text>
+
+  <!-- Sub-chart B1: Median |Delta log R| (Lower is better) -->
+  <!-- x = 518 to 786 (268px wide, 3 cols at 560, 652, 744 -> 92px spacing!); y = 360 (0.00) to y = 120 (0.20) -->
+  <line x1="518" y1="360" x2="786" y2="360" class="grid"/>
+  <text x="508" y="366" text-anchor="end" class="tick">0.00</text>
+  <line x1="518" y1="300" x2="786" y2="300" class="grid"/>
+  <text x="508" y="306" text-anchor="end" class="tick">0.05</text>
+  <line x1="518" y1="240" x2="786" y2="240" class="grid"/>
+  <text x="508" y="246" text-anchor="end" class="tick">0.10</text>
+  <line x1="518" y1="180" x2="786" y2="180" class="grid"/>
+  <text x="508" y="186" text-anchor="end" class="tick">0.15</text>
+  <line x1="518" y1="120" x2="786" y2="120" class="grid"/>
+  <text x="508" y="126" text-anchor="end" class="tick">0.20</text>
+
+  <text x="468" y="238" text-anchor="middle" class="axis-title" transform="rotate(-90 468 238)">Median | Δ log R |</text>
+
+  <!-- B1 Bar 1: AERIS + Review = 0.040 -> height = 48, y = 312, center = 558 (x=532..584) -->
+  <rect x="532" y="312" width="52" height="48" rx="5" fill="#DCEFEB" stroke="#0B7A75" stroke-width="2.2"/>
+  <text x="558" y="279" text-anchor="middle" class="seed-label">(1.04×)</text>
+  <text x="558" y="299" text-anchor="middle" class="val-label" fill="#0B7A75">0.040</text>
+  <text x="558" y="388" text-anchor="middle" class="cat-label">AERIS +</text>
+  <text x="558" y="409" text-anchor="middle" class="cat-label">Review</text>
+  <text x="558" y="431" text-anchor="middle" class="cat-sub">n = 8</text>
+
+  <!-- B1 Bar 2: Self-Driving AERIS = 0.169 -> height = 202.8, y = 157.2, center = 650 (x=624..676) -->
+  <rect x="624" y="157.2" width="52" height="202.8" rx="5" fill="#E3EEFD" stroke="#1C78D8" stroke-width="2.2"/>
+  <text x="650" y="124" text-anchor="middle" class="seed-label">(1.18×)</text>
+  <text x="650" y="144" text-anchor="middle" class="val-label" fill="#1C78D8">0.169</text>
+  <text x="650" y="388" text-anchor="middle" class="cat-label">Self-</text>
+  <text x="650" y="409" text-anchor="middle" class="cat-label">Driving</text>
+  <text x="650" y="431" text-anchor="middle" class="cat-sub">n = 17</text>
+
+  <!-- B1 Bar 3: Raw Agent = 0.073 -> height = 87.6, y = 272.4, center = 742 (x=716..768) -->
+  <rect x="716" y="272.4" width="52" height="87.6" rx="5" fill="#EFE0F2" stroke="#8A308F" stroke-width="2.2" stroke-dasharray="4 2"/>
+  <text x="742" y="239" text-anchor="middle" class="seed-label">(20 stopped)</text>
+  <text x="742" y="259" text-anchor="middle" class="val-label" fill="#8A308F">0.073*</text>
+  <text x="742" y="388" text-anchor="middle" class="cat-label">Raw</text>
+  <text x="742" y="409" text-anchor="middle" class="cat-label">Agent</text>
+  <text x="742" y="431" text-anchor="middle" class="cat-sub">*n = 7 fits</text>
+
+  <line x1="518" y1="104" x2="518" y2="360" class="axis"/>
+  <line x1="518" y1="360" x2="786" y2="360" class="axis"/>
+
+
+  <!-- Sub-chart B2: Campaign-Level Pearson r (-0.8 to +1.0) -->
+  <!-- x = 846 to 1116 (270px wide, 3 cols at 890, 982, 1074 -> 92px spacing!); y = 120 (+1.0), y = 253.3 (0.0), y = 360 (-0.8) -->
+  <line x1="846" y1="120" x2="1116" y2="120" class="grid"/>
+  <text x="836" y="126" text-anchor="end" class="tick">1.0</text>
+  <line x1="846" y1="186.7" x2="1116" y2="186.7" class="grid"/>
+  <text x="836" y="192.7" text-anchor="end" class="tick">0.5</text>
+  <line x1="846" y1="253.3" x2="1116" y2="253.3" stroke="#8C929C" stroke-width="1.3" stroke-dasharray="4 3"/>
+  <text x="836" y="259.3" text-anchor="end" class="tick">0.0</text>
+  <line x1="846" y1="320" x2="1116" y2="320" class="grid"/>
+  <text x="836" y="326" text-anchor="end" class="tick">-0.5</text>
+
+  <text x="800" y="238" text-anchor="middle" class="axis-title" transform="rotate(-90 800 238)">Study-level Pearson r</text>
+
+  <!-- B2 Col 1: AERIS + Review r = 0.834 -> y = 253.3 - 0.834*133.33 = 142.1, x = 890 -->
+  <line x1="890" y1="253.3" x2="890" y2="142.1" stroke="#0B7A75" stroke-width="3.6"/>
+  <circle cx="890" cy="142.1" r="6.8" fill="#DCEFEB" stroke="#0B7A75" stroke-width="2.3"/>
+  <text x="890" y="125" text-anchor="middle" class="val-label" fill="#0B7A75">0.834</text>
+  <text x="890" y="388" text-anchor="middle" class="cat-label">AERIS +</text>
+  <text x="890" y="409" text-anchor="middle" class="cat-label">Review</text>
+  <text x="890" y="431" text-anchor="middle" class="cat-sub">7/7 pos.</text>
+
+  <!-- B2 Col 2: Self-Driving AERIS r = 0.507 (y=185.7), 0.091 (y=241.2), -0.170 (y=276.0), x = 982 -->
+  <line x1="982" y1="185.7" x2="982" y2="276.0" stroke="#1C78D8" stroke-width="2.2" stroke-dasharray="3 2"/>
+  <circle cx="982" cy="185.7" r="5.8" fill="#E3EEFD" stroke="#1C78D8" stroke-width="2.1"/>
+  <text x="982" y="169" text-anchor="middle" class="seed-label" style="font-weight:700; fill:#1C78D8;">0.51 (C1)</text>
+  <circle cx="982" cy="241.2" r="5.8" fill="#E3EEFD" stroke="#1C78D8" stroke-width="2.1"/>
+  <text x="969" y="241" text-anchor="end" class="seed-label">0.09 (C2)</text>
+  <circle cx="982" cy="276.0" r="5.8" fill="#E3EEFD" stroke="#1C78D8" stroke-width="2.1"/>
+  <text x="982" y="298" text-anchor="middle" class="seed-label">-0.17 (C3)</text>
+  <text x="982" y="388" text-anchor="middle" class="cat-label">Self-</text>
+  <text x="982" y="409" text-anchor="middle" class="cat-label">Driving</text>
+  <text x="982" y="431" text-anchor="middle" class="cat-sub">11/16 pos.</text>
+
+  <!-- B2 Col 3: Raw Agent r = 0.016 (y=251.2), -0.675 (y=343.3), C3 undef (1 fit), x = 1074 -->
+  <line x1="1074" y1="251.2" x2="1074" y2="343.3" stroke="#8A308F" stroke-width="2.2" stroke-dasharray="3 2"/>
+  <circle cx="1074" cy="251.2" r="5.8" fill="#EFE0F2" stroke="#8A308F" stroke-width="2.1"/>
+  <text x="1074" y="234" text-anchor="middle" class="seed-label">0.02 (C1)</text>
+  <circle cx="1074" cy="343.3" r="5.8" fill="#EFE0F2" stroke="#8A308F" stroke-width="2.1"/>
+  <text x="1061" y="348" text-anchor="end" class="seed-label" style="fill:#8A308F;">-0.68 (C2)</text>
+  <text x="1074" y="388" text-anchor="middle" class="cat-label">Raw</text>
+  <text x="1074" y="409" text-anchor="middle" class="cat-label">Agent</text>
+  <text x="1074" y="431" text-anchor="middle" class="cat-sub">C3: 1 fit</text>
+
+  <line x1="846" y1="104" x2="846" y2="360" class="axis"/>
+  <line x1="846" y1="360" x2="1116" y2="360" class="axis"/>
+</svg>

@@ -1,0 +1,4 @@
+study_id,study_label,effect_label,published_effect,aeris_effect,published_ci_low,published_ci_high,aeris_ci_low,aeris_ci_high,analytic_units,source
+38182658,United Kingdom COVID-19,Odds ratio per 10 ug/m3 PM2.5,1.13,1.4576,1.09,1.16,1.2059,1.7619,635 nation-days,reproduction-eval/replications/38182658-uk-covid/REPLICATION.md
+33398753,Italian provincial capitals COVID-19,Outcome ratio per doubling of PM10 exceedance days,1.7569,1.7408,,,1.1279,2.6878,8 cities,reproduction-eval/replications/33398753-italy-cities/effect_result.json
+34488764,France COVID-19,Rate ratio per 1 ug/m3 PM2.5,1.244,1.048509202186916,1.083,1.428,0.9533439136547028,1.1531741392842527,63 departments,reproduction-eval/replications/34488764-france-covid/exploratory_model_result.json

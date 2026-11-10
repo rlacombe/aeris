@@ -1,0 +1,112 @@
+{
+  "schema_version": 3,
+  "study_id": "34488764-france-covid",
+  "status": "completed_blocker",
+  "fidelity": "none",
+  "target": {
+    "outcome": "Cumulative in-hospital COVID-19 deaths through 2020-05-01",
+    "pollutant": "PM2.5",
+    "geography": "96 mainland French department polygons",
+    "population": "Residents of the 96 mainland French departments",
+    "period": "PM2.5 1999\u20132016; outcome through 2020-05-01",
+    "effect_scale": "mortality rate ratio",
+    "exposure_assignment": "Department-polygon mean of annual PM2.5 values across 1999\u20132016",
+    "model": "Negative-binomial death-count regression with log population offset",
+    "covariates": [
+      "long-term temperature",
+      "resuscitation beds",
+      "intensive-care beds",
+      "medical density",
+      "age 60+",
+      "male share",
+      "unemployment",
+      "poverty",
+      "urban share",
+      "population density",
+      "diabetes prevalence"
+    ],
+    "named_outcome_source": "French Ministry of Health / data.gouv hospital COVID dataset",
+    "specification_evidence": [
+      "/output/reanalysis/estimand-ledger.md"
+    ]
+  },
+  "sources": [
+    {
+      "role": "outcome",
+      "url": "https://static.data.gouv.fr/resources/donnees-hospitalieres-relatives-a-lepidemie-de-covid-19/20230331-180159/covid-hospit-2023-03-31-18h01.csv",
+      "route_origin": "article_named",
+      "retrieved": true,
+      "sha256": "79945ede9e319d5d7289cdcbd4a686ff0e2d06ac9b4232fdde139b0b9e5cfc82",
+      "evidence_artifact": "/output/reanalysis/derived/outcome_2020-05-01.csv"
+    },
+    {
+      "role": "exposure",
+      "url": "https://data.earthdata.nasa.gov/nasa-earth/human-dimensions/sedac-root/downloads/data/sdei/sdei-global-annual-gwr-pm2-5-modis-misr-seawifs-aod/sdei-global-annual-gwr-pm2-5-modis-misr-seawifs-aod-2016-geotiff.zip",
+      "route_origin": "article_named",
+      "retrieved": false,
+      "sha256": null,
+      "evidence_artifact": "/output/reanalysis/logs/pm2016_range_headers.txt"
+    },
+    {
+      "role": "boundary",
+      "url": "https://geodata.ucdavis.edu/gadm/gadm4.1/json/gadm41_FRA_1.json.zip",
+      "route_origin": "agent_discovered",
+      "retrieved": true,
+      "sha256": "da3d5b11019fcee25859a5931d53af0d6612b42e3c1454d01358f35d9ffc5554",
+      "evidence_artifact": "/output/reanalysis/raw/gadm41_FRA_1.json.zip"
+    }
+  ],
+  "substitutions": [],
+  "coverage": {
+    "eligible_units": 96,
+    "included_units": 0,
+    "eligible_times": 18,
+    "included_times": 0,
+    "rule": "No fit: preserve locked numeric exposure construct rather than use a visual proxy.",
+    "notes": "All 96 outcomes were recovered; zero numeric department PM2.5 records were available."
+  },
+  "artifacts": {
+    "code": "reanalysis/retrieve_and_audit.py",
+    "source_manifest": "reanalysis/derived/recovery_audit.json",
+    "exposure": null,
+    "analysis_panel": "reanalysis/derived/analysis_panel.csv",
+    "model_output": "reanalysis/derived/model_output.json",
+    "decision_log": "reanalysis/decision-log.json",
+    "research_notebook": "aeris-workspace/.aeris/research-notebook.json",
+    "blocker_ledger": "reanalysis/derived/recovery_audit.json",
+    "fidelity_record": "aeris-workspace/.aeris/artifacts/reanalysis-fidelity_reanalysis-fidelity_2026-09-25T223613.5066440000.json",
+    "coverage_diagnostics": "reanalysis/derived/coverage_diagnostics.json",
+    "boundary_route_evidence": "reanalysis/raw/gadm41_FRA_1.json.zip",
+    "study_contract": "aeris-workspace/.aeris/contracts/reanalysis-invariants.json"
+  },
+  "blockers": [
+    "The exact public NASA/SEDAC 1998\u20132016 PM2.5 grid is catalogued but redirects to Earthdata Login (HTTP 302 then 401), and no approved credential is available. A retrieved public rendered 2011\u20132019 map is not numerical measurement data and was rejected."
+  ],
+  "stopping_checklist": {
+    "target_specification_complete": true,
+    "complete_article_checked": true,
+    "outcome_routes_attempted": 1,
+    "normal_exposure_source_tested": true,
+    "historical_fallback_applicable": true,
+    "historical_fallback_tested": true,
+    "geographic_batching_applicable": false,
+    "geographic_batching_attempted": false,
+    "fidelity_levels_evaluated": [],
+    "pending_requests": 0,
+    "evidence_artifacts": [
+      "/output/reanalysis/derived/outcome_2020-05-01.csv",
+      "/output/reanalysis/logs/pm2016_range_headers.txt",
+      "/output/reanalysis/raw/gadm41_FRA_1.json.zip",
+      "aeris-workspace/.aeris/artifacts/reanalysis-fidelity_reanalysis-fidelity_2026-09-25T223613.5066440000.json",
+      "aeris-workspace/.aeris/contracts/reanalysis-invariants.json",
+      "aeris-workspace/.aeris/research-notebook.json",
+      "reanalysis/decision-log.json",
+      "reanalysis/derived/analysis_panel.csv",
+      "reanalysis/derived/coverage_diagnostics.json",
+      "reanalysis/derived/model_output.json",
+      "reanalysis/derived/recovery_audit.json",
+      "reanalysis/raw/gadm41_FRA_1.json.zip",
+      "reanalysis/retrieve_and_audit.py"
+    ]
+  }
+}

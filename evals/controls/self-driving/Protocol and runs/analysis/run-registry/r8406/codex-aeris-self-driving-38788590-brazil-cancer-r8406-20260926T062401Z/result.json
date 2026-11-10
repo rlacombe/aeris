@@ -1,0 +1,186 @@
+{
+  "schema_version": 3,
+  "study_id": "38788590-brazil-cancer",
+  "status": "completed_sensitivity",
+  "fidelity": "bounded",
+  "target": {
+    "outcome": "Daily all-cancer deaths (ICD-10 C00-C97)",
+    "pollutant": "PM2.5",
+    "geography": "Brazilian municipalities (5570 in the article)",
+    "population": "Individual Brazilian Mortality Information System cancer death records",
+    "period": "2000-01-01 through 2019-12-31",
+    "effect_scale": "Odds ratio per 10 micrograms per cubic metre",
+    "exposure_assignment": "Population-weighted municipal mean of 0.25-degree daily PM2.5 grids; lag 0-2 three-day mean",
+    "model": "Time-stratified case-crossover conditional logistic regression; same weekday within calendar month controls",
+    "covariates": [
+      "temperature cross-basis",
+      "relative humidity",
+      "public holiday"
+    ],
+    "named_outcome_source": "Brazilian Mortality Information System (SIM)",
+    "specification_evidence": [
+      "/study/article.txt",
+      "ResearchGate full-text recovery, methods lines 424-790",
+      "/output/recovery/pubmed-38788590.medline"
+    ]
+  },
+  "sources": [
+    {
+      "role": "outcome",
+      "url": "https://redu.unicamp.br/api/access/datafile/17721?format=original",
+      "route_origin": "agent_discovered",
+      "retrieved": true,
+      "sha256": null,
+      "evidence_artifact": "/output/recovery/review2/sim_2019.parquet.sha256"
+    },
+    {
+      "role": "exposure",
+      "url": "https://redu.unicamp.br/api/access/datafile/17719",
+      "route_origin": "agent_discovered",
+      "retrieved": true,
+      "sha256": null,
+      "evidence_artifact": "/output/recovery/cetesb_mp25.parquet"
+    }
+  ],
+  "substitutions": [
+    {
+      "dimension": "outcome",
+      "change_type": "coverage_subset",
+      "published": "All Brazilian municipalities, 2000-2019",
+      "reanalysis": "Sao Paulo municipality, 2019",
+      "reason": "The first complete public annual SIM member recovered under the predeclared byte-range design."
+    },
+    {
+      "dimension": "exposure",
+      "change_type": "source",
+      "published": "Population-weighted municipality-level 0.25-degree daily PM2.5 grid",
+      "reanalysis": "Equal-station mean of observed CETESB PM2.5 monitors",
+      "reason": "The public monitor archive supplied daily observed PM2.5 for a bounded city slice."
+    },
+    {
+      "dimension": "covariate",
+      "change_type": "covariate_omission",
+      "published": "Temperature cross-basis, relative humidity, public holiday",
+      "reanalysis": "None",
+      "reason": "No daily covariate series was recovered into the bounded fit."
+    }
+  ],
+  "coverage": {
+    "eligible_units": 5570,
+    "included_units": 1,
+    "eligible_times": 7305,
+    "included_times": 365,
+    "rule": "Predeclared Sao Paulo 2019 subset; retain days with a complete three-day PM2.5 mean.",
+    "notes": "363 of 365 days had complete lag 0-2 exposure. The daily input panel is expanded by death event and same-weekday/calendar-month referents into 68,454 conditional-logistic rows for 15,647 cancer-death events."
+  },
+  "artifacts": {
+    "code": "recovery/review2_recover_2019.sh",
+    "source_manifest": "source_manifest.json",
+    "exposure": "recovery/cetesb_mp25.parquet",
+    "analysis_panel": "recovery/review2/bounded_casecrossover_analysis_panel.csv",
+    "model_output": "recovery/review2/bounded_model_output.json",
+    "decision_log": "decision_log.json",
+    "research_notebook": "aeris-workspace/.aeris/research-notebook.json",
+    "blocker_ledger": "blocker_ledger.json",
+    "fidelity_record": "aeris-workspace/.aeris/artifacts/reanalysis-fidelity_reanalysis-fidelity_2026-09-26T064353.4276410000.json",
+    "coverage_diagnostics": "coverage_diagnostics.json",
+    "boundary_route_evidence": "blocker_ledger.json",
+    "study_contract": "aeris-workspace/.aeris/contracts/agent-contract-amendment-001.json",
+    "daily_source_panel": "recovery/review2/bounded_panel_2019_sao_paulo.csv",
+    "row_accounting_audit": "recovery/review2/casecrossover_row_accounting_audit.json",
+    "skeptical_audit": "recovery/review2/skeptical_postreview_audit.json"
+  },
+  "blockers": [
+    "This is not a nationwide replication: it covers one municipality and one year.",
+    "The exposure is a city monitor-network mean rather than the published population-weighted grid.",
+    "Temperature, relative humidity, and holiday adjustment are omitted."
+  ],
+  "stopping_checklist": {
+    "target_specification_complete": true,
+    "complete_article_checked": true,
+    "outcome_routes_attempted": 1,
+    "normal_exposure_source_tested": true,
+    "historical_fallback_applicable": false,
+    "historical_fallback_tested": false,
+    "geographic_batching_applicable": true,
+    "geographic_batching_attempted": false,
+    "fidelity_levels_evaluated": [
+      "bounded"
+    ],
+    "pending_requests": 0,
+    "evidence_artifacts": [
+      "/output/recovery/cetesb_mp25.parquet",
+      "/output/recovery/review2/sim_2019.parquet.sha256",
+      "aeris-workspace/.aeris/artifacts/reanalysis-fidelity_reanalysis-fidelity_2026-09-26T064353.4276410000.json",
+      "aeris-workspace/.aeris/contracts/agent-contract-amendment-001.json",
+      "aeris-workspace/.aeris/research-notebook.json",
+      "blocker_ledger.json",
+      "coverage_diagnostics.json",
+      "decision_log.json",
+      "recovery/cetesb_mp25.parquet",
+      "recovery/review2/bounded_casecrossover_analysis_panel.csv",
+      "recovery/review2/bounded_model_output.json",
+      "recovery/review2/bounded_panel_2019_sao_paulo.csv",
+      "recovery/review2/casecrossover_row_accounting_audit.json",
+      "recovery/review2/skeptical_postreview_audit.json",
+      "recovery/review2_recover_2019.sh",
+      "source_manifest.json"
+    ]
+  },
+  "design_provenance": {
+    "contract_id": "38788590-brazil-cancer-reanalysis-invariants",
+    "contract_sha256": "bb139cd2c5ec66a0ee6df9ac5136a0a1aec63465f43ecb400b5f99832fa5264e",
+    "contract_author": "agent",
+    "geographic_representation": "administrative_area",
+    "assignment_method": "Municipality-code assignment joining CODMUNRES to CODE_MUNI; use population weighting only when public grid/population support is recovered.",
+    "representative_location_rule": null,
+    "maximum_monitor_distance_km": null,
+    "monitor_distance_evidence": "Not applicable to the selected assignment method.",
+    "source_strategy": "local_model",
+    "exposure_metric": "Municipality-level PM2.5 lag 0\u20132 three-day arithmetic mean in micrograms per cubic metre.",
+    "coverage_policy": {
+      "mode": "report_only",
+      "minimum_percent": null,
+      "threshold_source": "none",
+      "evidence": "Report-only; fit requires nonmissing daily cancer outcome, three PM2.5 values, and recoverable covariates; no unsupported numeric threshold."
+    },
+    "decision_rationale": "Defines an executable exposure and panel plan for the required fresh recovery attempt without modifying outcome, pollutant, lag construct, geography, contrast, or model family.",
+    "evidence_basis": [
+      "Abstract specifies individual cancer deaths in Brazilian municipalities, daily PM2.5, 2000\u20132019, and a three-day PM2.5 mean.",
+      "Target supplies time-stratified case-crossover conditional regression and weather/holiday covariates.",
+      "Public source documents daily municipality linkage via CODMUNRES and CODE_MUNI.",
+      "Review requires an evidence-backed executable design and fresh counterexample recovery."
+    ],
+    "locked_before_exposure": false
+  },
+  "effects": [
+    {
+      "label": "All-cancer mortality, Sao Paulo 2019 bounded sensitivity",
+      "primary": true,
+      "estimate": 1.017754138136571,
+      "ci_low": 0.9858916320293315,
+      "ci_high": 1.0506463915937743,
+      "scale": "ratio",
+      "contrast": "per 10 micrograms per cubic metre PM2.5",
+      "metric": "OR",
+      "native_estimate": 0.001759837435836515,
+      "native_ci_low": -0.001421149598364593,
+      "native_ci_high": 0.004940824470037623,
+      "native_scale": "conditional logistic coefficient",
+      "native_contrast": "per 1 microgram per cubic metre PM2.5"
+    }
+  ],
+  "analysis_diagnostics": {
+    "observations": 68454,
+    "estimated_parameters": 1,
+    "exposure_unique_values": 363,
+    "outcome_unique_values": 365,
+    "joined_rows": 68454,
+    "unmatched_outcome_rows": 2,
+    "unmatched_exposure_rows": 0,
+    "contrast_transformation_verified": true,
+    "reported_variants": [
+      "Unadjusted bounded Sao Paulo 2019 all-cancer sensitivity; event-expanded case-crossover panel"
+    ]
+  }
+}

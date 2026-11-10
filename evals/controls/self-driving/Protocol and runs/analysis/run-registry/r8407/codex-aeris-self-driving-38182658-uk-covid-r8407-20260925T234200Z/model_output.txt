@@ -1,0 +1,42 @@
+                 Generalized Linear Model Regression Results                  
+==============================================================================
+Dep. Variable:                   prop   No. Observations:                  449
+Model:                            GLM   Df Residuals:                   281631
+Model Family:                Binomial   Df Model:                           13
+Link Function:                  Logit   Scale:                          1.0000
+Method:                          IRLS   Log-Likelihood:                -82487.
+Date:                Fri, 25 Sep 2026   Deviance:                       6103.5
+Time:                        23:47:35   Pearson chi2:                 6.35e+03
+No. Iterations:                     6   Pseudo R-squ. (CS):              1.000
+Covariance Type:                  HC1                                         
+=================================================================================================
+                                    coef    std err          z      P>|z|      [0.025      0.975]
+-------------------------------------------------------------------------------------------------
+Intercept                         3.7890      0.033    113.836      0.000       3.724       3.854
+C(nation)[T.Northern Ireland]    -0.6320      0.011    -55.787      0.000      -0.654      -0.610
+C(nation)[T.Scotland]            -0.1755      0.007    -24.654      0.000      -0.189      -0.162
+C(nation)[T.Wales]               -0.7508      0.005   -162.783      0.000      -0.760      -0.742
+C(weekday)[T.Monday]              0.3388      0.003    134.141      0.000       0.334       0.344
+C(weekday)[T.Saturday]           -0.4116      0.004   -112.661      0.000      -0.419      -0.404
+C(weekday)[T.Sunday]             -0.4118      0.004   -116.091      0.000      -0.419      -0.405
+C(weekday)[T.Thursday]            0.0967      0.002     43.064      0.000       0.092       0.101
+C(weekday)[T.Tuesday]             0.1019      0.003     37.883      0.000       0.097       0.107
+C(weekday)[T.Wednesday]          -0.1280      0.002    -52.901      0.000      -0.133      -0.123
+I(pm2_5_lag10_mean / 10)         -0.3535      0.004    -80.741      0.000      -0.362      -0.345
+temperature_c_lag10_mean          0.0350      0.001     53.782      0.000       0.034       0.036
+sunshine_hours_lag10_mean        -0.3354      0.002   -170.150      0.000      -0.339      -0.332
+humidity_pct_lag10_mean          -0.0083      0.000    -37.309      0.000      -0.009      -0.008
+=================================================================================================
+
+Effect JSON:
+{
+  "term": "PM2.5 11-day mean, per 10 ug/m3",
+  "log_odds_ratio": -0.3535120545584542,
+  "se_robust": 0.004378358767331206,
+  "odds_ratio": 0.702217527614812,
+  "ci95_or": [
+    0.696217172585173,
+    0.708269596767428
+  ],
+  "p_value": 0.0
+}

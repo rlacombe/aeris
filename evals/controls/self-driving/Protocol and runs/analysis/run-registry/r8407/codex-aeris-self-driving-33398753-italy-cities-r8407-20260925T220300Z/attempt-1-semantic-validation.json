@@ -1,0 +1,10 @@
+{
+  "valid": true,
+  "errors": [],
+  "warnings": [
+    "missing or external required artifact: fidelity_record",
+    "included coverage exceeds eligible coverage",
+    "aggregate coverage_diagnostics must explain eligible and included time coverage",
+    "geographic construct change lacks boundary_route_evidence"
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "schema_version": "aeris-study-contract/v3",
+  "profile": "reanalysis",
+  "contract_id": "38788590-brazil-cancer-reanalysis-invariants",
+  "approved": true,
+  "author": "agent",
+  "objective": "Estimate the association of short-term municipality-level PM2.5 with all-cancer mortality in Brazil.",
+  "allowed_tools": [
+    "estimate_boundary_exposure",
+    "estimate_boundary_exposure_batch",
+    "estimate_exposure"
+  ],
+  "pollutants": [
+    "pm25"
+  ],
+  "date_window": {
+    "start": "2000-01-01",
+    "end": "2019-12-31"
+  },
+  "temporal_resolutions": [
+    "daily",
+    "hourly"
+  ],
+  "allowed_fidelity_levels": [
+    "matched",
+    "source_substitution",
+    "reduced_coverage",
+    "reduced_adjustment",
+    "bounded",
+    "supported_sensitivity"
+  ],
+  "resource_limits": {
+    "wall_clock_hours": 8,
+    "maximum_infrastructure_restarts": 1,
+    "maximum_single_download_gib": 10,
+    "maximum_boundary_units": 6000,
+    "maximum_boundary_units_per_call": 25,
+    "maximum_static_units_per_call": 2
+  },
+  "scientific_invariants": {
+    "research_question": "Estimate the association of short-term municipality-level PM2.5 with all-cancer mortality in Brazil.",
+    "target_outcome_and_population": "Daily all-cancer deaths among Brazilian residents recorded in SIM.",
+    "pollutants": [
+      "pm25"
+    ],
+    "principal_contrast": "Odds ratio per 10 micrograms per cubic metre increase in lag 0-2 PM2.5.",
+    "principal_variants": [
+      "All-cancer mortality, lag 0-2 PM2.5, conditional logistic regression"
+    ],
+    "broad_geography": "Brazilian municipalities",
+    "target_geographic_units": 5570,
+    "target_geographic_unit_type": "municipality",
+    "period": {
+      "start": "2000-01-01",
+      "end": "2019-12-31"
+    },
+    "prohibited_evidence": [
+      "published_effect",
+      "prior_aeris_effect",
+      "prior_reanalysis_code",
+      "prior_exposure_values"
+    ]
+  },
+  "article_evidence": [
+    {
+      "artifact": "/study/article.txt",
+      "finding": "Study abstract: Brazilian individual SIM cancer deaths, 2000-2019; municipal daily PM2.5; three-day average; OR per 10 ug/m3."
+    },
+    {
+      "artifact": "/output/article-complete-methods.txt",
+      "finding": "Complete methods recovered through the open-access article route: 5,570 municipalities, SIM, 0.25-degree daily modelled PM2.5, ERA5 meteorology, population-weighted municipality aggregation, time-stratified case-crossover conditional logistic regression."
+    }
+  ],
+  "article_evidence_map": {},
+  "execution_design": {},
+  "amendments": []
+}

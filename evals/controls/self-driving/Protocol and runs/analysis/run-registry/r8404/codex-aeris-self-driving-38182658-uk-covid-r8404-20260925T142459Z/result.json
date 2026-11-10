@@ -1,0 +1,180 @@
+{
+  "schema_version": 3,
+  "study_id": "38182658-uk-covid",
+  "status": "completed_sensitivity",
+  "fidelity": "bounded",
+  "target": {
+    "outcome": "Instantaneous COVID-19 case-fatality rate: article target D'/C; reanalysis uses stated fixed-delay proxy.",
+    "pollutant": "PM2.5",
+    "geography": "England, Northern Ireland, Scotland, and Wales",
+    "population": "Laboratory-confirmed COVID-19 cases in the four UK constituent nations",
+    "period": "2020-03-26 through 2020-09-15",
+    "effect_scale": "Odds ratio per 10 ug/m3 PM2.5",
+    "exposure_assignment": "Article: daily country average. Reanalysis: daily mean of valid hourly values at one official UK-AIR representative monitor per nation.",
+    "model": "Article: binomial logistic GLMM/DLNM. Reanalysis: binomial-logit fixed-effect GLM with PM2.5, temperature and sunshine at lag 10 days.",
+    "covariates": [
+      "temperature",
+      "sunshine duration",
+      "nation fixed effects"
+    ],
+    "named_outcome_source": "Public Health England / Office for National Statistics (article); independently recovered Tom White historical UK data compilation (reanalysis)",
+    "specification_evidence": [
+      "/output/estimand_ledger.json",
+      "/study/article.md",
+      "/study/supplements/41598_2023_50474_MOESM1_ESM.docx"
+    ]
+  },
+  "sources": [
+    {
+      "role": "outcome",
+      "url": "https://raw.githubusercontent.com/tomwhite/covid-19-uk-data/master/data/covid-19-indicators-uk.csv",
+      "route_origin": "agent_discovered",
+      "retrieved": true,
+      "sha256": "151ecd06edb90e137ddddb822305ac642ca58297f2155362df2e4b7661d4a1f5",
+      "evidence_artifact": "/output/retrieved/uk_covid_indicators.csv"
+    },
+    {
+      "role": "exposure",
+      "url": "https://uk-air.defra.gov.uk/datastore/data_files/site_pol_data/{SITE}_PM25_2020.csv",
+      "route_origin": "article_named",
+      "retrieved": true,
+      "sha256": null,
+      "evidence_artifact": "/output/exposure_daily.csv"
+    },
+    {
+      "role": "weather",
+      "url": "https://archive-api.open-meteo.com/v1/archive",
+      "route_origin": "agent_discovered",
+      "retrieved": true,
+      "sha256": null,
+      "evidence_artifact": "/output/retrieved/openmeteo_EAGL.json"
+    },
+    {
+      "role": "boundary",
+      "url": "OpenAQ archive S3 and v3 via AERIS",
+      "route_origin": "agent_discovered",
+      "retrieved": true,
+      "sha256": null,
+      "evidence_artifact": "/output/aeris-workspace/.aeris/artifacts/exposure_pm25_2026-09-25T142941.5103370000.csv"
+    }
+  ],
+  "substitutions": [
+    {
+      "dimension": "exposure",
+      "change_type": "source",
+      "published": "Daily national average across monitors from DEFRA Air Information Resource",
+      "reanalysis": "One official UK-AIR PM2.5 monitor per nation, daily hourly mean",
+      "reason": "Direct regulator source provided reproducible fit-ready hourly records; retained analysis is explicitly representative-monitor exposure."
+    },
+    {
+      "dimension": "outcome",
+      "change_type": "construct_change",
+      "published": "Non-parametric backprojected deaths D' divided by confirmed cases",
+      "reanalysis": "Reported daily deaths shifted eight days and divided by daily incident cases",
+      "reason": "Recovered public historical source does not contain original backprojection input/output."
+    },
+    {
+      "dimension": "model",
+      "change_type": "construct_change",
+      "published": "DLNM binomial GLMM with country random effects and stage-specific effects",
+      "reanalysis": "Single linear 10-day lag binomial-logit model with nation fixed effects",
+      "reason": "Fixed-delay proxy cannot defensibly identify separate stage effects and four clusters are not suitable for stable random-effect inference."
+    },
+    {
+      "dimension": "covariate",
+      "change_type": "source",
+      "published": "ECA&D station aggregates",
+      "reanalysis": "Open-Meteo archive at fixed representative coordinates",
+      "reason": "Public, reproducible daily temperature and sunshine proxy."
+    }
+  ],
+  "coverage": {
+    "eligible_units": 4,
+    "included_units": 4,
+    "eligible_times": 174,
+    "included_times": 466,
+    "rule": "Retain nation-days with nonmissing lag-10 PM2.5, temperature and sunshine and positive daily incident cases; no numeric PM completeness exclusion threshold imposed.",
+    "notes": "Joined panel has 696 nation-days; 13 have no daily PM2.5, and lag/missingness/zero-case rules leave 466 model rows. PM2.5 daily availability: England 166/174, Northern Ireland 174/174, Scotland 174/174, Wales 169/174. Full diagnostics are in coverage_report.json."
+  },
+  "artifacts": {
+    "code": "reanalysis.py",
+    "source_manifest": "source_manifest.json",
+    "exposure": "exposure_daily.csv",
+    "analysis_panel": "analysis_panel.csv",
+    "model_output": "model_output.json",
+    "decision_log": "decision_log.json",
+    "research_notebook": "aeris-workspace/.aeris/research-notebook.json",
+    "blocker_ledger": "blocker_ledger.json",
+    "fidelity_record": "aeris-workspace/.aeris/artifacts/reanalysis-fidelity_reanalysis-fidelity_2026-09-25T143521.2130500000.json",
+    "coverage_diagnostics": "coverage_report.json",
+    "review_audit": "review_audit.json",
+    "boundary_route_evidence": "aeris-workspace/.aeris/artifacts/exposure_pm25_2026-09-25T142941.5103370000.csv",
+    "study_contract": "aeris-workspace/.aeris/contracts/reanalysis-invariants.json"
+  },
+  "blockers": [
+    "Exact article all-monitor national PM2.5 average, backprojNP D' outcome, and DLNM stage-specific model were not recovered; this is a bounded sensitivity, not a matched replication."
+  ],
+  "stopping_checklist": {
+    "target_specification_complete": true,
+    "complete_article_checked": true,
+    "outcome_routes_attempted": 1,
+    "normal_exposure_source_tested": true,
+    "historical_fallback_applicable": false,
+    "historical_fallback_tested": false,
+    "geographic_batching_applicable": true,
+    "geographic_batching_attempted": true,
+    "fidelity_levels_evaluated": [
+      "bounded"
+    ],
+    "pending_requests": 0,
+    "evidence_artifacts": [
+      "/output/aeris-workspace/.aeris/artifacts/exposure_pm25_2026-09-25T142941.5103370000.csv",
+      "/output/exposure_daily.csv",
+      "/output/retrieved/openmeteo_EAGL.json",
+      "/output/retrieved/uk_covid_indicators.csv",
+      "aeris-workspace/.aeris/artifacts/exposure_pm25_2026-09-25T142941.5103370000.csv",
+      "aeris-workspace/.aeris/artifacts/reanalysis-fidelity_reanalysis-fidelity_2026-09-25T143521.2130500000.json",
+      "aeris-workspace/.aeris/contracts/reanalysis-invariants.json",
+      "aeris-workspace/.aeris/research-notebook.json",
+      "analysis_panel.csv",
+      "blocker_ledger.json",
+      "coverage_report.json",
+      "decision_log.json",
+      "exposure_daily.csv",
+      "model_output.json",
+      "reanalysis.py",
+      "review_audit.json",
+      "source_manifest.json"
+    ]
+  },
+  "effects": [
+    {
+      "label": "Bounded PM2.5 lag-10 sensitivity",
+      "primary": true,
+      "estimate": 1.0700745807495362,
+      "ci_low": 1.06764487994319,
+      "ci_high": 1.0725098109656321,
+      "scale": "ratio",
+      "contrast": "10 ug/m3 increase in PM2.5 at lag 10 days",
+      "metric": "OR",
+      "native_estimate": 0.006772834767984921,
+      "native_ci_low": 0.006545517582800075,
+      "native_ci_high": 0.007000151953169767,
+      "native_scale": "log odds coefficient",
+      "native_contrast": "1 ug/m3 PM2.5"
+    }
+  ],
+  "analysis_diagnostics": {
+    "observations": 466,
+    "estimated_parameters": 7,
+    "exposure_unique_values": 443,
+    "outcome_unique_values": 152,
+    "joined_rows": 696,
+    "unmatched_outcome_rows": 0,
+    "unmatched_exposure_rows": 13,
+    "contrast_transformation_verified": true,
+    "reported_variants": [
+      "lag-10 bounded sensitivity; article's three infection-stage variants not separately identifiable with fixed-delay proxy"
+    ]
+  }
+}

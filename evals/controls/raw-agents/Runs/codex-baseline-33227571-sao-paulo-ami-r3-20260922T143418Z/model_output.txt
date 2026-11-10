@@ -1,0 +1,6 @@
+NO MODEL FIT
+Daily AMI admissions were unavailable, so the locked cluster comparison was not estimable.
+Independent exposure rows constructed: 0 (2013--2015 only).
+openmeteo_2013.json SHA-256: e43e48be11dd61b8b3972c209659920909b082e6ebb2937908d8ec3da902be6a
+openmeteo_2014.json SHA-256: 1d480b4d3ccbcac2423524136294884bf394e481fa68990434cf3734d4d6380a
+openmeteo_2015.json SHA-256: d0e81fb6aa371b54f958b556dae5883b41ce6525910855b4e56173cf0e2debbe

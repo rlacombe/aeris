@@ -1,0 +1,120 @@
+{
+  "schema_version": "aeris-study-contract/v3",
+  "profile": "reanalysis",
+  "contract_id": "38788590-brazil-cancer-reanalysis-invariants",
+  "approved": true,
+  "author": "agent",
+  "objective": "Estimate the association of short-term municipality-level PM2.5 with all-cancer mortality in Brazil.",
+  "allowed_tools": [
+    "estimate_boundary_exposure",
+    "estimate_boundary_exposure_batch",
+    "estimate_exposure"
+  ],
+  "pollutants": [
+    "pm25"
+  ],
+  "date_window": {
+    "start": "2000-01-01",
+    "end": "2019-12-31"
+  },
+  "temporal_resolutions": [
+    "daily",
+    "hourly"
+  ],
+  "allowed_fidelity_levels": [
+    "matched",
+    "source_substitution",
+    "reduced_coverage",
+    "reduced_adjustment",
+    "bounded",
+    "supported_sensitivity"
+  ],
+  "resource_limits": {
+    "wall_clock_hours": 8,
+    "maximum_infrastructure_restarts": 1,
+    "maximum_single_download_gib": 10,
+    "maximum_boundary_units": 6000,
+    "maximum_boundary_units_per_call": 25,
+    "maximum_static_units_per_call": 2
+  },
+  "scientific_invariants": {
+    "research_question": "Estimate the association of short-term municipality-level PM2.5 with all-cancer mortality in Brazil.",
+    "target_outcome_and_population": "Daily all-cancer deaths among Brazilian residents recorded in SIM.",
+    "pollutants": [
+      "pm25"
+    ],
+    "principal_contrast": "Odds ratio per 10 micrograms per cubic metre increase in lag 0-2 PM2.5.",
+    "principal_variants": [
+      "All-cancer mortality, lag 0-2 PM2.5, conditional logistic regression"
+    ],
+    "broad_geography": "Brazilian municipalities",
+    "target_geographic_units": 5570,
+    "target_geographic_unit_type": "municipality",
+    "period": {
+      "start": "2000-01-01",
+      "end": "2019-12-31"
+    },
+    "prohibited_evidence": [
+      "published_effect",
+      "prior_aeris_effect",
+      "prior_reanalysis_code",
+      "prior_exposure_values"
+    ]
+  },
+  "article_evidence": [
+    {
+      "artifact": "/study/article.txt",
+      "finding": "Study abstract: Brazilian individual SIM cancer deaths, 2000-2019; municipal daily PM2.5; three-day average; OR per 10 ug/m3."
+    },
+    {
+      "artifact": "/output/article-complete-methods.txt",
+      "finding": "Complete methods recovered through the open-access article route: 5,570 municipalities, SIM, 0.25-degree daily modelled PM2.5, ERA5 meteorology, population-weighted municipality aggregation, time-stratified case-crossover conditional logistic regression."
+    }
+  ],
+  "article_evidence_map": {},
+  "execution_design": {
+    "geographic_representation": "Municipality boundaries; feasibility slice starts with S\u00e3o Paulo municipality identified by SIM municipality-of-residence code 3550308, then expands only after observed outcome and exposure coverage.",
+    "source_strategy": "Outcome: official Ministry of Health SIM annual CSV archive. Exposure: public OpenAQ historical monitor data discovered and assigned through AERIS; meteorology: public gridded daily source only if needed and available.",
+    "assignment_method": "For a bounded municipal slice, assign each municipality-day the nearest available public PM2.5 monitor after AERIS catalog discovery; retain monitor ID and distance. This is a monitor-based municipal proxy, not a population-weighted area concentration.",
+    "daily_aggregation": "Mean valid hourly PM2.5 measurements per local calendar day; retain daily hour count and report it.",
+    "exposure_metric": "Arithmetic mean of same municipality-assigned daily PM2.5 for event day and preceding two days (lag 0\u20132), \u00b5g/m\u00b3.",
+    "analysis_aggregation": "One row per municipality-day cancer death count; construct time strata only after exact article stratum rule is recovered.",
+    "coverage_policy": "Report all outcome, PM2.5, and covariate missingness and monitor distances. A bounded slice uses successful source overlap and is labelled reduced coverage.",
+    "intended_use": "Generate a fit-ready, article-aligned outcome-exposure panel and conditional-regression handoff; published effects do not influence selection or fitting.",
+    "execution_design": "Official SIM CSV archive replaces timeout-prone legacy DBC FTP for outcomes; no change to scientific target."
+  },
+  "amendments": [
+    {
+      "sequence": 1,
+      "changed_dimensions": {
+        "geographic_representation": "Municipality boundaries; feasibility slice starts with S\u00e3o Paulo municipality identified by SIM municipality-of-residence code 3550308, then expands only after observed outcome and exposure coverage.",
+        "source_strategy": "Outcome: official Ministry of Health SIM annual CSV archive. Exposure: public OpenAQ historical monitor data discovered and assigned through AERIS; meteorology: public gridded daily source only if needed and available.",
+        "assignment_method": "For a bounded municipal slice, assign each municipality-day the nearest available public PM2.5 monitor after AERIS catalog discovery; retain monitor ID and distance. This is a monitor-based municipal proxy, not a population-weighted area concentration.",
+        "daily_aggregation": "Mean valid hourly PM2.5 measurements per local calendar day; retain daily hour count and report it.",
+        "exposure_metric": "Arithmetic mean of same municipality-assigned daily PM2.5 for event day and preceding two days (lag 0\u20132), \u00b5g/m\u00b3.",
+        "analysis_aggregation": "One row per municipality-day cancer death count; construct time strata only after exact article stratum rule is recovered.",
+        "coverage_policy": "Report all outcome, PM2.5, and covariate missingness and monitor distances. A bounded slice uses successful source overlap and is labelled reduced coverage.",
+        "intended_use": "Generate a fit-ready, article-aligned outcome-exposure panel and conditional-regression handoff; published effects do not influence selection or fitting.",
+        "execution_design": "Official SIM CSV archive replaces timeout-prone legacy DBC FTP for outcomes; no change to scientific target."
+      },
+      "evidence": [
+        {
+          "artifact": "/output/recovery-official-sim-landing.html",
+          "finding": "Official Ministry portal embeds annual SIM CSV/JSON ZIP resource URLs for every study year."
+        },
+        {
+          "artifact": "/output/sim-2000.csv.zip",
+          "finding": "Downloaded, listed archive contains raw 2000 mortality records."
+        },
+        {
+          "artifact": "/output/recovery-microdatasus-fetch.R",
+          "finding": "Maintained client source confirms the legacy DBC transport and its documented FTP dependency."
+        }
+      ],
+      "scientific_justification": "The executable design preserves the article\u2019s target while explicitly documenting a public outcome transport substitution and a monitor-based municipal exposure assignment.",
+      "fidelity_impact": "source_substitution",
+      "agreement_independent": true
+    }
+  ],
+  "parent_contract_sha256": "7b95dee975b13a5db313bb5c030c149e87d0ee3279f99008916b13c497c589e4"
+}

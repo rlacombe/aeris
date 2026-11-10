@@ -1,0 +1,61 @@
+{
+  "study_id": "pmid-38788590",
+  "retrieved_at_utc": "2026-09-19",
+  "sources": [
+    {
+      "role": "supplied_citation_record",
+      "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=38788590&retmode=xml",
+      "local_path": "/study/article.xml",
+      "retrieved": true,
+      "sha256": "da1585735e550f7b8e4ab9c8a219f3a831658311f313f5f059ee9153594d0d28"
+    },
+    {
+      "role": "supplied_reading_copy",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38788590/",
+      "local_path": "/study/article.pdf",
+      "retrieved": true,
+      "sha256": "9c5d16c75615b12d2610b37f485edc4172e451ff9cc579f6b8a3fe67d649f93f"
+    },
+    {
+      "role": "publisher_full_text_attempt",
+      "url": "https://www.sciencedirect.com/science/article/pii/S0304389424011853/pdfft?isDTMRedir=true&download=true",
+      "local_path": "/output/logs/article_headers.txt",
+      "retrieved": false,
+      "sha256": null,
+      "note": "HTTP 403; no retry because this is an other-4xx response under the supplied policy."
+    },
+    {
+      "role": "lawful_open_methods_reading",
+      "url": "https://www.researchgate.net/publication/380561503_Cancer_Mortality_Risk_from_Short-Term_PM25_Exposure_and_Temporal_Variations_in_Brazil",
+      "local_path": null,
+      "retrieved": true,
+      "sha256": null,
+      "note": "Publicly accessible methods text was consulted to identify the target/model; no author exposure values, derived datasets, or code were used."
+    },
+    {
+      "role": "public_health_outcome_api_probe",
+      "url": "https://apidadosabertos.saude.gov.br/vigilancia-e-meio-ambiente/sistema-de-informacao-sobre-mortalidade?ano=2019&limit=20&offset=0",
+      "local_path": "/output/raw/sim_api.json",
+      "retrieved": true,
+      "sha256": "94fc8652f51aa9bf519222ba41237cc471baea2a0147ebc0f5047116c101db40",
+      "note": "Returned 20 individual 2025 records; not usable for the target 2000–2019 period."
+    },
+    {
+      "role": "public_health_api_specification",
+      "url": "https://apidadosabertos.saude.gov.br/static/swagger.json",
+      "local_path": "/output/raw/swagger.json",
+      "retrieved": true,
+      "sha256": "a3ff1a1c6737a60a75b02017536a8400771598d65556cacfd6d907db427fc65d",
+      "note": "SIM endpoint documents only limit and offset query parameters."
+    },
+    {
+      "role": "historical_SIM_archive",
+      "url": "https://ftp.datasus.gov.br/dissemin/publicos/SIM/CID10/DADOS/DO2000.dbc",
+      "local_path": null,
+      "retrieved": false,
+      "sha256": null,
+      "attempt_log": "/output/logs/sim_archive_attempts.jsonl",
+      "note": "Connection-timeout recovery probe; no response bytes in completed logged attempts."
+    }
+  ]
+}

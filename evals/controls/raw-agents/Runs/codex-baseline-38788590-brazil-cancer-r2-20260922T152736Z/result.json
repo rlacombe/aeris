@@ -1,0 +1,33 @@
+{
+  "study_id": "PMID-38788590",
+  "status": "completed_blocker",
+  "target": {
+    "outcome": "All-cancer mortality (individual Brazilian SIM death records; underlying ICD-10 cancer causes)",
+    "pollutant": "Daily PM2.5, primary three-day mean over lag 0-2",
+    "geography": "Brazil; 5,570 residence municipalities",
+    "period": "2000-01-01 to 2019-12-31",
+    "effect_scale": "Odds ratio per 10 micrograms/m3 increase; intended transformation OR=exp(10*beta)"
+  },
+  "sources": [
+    {"role": "supplied_pubmed_record", "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=38788590&retmode=xml", "retrieved": true, "sha256": "da1585735e550f7b8e4ab9c8a219f3a831658311f313f5f059ee9153594d0d28"},
+    {"role": "article_landing_page", "url": "https://research.monash.edu/en/publications/cancer-mortality-risk-from-short-term-pmsub25sub-exposure-and-tem/", "retrieved": true, "sha256": "ad2827946aec23f32cd72a27b53580a9d313ce623997cec3d03f76c00a7b4730"},
+    {"role": "public_health_outcome_candidate_SIM", "url": "https://ftp.datasus.gov.br/dissemin/publicos/SIM/CID10/DADOS/", "retrieved": false, "sha256": null},
+    {"role": "independent_PM25_candidate", "url": "https://disc.gsfc.nasa.gov/datasets/M2T1NXAER_5.12.4/summary", "retrieved": false, "sha256": null}
+  ],
+  "substitutions": [],
+  "coverage": {"eligible_units": 5570, "included_units": 0, "eligible_times": 7305, "included_times": 0, "notes": "No data acquired: policy termination before study because free disk was 12 GiB, below the 20 GiB required minimum."},
+  "effect": null,
+  "artifacts": {
+    "code": "/output/code/reanalysis.py",
+    "source_manifest": "/output/source_manifest.json",
+    "exposure": "/output/exposure.csv",
+    "analysis_panel": "/output/analysis_panel.csv",
+    "model_output": "/output/model_output.json",
+    "decision_log": "/output/decision_log.md",
+    "blocker_ledger": "/output/blocker_ledger.md",
+    "sanitization_columns": "/output/sanitization_columns.json",
+    "fidelity_record": "/output/fidelity_record.json",
+    "run_summary": "/output/run_summary.json"
+  },
+  "blockers": ["Campaign policy termination: 12 GiB free disk before study; retry policy requires at least 20 GiB.", "No full eligible national health/exposure/covariate panel was constructed; no principal model was fit."]
+}

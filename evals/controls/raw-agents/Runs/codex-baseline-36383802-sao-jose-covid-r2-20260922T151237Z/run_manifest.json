@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "run_id": "codex-baseline-36383802-sao-jose-covid-r2-20260922T151237Z",
+  "condition": "codex-baseline",
+  "study": {
+    "pmid": "36383802",
+    "slug": "sao-jose-covid",
+    "bundle_sha256": "f7d60081f0dd06ebe659c95c670e78c1e9416fb32e2fde780b7f7b99f2ccd880",
+    "input_mode": "complete_article"
+  },
+  "replicate": 2,
+  "agent": {
+    "host": "Codex CLI",
+    "host_version": "0.155.1",
+    "model": "gpt-5.6-terra",
+    "reasoning_effort": "medium",
+    "session_id_redacted": null
+  },
+  "environment": {
+    "container_image_digest": "sha256:56cc58cd3a1eaebb232130801c1905aa7ec4fdc3d8ed9b895286a7ed77a3745f",
+    "aeris_commit": null,
+    "network_policy_sha256": "961d0161ba4f36b2c9cf69bea0be5831f656c238672b38bceb2b993944a6970c"
+  },
+  "started_at": "2026-09-22T15:12:38.044291+00:00",
+  "ended_at": "2026-09-22T15:23:29.919700+00:00",
+  "status": "completed_blocker",
+  "infrastructure_restarts": 0,
+  "human_scientific_interventions": 0,
+  "artifacts": {
+    "agent.stderr.log": "agent.stderr.log",
+    "analysis_panel.csv": "analysis_panel.csv",
+    "baseline_audit.txt": "baseline_audit.txt",
+    "blocker_ledger.md": "blocker_ledger.md",
+    "container_exit_code.txt": "container_exit_code.txt",
+    "decision_log.md": "decision_log.md",
+    "exposure_daily.csv": "exposure_daily.csv",
+    "fidelity_record.json": "fidelity_record.json",
+    "model_lag2_summary.txt": "model_lag2_summary.txt",
+    "model_output.csv": "model_output.csv",
+    "outcome_columns_INFLUD20-23-03-2026.txt": "outcome_columns_INFLUD20-23-03-2026.txt",
+    "outcome_columns_INFLUD21-23-03-2026.txt": "outcome_columns_INFLUD21-23-03-2026.txt",
+    "outcome_daily_sivep.csv": "outcome_daily_sivep.csv",
+    "raw/INFLUD20-23-03-2026.parquet": "raw/INFLUD20-23-03-2026.parquet",
+    "raw/INFLUD21-23-03-2026.parquet": "raw/INFLUD21-23-03-2026.parquet",
+    "raw/openmeteo_air_quality.json": "raw/openmeteo_air_quality.json",
+    "raw/openmeteo_weather.json": "raw/openmeteo_weather.json",
+    "reanalysis.py": "reanalysis.py",
+    "reanalysis.stderr": "reanalysis.stderr",
+    "request_log.csv": "request_log.csv",
+    "result.json": "result.json",
+    "run_manifest.json": "run_manifest.json",
+    "run_summary.json": "run_summary.json",
+    "schema_validation.log": "schema_validation.log",
+    "schema_validation_exit_code.txt": "schema_validation_exit_code.txt",
+    "source_manifest.json": "source_manifest.json",
+    "transcript.jsonl": "transcript.jsonl",
+    "transport_attempts.md": "transport_attempts.md"
+  },
+  "termination_reason": null
+}

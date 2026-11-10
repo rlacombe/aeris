@@ -1,0 +1,155 @@
+{
+  "schema_version": 3,
+  "study_id": "33227571-sao-paulo-ami",
+  "status": "completed_blocker",
+  "fidelity": "none",
+  "target": {
+    "outcome": "Daily acute myocardial infarction admissions and in-hospital deaths",
+    "pollutant": "NO2, PM2.5, and PM10",
+    "geography": "39 municipalities in metropolitan Sao Paulo, Brazil, aggregated daily",
+    "population": "SUS acute myocardial infarction admissions",
+    "period": "2012-10-01 through 2015-09-30",
+    "effect_scale": "Article comparison scale not specified in the supplied record",
+    "exposure_assignment": "Daily metropolitan pollutant-weather clusters",
+    "model": "Hierarchical cluster comparison; exact inferential model not identified in supplied article materials",
+    "covariates": [
+      "temperature",
+      "temperature variation",
+      "rainfall",
+      "relative humidity"
+    ],
+    "named_outcome_source": "DataSUS SIH-RD public mirror",
+    "specification_evidence": [
+      "/output/article-specification-evidence.md",
+      "/output/aeris-workspace/.aeris/contracts/reanalysis-invariants.json"
+    ]
+  },
+  "sources": [
+    {
+      "role": "outcome",
+      "url": "https://huggingface.co/datasets/SidneyBissoli/sih-rd",
+      "route_origin": "agent_discovered",
+      "retrieved": true,
+      "sha256": "d6a42d81fdce4a7c5c9485142726cd74f3dfa6d09ce278005d94ccdd0e86fc42",
+      "evidence_artifact": "/output/outcomes_probe.parquet"
+    },
+    {
+      "role": "weather",
+      "url": "https://archive-api.open-meteo.com/v1/archive",
+      "route_origin": "agent_discovered",
+      "retrieved": true,
+      "sha256": "b1d469a171320f7812719d03920e4e66df9fe7177162ba50401330d4663075ce",
+      "evidence_artifact": "/output/analysis_panel.csv"
+    },
+    {
+      "role": "exposure",
+      "url": "https://servicos.cetesb.sp.gov.br/arcgis/rest/services/QA_Hist/QA_Hist/MapServer",
+      "route_origin": "article_named",
+      "retrieved": false,
+      "sha256": null,
+      "evidence_artifact": "/output/article-specification-evidence.md"
+    },
+    {
+      "role": "exposure",
+      "url": "https://servicos.cetesb.sp.gov.br/arcgis/rest/services/QUALAR/CETESB_QUALAR/MapServer",
+      "route_origin": "article_named",
+      "retrieved": false,
+      "sha256": "1dc9b88f8b58970c674de4393c137e79d45d7e6d0774a1cdd3d2773df6172b44",
+      "evidence_artifact": "/output/review/cetesb_qualar_service.json"
+    },
+    {
+      "role": "exposure",
+      "url": "https://qualar.cetesb.sp.gov.br/qualar/exportaDados.do?method=pesquisar",
+      "route_origin": "article_named",
+      "retrieved": false,
+      "sha256": "87f69ced208dad313ed0363ace34c916d2c09818e1696352d7f694a1974f411a",
+      "evidence_artifact": "/output/review/qualar_auth.body"
+    },
+    {
+      "role": "exposure",
+      "url": "https://repositorio.cetesb.sp.gov.br/server/api/discover/search/objects",
+      "route_origin": "article_named",
+      "retrieved": false,
+      "sha256": "bba914578b1b7a7b68d009cb31067460194b433578766463f812cf5d703551dd",
+      "evidence_artifact": "/output/review/cetesb_repo_bitstreams.tsv"
+    },
+    {
+      "role": "exposure",
+      "url": "https://api.openaq.org/",
+      "route_origin": "agent_discovered",
+      "retrieved": false,
+      "sha256": "7fbd3ede21f2d489539fa3fe9e652c25d32d02c152e08f91eb91f0e8e9bfb5e8",
+      "evidence_artifact": "/output/aeris_pm25_openAQ_exposure.csv"
+    }
+  ],
+  "substitutions": [
+    {
+      "dimension": "exposure",
+      "change_type": "construct_change",
+      "published": "CETESB daily NO2, PM2.5 and PM10 monitor data included with weather in environmental clusters",
+      "reanalysis": "No usable target-period pollutant series; weather-only proxy retained separately and not used to claim the article estimand",
+      "reason": "All retained unauthenticated public pollutant routes yielded zero usable observations or required unavailable credentials."
+    }
+  ],
+  "coverage": {
+    "eligible_units": 39,
+    "included_units": 0,
+    "eligible_times": 1095,
+    "included_times": 0,
+    "rule": "No analytic pollutant-exposure panel was created because coverage for the required pollutant construct was 0%.",
+    "notes": "Outcome and weather records were recovered, but no usable daily NO2, PM2.5, or PM10 records overlap the article period."
+  },
+  "artifacts": {
+    "code": "retrieve_outcomes.py",
+    "source_manifest": "source_manifest.json",
+    "exposure": "aeris_pm25_openAQ_exposure.csv",
+    "analysis_panel": "analysis_panel.csv",
+    "model_output": "model_output.json",
+    "decision_log": "decision_log.json",
+    "research_notebook": "research-notebook.json",
+    "blocker_ledger": "blocker_ledger.json",
+    "fidelity_record": "aeris-workspace/.aeris/artifacts/reanalysis-fidelity_reanalysis-fidelity_2026-09-25T215004.5644580000.json",
+    "coverage_diagnostics": "coverage_diagnostics.json",
+    "counterexample_review": "counterexample_review.md",
+    "boundary_route_evidence": "aeris_pm25_openAQ_exposure.csv",
+    "study_contract": "aeris-workspace/.aeris/contracts/agent-contract-amendment-001.json"
+  },
+  "blockers": [
+    "No usable public daily NO2, PM2.5, or PM10 observations were recovered for 2012-10-01 through 2015-09-30; the locked pollutant-cluster estimand was therefore not fit.",
+    "Fresh counterexample review directly exercised four article-named CETESB routes: official QA_Hist service discovery, official QUALAR PM10/PM2.5/NO2 query transport, maintained qualR client authentication/export transport, and the CETESB repository API. The ArcGIS endpoints expose current 48-hour data only; the export requires an unavailable account; repository reports are summary documents rather than daily records. See /output/counterexample_review.md.",
+    "CAMS EAC4 is a plausible reanalysis substitution but its official download service requires an unavailable user API key; it was not represented as recovered data."
+  ],
+  "stopping_checklist": {
+    "target_specification_complete": true,
+    "complete_article_checked": true,
+    "outcome_routes_attempted": 1,
+    "normal_exposure_source_tested": true,
+    "historical_fallback_applicable": true,
+    "historical_fallback_tested": true,
+    "geographic_batching_applicable": false,
+    "geographic_batching_attempted": false,
+    "fidelity_levels_evaluated": [],
+    "pending_requests": 0,
+    "evidence_artifacts": [
+      "/output/aeris_pm25_openAQ_exposure.csv",
+      "/output/analysis_panel.csv",
+      "/output/article-specification-evidence.md",
+      "/output/outcomes_probe.parquet",
+      "/output/review/cetesb_qualar_service.json",
+      "/output/review/cetesb_repo_bitstreams.tsv",
+      "/output/review/qualar_auth.body",
+      "aeris-workspace/.aeris/artifacts/reanalysis-fidelity_reanalysis-fidelity_2026-09-25T215004.5644580000.json",
+      "aeris-workspace/.aeris/contracts/agent-contract-amendment-001.json",
+      "aeris_pm25_openAQ_exposure.csv",
+      "analysis_panel.csv",
+      "blocker_ledger.json",
+      "counterexample_review.md",
+      "coverage_diagnostics.json",
+      "decision_log.json",
+      "model_output.json",
+      "research-notebook.json",
+      "retrieve_outcomes.py",
+      "source_manifest.json"
+    ]
+  }
+}

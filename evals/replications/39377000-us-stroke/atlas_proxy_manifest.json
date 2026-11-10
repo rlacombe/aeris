@@ -1,0 +1,9 @@
+{
+  "outcome_source": "CDC Rates and Trends in Heart Disease and Stroke Mortality, dataset 7b9s-s8ck",
+  "outcome_url": "https://data.cdc.gov/resource/7b9s-s8ck.json?$limit=500000&$where=geographiclevel=%27County%27%20AND%20topic=%27All%20stroke%27%20AND%20stratification1=%27Ages%2065%20years%20and%20older%27%20AND%20stratification2=%27Overall%27%20AND%20stratification3=%27Overall%27%20AND%20year=%272019%27",
+  "outcome": "All-stroke mortality, adults 65+, age-standardized spatiotemporally smoothed county rate",
+  "outcome_year": 2019,
+  "location_source": "2019 Census Gazetteer county internal points",
+  "location_url": "https://www2.census.gov/geo/docs/maps-data/data/gazetteer/2019_Gazetteer/2019_Gaz_counties_national.zip",
+  "n_counties": 3022
+}

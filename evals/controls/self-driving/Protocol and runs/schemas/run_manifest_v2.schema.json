@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/aeris/run-manifest-v3.schema.json",
+  "title": "AERIS autonomous run manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "run_id", "condition", "study", "replicate", "agent",
+    "environment", "started_at", "ended_at", "status", "artifacts",
+    "infrastructure_restarts", "autonomous_continuations", "autonomous_review_passes",
+    "human_scientific_interventions", "safety_checks"
+  ],
+  "properties": {
+    "schema_version": {"const": 3},
+    "run_id": {"type": "string", "minLength": 1},
+    "condition": {"enum": ["codex-aeris-agent-authored-v1", "claude-sonnet-5-aeris-agent-authored-v1", "agy-flash-3.8-aeris-agent-authored-v1"]},
+    "study": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["pmid", "slug", "bundle_sha256", "input_mode"],
+      "properties": {
+        "pmid": {"type": "string", "pattern": "^[0-9]+$"},
+        "slug": {"type": "string"},
+        "bundle_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "input_mode": {"enum": ["complete_article", "retrieval_required"]}
+      }
+    },
+    "replicate": {"type": "integer", "minimum": 1},
+    "agent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["host", "host_version", "model", "reasoning_effort"],
+      "properties": {
+        "host": {"type": "string"},
+        "host_version": {"type": "string"},
+        "model": {"type": "string"},
+        "reasoning_effort": {"type": "string"}
+      }
+    },
+    "environment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "container_image_digest", "aeris_commit", "network_policy_sha256",
+        "retry_policy_sha256", "reanalysis_policy_sha256", "result_schema_sha256"
+        , "semantic_validator_sha256", "safety_envelope_sha256"
+      ],
+      "properties": {
+        "container_image_digest": {"type": "string"},
+        "aeris_commit": {"type": "string", "pattern": "^[a-f0-9]{40}$"},
+        "network_policy_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "retry_policy_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "reanalysis_policy_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "result_schema_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+        , "semantic_validator_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "safety_envelope_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+      }
+    },
+    "started_at": {"type": "string", "format": "date-time"},
+    "ended_at": {"type": ["string", "null"], "format": "date-time"},
+    "status": {
+      "enum": [
+        "running", "completed_fit", "completed_sensitivity", "completed_blocker",
+        "agent_failure", "infrastructure_failure", "policy_termination", "timeout"
+      ]
+    },
+    "infrastructure_restarts": {"type": "integer", "minimum": 0, "maximum": 1},
+    "autonomous_continuations": {"type": "integer", "minimum": 0},
+    "autonomous_review_passes": {"type": "integer", "minimum": 0},
+    "human_scientific_interventions": {"const": 0},
+    "safety_checks": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["secret_scan"],
+      "properties": {
+        "secret_scan": {"enum": ["pending", "passed", "failed"]}
+      }
+    },
+    "artifacts": {"type": "object", "additionalProperties": {"type": "string"}},
+    "termination_reason": {"type": ["string", "null"]}
+  }
+}

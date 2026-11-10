@@ -1,0 +1,27 @@
+{
+  "outcome": "CDC Atlas 2019 county all-stroke age-standardized mortality rate, adults 65+",
+  "outcome_url": "https://data.cdc.gov/resource/7b9s-s8ck.json",
+  "exposure": "AERIS/OpenAQ annual PM2.5, 2019; nearest monitor; 50% daily completeness",
+  "health_covariates": "CDC PLACES 2021 release, 2019 county crude prevalence",
+  "health_covariate_url": "https://data.cdc.gov/resource/pqpp-u99h.json?$limit=50000&$where=year=%272019%27%20AND%20locationid%20like%20%27_____%27%20AND%20datavaluetypeid=%27CrdPrv%27%20AND%20measureid%20in(%27CHD%27,%27BPHIGH%27,%27DIABETES%27,%27HIGHCHOL%27,%27OBESITY%27,%27CSMOKING%27,%27ACCESS2%27)",
+  "socioeconomic_covariates": "County Health Rankings 2020 analytic data",
+  "socioeconomic_covariate_url": "https://www.countyhealthrankings.org/sites/default/files/media/document/analytic_data2020.csv",
+  "poverty_proxy": "County Health Rankings percentage of children in poverty; the paper describes county poverty rate.",
+  "green_space_proxy": "County Health Rankings access to exercise opportunities; the paper uses population within half a mile of a park.",
+  "n_counties_after_complete_case_join": 46,
+  "columns": [
+    "all_stroke_rate_per_100k_65plus",
+    "aeris_pm25_ug_m3",
+    "coronary_heart_disease_pct",
+    "hypertension_pct",
+    "diabetes_pct",
+    "high_cholesterol_pct",
+    "obesity_pct",
+    "smoking_pct",
+    "median_household_income_usd",
+    "child_poverty_pct",
+    "income_inequality_ratio",
+    "uninsured_pct",
+    "exercise_access_pct"
+  ]
+}

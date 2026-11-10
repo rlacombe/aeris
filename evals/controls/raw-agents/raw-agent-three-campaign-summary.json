@@ -1,0 +1,24 @@
+{
+  "condition": "Codex CLI 0.155.1 with GPT-5.6 Terra, medium reasoning, without AERIS",
+  "campaigns": 3,
+  "attempts": 27,
+  "fitted_effects_per_campaign": [
+    3,
+    3,
+    1
+  ],
+  "fitted_effects": 7,
+  "qualitative_conclusion_agreement": {
+    "numerator": 6,
+    "denominator": 7
+  },
+  "median_absolute_log_effect_difference": 0.073,
+  "geometric_mean_reconstructed_to_published_ratio": 1.011,
+  "pearson_ratio": -0.112,
+  "output_tokens_per_campaign": [
+    103007,
+    107929,
+    98749
+  ],
+  "human_scientific_interventions": 0
+}

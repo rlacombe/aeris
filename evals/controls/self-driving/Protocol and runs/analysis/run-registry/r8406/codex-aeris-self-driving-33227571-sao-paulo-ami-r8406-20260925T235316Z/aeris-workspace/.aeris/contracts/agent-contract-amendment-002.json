@@ -1,0 +1,152 @@
+{
+  "schema_version": "aeris-study-contract/v3",
+  "profile": "reanalysis",
+  "contract_id": "33227571-sao-paulo-ami-reanalysis-invariants",
+  "approved": true,
+  "author": "agent",
+  "objective": "Reconstruct the article's daily climatic-and-pollutant hierarchical-cluster comparison of acute myocardial infarction admissions and in-hospital mortality in metropolitan Sao Paulo.",
+  "allowed_tools": [
+    "estimate_boundary_exposure",
+    "estimate_boundary_exposure_batch",
+    "estimate_exposure"
+  ],
+  "pollutants": [
+    "no2",
+    "pm25",
+    "pm10"
+  ],
+  "date_window": {
+    "start": "2012-01-01",
+    "end": "2015-12-31"
+  },
+  "temporal_resolutions": [
+    "daily",
+    "hourly"
+  ],
+  "allowed_fidelity_levels": [
+    "matched",
+    "source_substitution",
+    "reduced_coverage",
+    "reduced_adjustment",
+    "bounded",
+    "supported_sensitivity"
+  ],
+  "resource_limits": {
+    "wall_clock_hours": 8,
+    "maximum_infrastructure_restarts": 1,
+    "maximum_single_download_gib": 10,
+    "maximum_boundary_units": 6000,
+    "maximum_boundary_units_per_call": 25,
+    "maximum_static_units_per_call": 2
+  },
+  "scientific_invariants": {
+    "research_question": "Reconstruct the article's daily climatic-and-pollutant hierarchical-cluster comparison of acute myocardial infarction admissions and in-hospital mortality in metropolitan Sao Paulo.",
+    "target_outcome_and_population": "Daily acute myocardial infarction admissions and in-hospital mortality among patients admitted in 39 metropolitan Sao Paulo municipalities.",
+    "pollutants": [
+      "no2",
+      "pm25",
+      "pm10"
+    ],
+    "principal_contrast": "Comparison of daily admissions and in-hospital mortality across the three joint weather-pollution clusters; the abstract identifies high-pollution versus low-pollution clusters as the principal directional comparison.",
+    "principal_variants": [
+      "Daily AMI admissions across weather-pollution clusters",
+      "Daily in-hospital AMI mortality across weather-pollution clusters"
+    ],
+    "broad_geography": "39 municipalities in metropolitan Sao Paulo, Brazil",
+    "target_geographic_units": 39,
+    "target_geographic_unit_type": "municipality",
+    "period": {
+      "start": "2012-01-01",
+      "end": "2015-12-31"
+    },
+    "prohibited_evidence": [
+      "published effect estimates",
+      "published exposure values",
+      "prior reanalysis code",
+      "prior source manifests",
+      "prior results"
+    ]
+  },
+  "article_evidence": [
+    {
+      "artifact": "/output/article-specification-evidence.md",
+      "finding": "The supplied PDF/XML are abstract-only and specify the population, period, DataSUS outcome source, named exposure/weather sources, pollutants, hierarchical clustering, and admissions/mortality comparisons; model details are absent."
+    }
+  ],
+  "article_evidence_map": {
+    "supplied_article": "/output/article-specification-evidence.md",
+    "discrepancy": "Supplied materials are not the complete article despite task instruction; full-method details unavailable in supplied corpus."
+  },
+  "execution_design": {
+    "analysis_aggregation": "one daily regional time series, joined by admission date; cluster labels derived from z-standardized six daily environmental features",
+    "assignment_method": "fixed Ibirapuera monitor coordinate (-23.592,-46.661) represents a S\u00e3o Paulo municipality feasibility slice; no individual or municipality-wide interpolation",
+    "coverage_policy": "report daily component completeness and retain only complete rows for unsupervised clustering; no arbitrary source threshold",
+    "daily_aggregation": "arithmetic mean of hourly concentration values for each pollutant per local calendar day; weather is provider daily mean/sum",
+    "exposure_metric": "daily NO2, PM2.5, PM10 concentration features plus daily mean temperature, temperature range, precipitation, and mean relative humidity",
+    "geographic_representation": "fixed_location",
+    "intended_use": "bounded source-substitution reanalysis / feasibility reconstruction, not personal exposure or citywide population average",
+    "source_strategy": "public_monitor_network plus documented local atmospheric model fallback for PM10 and weather",
+    "source": "PANGAEA archive of CETESB Ibirapuera monitor data for NO2/PM2.5; Open-Meteo atmospheric reanalysis for PM10 and weather",
+    "geography": "fixed Ibirapuera/S\u00e3o Paulo-municipality feasibility slice",
+    "period": "2014-06-01 through 2014-06-30; June was selected after the predeclared complete-component check showed January 2014 has no monitor PM2.5 observations in the recovered PANGAEA source."
+  },
+  "amendments": [
+    {
+      "sequence": 1,
+      "changed_dimensions": {
+        "analysis_aggregation": "one daily regional time series, joined by admission date; cluster labels derived from z-standardized six daily environmental features",
+        "assignment_method": "fixed Ibirapuera monitor coordinate (-23.592,-46.661) represents a S\u00e3o Paulo municipality feasibility slice; no individual or municipality-wide interpolation",
+        "coverage_policy": "report daily component completeness and retain only complete rows for unsupervised clustering; no arbitrary source threshold",
+        "daily_aggregation": "arithmetic mean of hourly concentration values for each pollutant per local calendar day; weather is provider daily mean/sum",
+        "exposure_metric": "daily NO2, PM2.5, PM10 concentration features plus daily mean temperature, temperature range, precipitation, and mean relative humidity",
+        "geographic_representation": "fixed_location",
+        "intended_use": "bounded source-substitution reanalysis / feasibility reconstruction, not personal exposure or citywide population average",
+        "source_strategy": "public_monitor_network plus documented local atmospheric model fallback for PM10 and weather",
+        "source": "PANGAEA archive of CETESB Ibirapuera monitor data for NO2/PM2.5; Open-Meteo atmospheric reanalysis for PM10 and weather",
+        "geography": "fixed Ibirapuera/S\u00e3o Paulo-municipality feasibility slice",
+        "period": "2014-01-01 through 2014-01-31"
+      },
+      "evidence": [
+        {
+          "artifact": "/output/retrieval/review/pangaea-940276.tsv",
+          "finding": "Public curated hourly Ibirapuera NO2 and PM2.5 records from official CETESB network."
+        },
+        {
+          "artifact": "/output/retrieval/review/openmeteo-air-2014.json",
+          "finding": "Executable endpoint returns hourly PM10, PM2.5 and NO2 at target coordinate."
+        },
+        {
+          "artifact": "/output/retrieval/review/openmeteo-weather-2014.json",
+          "finding": "Executable endpoint returns daily weather covariates at target coordinate."
+        },
+        {
+          "artifact": "/output/retrieval/review/healthbr-outcome-probe.log",
+          "finding": "Public SIH-RD derivative returned decoded official-field outcome records."
+        }
+      ],
+      "scientific_justification": "The original article lacks monitor-assignment and clustering details, the source's public endpoint has an explicit historical cutoff, and other primary public routes failed. The specified bounded design is fixed before retrieval and will transparently label its limits.",
+      "fidelity_impact": "supported_sensitivity",
+      "agreement_independent": true
+    },
+    {
+      "sequence": 2,
+      "changed_dimensions": {
+        "period": "2014-06-01 through 2014-06-30; June was selected after the predeclared complete-component check showed January 2014 has no monitor PM2.5 observations in the recovered PANGAEA source."
+      },
+      "evidence": [
+        {
+          "artifact": "/output/reanalysis_jan2014.log",
+          "finding": "January complete-case panel failed because the PANGAEA monitor archive contains zero January 2014 PM2.5 values."
+        },
+        {
+          "artifact": "/output/retrieval/jan2014/pangaea_940276.tsv",
+          "finding": "Month-level retained source inspection found both NO2 and PM2.5 observations in June 2014."
+        }
+      ],
+      "scientific_justification": "The source substitution and bounded fixed-location design remain unchanged. Selecting a complete observed month avoids imputing an article-required pollutant and is a deterministic feasibility rule applied before fitting.",
+      "fidelity_impact": "supported_sensitivity",
+      "agreement_independent": true
+    }
+  ],
+  "parent_contract_sha256": "a250922313deac3a1cd57c1afb51c67e07e1edbdc35dba3480da5fd75a037ab3"
+}

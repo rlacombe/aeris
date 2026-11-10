@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "run_id": "codex-baseline-34488764-france-covid-r2-20260922T150801Z",
+  "condition": "codex-baseline",
+  "study": {
+    "pmid": "34488764",
+    "slug": "france-covid",
+    "bundle_sha256": "b9735a4b7355ad752b7abfc0f77383d6c71a63b8fce77de6e3491eebe7a3f409",
+    "input_mode": "complete_article"
+  },
+  "replicate": 2,
+  "agent": {
+    "host": "Codex CLI",
+    "host_version": "0.155.1",
+    "model": "gpt-5.6-terra",
+    "reasoning_effort": "medium",
+    "session_id_redacted": null
+  },
+  "environment": {
+    "container_image_digest": "sha256:56cc58cd3a1eaebb232130801c1905aa7ec4fdc3d8ed9b895286a7ed77a3745f",
+    "aeris_commit": null,
+    "network_policy_sha256": "961d0161ba4f36b2c9cf69bea0be5831f656c238672b38bceb2b993944a6970c"
+  },
+  "started_at": "2026-09-22T15:08:01.619439+00:00",
+  "ended_at": "2026-09-22T15:12:36.564480+00:00",
+  "status": "completed_blocker",
+  "infrastructure_restarts": 0,
+  "human_scientific_interventions": 0,
+  "artifacts": {
+    "agent.stderr.log": "agent.stderr.log",
+    "analysis_panel.csv": "analysis_panel.csv",
+    "baseline_audit.txt": "baseline_audit.txt",
+    "blocker_ledger.md": "blocker_ledger.md",
+    "container_exit_code.txt": "container_exit_code.txt",
+    "data_gouv_dataset.json": "data_gouv_dataset.json",
+    "data_gouv_headers.txt": "data_gouv_headers.txt",
+    "decision_log.md": "decision_log.md",
+    "eea_layer.json": "eea_layer.json",
+    "eea_pm25_2016_query.json": "eea_pm25_2016_query.json",
+    "eea_pm_query.json": "eea_pm_query.json",
+    "eea_query.json": "eea_query.json",
+    "eea_service.json": "eea_service.json",
+    "exposure_eea_pm25_2016_stations.csv": "exposure_eea_pm25_2016_stations.csv",
+    "fidelity_record.json": "fidelity_record.json",
+    "health_raw.csv": "health_raw.csv",
+    "model_output.json": "model_output.json",
+    "outcome_2020-12-31_metropolitan_departments.csv": "outcome_2020-12-31_metropolitan_departments.csv",
+    "outcome_panel_nine_dates_metropolitan_departments.csv": "outcome_panel_nine_dates_metropolitan_departments.csv",
+    "reanalyse.py": "reanalyse.py",
+    "request_log.json": "request_log.json",
+    "result.json": "result.json",
+    "run_manifest.json": "run_manifest.json",
+    "run_summary.json": "run_summary.json",
+    "sanitization.json": "sanitization.json",
+    "schema_validation.log": "schema_validation.log",
+    "schema_validation_exit_code.txt": "schema_validation_exit_code.txt",
+    "source_manifest.json": "source_manifest.json",
+    "transcript.jsonl": "transcript.jsonl"
+  },
+  "termination_reason": null
+}

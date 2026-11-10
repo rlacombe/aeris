@@ -1,0 +1,121 @@
+{
+  "schema_version": "aeris-study-contract/v3",
+  "profile": "reanalysis",
+  "contract_id": "38182658-uk-covid-reanalysis-invariants",
+  "approved": true,
+  "author": "agent",
+  "objective": "Association of daily country-level PM2.5 over the 10-day infection-course lag window with COVID-19 instantaneous case fatality risk.",
+  "allowed_tools": [
+    "estimate_boundary_exposure",
+    "estimate_boundary_exposure_batch",
+    "estimate_exposure"
+  ],
+  "pollutants": [
+    "pm25"
+  ],
+  "date_window": {
+    "start": "2020-03-26",
+    "end": "2020-09-15"
+  },
+  "temporal_resolutions": [
+    "daily",
+    "hourly"
+  ],
+  "allowed_fidelity_levels": [
+    "matched",
+    "source_substitution",
+    "reduced_coverage",
+    "reduced_adjustment",
+    "bounded",
+    "supported_sensitivity"
+  ],
+  "resource_limits": {
+    "wall_clock_hours": 8,
+    "maximum_infrastructure_restarts": 1,
+    "maximum_single_download_gib": 10,
+    "maximum_boundary_units": 6000,
+    "maximum_boundary_units_per_call": 25,
+    "maximum_static_units_per_call": 2
+  },
+  "scientific_invariants": {
+    "research_question": "Association of daily country-level PM2.5 over the 10-day infection-course lag window with COVID-19 instantaneous case fatality risk.",
+    "target_outcome_and_population": "Daily back-projected COVID-19 deaths divided by laboratory-confirmed daily cases in England, Northern Ireland, Scotland and Wales.",
+    "pollutants": [
+      "pm25"
+    ],
+    "principal_contrast": "Cumulative PM2.5 association over maximum lag 10 days, with figure reference 10 \u00b5g/m\u00b3.",
+    "principal_variants": [
+      "Model 6 binomial GLMM/DLNM: temperature, sunshine, PM2.5 cross-bases; humidity at exposure date; weekday; country random effect.",
+      "Source-substituted bounded binomial country-day model retaining outcome, pollutant, geography, period, and per-10 \u00b5g/m\u00b3 contrast."
+    ],
+    "broad_geography": "England, Northern Ireland, Scotland, Wales",
+    "target_geographic_units": 4,
+    "target_geographic_unit_type": "nation-day",
+    "period": {
+      "start": "2020-03-26",
+      "end": "2020-09-15"
+    },
+    "prohibited_evidence": [
+      "published_effect",
+      "prior_aeris_effect",
+      "prior_reanalysis_code",
+      "prior_exposure_values"
+    ]
+  },
+  "article_evidence": [
+    {
+      "artifact": "/study/article.txt",
+      "finding": "Methods state source, period, daily country pollution averaging, back-projection and binomial DLNM."
+    },
+    {
+      "artifact": "/study/supplements/41598_2023_50474_MOESM1_ESM.docx",
+      "finding": "Supplement states selected Model 6 and Table S1 country-level PM2.5 summaries."
+    }
+  ],
+  "article_evidence_map": {
+    "contract_discrepancy": "The contract target does not mention article's humidity, weekday, back-projection and DLNM; locked primary target retains them."
+  },
+  "execution_design": {
+    "geographic_representation": "Four constituent UK nations represented by GADM administrative polygons for attempted AERIS boundary retrieval; bounded completed analysis uses each nation's documented centroid because the selected Open-Meteo grids are coordinate products.",
+    "assignment_method": "Daily hourly PM2.5 values queried at the four centroids, then arithmetic daily mean and 11-day (lag 0 through 10) rolling mean per nation.",
+    "source_strategy": "Primary attempted source: AERIS/OpenAQ historical monitor boundary batch. Completed fallback: Open-Meteo air-quality archive atmospheric-composition PM2.5 fields, documented as source substitution.",
+    "exposure_metric": "Nation-day PM2.5 concentration in \u00b5g/m\u00b3; main predictor is the 11-day mean, parameterized per 10 \u00b5g/m\u00b3.",
+    "daily_aggregation": "Arithmetic mean of hourly PM2.5 values, retaining days with hourly data; 11 daily values required for lag predictor.",
+    "analysis_aggregation": "Nation-day panel joined to daily cases/deaths and daily weather by nation and date.",
+    "coverage_policy": "Report-only. Fit uses complete cases after necessary 11-day lag and fixed 8-day outcome alignment; no data-driven exposure threshold or outcome selection.",
+    "intended_use": "Bounded source-substituted sensitivity analysis, not article effect replication."
+  },
+  "amendments": [
+    {
+      "sequence": 1,
+      "changed_dimensions": {
+        "geographic_representation": "Four constituent UK nations represented by GADM administrative polygons for attempted AERIS boundary retrieval; bounded completed analysis uses each nation's documented centroid because the selected Open-Meteo grids are coordinate products.",
+        "assignment_method": "Daily hourly PM2.5 values queried at the four centroids, then arithmetic daily mean and 11-day (lag 0 through 10) rolling mean per nation.",
+        "source_strategy": "Primary attempted source: AERIS/OpenAQ historical monitor boundary batch. Completed fallback: Open-Meteo air-quality archive atmospheric-composition PM2.5 fields, documented as source substitution.",
+        "exposure_metric": "Nation-day PM2.5 concentration in \u00b5g/m\u00b3; main predictor is the 11-day mean, parameterized per 10 \u00b5g/m\u00b3.",
+        "daily_aggregation": "Arithmetic mean of hourly PM2.5 values, retaining days with hourly data; 11 daily values required for lag predictor.",
+        "analysis_aggregation": "Nation-day panel joined to daily cases/deaths and daily weather by nation and date.",
+        "coverage_policy": "Report-only. Fit uses complete cases after necessary 11-day lag and fixed 8-day outcome alignment; no data-driven exposure threshold or outcome selection.",
+        "intended_use": "Bounded source-substituted sensitivity analysis, not article effect replication."
+      },
+      "evidence": [
+        {
+          "artifact": "/output/analysis_panel.csv",
+          "finding": "All four nations have hourly-derived daily PM2.5 and complete 11-day lag values over recovered outcome dates."
+        },
+        {
+          "artifact": "/output/coverage_report.csv",
+          "finding": "Fit-ready rows and outcome coverage are retained by nation."
+        },
+        {
+          "artifact": "/output/aeris-workspace/.aeris/research-notebook.json",
+          "finding": "Documents active but non-completing OpenAQ boundary route and the public source recovery choices."
+        }
+      ],
+      "scientific_justification": "The article specifies daily country averages and a 10-day maximum lag. The selected implementation retains daily country-time support and lag scale, while explicitly labeling the coordinate-based modeled PM2.5 source as a substitution.",
+      "fidelity_impact": "source_substitution",
+      "agreement_independent": true
+    }
+  ],
+  "parent_contract_sha256": "7cbf6613ddf5314bbbbabb13fc6b4edd1a610177a5a00442b28f932beb6ae91c"
+}

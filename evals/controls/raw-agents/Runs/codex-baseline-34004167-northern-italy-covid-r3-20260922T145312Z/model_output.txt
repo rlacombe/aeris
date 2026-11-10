@@ -1,0 +1,2 @@
+MODEL NOT EXECUTED
+The locked GEE needs STAP, LTAP, and LOCK. No independent public all-pollutant exposure panel was retrieved for both regions. The official outcome release starts 2020-02-24, after LOCK began 2020-02-22, so LOCK is identically 1 in all 172 reconstructed rows. Consequently the specified adjusted model cannot estimate its lockdown parameter, and an effect estimate/CI would be unsupported.

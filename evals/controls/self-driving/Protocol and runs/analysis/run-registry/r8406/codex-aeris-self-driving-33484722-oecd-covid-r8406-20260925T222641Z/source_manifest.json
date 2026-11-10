@@ -1,0 +1,42 @@
+[
+  {
+    "role": "exposure",
+    "url": "https://api.worldbank.org/v2/country/AUS;AUT;BEL;CAN;CHL;CZE;DNK;EST;FIN;FRA;DEU;GRC;HUN;ISL;IRL;ISR;ITA;JPN;KOR;LVA;LTU;LUX;MEX;NLD;NZL;NOR;POL;PRT;SVK;SVN;ESP;SWE;CHE;TUR;GBR;USA/indicator/EN.ATM.PM25.MC.M3?date=2017&format=json&per_page=1000",
+    "route_origin": "article_named",
+    "retrieved": true,
+    "sha256": "included in /output/source_checksums.json",
+    "evidence_artifact": "/output/worldbank_EN_ATM_PM25_MC_M3_2017.json"
+  },
+  {
+    "role": "outcome",
+    "url": "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv",
+    "route_origin": "agent_discovered",
+    "retrieved": true,
+    "sha256": "included in /output/source_checksums.json",
+    "evidence_artifact": "/output/time_series_covid19_confirmed_global.csv"
+  },
+  {
+    "role": "outcome",
+    "url": "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv",
+    "route_origin": "agent_discovered",
+    "retrieved": true,
+    "sha256": "included in /output/source_checksums.json",
+    "evidence_artifact": "/output/time_series_covid19_deaths_global.csv"
+  },
+  {
+    "role": "covariate",
+    "url": "https://api.worldbank.org/v2/country/{OECD}/indicator/{SP.POP.65UP.TO.ZS,NY.GDP.PCAP.CD,SP.POP.TOTL,AG.SRF.TOTL.K2,SH.MED.PHYS.ZS,SH.MED.BEDS.ZS}",
+    "route_origin": "article_named",
+    "retrieved": true,
+    "sha256": "included in /output/source_checksums.json",
+    "evidence_artifact": "/output/worldbank_SH_MED_PHYS_ZS_2015_2017.json"
+  },
+  {
+    "role": "outcome",
+    "url": "https://srhdpeuwpubsa.blob.core.windows.net/whdh/COVID/WHO-COVID-19-global-data.csv",
+    "route_origin": "article_named",
+    "retrieved": true,
+    "sha256": "included in /output/source_checksums.json",
+    "evidence_artifact": "/output/who_covid_global_archive.csv"
+  }
+]

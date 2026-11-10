@@ -1,0 +1,189 @@
+{
+  "research_question": "Does PM2.5 exposure affect heart rate variability (HRV) in adults?",
+  "reasoning": "Fine particulate matter (PM2.5) exposure is hypothesized to reduce heart rate variability (HRV) through autonomic nervous system dysregulation and systemic inflammation. In this Southern California cohort study using wearable device-derived HRV and resting heart rate (RHR) data, several sources of confounding must be carefully addressed. Age is a strong determinant of both ambient exposure patterns (through residential location and time-activity budgets) and baseline autonomic function, as HRV naturally declines with age. Sex influences both cardiovascular autonomic regulation and, to a lesser extent, residential and occupational exposure patterns. Body mass index (BMI) is associated with reduced HRV through adipose-mediated inflammation and is independently correlated with neighborhood-level SES, which in turn tracks with long-term PM2.5 exposure due to the disproportionate siting of pollution sources in lower-income communities. Cigarette smoking is a potent confounder: it damages autonomic cardiac regulation directly and is correlated with PM2.5 exposure through shared socioeconomic pathways and, in some subgroups, indoor smoking contributing to personal exposure. Socioeconomic status and neighborhood environment jointly confound the exposure-outcome relationship because individuals in lower-SES neighborhoods face higher ambient PM2.5 concentrations and simultaneously experience chronic psychosocial stressors, poorer healthcare access, and unhealthier behavioral profiles that independently suppress HRV. Physical activity is a critical confounder because it strongly increases HRV, and active individuals may have higher outdoor PM2.5 exposure due to increased ventilation and time outdoors, creating negative confounding that would otherwise attenuate any observed adverse effect. Season and ambient temperature must be controlled because PM2.5 concentrations in Southern California peak during wildfire season and stagnant air events, periods that also impose direct thermal stress on the cardiovascular autonomic system independent of particulate exposure. The primary biological pathway linking PM2.5 to reduced HRV is activation of the autonomic nervous system via pulmonary irritant receptors and the subsequent propagation of systemic inflammation, making autonomic nervous system inflammation a mediator on the causal pathway — adjustment for this variable would block the mechanism of interest and should be avoided in the primary total-effect analysis but explored in mediation analysis. Pre-existing cardiovascular conditions (e.g., coronary artery disease, hypertension, arrhythmia) act as an effect modifier: individuals with established cardiovascular disease exhibit greater HRV suppression per unit increase in PM2.5, likely because their autonomic reserve is already compromised. This moderation should be evaluated through formal interaction testing rather than adjusted away. Collider bias is a concern if both PM2.5 exposure and HRV independently affect healthcare utilization or study enrollment; conditioning on such a collider would induce a spurious association and should be avoided.",
+  "nodes": [
+    {
+      "name": "PM2.5",
+      "role": "exposure",
+      "description": "Ambient fine particulate matter concentration (micrograms per cubic meter), estimated via spatiotemporal land-use regression or satellite-derived models assigned to residential address. Captures both long-term average and short-term daily variation in exposure."
+    },
+    {
+      "name": "HRV",
+      "role": "outcome",
+      "description": "Heart rate variability derived from wearable device photoplethysmography or ECG. Quantified using RMSSD or SDNN over standardized measurement windows. Reflects cardiac autonomic modulation and serves as a subclinical marker of cardiovascular risk."
+    },
+    {
+      "name": "Age",
+      "role": "confounder",
+      "description": "Participant age in years. Older age is associated with lower HRV through autonomic aging and with differential residential exposure patterns due to activity budgets and housing tenure."
+    },
+    {
+      "name": "Sex",
+      "role": "confounder",
+      "description": "Biological sex (male/female). Associated with baseline differences in autonomic nervous system tone and HRV, and modestly with exposure through occupational and residential patterns."
+    },
+    {
+      "name": "BMI",
+      "role": "confounder",
+      "description": "Body mass index (kg/m^2). Elevated BMI is associated with reduced HRV via adipokine-driven inflammation and metabolic dysregulation, and with neighborhood-level PM2.5 exposure through shared socioeconomic pathways."
+    },
+    {
+      "name": "Smoking",
+      "role": "confounder",
+      "description": "Cigarette smoking status (never, former, current) and pack-year history. Smoking directly impairs cardiac autonomic function and is correlated with PM2.5 exposure through socioeconomic and behavioral pathways."
+    },
+    {
+      "name": "SES_Neighborhood",
+      "role": "confounder",
+      "description": "Composite socioeconomic status and neighborhood deprivation index (e.g., Area Deprivation Index or CalEnviroScreen score). Lower SES neighborhoods in Southern California experience disproportionately high PM2.5 and also confer chronic psychosocial stressors that suppress HRV independently."
+    },
+    {
+      "name": "Physical_Activity",
+      "role": "confounder",
+      "description": "Habitual physical activity level (e.g., daily step count or MET-hours/week from wearable). Higher physical activity increases HRV and simultaneously increases outdoor PM2.5 exposure through greater ventilation and time spent outside, producing negative confounding."
+    },
+    {
+      "name": "Season_Temperature",
+      "role": "confounder",
+      "description": "Season of measurement and ambient temperature/heat index. PM2.5 peaks during Southern California wildfire and stagnant air periods; ambient heat independently suppresses HRV via thermal cardiovascular stress, confounding the PM2.5-HRV association."
+    },
+    {
+      "name": "ANS_Inflammation",
+      "role": "mediator",
+      "description": "Autonomic nervous system activation and systemic inflammatory response (e.g., elevated IL-6, CRP, sympathovagal imbalance) triggered by pulmonary PM2.5 deposition. This is the primary causal mechanism through which PM2.5 suppresses HRV. Should not be adjusted for in total-effect estimation."
+    },
+    {
+      "name": "Cardiovascular_Disease",
+      "role": "effect_modifier",
+      "description": "Pre-existing cardiovascular conditions including coronary artery disease, hypertension, and arrhythmia. Individuals with established CVD show amplified HRV suppression per unit PM2.5 increase, reflecting reduced autonomic reserve. Should be evaluated as an interaction term."
+    },
+    {
+      "name": "Healthcare_Utilization",
+      "role": "collider",
+      "description": "Frequency of healthcare visits or clinical monitoring. Both high PM2.5 exposure (through respiratory and cardiovascular exacerbations) and low HRV (as a clinical risk marker) independently increase healthcare utilization. Conditioning on this variable would open a non-causal path between PM2.5 and HRV and must be avoided."
+    }
+  ],
+  "edges": [
+    {
+      "source": "PM2.5",
+      "target": "ANS_Inflammation",
+      "description": "Inhaled fine particles deposit in the pulmonary alveoli, triggering local oxidative stress and neurogenic reflexes that activate the sympathetic nervous system and systemic inflammatory cascade."
+    },
+    {
+      "source": "ANS_Inflammation",
+      "target": "HRV",
+      "description": "Systemic inflammation and sympathetic dominance suppress parasympathetic (vagal) tone, directly reducing HRV. This is the primary mechanistic pathway from PM2.5 to HRV."
+    },
+    {
+      "source": "PM2.5",
+      "target": "HRV",
+      "description": "Total causal effect of PM2.5 on HRV, encompassing both the ANS/inflammation-mediated pathway and any residual direct autonomic effects not captured by measured inflammatory markers."
+    },
+    {
+      "source": "Age",
+      "target": "HRV",
+      "description": "Aging reduces cardiac vagal modulation and autonomic responsiveness, producing lower baseline HRV independent of environmental exposures."
+    },
+    {
+      "source": "Age",
+      "target": "PM2.5",
+      "description": "Older adults may have different residential locations, mobility patterns, and time-activity budgets that influence their ambient and personal PM2.5 exposure levels."
+    },
+    {
+      "source": "Sex",
+      "target": "HRV",
+      "description": "Biological sex influences autonomic nervous system tone; females generally exhibit higher vagal modulation than males at younger ages, with convergence post-menopause."
+    },
+    {
+      "source": "Sex",
+      "target": "PM2.5",
+      "description": "Sex is associated with occupational and residential exposure patterns that modestly influence long-term PM2.5 exposure."
+    },
+    {
+      "source": "BMI",
+      "target": "HRV",
+      "description": "Higher BMI is associated with chronic low-grade inflammation and metabolic dysfunction that suppress cardiac vagal tone and reduce HRV."
+    },
+    {
+      "source": "BMI",
+      "target": "PM2.5",
+      "description": "BMI correlates with SES and neighborhood environment, which are strong determinants of residential PM2.5 levels in Southern California."
+    },
+    {
+      "source": "Smoking",
+      "target": "HRV",
+      "description": "Tobacco smoke contains autonomic toxicants that impair baroreflex sensitivity and reduce heart rate variability through nicotinic receptor stimulation and oxidative damage."
+    },
+    {
+      "source": "Smoking",
+      "target": "PM2.5",
+      "description": "Smokers may have higher total personal PM2.5 exposure (indoor smoking contribution) and share socioeconomic characteristics associated with higher ambient exposure."
+    },
+    {
+      "source": "SES_Neighborhood",
+      "target": "PM2.5",
+      "description": "In Southern California, lower-SES and minority-majority neighborhoods are disproportionately located near freeways, industrial sources, and ports, resulting in systematically higher long-term PM2.5 concentrations."
+    },
+    {
+      "source": "SES_Neighborhood",
+      "target": "HRV",
+      "description": "Neighborhood deprivation is associated with chronic psychosocial stress, noise, poor sleep quality, and limited green space, all of which independently suppress cardiac autonomic function and HRV."
+    },
+    {
+      "source": "SES_Neighborhood",
+      "target": "Smoking",
+      "description": "Lower SES is associated with higher smoking prevalence through stress-related behavior, targeted tobacco marketing, and reduced cessation resources."
+    },
+    {
+      "source": "SES_Neighborhood",
+      "target": "BMI",
+      "description": "Neighborhood food environment and physical activity infrastructure influence BMI through access to healthy food and safe spaces for exercise."
+    },
+    {
+      "source": "Physical_Activity",
+      "target": "HRV",
+      "description": "Regular aerobic exercise is one of the strongest positive determinants of HRV, improving vagal tone and baroreflex gain through cardiac remodeling and autonomic conditioning."
+    },
+    {
+      "source": "Physical_Activity",
+      "target": "PM2.5",
+      "description": "More physically active individuals spend more time outdoors and breathe at higher ventilation rates, increasing effective PM2.5 dose — a source of negative confounding that attenuates naive estimates of the PM2.5-HRV effect."
+    },
+    {
+      "source": "Season_Temperature",
+      "target": "PM2.5",
+      "description": "Wildfire events, stagnant air episodes, and photochemical smog conditions in Southern California produce marked seasonal and meteorological variation in ambient PM2.5 concentrations."
+    },
+    {
+      "source": "Season_Temperature",
+      "target": "HRV",
+      "description": "Ambient heat stress activates thermoregulatory cardiovascular responses, elevating heart rate and suppressing HRV independently of air quality through direct thermal autonomic effects."
+    },
+    {
+      "source": "Cardiovascular_Disease",
+      "target": "HRV",
+      "description": "Pre-existing cardiovascular disease reduces autonomic reserve and baseline HRV through structural cardiac changes, neuropathy, and medication effects."
+    },
+    {
+      "source": "Cardiovascular_Disease",
+      "target": "ANS_Inflammation",
+      "description": "Cardiovascular disease is characterized by chronic low-grade inflammation and autonomic dysfunction, amplifying the inflammatory response to PM2.5 and increasing susceptibility."
+    },
+    {
+      "source": "PM2.5",
+      "target": "Healthcare_Utilization",
+      "description": "Higher PM2.5 exposure increases respiratory and cardiovascular exacerbations, driving greater healthcare utilization — establishing PM2.5 as a cause of the collider."
+    },
+    {
+      "source": "HRV",
+      "target": "Healthcare_Utilization",
+      "description": "Lower HRV is a recognized clinical risk marker; individuals with low HRV may be more likely to seek care or be enrolled in clinical monitoring programs — establishing HRV as a cause of the collider."
+    },
+    {
+      "source": "Age",
+      "target": "Cardiovascular_Disease",
+      "description": "Age is the dominant risk factor for the development of cardiovascular disease, establishing it as a common cause of both the effect modifier and the outcome."
+    }
+  ],
+  "adjustment_recommendation": "To estimate the total causal effect of PM2.5 on HRV in this Southern California wearable cohort, analysts should adjust for the following minimum sufficient adjustment set: Age, Sex, BMI, Smoking status, SES/Neighborhood deprivation index, Physical Activity level, and Season/Temperature. This set blocks all identified backdoor paths between PM2.5 and HRV without conditioning on the mediator (ANS_Inflammation) or the collider (Healthcare_Utilization). Do NOT adjust for ANS_Inflammation in the primary analysis, as doing so would block the primary causal pathway and produce a biased (underestimated) total effect; autonomic inflammation should instead be examined in a secondary mediation analysis to decompose direct and indirect effects. Do NOT adjust for Healthcare_Utilization under any circumstances, as it is a collider whose conditioning would induce spurious association. Cardiovascular_Disease should not be included in the primary adjustment set but should be used as a stratification or interaction variable to characterize effect modification — report stratum-specific and interaction p-values. Continuous confounders (Age, BMI) should be modeled flexibly (e.g., natural splines) given their potentially nonlinear relationships with HRV. Neighborhood SES should be included as both an individual-level and area-level covariate to capture residual contextual confounding. Given repeated wearable measurements, mixed-effects or GEE models with individual random intercepts are recommended to account for within-person correlation, with distributed lag or moving-average terms for PM2.5 to capture the temporal exposure-response relationship over 1–7 day lag windows."
+}

@@ -1,0 +1,6 @@
+{
+  "retrieved_at_utc": "2026-08-15T16:11:11.732783+00:00",
+  "source_url": "https://archive-api.open-meteo.com/v1/archive?latitude=-23.1791&longitude=-45.8872&start_date=2020-04-01&end_date=2021-04-30&daily=temperature_2m_mean%2Crelative_humidity_2m_mean&timezone=America%2FSao_Paulo",
+  "rows": 395,
+  "output": "ARTIFACT_INPUT/weather_daily_open_meteo.csv"
+}

@@ -1,0 +1,82 @@
+{
+  "schema_version": "aeris-study-contract/v3",
+  "profile": "reanalysis",
+  "contract_id": "39377000-us-stroke-reanalysis-invariants",
+  "approved": true,
+  "author": "agent",
+  "objective": "Association of county-level annual PM2.5 with ischemic and hemorrhagic stroke mortality rates among US adults aged 65 years and older.",
+  "allowed_tools": [
+    "estimate_boundary_exposure",
+    "estimate_boundary_exposure_batch",
+    "estimate_exposure"
+  ],
+  "pollutants": [
+    "pm25"
+  ],
+  "date_window": {
+    "start": "2016-01-01",
+    "end": "2020-12-31"
+  },
+  "temporal_resolutions": [
+    "daily",
+    "hourly"
+  ],
+  "allowed_fidelity_levels": [
+    "matched",
+    "source_substitution",
+    "reduced_coverage",
+    "reduced_adjustment",
+    "bounded",
+    "supported_sensitivity"
+  ],
+  "resource_limits": {
+    "wall_clock_hours": 8,
+    "maximum_infrastructure_restarts": 1,
+    "maximum_single_download_gib": 10,
+    "maximum_boundary_units": 6000,
+    "maximum_boundary_units_per_call": 25,
+    "maximum_static_units_per_call": 2
+  },
+  "scientific_invariants": {
+    "research_question": "Association of county-level annual PM2.5 with ischemic and hemorrhagic stroke mortality rates among US adults aged 65 years and older.",
+    "target_outcome_and_population": "County ischemic- and hemorrhagic-stroke mortality rates per 100,000 among US residents aged 65 years and older.",
+    "pollutants": [
+      "pm25"
+    ],
+    "principal_contrast": "Additive mortality-rate difference (deaths per 100,000) per 1 \u00b5g/m\u00b3 higher county-level annual PM2.5.",
+    "principal_variants": [
+      "Univariable linear regression for ischemic stroke",
+      "Multivariable linear regression for ischemic stroke adjusted for article-specified covariates",
+      "Corresponding hemorrhagic-stroke models",
+      "Article-reported stratified race/ethnicity, persistent-poverty, and education variants where covariates are recovered"
+    ],
+    "broad_geography": "US counties and county equivalents excluding Puerto Rico, American Samoa, Guam, and US Virgin Islands",
+    "target_geographic_units": 3142,
+    "target_geographic_unit_type": "county",
+    "period": {
+      "start": "2016-01-01",
+      "end": "2020-12-31"
+    },
+    "prohibited_evidence": [
+      "published_effect",
+      "prior_aeris_effect",
+      "prior_reanalysis_code",
+      "prior_exposure_values"
+    ]
+  },
+  "article_evidence": [
+    {
+      "artifact": "/output/article-specification.json",
+      "finding": "Complete article specification: county-level 2016\u20132020 age-65+ ischemic and hemorrhagic mortality rates, PM2.5, ordinary linear regression, and additive per-1 \u00b5g/m\u00b3 contrast."
+    },
+    {
+      "artifact": "/study/article.md",
+      "finding": "Methods and Results provide the model formula, outcomes, population, time period, geographic exclusions, and reported additive coefficient scale."
+    }
+  ],
+  "article_evidence_map": {
+    "target_discrepancy": "Supplied study-target says rate ratio per 10 \u00b5g/m\u00b3; complete article instead specifies and reports additive linear coefficients per 1 \u00b5g/m\u00b3. Article controls."
+  },
+  "execution_design": {},
+  "amendments": []
+}

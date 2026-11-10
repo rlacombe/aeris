@@ -1,0 +1,11 @@
+{
+  "sources": [
+    {"role":"outcome","url":"https://huggingface.co/datasets/SidneyBissoli/sih-rd","route_origin":"agent_discovered","retrieved":true,"sha256":null,"evidence_artifact":"/output/outcomes_probe.parquet"},
+    {"role":"weather","url":"https://archive-api.open-meteo.com/v1/archive","route_origin":"agent_discovered","retrieved":true,"sha256":null,"evidence_artifact":"/output/analysis_panel.csv"},
+    {"role":"exposure","url":"https://servicos.cetesb.sp.gov.br/arcgis/rest/services/QA_Hist/QA_Hist/MapServer","route_origin":"article_named","retrieved":false,"sha256":null,"evidence_artifact":"/output/article-specification-evidence.md"},
+    {"role":"exposure","url":"https://servicos.cetesb.sp.gov.br/arcgis/rest/services/QUALAR/CETESB_QUALAR/MapServer","route_origin":"article_named","retrieved":false,"sha256":"1dc9b88f8b58970c674de4393c137e79d45d7e6d0774a1cdd3d2773df6172b44","evidence_artifact":"/output/review/cetesb_qualar_service.json"},
+    {"role":"exposure","url":"https://qualar.cetesb.sp.gov.br/qualar/exportaDados.do?method=pesquisar","route_origin":"article_named","retrieved":false,"sha256":"87f69ced208dad313ed0363ace34c916d2c09818e1696352d7f694a1974f411a","evidence_artifact":"/output/review/qualar_auth.body"},
+    {"role":"exposure","url":"https://repositorio.cetesb.sp.gov.br/server/api/discover/search/objects","route_origin":"article_named","retrieved":false,"sha256":"bba914578b1b7a7b68d009cb31067460194b433578766463f812cf5d703551dd","evidence_artifact":"/output/review/cetesb_repo_bitstreams.tsv"},
+    {"role":"exposure","url":"https://api.openaq.org/","route_origin":"agent_discovered","retrieved":false,"sha256":null,"evidence_artifact":"/output/aeris_pm25_openAQ_exposure.csv"}
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "valid": true,
+  "errors": [],
+  "warnings": [
+    "result substitutions differ from the AERIS fidelity record",
+    "source-substitution fit does not document an exposure substitution",
+    "fidelity source_substitution cannot contain changes: coverage_subset"
+  ]
+}

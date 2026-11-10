@@ -1,0 +1,6 @@
+{
+  "article_period":"Changed from contract's 2012-01 through 2015-12 to article-evidenced 2012-10 through 2015-09.",
+  "geography":"39 metropolitan São Paulo municipalities were represented by hospital-location municipality codes from public SIH-RD records.",
+  "proxy_design":"Weather-only clustering is a bounded sensitivity, selected without outcome values. It is not a substitute claim about pollutant clusters.",
+  "model":"Ward clustering of standardized daily weather variables; robust Poisson models for admission and death counts, adverse vs reference weather cluster."
+}

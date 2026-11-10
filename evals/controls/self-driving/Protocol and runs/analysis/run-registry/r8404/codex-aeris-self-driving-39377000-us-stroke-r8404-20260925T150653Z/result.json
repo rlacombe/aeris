@@ -1,0 +1,189 @@
+{
+  "schema_version": 3,
+  "study_id": "39377000-us-stroke",
+  "status": "completed_sensitivity",
+  "fidelity": "bounded",
+  "target": {
+    "outcome": "Article target: ischemic and hemorrhagic county stroke mortality among adults 65+; fitted sensitivity: CDC all-stroke county rate among adults 65+",
+    "pollutant": "PM2.5",
+    "geography": "United States counties; monitor-supported subset",
+    "population": "United States residents aged 65 years and older",
+    "period": "Article: 2016-2020; fitted sensitivity: 2016-2019",
+    "effect_scale": "Article-native additive deaths per 100,000 per 1 ug/m3; outcome-ratio presentation below is evaluated at the fitted sample mean solely for schema transport",
+    "exposure_assignment": "Unweighted within-county mean of qualifying EPA AQS PM2.5 monitor annual arithmetic means",
+    "model": "OLS of all-stroke age-65+ county rate on PM2.5 with state fixed effects; reduced adjustment sensitivity",
+    "covariates": [
+      "state fixed effects"
+    ],
+    "named_outcome_source": "CDC county heart disease and stroke mortality dataset (Socrata 7b9s-s8ck)",
+    "specification_evidence": [
+      "../study/article.md: Methods and Statistical analysis",
+      "../study/article.md: Results section establishes additive linear coefficients"
+    ]
+  },
+  "sources": [
+    {
+      "role": "outcome",
+      "url": "https://data.cdc.gov/resource/7b9s-s8ck.csv",
+      "route_origin": "article_named",
+      "retrieved": true,
+      "sha256": null,
+      "evidence_artifact": "data/cdc_heart_stroke_2000_2019.csv"
+    },
+    {
+      "role": "exposure",
+      "url": "https://aqs.epa.gov/aqsweb/airdata/annual_conc_by_monitor_2018.zip",
+      "route_origin": "agent_discovered",
+      "retrieved": true,
+      "sha256": null,
+      "evidence_artifact": "evidence/epa2018.zip"
+    }
+  ],
+  "substitutions": [
+    {
+      "dimension": "outcome",
+      "change_type": "construct_change",
+      "published": "Ischemic and hemorrhagic stroke, 2016-2020",
+      "reanalysis": "All stroke, age 65+, 2016-2019",
+      "reason": "The successful public CDC download did not separate article outcomes or include 2020."
+    },
+    {
+      "dimension": "exposure",
+      "change_type": "source",
+      "published": "Unspecified county annual PM2.5 assignment",
+      "reanalysis": "EPA AQS within-county monitor mean",
+      "reason": "Public decoded monitor archive was used; it is not a population-weighted surface."
+    },
+    {
+      "dimension": "covariate",
+      "change_type": "covariate_omission",
+      "published": "Full clinical, socioeconomic, access, and park covariate set",
+      "reanalysis": "State fixed effects only",
+      "reason": "Article-identical covariate data were not recovered in fit-ready form."
+    },
+    {
+      "dimension": "geography",
+      "change_type": "coverage_subset",
+      "published": "3,142 county equivalents",
+      "reanalysis": "301 joined monitor-supported counties",
+      "reason": "Partial monitor coverage and usable outcome overlap."
+    }
+  ],
+  "coverage": {
+    "eligible_units": 3142,
+    "included_units": 301,
+    "eligible_times": 5,
+    "included_times": 4,
+    "rule": "EPA AQS PM2.5 monitor record with 24-hour Daily Mean metric, POC 1, local-condition units, and Observation Percent >=75; reported rather than article-specified threshold.",
+    "notes": "473 counties had qualifying EPA monitor records; 301 joined to the CDC outcome data. No individual dose or population-weighted area concentration is claimed."
+  },
+  "artifacts": {
+    "code": "code/reanalysis.js",
+    "code_artifact_audit": "code_artifact_audit.json",
+    "executable_audit": "executable-audit/model_output.json",
+    "source_manifest": "source_manifest.json",
+    "exposure": "data/exposure_county_pm25.csv",
+    "analysis_panel": "data/analysis_panel.csv",
+    "model_output": "model_output.json",
+    "decision_log": "decision_log.json",
+    "research_notebook": "research-notebook.json",
+    "blocker_ledger": "blocker_ledger.json",
+    "fidelity_record": "aeris-workspace/.aeris/artifacts/reanalysis-fidelity_reanalysis-fidelity_2026-09-25T151818.6237580000.json",
+    "coverage_diagnostics": "coverage_diagnostics.json",
+    "boundary_route_evidence": "boundary_route_evidence.json",
+    "study_contract": "aeris-workspace/.aeris/contracts/agent-contract-amendment-001.json"
+  },
+  "blockers": [
+    "No fit-ready public county ischemic/hemorrhagic outcome route was recovered.",
+    "Full article covariate adjustment was not reconstructed.",
+    "EPA monitor coverage materially reduces county coverage."
+  ],
+  "stopping_checklist": {
+    "target_specification_complete": true,
+    "complete_article_checked": true,
+    "outcome_routes_attempted": 1,
+    "normal_exposure_source_tested": true,
+    "historical_fallback_applicable": false,
+    "historical_fallback_tested": false,
+    "geographic_batching_applicable": true,
+    "geographic_batching_attempted": true,
+    "fidelity_levels_evaluated": [
+      "bounded"
+    ],
+    "pending_requests": 0,
+    "evidence_artifacts": [
+      "aeris-workspace/.aeris/artifacts/reanalysis-fidelity_reanalysis-fidelity_2026-09-25T151818.6237580000.json",
+      "aeris-workspace/.aeris/contracts/agent-contract-amendment-001.json",
+      "blocker_ledger.json",
+      "boundary_route_evidence.json",
+      "code/reanalysis.js",
+      "code_artifact_audit.json",
+      "coverage_diagnostics.json",
+      "data/analysis_panel.csv",
+      "data/cdc_heart_stroke_2000_2019.csv",
+      "data/exposure_county_pm25.csv",
+      "decision_log.json",
+      "evidence/epa2018.zip",
+      "executable-audit/model_output.json",
+      "model_output.json",
+      "research-notebook.json",
+      "source_manifest.json"
+    ]
+  },
+  "design_provenance": {
+    "contract_id": "39377000-us-stroke-reanalysis-invariants",
+    "contract_sha256": "ca210f0339070d98ef66698d92242088e4a4e1cbba7ec5d3777c6af68f3df356",
+    "contract_author": "agent",
+    "geographic_representation": "administrative_area",
+    "assignment_method": "Within-county unweighted mean of qualifying EPA AQS PM2.5 monitor annual arithmetic means; county retained when monitor data were available in >=1 2016\u20132019 year.",
+    "representative_location_rule": null,
+    "maximum_monitor_distance_km": null,
+    "monitor_distance_evidence": "Not applicable to the selected assignment method.",
+    "source_strategy": "public_monitor_network",
+    "exposure_metric": "Mean of annual PM2.5 local-condition 24-hour Daily Mean monitor arithmetic means (\u00b5g/m\u00b3), 2016\u20132019.",
+    "coverage_policy": {
+      "mode": "report_only inclusion",
+      "minimum_percent": 75,
+      "threshold_source": "AQS Observation Percent field; 75% is an explicit operational QC threshold, not article-specified",
+      "evidence": "EPA AQS annual archive records were retained only for Observation Percent >=75; all county and time coverage are reported."
+    },
+    "decision_rationale": "The article requires county-level annual PM2.5. Public EPA AQS monitor records are a lawful monitor-network source, but their monitor-supported county coverage is partial and the within-county unweighted mean is an ambient monitor summary rather than a population-weighted county exposure.",
+    "evidence_basis": [
+      "Validated EPA AQS annual monitor archive; PM2.5 local-condition 24-hour Daily Mean records include county FIPS, arithmetic mean, and observation coverage.",
+      "2016\u20132019 EPA monitor coverage produced 473 monitor counties and 301 outcome-exposure joins."
+    ],
+    "locked_before_exposure": false
+  },
+  "effects": [
+    {
+      "label": "All-stroke sensitivity: state-fixed-effect model",
+      "primary": true,
+      "estimate": 0.9889294365,
+      "ci_low": 0.9726270555,
+      "ci_high": 1.0052318174,
+      "scale": "ratio",
+      "contrast": "Outcome ratio for 1 ug/m3 PM2.5 at fitted sample mean outcome (schema-transport presentation only)",
+      "metric": "outcome_ratio",
+      "native_estimate": -2.943713417,
+      "native_ci_low": -7.2785909882,
+      "native_ci_high": 1.3911641541,
+      "native_scale": "additive deaths per 100,000",
+      "native_contrast": "1 ug/m3 PM2.5"
+    }
+  ],
+  "analysis_diagnostics": {
+    "observations": 301,
+    "estimated_parameters": 33,
+    "exposure_unique_values": 301,
+    "outcome_unique_values": 299,
+    "joined_rows": 301,
+    "unmatched_outcome_rows": 1554,
+    "unmatched_exposure_rows": 172,
+    "contrast_transformation_verified": true,
+    "reported_variants": [
+      "Ischemic target attempted but not fit",
+      "Hemorrhagic target attempted but not fit",
+      "All-stroke bounded sensitivity fitted"
+    ]
+  }
+}

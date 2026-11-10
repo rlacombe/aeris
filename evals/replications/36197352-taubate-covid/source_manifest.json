@@ -1,0 +1,27 @@
+{
+  "study": {
+    "pmid": "36197352",
+    "doi": "10.1590/1516-3180.2022.0210.R2.09082022",
+    "title": "Association between exposure to air pollutants and hospitalization for SARS-Cov-2: an ecological time-series study",
+    "study_period": "2020-04-01 through 2021-03-31",
+    "geography": "Taubate, Tremembe, and Pindamonhangaba, Sao Paulo, Brazil",
+    "published_outcome": "Daily SIH/SUS admissions with ICD-10 B34.2",
+    "published_model": "Multipollutant negative-binomial regression, lags 0 through 7."
+  },
+  "outcomes": {
+    "system": "SIH/SUS RD public hospital-admission microdata",
+    "official_transfer_root": "ftp://ftp.datasus.gov.br/dissemin/publicos/SIHSUS/200801_/Dados/",
+    "file_pattern": "RDSPYYMM.dbc",
+    "selection": "Admission municipality in the three-city conurbation and primary diagnosis B34.2; daily admission dates."
+  },
+  "exposure": {
+    "discovery": "AERIS OpenAQ v3 and historical S3 monitor discovery",
+    "historical_recovery": "https://sistemasinter.cetesb.sp.gov.br/Ar/php/ar_dados_horarios_resultado.php",
+    "station": "58/Taubate",
+    "selection": "AERIS selected OpenAQ location 5231, Taubate, for all three municipal centroids; CETESB station 58 is the corresponding named historical station."
+  },
+  "weather": {
+    "source": "https://archive-api.open-meteo.com/v1/archive",
+    "selection": "Daily Taubate-centroid mean temperature and relative humidity."
+  }
+}

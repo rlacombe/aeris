@@ -1,0 +1,2 @@
+MODEL NOT FIT
+No analysis panel: official raw SIH/SUS outcome object could not be retrieved; the independent air-quality response also contains complete pollutant values for 0/395 requested days.

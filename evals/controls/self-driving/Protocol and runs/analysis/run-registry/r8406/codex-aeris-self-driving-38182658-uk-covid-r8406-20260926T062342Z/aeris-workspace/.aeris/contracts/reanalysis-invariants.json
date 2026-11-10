@@ -1,0 +1,88 @@
+{
+  "schema_version": "aeris-study-contract/v3",
+  "profile": "reanalysis",
+  "contract_id": "38182658-uk-covid-reanalysis-invariants",
+  "approved": true,
+  "author": "agent",
+  "objective": "Among laboratory-confirmed COVID-19 cases in the four UK nations from 2020-03-26 through 2020-09-15, what is the association of daily nation-level ambient PM2.5 across the infection-course lag window with instantaneous case fatality, conditional on temperature, sunshine duration, weekday, and country effect?",
+  "allowed_tools": [
+    "estimate_boundary_exposure",
+    "estimate_boundary_exposure_batch",
+    "estimate_exposure"
+  ],
+  "pollutants": [
+    "pm25"
+  ],
+  "date_window": {
+    "start": "2020-03-26",
+    "end": "2020-09-15"
+  },
+  "temporal_resolutions": [
+    "daily",
+    "hourly"
+  ],
+  "allowed_fidelity_levels": [
+    "matched",
+    "source_substitution",
+    "reduced_coverage",
+    "reduced_adjustment",
+    "bounded",
+    "supported_sensitivity"
+  ],
+  "resource_limits": {
+    "wall_clock_hours": 8,
+    "maximum_infrastructure_restarts": 1,
+    "maximum_single_download_gib": 10,
+    "maximum_boundary_units": 6000,
+    "maximum_boundary_units_per_call": 25,
+    "maximum_static_units_per_call": 2
+  },
+  "scientific_invariants": {
+    "research_question": "Among laboratory-confirmed COVID-19 cases in the four UK nations from 2020-03-26 through 2020-09-15, what is the association of daily nation-level ambient PM2.5 across the infection-course lag window with instantaneous case fatality, conditional on temperature, sunshine duration, weekday, and country effect?",
+    "target_outcome_and_population": "Back-projected COVID-19 deaths (assigned to confirmation day) out of laboratory-confirmed COVID-19 cases among residents of England, Scotland, Wales, and Northern Ireland.",
+    "pollutants": [
+      "pm25"
+    ],
+    "principal_contrast": "Odds ratio for PM2.5 concentration relative to 10 \u00b5g/m\u00b3, evaluated across lag 0\u201310 days (virus exposure through confirmation; reported stage-specific contrast includes 19 versus 10 \u00b5g/m\u00b3 one day after symptom onset).",
+    "principal_variants": [
+      "Article best model (Model 6): binomial-logit distributed-lag nonlinear PM2.5 association, jointly adjusted for distributed-lag temperature and sunshine duration, weekday, and country random effect; PM2.5 reference 10 \u00b5g/m\u00b3."
+    ],
+    "broad_geography": "England, Scotland, Wales, and Northern Ireland, United Kingdom",
+    "target_geographic_units": 4,
+    "target_geographic_unit_type": "UK constituent country",
+    "period": {
+      "start": "2020-03-26",
+      "end": "2020-09-15"
+    },
+    "prohibited_evidence": [
+      "published_effect",
+      "prior_aeris_effect",
+      "prior_reanalysis_code",
+      "prior_exposure_values"
+    ]
+  },
+  "article_evidence": [
+    {
+      "artifact": "/study/article.txt",
+      "finding": "Methods: daily air-pollution averages were collected for every UK country from the DEFRA Air Information Resource; missing values were replaced by the prior 7-day average."
+    },
+    {
+      "artifact": "/study/article.txt",
+      "finding": "Methods/model formulation: deaths back-projected to confirmation day; D\u2032_t^k ~ Binomial(C_t^k, pi_t^k); country random effects, weekday, distributed-lag environmental predictors; maximum lag 10 days for temperature and air pollution."
+    },
+    {
+      "artifact": "/study/article.txt",
+      "finding": "Results Tables 1\u20132: Model 6 with temperature, sunlight duration, and PM2.5 was selected; Figure 2 reference PM2.5 is 10 \u00b5g/m\u00b3."
+    },
+    {
+      "artifact": "/study/supplements/41598_2023_50474_MOESM1_ESM.docx",
+      "finding": "Supplement contains the detailed model-selection and environmental-effect methodology."
+    }
+  ],
+  "article_evidence_map": {
+    "target_discrepancy": "The task target says covariates temperature, sunshine, nation; full paper additionally specifies weekday and confirms country as a random effect. Relative humidity was tested in Model 7 but Model 6 was selected, so it is not included in the primary target.",
+    "outcome_method": "The exact outcome requires non-parametric back-projection with a gamma time-to-death distribution (mean 7.92 days), which will be implemented or explicitly bounded based on recoverable source detail."
+  },
+  "execution_design": {},
+  "amendments": []
+}

@@ -1,0 +1,128 @@
+{
+  "schema_version": "aeris-study-contract/v3",
+  "profile": "reanalysis",
+  "contract_id": "38788590-brazil-cancer-reanalysis-invariants",
+  "approved": true,
+  "author": "agent",
+  "objective": "What is the association between a 10 \u00b5g/m\u00b3 increase in municipality-level three-day mean (lag 0\u20132) PM2.5 and daily all-cancer mortality in Brazil?",
+  "allowed_tools": [
+    "estimate_boundary_exposure",
+    "estimate_boundary_exposure_batch",
+    "estimate_exposure"
+  ],
+  "pollutants": [
+    "pm25"
+  ],
+  "date_window": {
+    "start": "2000-01-01",
+    "end": "2019-12-31"
+  },
+  "temporal_resolutions": [
+    "daily",
+    "hourly"
+  ],
+  "allowed_fidelity_levels": [
+    "matched",
+    "source_substitution",
+    "reduced_coverage",
+    "reduced_adjustment",
+    "bounded",
+    "supported_sensitivity"
+  ],
+  "resource_limits": {
+    "wall_clock_hours": 8,
+    "maximum_infrastructure_restarts": 1,
+    "maximum_single_download_gib": 10,
+    "maximum_boundary_units": 6000,
+    "maximum_boundary_units_per_call": 25,
+    "maximum_static_units_per_call": 2
+  },
+  "scientific_invariants": {
+    "research_question": "What is the association between a 10 \u00b5g/m\u00b3 increase in municipality-level three-day mean (lag 0\u20132) PM2.5 and daily all-cancer mortality in Brazil?",
+    "target_outcome_and_population": "Daily all-cancer deaths among individual cancer death records registered in Brazil's Mortality Information System across Brazilian municipalities.",
+    "pollutants": [
+      "pm25"
+    ],
+    "principal_contrast": "Odds ratio per 10 \u00b5g/m\u00b3 increase in three-day mean PM2.5 (lag 0\u20132).",
+    "principal_variants": [
+      "All-cancer mortality; site-specific cancer mortality for 25 common sites"
+    ],
+    "broad_geography": "Brazilian municipalities, Brazil",
+    "target_geographic_units": null,
+    "target_geographic_unit_type": "municipality",
+    "period": {
+      "start": "2000-01-01",
+      "end": "2019-12-31"
+    },
+    "prohibited_evidence": [
+      "Published effect estimates",
+      "Published exposure values",
+      "Prior AERIS effects, code, or source manifests"
+    ]
+  },
+  "article_evidence": [
+    {
+      "artifact": "research-notebook_research-notebook_2026-09-26T062426.8509660000",
+      "finding": "The saved notebook records abstract evidence from /study/article.txt: the study is nationwide Brazil, covers 2000\u20132019, uses municipality-level daily PM2.5, individual cancer deaths, and reports a three-day PM2.5 contrast."
+    },
+    {
+      "artifact": "research-notebook_research-notebook_2026-09-26T062426.8509660000",
+      "finding": "The saved notebook records the supplied study target\u2019s conditional regression and adjustment variables as provisional details requiring method-route verification."
+    }
+  ],
+  "article_evidence_map": {
+    "supplied_materials": "Abstract available in /study/article.txt (lines 22\u201346); supplied PDF/XML do not contain full methods or supplements.",
+    "provisional_target_check": "The contract target agrees with the abstract on population, period, geography, pollutant, municipality aggregation, lag 0\u20132 construct, and per-10 \u00b5g/m\u00b3 contrast. Conditional regression and covariates are explicitly tracked for external method verification."
+  },
+  "execution_design": {
+    "geographic_representation": "administrative_area",
+    "assignment_method": "Municipality-code assignment joining CODMUNRES to CODE_MUNI; use population weighting only when public grid/population support is recovered.",
+    "source_strategy": "local_model",
+    "daily_aggregation": "Daily PM2.5 values; derive lag 0\u20132 mean only where all three days exist.",
+    "analysis_aggregation": "Daily municipality count panel with time-stratified case-crossover conditional logistic regression using same weekday/calendar-month referents.",
+    "exposure_metric": "Municipality-level PM2.5 lag 0\u20132 three-day arithmetic mean in micrograms per cubic metre.",
+    "coverage_policy": "Report-only; fit requires nonmissing daily cancer outcome, three PM2.5 values, and recoverable covariates; no unsupported numeric threshold.",
+    "intended_use": "Evidence-backed bounded source-substituted/reduced-coverage reanalysis if public overlap is decoded, otherwise executable blocker evidence.",
+    "outcome_recovery": "Test retained archive integrity, direct Dataverse transport, and fresh catalog/client/legacy regulator routes; if records recover, take first fully decoded year and municipality 3550308 under C00-C97 and observed-overlap rule.",
+    "subset_rule": "First fully decoded year with daily cancer outcome and daily PM2.5 overlap for municipality 3550308."
+  },
+  "amendments": [
+    {
+      "sequence": 1,
+      "changed_dimensions": {
+        "geographic_representation": "administrative_area",
+        "assignment_method": "Municipality-code assignment joining CODMUNRES to CODE_MUNI; use population weighting only when public grid/population support is recovered.",
+        "source_strategy": "local_model",
+        "daily_aggregation": "Daily PM2.5 values; derive lag 0\u20132 mean only where all three days exist.",
+        "analysis_aggregation": "Daily municipality count panel with time-stratified case-crossover conditional logistic regression using same weekday/calendar-month referents.",
+        "exposure_metric": "Municipality-level PM2.5 lag 0\u20132 three-day arithmetic mean in micrograms per cubic metre.",
+        "coverage_policy": "Report-only; fit requires nonmissing daily cancer outcome, three PM2.5 values, and recoverable covariates; no unsupported numeric threshold.",
+        "intended_use": "Evidence-backed bounded source-substituted/reduced-coverage reanalysis if public overlap is decoded, otherwise executable blocker evidence.",
+        "outcome_recovery": "Test retained archive integrity, direct Dataverse transport, and fresh catalog/client/legacy regulator routes; if records recover, take first fully decoded year and municipality 3550308 under C00-C97 and observed-overlap rule.",
+        "subset_rule": "First fully decoded year with daily cancer outcome and daily PM2.5 overlap for municipality 3550308."
+      },
+      "evidence": [
+        {
+          "artifact": "/study/article.txt",
+          "finding": "Abstract specifies individual cancer deaths in Brazilian municipalities, daily PM2.5, 2000\u20132019, and a three-day PM2.5 mean."
+        },
+        {
+          "artifact": "/run/contract/study-target.json",
+          "finding": "Target supplies time-stratified case-crossover conditional regression and weather/holiday covariates."
+        },
+        {
+          "artifact": "/output/recovery/climaterna-README.md",
+          "finding": "Public source documents daily municipality linkage via CODMUNRES and CODE_MUNI."
+        },
+        {
+          "artifact": "/output/autonomous-review-feedback.txt",
+          "finding": "Review requires an evidence-backed executable design and fresh counterexample recovery."
+        }
+      ],
+      "scientific_justification": "Defines an executable exposure and panel plan for the required fresh recovery attempt without modifying outcome, pollutant, lag construct, geography, contrast, or model family.",
+      "fidelity_impact": "source_substitution",
+      "agreement_independent": true
+    }
+  ],
+  "parent_contract_sha256": "fa81520c2a1c9031a5c2f0b37fda1275f485d949d65e8559353377944b7cd123"
+}

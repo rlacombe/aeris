@@ -1,0 +1,21 @@
+{
+  "retrieved_at_utc": "2026-08-15T16:57:54.904861+00:00",
+  "years": [
+    2015
+  ],
+  "ufs": [
+    "SP"
+  ],
+  "records": [
+    {
+      "file": "DOSP2015.dbc",
+      "status": "downloaded",
+      "source": "mirror",
+      "url": "https://datasus-ftp-mirror.nyc3.digitaloceanspaces.com/SIM/CID10/DORES/DOSP2015.dbc",
+      "bytes": 27098758,
+      "sha256": "fd33fddeef72eec9ddc9c2fffa9269f3a28e647991d4695fc38bbef1a8aafc54"
+    }
+  ],
+  "failures": [],
+  "complete": true
+}

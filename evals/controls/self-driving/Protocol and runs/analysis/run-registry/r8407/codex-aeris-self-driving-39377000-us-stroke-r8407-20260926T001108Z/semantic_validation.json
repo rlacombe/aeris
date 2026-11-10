@@ -1,0 +1,9 @@
+{
+  "valid": true,
+  "errors": [],
+  "warnings": [
+    "coverage eligible_units 3226 differs from the locked target count 3142",
+    "reported variants exceed numerical effects; unavailable variants must remain limitations rather than completed results",
+    "geographic construct change lacks boundary_route_evidence"
+  ]
+}

@@ -1,0 +1,168 @@
+{
+  "schema_version": 1,
+  "study_id": "33398753-italy-cities",
+  "status": "fitted",
+  "fidelity": "bounded",
+  "target": {
+    "outcome": "Cumulative confirmed COVID-19 infections on 17 March, 7 April, and 27 April 2020",
+    "pollutant": "PM10",
+    "geography": "Italian provincial-capital cities",
+    "population": "Residents of 55 provincial-capital cities",
+    "period": "2018 exposure; first-wave 2020 infection outcomes",
+    "effect_scale": "Outcome ratio per doubling of annual PM10 exceedance days",
+    "exposure_assignment": "Nearest EEA E1a validated daily PM10 monitor within 50 km of municipal-capital centroid",
+    "model": "OLS log(infections) on log(PM10 exceedance days) and log(2019 municipal population density)",
+    "covariates": [
+      "2019 municipal population density"
+    ],
+    "named_outcome_source": "Italian Civil Protection Department provincial daily COVID-19 archive",
+    "specification_evidence": [
+      "/study/article.md (Data and study design; Table 6)",
+      "/output/aeris-workspace/.aeris/contracts/reanalysis-invariants.json"
+    ]
+  },
+  "sources": [
+    {
+      "role": "exposure",
+      "url": "https://eeadmz1-downloads-api-appservice.azurewebsites.net/ParquetFile/urls",
+      "route_origin": "agent_discovered",
+      "retrieved": true,
+      "sha256": null,
+      "evidence_artifact": "/output/reanalysis/eea_pm10_urls.txt"
+    },
+    {
+      "role": "exposure",
+      "url": "https://air.discomap.eea.europa.eu/arcgis/rest/services/AirQuality/AirQualityDownloadServiceEUMonitoringStations/MapServer/0/query",
+      "route_origin": "agent_discovered",
+      "retrieved": true,
+      "sha256": null,
+      "evidence_artifact": "/output/reanalysis/eea_stations_it.geojson"
+    },
+    {
+      "role": "outcome",
+      "url": "https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-province/dpc-covid19-ita-province-20200407.csv",
+      "route_origin": "agent_discovered",
+      "retrieved": true,
+      "sha256": null,
+      "evidence_artifact": "/output/reanalysis/covid_province_20200407.csv"
+    },
+    {
+      "role": "covariate",
+      "url": "https://raw.githubusercontent.com/opendatasicilia/comuni-italiani/main/dati/gb_main_comuni_italiani.csv",
+      "route_origin": "agent_discovered",
+      "retrieved": true,
+      "sha256": null,
+      "evidence_artifact": "/output/reanalysis/gb_main_comuni_italiani.csv"
+    }
+  ],
+  "substitutions": [
+    {
+      "dimension": "exposure",
+      "change_type": "source",
+      "published": "Regional environmental agency/Legambiente city values with unspecified assignments",
+      "reanalysis": "EEA E1a daily validated monitor data assigned to city centroids",
+      "reason": "Original exposure values and assignments were not supplied."
+    },
+    {
+      "dimension": "outcome",
+      "change_type": "source",
+      "published": "City infections from Ministry of Health",
+      "reanalysis": "Official provincial cumulative cases joined to provincial capitals",
+      "reason": "Public historical official outcome data are province-level."
+    },
+    {
+      "dimension": "geography",
+      "change_type": "coverage_subset",
+      "published": "Unidentified random sample of 55 cities",
+      "reanalysis": "55 hash-selected cities among 97 eligible capitals",
+      "reason": "Original city identities unavailable; hash selection is independent of values."
+    }
+  ],
+  "coverage": {
+    "eligible_units": 97,
+    "included_units": 55,
+    "eligible_times": 365,
+    "included_times": 365,
+    "rule": "Nearest monitor within 50 km, at least 75% valid 2018 daily data, positive exposure and outcomes; retain 55 eligible capitals by SHA256 rank.",
+    "notes": "All selected cities have 365 valid daily PM10 values (100% coverage); nearest-monitor distance 0.08-45.43 km."
+  },
+  "effects": [
+    {
+      "label": "2020-03-17 infections: adjusted outcome ratio per doubling PM10 exceedance days",
+      "primary": false,
+      "estimate": 1.3435653925850417,
+      "ci_low": 1.043821446504452,
+      "ci_high": 1.7293838617680655,
+      "contrast": "doubling of 2018 annual PM10 exceedance days",
+      "native_estimate": 0.4260665403777016,
+      "native_ci_low": 0.061874949193850004,
+      "native_ci_high": 0.7902581315615531,
+      "native_scale": "log outcome per log exposure",
+      "native_contrast": "one-unit increase in log exceedance days",
+      "scale": "ratio",
+      "metric": "outcome_ratio"
+    },
+    {
+      "label": "2020-04-07 infections: adjusted outcome ratio per doubling PM10 exceedance days",
+      "primary": true,
+      "estimate": 1.2383041226221332,
+      "ci_low": 1.0204380635960901,
+      "ci_high": 1.5026851259342286,
+      "contrast": "doubling of 2018 annual PM10 exceedance days",
+      "native_estimate": 0.3083656782968981,
+      "native_ci_low": 0.029188619357924717,
+      "native_ci_high": 0.5875427372358715,
+      "native_scale": "log outcome per log exposure",
+      "native_contrast": "one-unit increase in log exceedance days",
+      "scale": "ratio",
+      "metric": "outcome_ratio"
+    },
+    {
+      "label": "2020-04-27 infections: adjusted outcome ratio per doubling PM10 exceedance days",
+      "primary": false,
+      "estimate": 1.225603992989012,
+      "ci_low": 1.0093506536749286,
+      "ci_high": 1.488189602059125,
+      "contrast": "doubling of 2018 annual PM10 exceedance days",
+      "native_estimate": 0.2934929026497094,
+      "native_ci_low": 0.0134274612965401,
+      "native_ci_high": 0.5735583440028786,
+      "native_scale": "log outcome per log exposure",
+      "native_contrast": "one-unit increase in log exceedance days",
+      "scale": "ratio",
+      "metric": "outcome_ratio"
+    }
+  ],
+  "analysis_diagnostics": {
+    "observations": 55,
+    "estimated_parameters": 3,
+    "exposure_unique_values": 28,
+    "outcome_unique_values": 52,
+    "joined_rows": 55,
+    "unmatched_outcome_rows": 0,
+    "unmatched_exposure_rows": 0,
+    "contrast_transformation_verified": true,
+    "reported_variants": [
+      "17 March 2020",
+      "7 April 2020 (primary)",
+      "27 April 2020"
+    ]
+  },
+  "artifacts": {
+    "code": "/output/reanalysis/run_reanalysis.py",
+    "source_manifest": "/output/reanalysis/source_manifest.json",
+    "exposure": "/output/reanalysis/analysis_panel.csv",
+    "analysis_panel": "/output/reanalysis/analysis_panel.csv",
+    "model_output": "/output/reanalysis/model_output.json",
+    "decision_log": "/output/reanalysis/decision_log.json",
+    "research_notebook": "/output/research-notebook.json",
+    "blocker_ledger": "/output/reanalysis/blocker_ledger.json",
+    "fidelity_record": "/output/aeris-workspace/.aeris/artifacts/reanalysis-fidelity_reanalysis-fidelity_2026-09-25T155524.0534200000.json",
+    "coverage_diagnostics": "/output/reanalysis/coverage_diagnostics.csv",
+    "boundary_route_evidence": "/output/reanalysis/eea_stations_it.geojson",
+    "study_contract": "/output/aeris-workspace/.aeris/contracts/reanalysis-invariants.json"
+  },
+  "blockers": [
+    "Original 55 city identities, city-level outcome counts, original monitor assignments, and original exposure values were not available. The fitted analysis therefore uses explicit bounded source/geographic substitutions."
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "schema_version": "aeris-safety-envelope/v1",
+  "envelope_id": "aeris-global-self-driving-v1",
+  "allowed_pollutants": ["pm25", "pm10", "no2", "o3", "so2", "co"],
+  "date_bounds": {
+    "earliest": "1980-01-01",
+    "latest": "2026-12-31"
+  },
+  "allowed_temporal_resolutions": ["daily", "hourly"],
+  "completeness_bounds": {
+    "minimum": 0,
+    "maximum": 100
+  },
+  "allowed_estimation_tools": [
+    "estimate_exposure",
+    "estimate_boundary_exposure",
+    "estimate_boundary_exposure_batch"
+  ],
+  "allowed_fidelity_levels": [
+    "matched",
+    "source_substitution",
+    "reduced_coverage",
+    "reduced_adjustment",
+    "bounded",
+    "supported_sensitivity"
+  ],
+  "resource_ceilings": {
+    "wall_clock_hours": 8,
+    "maximum_infrastructure_restarts": 1,
+    "maximum_single_download_gib": 10,
+    "maximum_boundary_units": 6000,
+    "maximum_boundary_units_per_call": 25,
+    "maximum_static_units_per_call": 2
+  }
+}

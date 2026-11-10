@@ -1,0 +1,15 @@
+{
+  "comparison_rule": "same pollutant and directly normalized published contrast",
+  "comparable_contrasts": 12,
+  "studies_with_comparable_contrasts": 7,
+  "excluded": {
+    "33227571": "autonomous blocker; no pollutant fit",
+    "39377000": "bounded all-stroke outcome-ratio presentation is not directly comparable to the published ischemic-stroke contrast"
+  },
+  "same_direction_around_one": 10,
+  "median_absolute_log_difference": 0.05360499599882772,
+  "mean_absolute_log_difference": 0.15364584201407752,
+  "median_multiplicative_separation": 1.055067763845873,
+  "pearson_ratio": 0.22931078115409306,
+  "pearson_log_ratio": 0.3105084405608185
+}

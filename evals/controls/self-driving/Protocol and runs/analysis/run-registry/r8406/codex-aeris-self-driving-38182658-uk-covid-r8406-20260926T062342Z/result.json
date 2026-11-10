@@ -1,0 +1,205 @@
+{
+  "schema_version": 3,
+  "study_id": "38182658-uk-covid",
+  "status": "completed_fit",
+  "fidelity": "bounded",
+  "target": {
+    "outcome": "Instantaneous COVID-19 case fatality: deaths back-projected to confirmation day among daily confirmed cases.",
+    "pollutant": "PM2.5",
+    "geography": "England, Scotland, Wales, and Northern Ireland",
+    "population": "Laboratory-confirmed COVID-19 cases among residents of the four UK constituent countries",
+    "period": "Article target 2020-03-26 through 2020-09-15; bounded fitted effective dates 2020-03-26 through 2020-06-22.",
+    "effect_scale": "Odds ratio",
+    "exposure_assignment": "Article: daily country averages. Bounded implementation: Open-Meteo gridded PM2.5 daily means at each national-capital coordinate, summarized over lags 0\u201310.",
+    "model": "Article Model 6 target is binomial-logit GLMM DLNM. Fitted bounded analogue is binomial GLM with flexible cubic bases of 0\u201310-day mean PM2.5, temperature and sunshine, plus country and weekday fixed effects.",
+    "covariates": [
+      "temperature",
+      "sunshine duration",
+      "weekday",
+      "country"
+    ],
+    "named_outcome_source": "Public historical UK nation indicators archive derived from the sources documented in its retained sources file.",
+    "specification_evidence": [
+      "/study/article.txt",
+      "/study/supplements/41598_2023_50474_MOESM1_ESM.docx",
+      "/output/aeris-workspace/.aeris/contracts/reanalysis-invariants.json"
+    ]
+  },
+  "sources": [
+    {
+      "role": "outcome",
+      "url": "https://raw.githubusercontent.com/tomwhite/covid-19-uk-data/master/data/covid-19-indicators-uk.csv",
+      "route_origin": "agent_discovered",
+      "retrieved": true,
+      "sha256": "151ecd06edb90e137ddddb822305ac642ca58297f2155362df2e4b7661d4a1f5",
+      "evidence_artifact": "/output/raw/covid-19-indicators-uk.csv"
+    },
+    {
+      "role": "exposure",
+      "url": "https://air-quality-api.open-meteo.com/v1/air-quality",
+      "route_origin": "agent_discovered",
+      "retrieved": true,
+      "sha256": null,
+      "evidence_artifact": "/output/raw/openmeteo_air_England.json"
+    },
+    {
+      "role": "weather",
+      "url": "https://archive-api.open-meteo.com/v1/archive",
+      "route_origin": "agent_discovered",
+      "retrieved": true,
+      "sha256": null,
+      "evidence_artifact": "/output/raw/openmeteo_weather_England.json"
+    },
+    {
+      "role": "other",
+      "url": "OpenAQ historical archive via AERIS",
+      "route_origin": "agent_discovered",
+      "retrieved": true,
+      "sha256": "6884d2ffb6fd6442fd9df84a5d26ca01deb2ca32b26ee01977b25bfb92724437",
+      "evidence_artifact": "/output/aeris-workspace/.aeris/artifacts/exposure_pm25_2026-09-26T062823.6450900000.csv"
+    }
+  ],
+  "substitutions": [
+    {
+      "dimension": "exposure",
+      "change_type": "source",
+      "published": "DEFRA Air Information Resource daily country average",
+      "reanalysis": "Open-Meteo gridded daily PM2.5 at each national-capital coordinate",
+      "reason": "Decoded, complete four-location historical public series retained; monitor-boundary feasibility route was also exercised through AERIS."
+    },
+    {
+      "dimension": "period",
+      "change_type": "coverage_subset",
+      "published": "2020-03-26 through 2020-09-15",
+      "reanalysis": "2020-03-26 through 2020-06-22 effective fit period",
+      "reason": "The recovered four-nation health overlap ends 2020-06-30 and 8-day outcome alignment excludes its trailing days."
+    },
+    {
+      "dimension": "outcome",
+      "change_type": "construct_change",
+      "published": "Non-parametric gamma back-projected deaths",
+      "reanalysis": "Reported deaths shifted eight days earlier and capped at daily cases",
+      "reason": "The paper gives a 7.92-day mean delay, but exact delay records/distribution and original outcome data were not recovered."
+    },
+    {
+      "dimension": "model",
+      "change_type": "construct_change",
+      "published": "Distributed-lag nonlinear mixed model",
+      "reanalysis": "Flexible lag-mean binomial GLM with country/weekday fixed effects",
+      "reason": "Transparent bounded analogue when exact cross-basis/mixed-effect implementation cannot be supported by recovered inputs."
+    }
+  ],
+  "coverage": {
+    "eligible_units": 4,
+    "included_units": 4,
+    "eligible_times": 174,
+    "included_times": 89,
+    "rule": "Retain all country-days with observed positive daily cases, available shifted deaths, and complete 0\u201310 day environmental histories; no numeric environmental completeness exclusion was imposed.",
+    "notes": "351 fit rows: England 89, Scotland 89, Wales 89, Northern Ireland 84. Raw PM2.5 is complete in every recovered environmental country-day; the five missing Northern Ireland outcome rows explain the asymmetric fit count. See coverage_report.json."
+  },
+  "artifacts": {
+    "code": "retrieve_and_fit.py",
+    "source_manifest": "source_manifest.json",
+    "exposure": "raw/openmeteo_air_England.json",
+    "analysis_panel": "analysis_panel.csv",
+    "model_output": "model_output.json",
+    "decision_log": "decision_log.json",
+    "research_notebook": "aeris-workspace/.aeris/research-notebook.json",
+    "blocker_ledger": "blocker_ledger.json",
+    "fidelity_record": "aeris-workspace/.aeris/artifacts/reanalysis-fidelity_reanalysis-fidelity_2026-09-26T062929.2255810000.json",
+    "coverage_diagnostics": "coverage_report.json",
+    "boundary_route_evidence": "boundary_route_evidence.json",
+    "study_contract": "aeris-workspace/.aeris/contracts/agent-contract-amendment-001.json"
+  },
+  "blockers": [
+    "Not a matched reproduction: environmental support changed from country monitor averages to capital-coordinate gridded values.",
+    "Not a full-period reproduction: the retained common four-nation outcome series ends before the article period.",
+    "Not exact back-projection or DLNM: retained public inputs support only the documented bounded proxies."
+  ],
+  "stopping_checklist": {
+    "target_specification_complete": true,
+    "complete_article_checked": true,
+    "outcome_routes_attempted": 1,
+    "normal_exposure_source_tested": true,
+    "historical_fallback_applicable": false,
+    "historical_fallback_tested": false,
+    "geographic_batching_applicable": true,
+    "geographic_batching_attempted": true,
+    "fidelity_levels_evaluated": [
+      "bounded"
+    ],
+    "pending_requests": 0,
+    "evidence_artifacts": [
+      "/output/aeris-workspace/.aeris/artifacts/exposure_pm25_2026-09-26T062823.6450900000.csv",
+      "/output/raw/covid-19-indicators-uk.csv",
+      "/output/raw/openmeteo_air_England.json",
+      "/output/raw/openmeteo_weather_England.json",
+      "aeris-workspace/.aeris/artifacts/reanalysis-fidelity_reanalysis-fidelity_2026-09-26T062929.2255810000.json",
+      "aeris-workspace/.aeris/contracts/agent-contract-amendment-001.json",
+      "aeris-workspace/.aeris/research-notebook.json",
+      "analysis_panel.csv",
+      "blocker_ledger.json",
+      "boundary_route_evidence.json",
+      "coverage_report.json",
+      "decision_log.json",
+      "model_output.json",
+      "raw/openmeteo_air_England.json",
+      "retrieve_and_fit.py",
+      "source_manifest.json"
+    ]
+  },
+  "design_provenance": {
+    "contract_id": "38182658-uk-covid-reanalysis-invariants",
+    "contract_sha256": "52c7a92e99acfcb22ed71db238e18ea0a4aefae7dd763bb17d2149182778719a",
+    "contract_author": "agent",
+    "geographic_representation": "administrative_area",
+    "assignment_method": "within_boundary_monitor_mean, separately by country and day; retain contributing monitor metadata.",
+    "representative_location_rule": null,
+    "maximum_monitor_distance_km": null,
+    "monitor_distance_evidence": "Not applicable to the selected assignment method.",
+    "source_strategy": "public_monitor_network",
+    "exposure_metric": "daily ambient PM2.5 country mean in \u00b5g/m\u00b3; raw gaps then article-specified trailing-7-day imputation only in analysis table.",
+    "coverage_policy": {
+      "mode": "report_only",
+      "minimum_percent": null,
+      "threshold_source": "none",
+      "evidence": "report_only: the article supplies no numeric threshold; report raw and imputed coverage."
+    },
+    "decision_rationale": "This is the first executable exposure-design amendment, preserving the article's administrative country-day pollutant construct while keeping public source selection open pending feasibility probes.",
+    "evidence_basis": [
+      "Article environmental-data methods specify daily pollutant averages for every country and 7-day preceding-average replacement for missing observations.",
+      "Article model formulation specifies country-level daily outcomes and a maximum 10-day lag for air pollution."
+    ],
+    "locked_before_exposure": false
+  },
+  "effects": [
+    {
+      "label": "Bounded PM2.5 lag-mean analogue",
+      "primary": true,
+      "estimate": 1.7189892341,
+      "ci_low": 1.7076838423,
+      "ci_high": 1.7303694711,
+      "scale": "ratio",
+      "contrast": "PM2.5 19 versus 10 \u00b5g/m\u00b3 for the fitted 0\u201310-day lag mean; covariate values held at medians, England/Monday design row.",
+      "metric": "OR",
+      "native_estimate": 0.5417364635,
+      "native_ci_low": 0.5351383131,
+      "native_ci_high": 0.5483346139,
+      "native_scale": "log odds ratio",
+      "native_contrast": "19 versus 10 \u00b5g/m\u00b3"
+    }
+  ],
+  "analysis_diagnostics": {
+    "observations": 351,
+    "estimated_parameters": 19,
+    "exposure_unique_values": 335,
+    "outcome_unique_values": 139,
+    "joined_rows": 428,
+    "unmatched_outcome_rows": 0,
+    "unmatched_exposure_rows": 0,
+    "contrast_transformation_verified": true,
+    "reported_variants": [
+      "Article Model 6 target implemented as bounded lag-mean binomial-logit analogue"
+    ]
+  }
+}

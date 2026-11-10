@@ -1,0 +1,190 @@
+{
+  "study_id": "PMID-34488764",
+  "status": "completed_blocker",
+  "target": {
+    "outcome": "Cumulative COVID-19 hospital deaths by department",
+    "pollutant": "Long-term PM2.5",
+    "geography": "96 metropolitan French departments (NUTS 3)",
+    "period": "Outcome dates 2020-05-01 through 2020-12-31; PM2.5 1999-2016",
+    "effect_scale": "Mortality rate ratio, PM2.5 quartile Q2/Q3/Q4 versus Q1"
+  },
+  "sources": [
+    {
+      "role": "health outcome",
+      "url": "https://static.data.gouv.fr/resources/donnees-hospitalieres-relatives-a-lepidemie-de-covid-19/20230331-180159/covid-hospit-2023-03-31-18h01.csv",
+      "retrieved": true,
+      "sha256": "79945ede9e319d5d7289cdcbd4a686ff0e2d06ac9b4232fdde139b0b9e5cfc82"
+    },
+    {
+      "role": "department boundaries",
+      "url": "https://france-geojson.gregoiredavid.fr/repo/departements.geojson",
+      "retrieved": true,
+      "sha256": "a5557a059bd4f848fbf92e81f716d7e2253226f31e943f67f85b844c9de91c5d"
+    },
+    {
+      "role": "author-designated covariate table (sanitized)",
+      "url": "/study/supplements/12940_2021_784_MOESM1_ESM.docx",
+      "retrieved": true,
+      "sha256": "eb4378442d2f3a0f66717ab2d48ee4ba2ada3f1fc2e9e70d66f7b5b57e53db50"
+    },
+    {
+      "role": "independent PM2.5 grid 1999",
+      "url": "https://satpmdata.s3.amazonaws.com/V6GL03/CoarseResolution/EU/Annual/V6GL03.CNNPM25.0p10.EU.199901-199912.nc",
+      "retrieved": true,
+      "sha256": "0194ac21b789cacc89e596f01ddd425f538703576beeb44e40170cce1aac8dc1"
+    },
+    {
+      "role": "independent PM2.5 grid 2000",
+      "url": "https://satpmdata.s3.amazonaws.com/V6GL03/CoarseResolution/EU/Annual/V6GL03.CNNPM25.0p10.EU.200001-200012.nc",
+      "retrieved": true,
+      "sha256": "09afbef9aea4f40f6214a69318f71680d1d277c6a88a0251474ea98cd5053c8c"
+    },
+    {
+      "role": "independent PM2.5 grid 2001",
+      "url": "https://satpmdata.s3.amazonaws.com/V6GL03/CoarseResolution/EU/Annual/V6GL03.CNNPM25.0p10.EU.200101-200112.nc",
+      "retrieved": true,
+      "sha256": "ba430c5e686455e09fa3dcd4a1994867edbecb42d5eae21fc2a7fc1327dc9ffc"
+    },
+    {
+      "role": "independent PM2.5 grid 2002",
+      "url": "https://satpmdata.s3.amazonaws.com/V6GL03/CoarseResolution/EU/Annual/V6GL03.CNNPM25.0p10.EU.200201-200212.nc",
+      "retrieved": true,
+      "sha256": "7c3aba72dcebe6054621d564db17430291121386bd747efef2c02fe736fd0b1f"
+    },
+    {
+      "role": "independent PM2.5 grid 2003",
+      "url": "https://satpmdata.s3.amazonaws.com/V6GL03/CoarseResolution/EU/Annual/V6GL03.CNNPM25.0p10.EU.200301-200312.nc",
+      "retrieved": true,
+      "sha256": "cf85ad3c06324e66d73bcb49d75c0f6a944cc3ad383f489d34636e0b0ac11c6c"
+    },
+    {
+      "role": "independent PM2.5 grid 2004",
+      "url": "https://satpmdata.s3.amazonaws.com/V6GL03/CoarseResolution/EU/Annual/V6GL03.CNNPM25.0p10.EU.200401-200412.nc",
+      "retrieved": true,
+      "sha256": "9eda232ba6b58b17d3bdf6c2740d90caaaabadfbc354f71cf2d14368c21eb800"
+    },
+    {
+      "role": "independent PM2.5 grid 2005",
+      "url": "https://satpmdata.s3.amazonaws.com/V6GL03/CoarseResolution/EU/Annual/V6GL03.CNNPM25.0p10.EU.200501-200512.nc",
+      "retrieved": true,
+      "sha256": "26ff6eee809d2bdb9da83bfa2defc8143e560a379dfed4c5206e5ded4d9ee005"
+    },
+    {
+      "role": "independent PM2.5 grid 2006",
+      "url": "https://satpmdata.s3.amazonaws.com/V6GL03/CoarseResolution/EU/Annual/V6GL03.CNNPM25.0p10.EU.200601-200612.nc",
+      "retrieved": true,
+      "sha256": "40747dd33fa973b0a176e12b6967f26d8d5928c7fa10b53088d337b054dc6c00"
+    },
+    {
+      "role": "independent PM2.5 grid 2007",
+      "url": "https://satpmdata.s3.amazonaws.com/V6GL03/CoarseResolution/EU/Annual/V6GL03.CNNPM25.0p10.EU.200701-200712.nc",
+      "retrieved": true,
+      "sha256": "ed5ae59c8fc00d1273189ba3afd539e3577456105bac5e77ab4f6424dd8fa14d"
+    },
+    {
+      "role": "independent PM2.5 grid 2008",
+      "url": "https://satpmdata.s3.amazonaws.com/V6GL03/CoarseResolution/EU/Annual/V6GL03.CNNPM25.0p10.EU.200801-200812.nc",
+      "retrieved": true,
+      "sha256": "0bd44dbc691283ee6f8d1a3419c0af6dcd05d292ff607b245b0f9fca0f6d0eb4"
+    },
+    {
+      "role": "independent PM2.5 grid 2009",
+      "url": "https://satpmdata.s3.amazonaws.com/V6GL03/CoarseResolution/EU/Annual/V6GL03.CNNPM25.0p10.EU.200901-200912.nc",
+      "retrieved": true,
+      "sha256": "39f2ebd1734c58d67a722626dfc6d2d5ad4bfbc2d3474f1fa6d20939460a36f9"
+    },
+    {
+      "role": "independent PM2.5 grid 2010",
+      "url": "https://satpmdata.s3.amazonaws.com/V6GL03/CoarseResolution/EU/Annual/V6GL03.CNNPM25.0p10.EU.201001-201012.nc",
+      "retrieved": true,
+      "sha256": "4973a60961ad9024b7184384b147ca9bad069d9cded328ebb4d38b321569b4ac"
+    },
+    {
+      "role": "independent PM2.5 grid 2011",
+      "url": "https://satpmdata.s3.amazonaws.com/V6GL03/CoarseResolution/EU/Annual/V6GL03.CNNPM25.0p10.EU.201101-201112.nc",
+      "retrieved": true,
+      "sha256": "1a4d9a2cfe9eb9083211a0a29239de1d0653a664a0c747d0e9c9cb65f7c2195a"
+    },
+    {
+      "role": "independent PM2.5 grid 2012",
+      "url": "https://satpmdata.s3.amazonaws.com/V6GL03/CoarseResolution/EU/Annual/V6GL03.CNNPM25.0p10.EU.201201-201212.nc",
+      "retrieved": true,
+      "sha256": "47554091ff3f7c644a44ce6d3d12d301c0981c96ddf2428e89ff0a6539319953"
+    },
+    {
+      "role": "independent PM2.5 grid 2013",
+      "url": "https://satpmdata.s3.amazonaws.com/V6GL03/CoarseResolution/EU/Annual/V6GL03.CNNPM25.0p10.EU.201301-201312.nc",
+      "retrieved": true,
+      "sha256": "f9fd65d11d2af6ae06be3e9e10bb90cfcaeb2721bb73dc80811a2bcff2a8e173"
+    },
+    {
+      "role": "independent PM2.5 grid 2014",
+      "url": "https://satpmdata.s3.amazonaws.com/V6GL03/CoarseResolution/EU/Annual/V6GL03.CNNPM25.0p10.EU.201401-201412.nc",
+      "retrieved": true,
+      "sha256": "271abd66d324568c0225b2a3d97365ed197751398f3a7f6a0ea47bb979fc516a"
+    },
+    {
+      "role": "independent PM2.5 grid 2015",
+      "url": "https://satpmdata.s3.amazonaws.com/V6GL03/CoarseResolution/EU/Annual/V6GL03.CNNPM25.0p10.EU.201501-201512.nc",
+      "retrieved": true,
+      "sha256": "d11d1ea5486df96ed6cf1a30bfcf1d521ec3e9c5c51c2d88151078674eee23af"
+    },
+    {
+      "role": "independent PM2.5 grid 2016",
+      "url": "https://satpmdata.s3.amazonaws.com/V6GL03/CoarseResolution/EU/Annual/V6GL03.CNNPM25.0p10.EU.201601-201612.nc",
+      "retrieved": true,
+      "sha256": "03e6d42f84286e66c2b755e077b6f047afeaf986f38f7aa152207728e3993369"
+    },
+    {
+      "role": "original SEDAC PM2.5 endpoint attempted",
+      "url": "https://sedac.ciesin.columbia.edu/downloads/maps/sdei/sdei-global-annual-gwr-pm2-5-modis-misr-seawifs-aod-v4-gl-03/",
+      "retrieved": false,
+      "sha256": null
+    },
+    {
+      "role": "WorldClim historical temperature attempt",
+      "url": "https://geodata.ucdavis.edu/climate/worldclim/2_1/hist/cts4.09/",
+      "retrieved": false,
+      "sha256": null
+    }
+  ],
+  "substitutions": [
+    {
+      "dimension": "exposure",
+      "published": "NASA SEDAC V4 PM2.5 1999-2016, stated 1 km",
+      "reanalysis": "ACAG V6.GL.03 independently retrieved public PM2.5 annual 0.1 degree grids, polygonal department means",
+      "reason": "Contract prohibits using authors\u2019 pollution values/derived exposure; independent public product used."
+    }
+  ],
+  "coverage": {
+    "eligible_units": 96,
+    "included_units": 95,
+    "eligible_times": 9,
+    "included_times": 9,
+    "notes": "Health outcome and covariates cover 96 departments and 9 dates. Independent 0.1-degree PM2.5 polygonal extraction has no in-polygon grid cell for Hauts-de-Seine (92), leaving 95 exposure-complete departments. No fill or geographic relaxation was made."
+  },
+  "effect": null,
+  "artifacts": {
+    "code": "/output/reanalysis.py",
+    "source_manifest": "/output/source_manifest.json",
+    "exposure": "/output/exposure_table.csv",
+    "analysis_panel": "/output/analysis_panel.csv",
+    "model_output": "/output/model_output.json",
+    "decision_log": "/output/decision_log.md",
+    "sanitization": "/output/sanitization.json",
+    "fidelity_record": "/output/fidelity_record.json"
+  },
+  "blockers": [
+    "Exact required independent long-term temperature (2001-2012) was not constructed; temperature is a declared covariate in every published principal model. The principal model was therefore not fit.",
+    "Hauts-de-Seine (92) has no in-polygon pixel in the 0.1-degree independent PM2.5 grid; it would be excluded from any exposure-complete model."
+  ],
+  "fidelity_record": {
+    "status": "blocked",
+    "published_target_locked": true,
+    "outcome_independent": true,
+    "exposure_independent": true,
+    "covariates_sanitized": true,
+    "principal_model_fit": false,
+    "blocker": "Independent temperature reconstruction unavailable in this run; PM2.5 grid has no in-polygon cell for Hauts-de-Seine."
+  }
+}

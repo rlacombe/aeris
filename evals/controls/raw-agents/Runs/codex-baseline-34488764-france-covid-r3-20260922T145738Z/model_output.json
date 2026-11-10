@@ -1,0 +1,5 @@
+{
+  "principal_model_executed": false,
+  "reason": "Required independent department temperature for the published 2001--2012 exposure period was not constructed; fitting without it would change the locked model.",
+  "requested_model": "negative binomial of cumulative hospital deaths, offset log(population), PM2.5 quartiles Q2/Q3/Q4 vs Q1, temperature and listed covariates, separately at nine dates."
+}

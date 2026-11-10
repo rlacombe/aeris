@@ -1,0 +1,52 @@
+{
+  "sources": [
+    {
+      "role": "outcome",
+      "url": "https://s3.sa-east-1.amazonaws.com/ckan.saude.gov.br/SRAG/2020/INFLUD20-23-03-2026.parquet",
+      "route_origin": "agent_discovered",
+      "retrieved": true,
+      "sha256": "371723b91c0e4de1ae4067c8a6ee04887430869fa8d3c561d4b9106fb89e0c0b",
+      "evidence_artifact": "/output/outcome_daily_sivep_proxy.csv"
+    },
+    {
+      "role": "outcome",
+      "url": "https://s3.sa-east-1.amazonaws.com/ckan.saude.gov.br/SRAG/2021/INFLUD21-23-03-2026.parquet",
+      "route_origin": "agent_discovered",
+      "retrieved": true,
+      "sha256": "ecad01062f23715551a1e5e82fa1d9b28f0ea25e2c486a49518a15bf489ee790",
+      "evidence_artifact": "/output/outcome_daily_sivep_proxy.csv"
+    },
+    {
+      "role": "exposure",
+      "url": "https://opendap.nccs.nasa.gov/dods/gmao/geos-cf/assim/aqc_tavg_1hr_g1440x721_v1",
+      "route_origin": "agent_discovered",
+      "retrieved": true,
+      "sha256": "cb3b4ab112a3a2564fc4cf23fc7c16cd76bc17348c686be9ff86ab9ccd9de2ba",
+      "evidence_artifact": "/output/data/geoscf_provenance.json"
+    },
+    {
+      "role": "weather",
+      "url": "https://archive-api.open-meteo.com/v1/archive",
+      "route_origin": "agent_discovered",
+      "retrieved": true,
+      "sha256": "b24f4fdc77a88ec730706c315d52e28355ad503bd716608fb22a75bed9b3cf24",
+      "evidence_artifact": "/output/data/openmeteo_weather.json"
+    },
+    {
+      "role": "exposure",
+      "url": "https://qualar.cetesb.sp.gov.br/qualar/home.do",
+      "route_origin": "article_named",
+      "retrieved": false,
+      "sha256": null,
+      "evidence_artifact": "/output/qualar_home.html"
+    },
+    {
+      "role": "outcome",
+      "url": "https://ftp.datasus.gov.br/dissemin/publicos/SIHSUS/",
+      "route_origin": "article_named",
+      "retrieved": false,
+      "sha256": null,
+      "evidence_artifact": "/output/datasus_ftp_curl.log"
+    }
+  ]
+}

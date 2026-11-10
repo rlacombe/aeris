@@ -1,0 +1,439 @@
+{
+  "schema_version": 3,
+  "study_id": "36383802-sao-jose-covid",
+  "status": "completed_sensitivity",
+  "fidelity": "bounded",
+  "target": {
+    "outcome": "Daily hospital admissions for COVID-19 (bounded sensitivity uses SIVEP-Gripe resident COVID/SRAG hospital admissions)",
+    "pollutant": "O3 and NO2",
+    "geography": "Sao Jose dos Campos, Sao Paulo, Brazil",
+    "population": "Residents admitted with COVID-19",
+    "period": "Article: 2020-04-01 to 2021-04-30; sensitivity: 2020-04-01 to 2020-09-09",
+    "effect_scale": "Rate ratio",
+    "exposure_assignment": "Daily city-level unweighted mean of eligible in-city station-day means, lags 0-7",
+    "model": "Separate negative-binomial log-link daily count regressions",
+    "covariates": [
+      "daily mean temperature",
+      "daily mean relative humidity",
+      "day of week",
+      "linear calendar-day trend"
+    ],
+    "named_outcome_source": "Article: SIH-SUS B34.2; sensitivity: SIVEP-Gripe hospital extract",
+    "specification_evidence": [
+      "/study/article.txt Material and Methods and Table 2",
+      "/output/aeris-workspace/.aeris/contracts/reanalysis-invariants.json"
+    ]
+  },
+  "sources": [
+    {
+      "role": "outcome",
+      "url": "https://raw.githubusercontent.com/CADDE-CENTRE/covid19_brazil_hfr/main/inst/data/SIVEP_hospital_31-01-2022-all.rds",
+      "route_origin": "agent_discovered",
+      "retrieved": true,
+      "sha256": "1bdcb04998180ecc6bc3ed9f2ff196e36a42016ad8052634598f2caed91353db",
+      "evidence_artifact": "/output/diagnostics/outcome_accounting.json"
+    },
+    {
+      "role": "exposure",
+      "url": "https://www.kaggle.com/api/v1/datasets/download/amandalk/sp-air-quality",
+      "route_origin": "agent_discovered",
+      "retrieved": true,
+      "sha256": "0a638a19fcf744f749e438d27c7338a8d763065598cd64086f326e42cce18013",
+      "evidence_artifact": "/output/diagnostics/kaggle_air_metadata.json"
+    },
+    {
+      "role": "weather",
+      "url": "https://archive-api.open-meteo.com/v1/archive",
+      "route_origin": "agent_discovered",
+      "retrieved": true,
+      "sha256": "de3a7932a9f359c85b8da0b96e1e335cefb99d9ab8373194ae401a62877b2886",
+      "evidence_artifact": "/output/diagnostics/openmeteo_weather_full.log"
+    },
+    {
+      "role": "outcome",
+      "url": "https://ftp.datasus.gov.br/dissemin/publicos/SIHSUS/200801_/Dados/RDSP2004.dbc",
+      "route_origin": "article_named",
+      "retrieved": false,
+      "sha256": null,
+      "evidence_artifact": "/output/diagnostics/outcome_route_ftp.log"
+    },
+    {
+      "role": "exposure",
+      "url": "https://qualar.cetesb.sp.gov.br/qualar/home.do",
+      "route_origin": "article_named",
+      "retrieved": false,
+      "sha256": null,
+      "evidence_artifact": "/output/diagnostics/cetesb_home.html"
+    }
+  ],
+  "substitutions": [
+    {
+      "dimension": "outcome",
+      "change_type": "source",
+      "published": "SIH-SUS admissions with ICD-10 B34.2",
+      "reanalysis": "SIVEP-Gripe resident admissions classified COVID/SRAG",
+      "reason": "Direct public SIH-SUS file transport timed out; recovered public hospital-level registry has resident municipality and admission date."
+    },
+    {
+      "dimension": "exposure",
+      "change_type": "source",
+      "published": "CETESB daily pollution data with undocumented article aggregation",
+      "reanalysis": "CETESB-derived public hourly archive, daily station-mean aggregation in source units",
+      "reason": "QUALAR historical retrieval route required a registered account; archive has auditable hourly records through 2020-09-09."
+    },
+    {
+      "dimension": "period",
+      "change_type": "coverage_subset",
+      "published": "2020-04-01 to 2021-04-30",
+      "reanalysis": "2020-04-01 to 2020-09-09",
+      "reason": "CETESB-derived public archive ends 2020-09-09; all days in this deterministic window meet completeness rule."
+    },
+    {
+      "dimension": "covariate",
+      "change_type": "source",
+      "published": "CETESB temperature and relative humidity",
+      "reanalysis": "Open-Meteo archive coordinate weather",
+      "reason": "CETESB direct historical access required account."
+    }
+  ],
+  "coverage": {
+    "eligible_units": 1,
+    "included_units": 1,
+    "eligible_times": 162,
+    "included_times": 162,
+    "rule": "At least 18 hourly observations per station-day; daily value is unweighted mean of eligible station-day means.",
+    "notes": "Complete O3, NO2, and weather coverage in the bounded interval; two in-city stations."
+  },
+  "artifacts": {
+    "code": "code/reanalysis.py",
+    "source_manifest": "source_manifest.json",
+    "exposure": "data/exposure_daily_cetesb_archive_sensitivity.csv",
+    "analysis_panel": "data/analysis_panel_sensitivity.csv",
+    "model_output": "data/model_output_native.csv",
+    "decision_log": "decision_log.json",
+    "research_notebook": "aeris-workspace/.aeris/research-notebook.json",
+    "blocker_ledger": "diagnostics/blocker_ledger.json",
+    "fidelity_record": "aeris-workspace/.aeris/artifacts/reanalysis-fidelity_reanalysis-fidelity_2026-09-25T142112.3974850000.json",
+    "coverage_diagnostics": "diagnostics/coverage_diagnostics.json",
+    "boundary_route_evidence": "diagnostics/cetesb_arcgis_service.json",
+    "study_contract": "aeris-workspace/.aeris/contracts/agent-contract-amendment-001.json"
+  },
+  "blockers": [
+    "A full matched SIH-SUS ICD B34.2 daily outcome series was not recovered: both HTTPS and FTP DATASUS monthly-file attempts timed out.",
+    "CETESB QUALAR historical retrieval requires a registered account and public OpenAQ v3 requires an API key; neither yielded a full original-period record.",
+    "The public CETESB-derived archive ends 2020-09-09 and its metadata does not explicitly state the numerical units."
+  ],
+  "stopping_checklist": {
+    "target_specification_complete": true,
+    "complete_article_checked": true,
+    "outcome_routes_attempted": 2,
+    "normal_exposure_source_tested": true,
+    "historical_fallback_applicable": false,
+    "historical_fallback_tested": false,
+    "geographic_batching_applicable": false,
+    "geographic_batching_attempted": false,
+    "fidelity_levels_evaluated": [
+      "bounded"
+    ],
+    "pending_requests": 0,
+    "evidence_artifacts": [
+      "/output/diagnostics/cetesb_home.html",
+      "/output/diagnostics/kaggle_air_metadata.json",
+      "/output/diagnostics/openmeteo_weather_full.log",
+      "/output/diagnostics/outcome_accounting.json",
+      "/output/diagnostics/outcome_route_ftp.log",
+      "aeris-workspace/.aeris/artifacts/reanalysis-fidelity_reanalysis-fidelity_2026-09-25T142112.3974850000.json",
+      "aeris-workspace/.aeris/contracts/agent-contract-amendment-001.json",
+      "aeris-workspace/.aeris/research-notebook.json",
+      "code/reanalysis.py",
+      "data/analysis_panel_sensitivity.csv",
+      "data/exposure_daily_cetesb_archive_sensitivity.csv",
+      "data/model_output_native.csv",
+      "decision_log.json",
+      "diagnostics/blocker_ledger.json",
+      "diagnostics/cetesb_arcgis_service.json",
+      "diagnostics/coverage_diagnostics.json",
+      "source_manifest.json"
+    ]
+  },
+  "design_provenance": {
+    "contract_id": "36383802-sao-jose-covid-reanalysis-invariants",
+    "contract_sha256": "1b1d9cb35f4cfe59993a2722188d1b8a64647f70ee4e714da2ea8f2eedb031df",
+    "contract_author": "agent",
+    "geographic_representation": "administrative_area",
+    "assignment_method": "Daily unweighted mean of eligible in-city CETESB station-day means (S.Jose Campos and Jd. Satelite).",
+    "representative_location_rule": null,
+    "maximum_monitor_distance_km": null,
+    "monitor_distance_evidence": "Not applicable to the selected assignment method.",
+    "source_strategy": "public_monitor_network",
+    "exposure_metric": "Daily arithmetic mean of hourly concentration values retained in archive source units.",
+    "coverage_policy": {
+      "mode": "report_only",
+      "minimum_percent": null,
+      "threshold_source": "Analyst implementation decision after source inspection",
+      "evidence": "All 162 days in bounded interval had O3 and NO2 under 18-hour station-day requirement."
+    },
+    "decision_rationale": "The direct CETESB QUALAR historical query route requires a registered account, whereas the independently archived public hourly CETESB series offers a complete and auditable bounded window. A fixed city-wide station mean matches the ecological design but differs from the article's unspecified daily pollutant summary and source delivery route.",
+    "evidence_basis": [
+      "CETESB-derived archive yielded complete O3 and NO2 city-day coverage for 2020-04-01 to 2020-09-09 using two in-city stations.",
+      "Archive documentation says hourly data originate from CETESB and end 2020-09-09."
+    ],
+    "locked_before_exposure": false
+  },
+  "effects": [
+    {
+      "label": "O3 lag 0 (bounded sensitivity)",
+      "primary": false,
+      "estimate": 0.7208039688831658,
+      "ci_low": 0.5041650551315464,
+      "ci_high": 1.030532275629776,
+      "scale": "ratio",
+      "contrast": "10 source concentration units",
+      "metric": "RR",
+      "native_estimate": -0.03273880664834596,
+      "native_ci_low": -0.06848515741836553,
+      "native_ci_high": 0.0030075441216736096,
+      "native_scale": "log rate ratio",
+      "native_contrast": "1 source concentration unit"
+    },
+    {
+      "label": "O3 lag 1 (bounded sensitivity)",
+      "primary": false,
+      "estimate": 0.6630714902161028,
+      "ci_low": 0.4603648037862607,
+      "ci_high": 0.9550334811032413,
+      "scale": "ratio",
+      "contrast": "10 source concentration units",
+      "metric": "RR",
+      "native_estimate": -0.0410872466229091,
+      "native_ci_low": -0.07757360520890813,
+      "native_ci_high": -0.004600888036910077,
+      "native_scale": "log rate ratio",
+      "native_contrast": "1 source concentration unit"
+    },
+    {
+      "label": "O3 lag 2 (bounded sensitivity)",
+      "primary": true,
+      "estimate": 0.6923651565024976,
+      "ci_low": 0.4690487681117765,
+      "ci_high": 1.0220035581129423,
+      "scale": "ratio",
+      "contrast": "10 source concentration units",
+      "metric": "RR",
+      "native_estimate": -0.03676417797330042,
+      "native_ci_low": -0.07570485327609738,
+      "native_ci_high": 0.0021764973294965337,
+      "native_scale": "log rate ratio",
+      "native_contrast": "1 source concentration unit"
+    },
+    {
+      "label": "O3 lag 3 (bounded sensitivity)",
+      "primary": false,
+      "estimate": 0.6327324048344833,
+      "ci_low": 0.40290192006908815,
+      "ci_high": 0.9936668856256081,
+      "scale": "ratio",
+      "contrast": "10 source concentration units",
+      "metric": "RR",
+      "native_estimate": -0.045770768739595465,
+      "native_ci_low": -0.09090621211742297,
+      "native_ci_high": -0.000635325361767955,
+      "native_scale": "log rate ratio",
+      "native_contrast": "1 source concentration unit"
+    },
+    {
+      "label": "O3 lag 4 (bounded sensitivity)",
+      "primary": false,
+      "estimate": 0.6169544208984002,
+      "ci_low": 0.38823550037593346,
+      "ci_high": 0.9804171877571958,
+      "scale": "ratio",
+      "contrast": "10 source concentration units",
+      "metric": "RR",
+      "native_estimate": -0.04829601299311985,
+      "native_ci_low": -0.09461431637526335,
+      "native_ci_high": -0.001977709610976354,
+      "native_scale": "log rate ratio",
+      "native_contrast": "1 source concentration unit"
+    },
+    {
+      "label": "O3 lag 5 (bounded sensitivity)",
+      "primary": false,
+      "estimate": 0.6390911518979315,
+      "ci_low": 0.39636100725511625,
+      "ci_high": 1.0304684188354982,
+      "scale": "ratio",
+      "contrast": "10 source concentration units",
+      "metric": "RR",
+      "native_estimate": -0.04477081870502295,
+      "native_ci_low": -0.0925429848531381,
+      "native_ci_high": 0.0030013474430922032,
+      "native_scale": "log rate ratio",
+      "native_contrast": "1 source concentration unit"
+    },
+    {
+      "label": "O3 lag 6 (bounded sensitivity)",
+      "primary": false,
+      "estimate": 0.642687356210198,
+      "ci_low": 0.40126631166879,
+      "ci_high": 1.0293588717046047,
+      "scale": "ratio",
+      "contrast": "10 source concentration units",
+      "metric": "RR",
+      "native_estimate": -0.04420968997248184,
+      "native_ci_low": -0.0913129953230131,
+      "native_ci_high": 0.0028936153780494064,
+      "native_scale": "log rate ratio",
+      "native_contrast": "1 source concentration unit"
+    },
+    {
+      "label": "O3 lag 7 (bounded sensitivity)",
+      "primary": false,
+      "estimate": 0.6452513745743549,
+      "ci_low": 0.4045014547890703,
+      "ci_high": 1.029290084029988,
+      "scale": "ratio",
+      "contrast": "10 source concentration units",
+      "metric": "RR",
+      "native_estimate": -0.043811531008834864,
+      "native_ci_low": -0.09050999459781414,
+      "native_ci_high": 0.0028869325801444204,
+      "native_scale": "log rate ratio",
+      "native_contrast": "1 source concentration unit"
+    },
+    {
+      "label": "NO2 lag 0 (bounded sensitivity)",
+      "primary": false,
+      "estimate": 1.8165323370322273,
+      "ci_low": 0.5153398700918602,
+      "ci_high": 6.403133005982191,
+      "scale": "ratio",
+      "contrast": "10 source concentration units",
+      "metric": "RR",
+      "native_estimate": 0.05969293743550906,
+      "native_ci_low": -0.06629286540583722,
+      "native_ci_high": 0.18567874027685533,
+      "native_scale": "log rate ratio",
+      "native_contrast": "1 source concentration unit"
+    },
+    {
+      "label": "NO2 lag 1 (bounded sensitivity)",
+      "primary": false,
+      "estimate": 1.991801601212031,
+      "ci_low": 0.6210862318113832,
+      "ci_high": 6.387637360790225,
+      "scale": "ratio",
+      "contrast": "10 source concentration units",
+      "metric": "RR",
+      "native_estimate": 0.06890395564170927,
+      "native_ci_low": -0.047628534708910916,
+      "native_ci_high": 0.18543644599232945,
+      "native_scale": "log rate ratio",
+      "native_contrast": "1 source concentration unit"
+    },
+    {
+      "label": "NO2 lag 2 (bounded sensitivity)",
+      "primary": false,
+      "estimate": 2.146160516407075,
+      "ci_low": 0.6777020197525235,
+      "ci_high": 6.796504699612165,
+      "scale": "ratio",
+      "contrast": "10 source concentration units",
+      "metric": "RR",
+      "native_estimate": 0.07636804393642499,
+      "native_ci_low": -0.03890475865397691,
+      "native_ci_high": 0.1916408465268269,
+      "native_scale": "log rate ratio",
+      "native_contrast": "1 source concentration unit"
+    },
+    {
+      "label": "NO2 lag 3 (bounded sensitivity)",
+      "primary": true,
+      "estimate": 2.198039817831768,
+      "ci_low": 0.6869599128448366,
+      "ci_high": 7.032985404877874,
+      "scale": "ratio",
+      "contrast": "10 source concentration units",
+      "metric": "RR",
+      "native_estimate": 0.07875659713004073,
+      "native_ci_low": -0.037547933948871376,
+      "native_ci_high": 0.19506112820895283,
+      "native_scale": "log rate ratio",
+      "native_contrast": "1 source concentration unit"
+    },
+    {
+      "label": "NO2 lag 4 (bounded sensitivity)",
+      "primary": false,
+      "estimate": 2.4180819230403143,
+      "ci_low": 0.754262712502944,
+      "ci_high": 7.752100282315789,
+      "scale": "ratio",
+      "contrast": "10 source concentration units",
+      "metric": "RR",
+      "native_estimate": 0.08829746321150779,
+      "native_ci_low": -0.02820145465898824,
+      "native_ci_high": 0.20479638108200382,
+      "native_scale": "log rate ratio",
+      "native_contrast": "1 source concentration unit"
+    },
+    {
+      "label": "NO2 lag 5 (bounded sensitivity)",
+      "primary": false,
+      "estimate": 2.107035625593241,
+      "ci_low": 0.6514947131747222,
+      "ci_high": 6.814482201835549,
+      "scale": "ratio",
+      "contrast": "10 source concentration units",
+      "metric": "RR",
+      "native_estimate": 0.0745282042886628,
+      "native_ci_low": -0.04284859973009346,
+      "native_ci_high": 0.19190500830741908,
+      "native_scale": "log rate ratio",
+      "native_contrast": "1 source concentration unit"
+    },
+    {
+      "label": "NO2 lag 6 (bounded sensitivity)",
+      "primary": false,
+      "estimate": 1.931819942699688,
+      "ci_low": 0.5919418656156111,
+      "ci_high": 6.304552030850316,
+      "scale": "ratio",
+      "contrast": "10 source concentration units",
+      "metric": "RR",
+      "native_estimate": 0.06584625340867725,
+      "native_ci_low": -0.052434684889369435,
+      "native_ci_high": 0.18412719170672392,
+      "native_scale": "log rate ratio",
+      "native_contrast": "1 source concentration unit"
+    },
+    {
+      "label": "NO2 lag 7 (bounded sensitivity)",
+      "primary": false,
+      "estimate": 1.5003016805215073,
+      "ci_low": 0.452541616805871,
+      "ci_high": 4.973918528119017,
+      "scale": "ratio",
+      "contrast": "10 source concentration units",
+      "metric": "RR",
+      "native_estimate": 0.040566620823385004,
+      "native_ci_low": -0.07928755492295109,
+      "native_ci_high": 0.16042079656972108,
+      "native_scale": "log rate ratio",
+      "native_contrast": "1 source concentration unit"
+    }
+  ],
+  "analysis_diagnostics": {
+    "observations": 162,
+    "estimated_parameters": 11,
+    "exposure_unique_values": 162,
+    "outcome_unique_values": 34,
+    "joined_rows": 162,
+    "unmatched_outcome_rows": 0,
+    "unmatched_exposure_rows": 0,
+    "contrast_transformation_verified": true,
+    "reported_variants": [
+      "O3 lags 0-7",
+      "NO2 lags 0-7"
+    ]
+  }
+}

@@ -1,0 +1,131 @@
+{
+  "schema_version": "aeris-study-contract/v3",
+  "profile": "reanalysis",
+  "contract_id": "33398753-italy-cities-reanalysis-invariants",
+  "approved": true,
+  "author": "agent",
+  "objective": "Among Italian provincial-capital cities, what is the association between the 2018 annual number of daily PM10 exceedances above 50 \u00b5g/m\u00b3 and cumulative reported COVID-19 infections during the first Italian wave, adjusted for 2019 population density?",
+  "allowed_tools": [
+    "estimate_boundary_exposure",
+    "estimate_boundary_exposure_batch",
+    "estimate_exposure"
+  ],
+  "pollutants": [
+    "pm10"
+  ],
+  "date_window": {
+    "start": "2018-01-01",
+    "end": "2020-05-31"
+  },
+  "temporal_resolutions": [
+    "daily",
+    "hourly"
+  ],
+  "allowed_fidelity_levels": [
+    "matched",
+    "source_substitution",
+    "reduced_coverage",
+    "reduced_adjustment",
+    "bounded",
+    "supported_sensitivity"
+  ],
+  "resource_limits": {
+    "wall_clock_hours": 8,
+    "maximum_infrastructure_restarts": 1,
+    "maximum_single_download_gib": 10,
+    "maximum_boundary_units": 6000,
+    "maximum_boundary_units_per_call": 25,
+    "maximum_static_units_per_call": 2
+  },
+  "scientific_invariants": {
+    "research_question": "Among Italian provincial-capital cities, what is the association between the 2018 annual number of daily PM10 exceedances above 50 \u00b5g/m\u00b3 and cumulative reported COVID-19 infections during the first Italian wave, adjusted for 2019 population density?",
+    "target_outcome_and_population": "Cumulative infected individuals in 55 randomly selected Italian provincial-capital cities, measured 17 March, 7 April, and 27 April 2020; Table 6 presents the multivariable model and Table 7 presents pollution-stratified density models.",
+    "pollutants": [
+      "pm10"
+    ],
+    "principal_contrast": "Outcome ratio per doubling of annual count of daily PM10 exceedances above 50 \u00b5g/m\u00b3, from log-log OLS coefficient as 2^beta.",
+    "principal_variants": [
+      "Multivariable log-log OLS for 17 March 2020",
+      "Multivariable log-log OLS for 7 April 2020",
+      "Multivariable log-log OLS for 27 April 2020",
+      "Article-supported pollution-stratified density regressions for all three dates"
+    ],
+    "broad_geography": "Italian provincial-capital cities (article sample N=55; article does not identify the city list in supplied full text)",
+    "target_geographic_units": 55,
+    "target_geographic_unit_type": "city",
+    "period": {
+      "start": "2018-01-01",
+      "end": "2020-05-31"
+    },
+    "prohibited_evidence": [
+      "published effect estimates",
+      "published city-level exposure values",
+      "prior AERIS exposure values",
+      "prior reanalysis code",
+      "prior source manifests",
+      "prior reanalysis results"
+    ]
+  },
+  "article_evidence": [
+    {
+      "artifact": "/study/article.txt",
+      "finding": "Sample section specifies 55 randomly selected Italian provincial capitals; data section specifies 2018 annual exceedance days and cumulative infected individuals on 17 March, 7 April, and 27 April 2020; procedure specifies log-log OLS and population density."
+    },
+    {
+      "artifact": "/run/contract/study-target.json",
+      "finding": "Contract target specifies PM10, 2018 exceedance days, 55 Italian provincial-capital cities, and log-log regression with population density."
+    }
+  ],
+  "article_evidence_map": {
+    "contract_discrepancy": "Methods text calls exposure total days exceeding PM10 or ozone limits; Table 6 regression label and supplied target specify PM10. Lock follows fitted-table/contract PM10 formulation. Contract's singular cumulative first-wave outcome is expanded to the three explicit Table 6/Table 7 dates."
+  },
+  "execution_design": {
+    "geographic_representation": "fixed_location",
+    "assignment_method": "nearest catalog-discovered PM10 monitor within 100 km of provincial-capital coordinate; retain city-monitor distance",
+    "source_strategy": "public_monitor_network",
+    "exposure_metric": "count of observed 2018 daily PM10 means strictly greater than 50 ug/m3",
+    "daily_aggregation": "AERIS normalized daily means; one observed value per city-day from selected monitor",
+    "analysis_aggregation": "per-city annual threshold exceedance count joined to outcomes and density",
+    "coverage_policy": {
+      "mode": "report_only_with_bounded_subset",
+      "minimum_percent": 0,
+      "threshold_source": "No article or source-supported numeric completeness threshold",
+      "evidence": "Retain every city with a positive threshold count and report observed days/365; selection is a feasibility subset, not the complete article sample."
+    },
+    "intended_use": "bounded source-substituted log-log OLS reanalysis using independent public monitor data"
+  },
+  "amendments": [
+    {
+      "sequence": 1,
+      "changed_dimensions": {
+        "geographic_representation": "fixed_location",
+        "assignment_method": "nearest catalog-discovered PM10 monitor within 100 km of provincial-capital coordinate; retain city-monitor distance",
+        "source_strategy": "public_monitor_network",
+        "exposure_metric": "count of observed 2018 daily PM10 means strictly greater than 50 ug/m3",
+        "daily_aggregation": "AERIS normalized daily means; one observed value per city-day from selected monitor",
+        "analysis_aggregation": "per-city annual threshold exceedance count joined to outcomes and density",
+        "coverage_policy": {
+          "mode": "report_only_with_bounded_subset",
+          "minimum_percent": 0,
+          "threshold_source": "No article or source-supported numeric completeness threshold",
+          "evidence": "Retain every city with a positive threshold count and report observed days/365; selection is a feasibility subset, not the complete article sample."
+        },
+        "intended_use": "bounded source-substituted log-log OLS reanalysis using independent public monitor data"
+      },
+      "evidence": [
+        {
+          "artifact": "exposure_pm10-daily-observations_2026-09-25T220544.5818550000",
+          "finding": "Milano and Roma have 670 daily PM10 records in 2018 via AERIS/OpenAQ and daily values support deriving threshold days."
+        },
+        {
+          "artifact": "/output/aeris-workspace/.aeris/artifacts/exposure_pm10_2026-09-25T220544.5746390000.csv",
+          "finding": "Probe selected one catalog-discovered monitor per city with observed city-monitor distances up to 60.4 km."
+        }
+      ],
+      "scientific_justification": "The locked metric requires a threshold count, so daily observations rather than the annual mean summary will be used. A 100-km search bound produced usable independent records for both feasibility cities; temporal coverage and monitor distances will be retained.",
+      "fidelity_impact": "coverage_subset",
+      "agreement_independent": true
+    }
+  ],
+  "parent_contract_sha256": "cce2a49913e658eb4e2e3e80899d55e555607ae218590c43533ebc951d63f5c7"
+}

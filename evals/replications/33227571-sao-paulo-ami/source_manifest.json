@@ -1,0 +1,37 @@
+{
+  "study": {
+    "pmid": "33227571",
+    "doi": "10.1016/j.hrtlng.2020.04.018",
+    "title": "Cluster of climatic and pollutant characteristics increases admissions for acute myocardial infarction: Analysis of 30,423 patients in the metropolitan area of Sao Paulo"
+  },
+  "published_design": {
+    "period": "2012-01-01 through 2015-12-31",
+    "geography": "39 municipalities of the Sao Paulo metropolitan region",
+    "outcome": "Daily acute myocardial infarction admissions from DATASUS, ICD-10 I21",
+    "environmental_inputs": ["temperature", "rainfall", "relative humidity", "NO2", "PM2.5", "PM10"],
+    "analysis": "Hierarchical clustering of daily environmental inputs, followed by comparison of daily admissions and in-hospital mortality across three clusters.",
+    "published_result": "The high-temperature-variation, low-humidity, high-pollution cluster had 30.5 daily MI admissions (IQR 25.0-36.0), reported as a 9% increase."
+  },
+  "sources": {
+    "outcomes": {
+      "name": "DATASUS SIH/SUS reduced hospital-admission files",
+      "official_url_template": "https://ftp.datasus.gov.br/dissemin/publicos/SIHSUS/200801_/Dados/RDSP{yy}{mm}.dbc",
+      "mirror_url_template": "https://datasus-ftp-mirror.nyc3.digitaloceanspaces.com/SIHSUS/200801_/Dados/RDSP{yy}{mm}.dbc",
+      "fields": ["MUNIC_RES", "DT_INTER", "DIAG_PRINC", "MORTE"]
+    },
+    "geography": {
+      "name": "IBGE municipal boundary API",
+      "url_template": "https://servicodados.ibge.gov.br/api/v3/malhas/municipios/{code}?formato=application/vnd.geo+json&qualidade=minima",
+      "municipality_api": "https://servicodados.ibge.gov.br/api/v1/localidades/municipios?regiao-metropolitana=3501"
+    },
+    "weather": {
+      "name": "Open-Meteo historical archive",
+      "url": "https://archive-api.open-meteo.com/v1/archive",
+      "variables": ["temperature_2m_mean", "relative_humidity_2m_mean", "precipitation_sum"]
+    },
+    "exposure": {
+      "name": "AERIS boundary exposure tool",
+      "pollutants": ["pm25", "pm10", "no2"]
+    }
+  }
+}

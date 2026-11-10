@@ -1,0 +1,77 @@
+{
+  "study_id": "pmid-38788590",
+  "status": "completed_blocker",
+  "target": {
+    "outcome": "All-cancer mortality (underlying ICD-10 C00-C97)",
+    "pollutant": "PM2.5",
+    "geography": "Brazil, 5,570 residential municipalities",
+    "period": "2000-01-01 through 2019-12-31",
+    "effect_scale": "Odds ratio per 10 \u00b5g/m3 increase in three-day mean PM2.5"
+  },
+  "sources": [
+    {
+      "role": "article_record",
+      "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=38788590&retmode=xml",
+      "retrieved": true,
+      "sha256": "da1585735e550f7b8e4ab9c8a219f3a831658311f313f5f059ee9153594d0d28"
+    },
+    {
+      "role": "lawful_full_text",
+      "url": "https://www.researchgate.net/publication/380561503_Cancer_Mortality_Risk_from_Short-Term_PM25_Exposure_and_Temporal_Variations_in_Brazil",
+      "retrieved": true,
+      "sha256": "9c5d16c75615b12d2610b37f485edc4172e451ff9cc579f6b8a3fe67d649f93f"
+    },
+    {
+      "role": "outcome_SIM_documentation",
+      "url": "https://www.gov.br/saude/pt-br/acesso-a-informacao/sic/dados-em-transparencia-ativa/svsa/mortalidade",
+      "retrieved": true,
+      "sha256": null
+    },
+    {
+      "role": "outcome_SIM_microdata_attempt",
+      "url": "https://ftp.datasus.gov.br/dissemin/publicos/SIM/CID10/DADOS/DO2000.dbc",
+      "retrieved": false,
+      "sha256": null
+    },
+    {
+      "role": "independent_exposure_candidate_MERRA2_documentation",
+      "url": "https://gmao.gsfc.nasa.gov/gmao-products/merra-2/",
+      "retrieved": true,
+      "sha256": null
+    },
+    {
+      "role": "independent_exposure_candidate_MERRA2_data_attempt",
+      "url": "https://goldsmr4.gesdisc.eosdis.nasa.gov/data/MERRA2/M2I1NXAER.5.12.4/2000/01/MERRA2_100.inst1_2d_aer_Nx.20000101.nc4",
+      "retrieved": false,
+      "sha256": null
+    },
+    {
+      "role": "published_weather_ERA5_catalog",
+      "url": "https://cds.climate.copernicus.eu/datasets/reanalysis-era5-single-levels",
+      "retrieved": false,
+      "sha256": null
+    }
+  ],
+  "substitutions": [],
+  "coverage": {
+    "eligible_units": 5570,
+    "included_units": 0,
+    "eligible_times": 7305,
+    "included_times": 0,
+    "notes": "No municipality-day can enter the locked comparison because the required independent PM2.5 series was not retrieved. Outcome microdata are public in principle but were not processed after exposure validation failed."
+  },
+  "effect": null,
+  "artifacts": {
+    "code": "/output/code/reanalysis.py",
+    "source_manifest": "/output/source_manifest.json",
+    "exposure": "/output/exposure_table.csv",
+    "analysis_panel": "/output/analysis_panel.csv",
+    "model_output": "/output/model_output.json",
+    "decision_log": "/output/decision_log.md",
+    "fidelity_record": "/output/fidelity_record.json",
+    "sanitization_columns": "/output/sanitization_columns.json"
+  },
+  "blockers": [
+    "No independent daily municipality PM2.5 table covering all 5,570 municipalities and 2000-01-01 through 2019-12-31 was retrieved. A complete matched exposure panel is required; partial sources were not substituted."
+  ]
+}

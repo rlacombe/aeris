@@ -1,0 +1,22 @@
+{
+  "study_pmid": "34260961",
+  "outcome_source": {
+    "name": "Israel Ministry of Health COVID-19 city table",
+    "resource_id": "8a21d39d-91e3-40db-aca1-f73f7ab1df69",
+    "api": "https://data.gov.il/api/3/action/datastore_search",
+    "retrieved_via": "CKAN datastore_search pagination"
+  },
+  "location_population_source": {
+    "name": "Israel Central Bureau of Statistics, Localities in Israel 2019",
+    "url": "https://www.cbs.gov.il/he/publications/doclib/2019/ishuvim/bycode2019.xlsx",
+    "sha256": "44fc543ee0e7adfc68a2ba5b5cf38361a36d06037252e4feec0dcf832358260f"
+  },
+  "target_dates": [
+    "2020-03-31",
+    "2020-07-24",
+    "2020-09-27",
+    "2021-01-17"
+  ],
+  "outcome_rows": 867,
+  "july_2020_cohort_size": 194
+}

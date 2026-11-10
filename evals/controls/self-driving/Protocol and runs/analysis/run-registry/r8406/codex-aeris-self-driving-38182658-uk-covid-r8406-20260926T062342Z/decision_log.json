@@ -1,0 +1,10 @@
+{
+  "primary_target": "Article Model 6: country-day binomial-logit infection-course PM2.5 association with temperature, sunshine, weekday, and country effect.",
+  "decisions": [
+    {"decision":"Use the article-selected Model 6 as the only primary variant.","basis":"Article Tables 1–2 report the lowest RMSE for Model 6; Model 7 humidity is not the selected model."},
+    {"decision":"Retain all four UK nations but reduce the analytic outcome period to the verified common public-data window.","basis":"The historical archive provides four-nation overlap through 2020-06-30; after 10-day lag history and 8-day outcome alignment, 351 complete country-days remain."},
+    {"decision":"Use Open-Meteo gridded environmental values at the four national-capital coordinates as a source/construct substitution.","basis":"They were decoded and complete for every required environmental date; this does not claim equivalence to article DEFRA country averages."},
+    {"decision":"Use an 8-day deterministic death shift only as a bounded proxy for the paper's stated 7.92-day mean delay.","basis":"The paper specifies the mean but the exact individual-delay distribution and original outcome series are not present in the recovered public inputs."},
+    {"decision":"Fit a flexible lag-mean binomial GLM with country and weekday fixed effects.","basis":"It preserves outcome family, pollutant, primary contrast scale, country-day unit, and adjustment domains while explicitly not claiming exact DLNM/mixed-effect reproduction."}
+  ]
+}

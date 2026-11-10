@@ -1,0 +1,34 @@
+{
+  "sources": [
+    {
+      "role": "covariate",
+      "url": "https://data.mendeley.com/public-api/datasets/bbnyhp6gfh",
+      "route_origin": "article_linked",
+      "retrieved": true,
+      "sha256": "eff39c6791990840d7b58d65a64c842507ff49d9cdcc7ad629242944b60a9c4b",
+      "evidence_artifact": "/output/recovery/mendeley-record.json"
+    },
+    {
+      "role": "outcome",
+      "url": "https://github.com/pcm-dpc/COVID-19/tree/master/dati-province",
+      "route_origin": "article_named",
+      "retrieved": true,
+      "sha256": null,
+      "evidence_artifact": "/output/recovery/checksums.sha256"
+    },
+    {
+      "role": "exposure",
+      "url": "https://api.openaq.org/v3/",
+      "route_origin": "agent_discovered",
+      "retrieved": true,
+      "sha256": null,
+      "evidence_artifact": "/output/data/pm10_daily_observations_raw.csv"
+    }
+  ],
+  "checksums": "/output/recovery/checksums.sha256",
+  "forbidden_fields_removed": [
+    "Days of Pollution",
+    "Infected 27.March, 2020",
+    "Infected 7.April 2020"
+  ]
+}

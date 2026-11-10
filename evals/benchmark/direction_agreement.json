@@ -1,0 +1,108 @@
+{
+  "definition": "An effect agrees in direction when published and AERIS log effect ratios have the same sign.",
+  "near_null_definition": "Effect ratio within 0.95 to 1.05 for the study's stated exposure increment.",
+  "all_fitted_effect_pairs": {
+    "n_effects_with_reported_direction": 8,
+    "n_same_direction": 5,
+    "proportion_same_direction": 0.625,
+    "agreement_categories": {
+      "same_non_null_direction": 2,
+      "published_non_null_aeris_near_null": 1,
+      "both_near_null": 5
+    },
+    "effects": [
+      {
+        "study_id": 38182658,
+        "study_label": "United Kingdom COVID-19",
+        "published_effect": 1.13,
+        "aeris_effect": 1.4576,
+        "agreement_category": "same_non_null_direction"
+      },
+      {
+        "study_id": 33398753,
+        "study_label": "Italian provincial capitals COVID-19",
+        "published_effect": 1.7569,
+        "aeris_effect": 1.7408,
+        "agreement_category": "same_non_null_direction"
+      },
+      {
+        "study_id": 34488764,
+        "study_label": "France COVID-19",
+        "published_effect": 1.244,
+        "aeris_effect": 1.048509202186916,
+        "agreement_category": "published_non_null_aeris_near_null"
+      },
+      {
+        "study_id": "33484722",
+        "study_label": "OECD COVID-19, day 60 case_rate_per_100k",
+        "published_effect": 1.0202013400267558,
+        "aeris_effect": 0.9981992583559068,
+        "agreement_category": "both_near_null"
+      },
+      {
+        "study_id": "33484722",
+        "study_label": "OECD COVID-19, day 60 death_rate_per_100k",
+        "published_effect": 1.030454533953517,
+        "aeris_effect": 1.0156306528651489,
+        "agreement_category": "both_near_null"
+      },
+      {
+        "study_id": "33484722",
+        "study_label": "OECD COVID-19, day 80 case_rate_per_100k",
+        "published_effect": 1.0202013400267558,
+        "aeris_effect": 0.9709429941146214,
+        "agreement_category": "both_near_null"
+      },
+      {
+        "study_id": "33484722",
+        "study_label": "OECD COVID-19, day 80 death_rate_per_100k",
+        "published_effect": 1.009040621773868,
+        "aeris_effect": 0.9705941381996516,
+        "agreement_category": "both_near_null"
+      },
+      {
+        "study_id": "38788590",
+        "study_label": "Brazil cancer mortality, Sao Paulo 2019 sensitivity",
+        "published_effect": 1.01,
+        "aeris_effect": 1.0059622966652495,
+        "agreement_category": "both_near_null"
+      }
+    ]
+  },
+  "three_direct_comparisons": {
+    "n_effects_with_reported_direction": 3,
+    "n_same_direction": 3,
+    "proportion_same_direction": 1.0,
+    "agreement_categories": {
+      "same_non_null_direction": 2,
+      "published_non_null_aeris_near_null": 1
+    },
+    "effects": [
+      {
+        "study_id": 38182658,
+        "study_label": "United Kingdom COVID-19",
+        "published_effect": 1.13,
+        "aeris_effect": 1.4576,
+        "agreement_category": "same_non_null_direction"
+      },
+      {
+        "study_id": 33398753,
+        "study_label": "Italian provincial capitals COVID-19",
+        "published_effect": 1.7569,
+        "aeris_effect": 1.7408,
+        "agreement_category": "same_non_null_direction"
+      },
+      {
+        "study_id": 34488764,
+        "study_label": "France COVID-19",
+        "published_effect": 1.244,
+        "aeris_effect": 1.048509202186916,
+        "agreement_category": "published_non_null_aeris_near_null"
+      }
+    ]
+  },
+  "excluded": [
+    "Northern Italy: published effects are rounded to 1.00, so direction is unavailable.",
+    "US stroke: the completed model uses a different outcome and has no published comparison effect."
+  ]
+}

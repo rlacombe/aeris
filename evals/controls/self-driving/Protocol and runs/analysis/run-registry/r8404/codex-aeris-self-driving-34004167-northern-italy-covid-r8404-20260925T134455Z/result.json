@@ -1,0 +1,234 @@
+{
+  "schema_version": 3,
+  "study_id": "34004167-northern-italy-covid",
+  "status": "completed_fit",
+  "fidelity": "bounded",
+  "target": {
+    "outcome": "Incident daily reported COVID-19 cases and deaths",
+    "pollutant": "NO2 (with all five article pollutants in native output)",
+    "geography": "Lombardia and Veneto, Italy",
+    "population": "Regional residents",
+    "period": "24 February\u201319 May 2020; 86 of the article's intended 89 days",
+    "effect_scale": "Rate ratio per 1 microgram per cubic metre",
+    "exposure_assignment": "Unweighted mean of monitor-level daily means within each documented region polygon; LTAP is 2013\u201319 May 2020 monitor-day mean",
+    "model": "Pollutant-specific Poisson GEE with log link, AR(1) working correlation, STAP, LTAP, and lockdown",
+    "covariates": [
+      "lockdown"
+    ],
+    "named_outcome_source": "Italian Protezione Civile regional COVID-19 series",
+    "specification_evidence": [
+      "/study/article.txt",
+      "/study/supplements/mmc1.docx",
+      "/output/aeris-workspace/.aeris/contracts/reanalysis-invariants.json"
+    ]
+  },
+  "sources": [
+    {
+      "role": "outcome",
+      "url": "https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-regioni/dpc-covid19-ita-regioni.csv",
+      "route_origin": "agent_discovered",
+      "retrieved": true,
+      "sha256": "3438a0a85bdb0bca56a48a2edd0c69f3005d6c1c20c4a2a75bed668a8f01ead7",
+      "evidence_artifact": "/output/recovery/dpc-regioni.csv"
+    },
+    {
+      "role": "exposure",
+      "url": "https://eeadmz1-downloads-api-appservice.azurewebsites.net/ParquetFile/urls",
+      "route_origin": "article_named",
+      "retrieved": true,
+      "sha256": null,
+      "evidence_artifact": "/output/recovery/eea_full_transfer.json"
+    },
+    {
+      "role": "boundary",
+      "url": "https://www.geoboundaries.org/api/current/gbOpen/ITA/ADM2/",
+      "route_origin": "agent_discovered",
+      "retrieved": true,
+      "sha256": "9baf79eab109cf61989ff45db54ed5a9e5219acc0103062f08d10875855650b1",
+      "evidence_artifact": "/output/recovery/lombardy_veneto.geojson"
+    }
+  ],
+  "substitutions": [
+    {
+      "dimension": "exposure",
+      "change_type": "source",
+      "published": "Legacy EEA AirQualityExport route",
+      "reanalysis": "Current official EEA E1a parquet download API",
+      "reason": "Legacy route returned HTTP 401; current official EEA records were usable."
+    },
+    {
+      "dimension": "outcome",
+      "change_type": "coverage_subset",
+      "published": "21 February\u201319 May 2020",
+      "reanalysis": "24 February\u201319 May 2020",
+      "reason": "The retained public regional outcome CSV starts 24 February; no data were fabricated."
+    },
+    {
+      "dimension": "covariate",
+      "change_type": "covariate_omission",
+      "published": "Meteorology-adjusted supplementary sensitivity",
+      "reanalysis": "Primary lockdown-adjusted model only",
+      "reason": "Meteorology is supplementary in the article; primary model is retained."
+    }
+  ],
+  "coverage": {
+    "eligible_units": 2,
+    "included_units": 2,
+    "eligible_times": 89,
+    "included_times": 86,
+    "rule": "Report-only completeness; retain all dates with at least one regional monitor and retain all two regions.",
+    "notes": "No retained region/pollutant/date has missing STAP. Full retrieval has 408 retained EEA station series and 13,651,225 normalized observations."
+  },
+  "artifacts": {
+    "code": "recovery/recover_eea.py",
+    "source_manifest": "recovery/source_manifest.json",
+    "exposure": "recovery/eea_normalized_observations.parquet",
+    "analysis_panel": "recovery/regional_analysis_panel.csv",
+    "model_output": "recovery/gee_model_output.csv",
+    "decision_log": "aeris-workspace/.aeris/contracts/agent-contract-amendment-001.json",
+    "research_notebook": "aeris-workspace/.aeris/research-notebook.json",
+    "blocker_ledger": "recovery/audit_report.md",
+    "fidelity_record": "aeris-workspace/.aeris/artifacts/reanalysis-fidelity_reanalysis-fidelity_2026-09-25T135504.2614860000.json",
+    "coverage_diagnostics": "recovery/coverage_diagnostics.json",
+    "boundary_route_evidence": "recovery/aeris_openaq_checkpoint.json.summary.csv",
+    "study_contract": "aeris-workspace/.aeris/contracts/agent-contract-amendment-001.json"
+  },
+  "blockers": [
+    "Only two regional clusters: GEE robust uncertainty is not reliable for inference.",
+    "Three intended early dates are absent from retained public outcome data.",
+    "Meteorology-adjusted supplementary variants were not fit."
+  ],
+  "stopping_checklist": {
+    "target_specification_complete": true,
+    "complete_article_checked": true,
+    "outcome_routes_attempted": 1,
+    "normal_exposure_source_tested": true,
+    "historical_fallback_applicable": false,
+    "historical_fallback_tested": false,
+    "geographic_batching_applicable": true,
+    "geographic_batching_attempted": true,
+    "fidelity_levels_evaluated": [
+      "bounded"
+    ],
+    "pending_requests": 0,
+    "evidence_artifacts": [
+      "/output/recovery/dpc-regioni.csv",
+      "/output/recovery/eea_full_transfer.json",
+      "/output/recovery/lombardy_veneto.geojson",
+      "aeris-workspace/.aeris/artifacts/reanalysis-fidelity_reanalysis-fidelity_2026-09-25T135504.2614860000.json",
+      "aeris-workspace/.aeris/contracts/agent-contract-amendment-001.json",
+      "aeris-workspace/.aeris/research-notebook.json",
+      "recovery/aeris_openaq_checkpoint.json.summary.csv",
+      "recovery/audit_report.md",
+      "recovery/coverage_diagnostics.json",
+      "recovery/eea_normalized_observations.parquet",
+      "recovery/gee_model_output.csv",
+      "recovery/recover_eea.py",
+      "recovery/regional_analysis_panel.csv",
+      "recovery/source_manifest.json"
+    ]
+  },
+  "design_provenance": {
+    "contract_id": "34004167-northern-italy-covid-reanalysis-invariants",
+    "contract_sha256": "a0fbdaa6abd52882b0a1025103a4d38334960095c016479b8ab55d20865b6a52",
+    "contract_author": "agent",
+    "geographic_representation": "fixed_location",
+    "assignment_method": "For each region/pollutant/date, mean each monitor's within-day values then take the unweighted mean across contributing monitors. This is a regional monitor summary, not population-weighted or personal exposure.",
+    "representative_location_rule": null,
+    "maximum_monitor_distance_km": null,
+    "monitor_distance_evidence": "Not applicable to the selected assignment method.",
+    "source_strategy": "public_monitor_network",
+    "exposure_metric": "STAP = regional daily mean for 21 February\u201319 May 2020. LTAP = mean of all valid monitor-day concentrations from 1 January 2013 through 19 May 2020 within the same region and pollutant.",
+    "coverage_policy": {
+      "mode": "report_only",
+      "minimum_percent": null,
+      "threshold_source": "none",
+      "evidence": "Report-only: retain a region/pollutant/day if at least one monitor contributes, and report days and monitor counts. No post-hoc exclusion threshold."
+    },
+    "decision_rationale": "The article defines regional daily concentrations and an eight-year regional mean but does not specify a population weighting or numeric completeness threshold. Equal weighting of daily monitor means is an explicit, reproducible regional-monitor interpretation. The current official EEA parquet service is a source/transport modernization of the article-named EEA database, not a change in pollutant, period, region, or metric.",
+    "evidence_basis": [
+      "Deterministic 3-sampling-point-per-region/pollutant probe retrieved 29 valid EEA E1a parquet objects; one missing object preserved as a failure.",
+      "Probe yields 86/89 target-date records per region/pollutant with no missing STAP among retained rows and 2\u20133 contributing monitors per region/pollutant.",
+      "Executable acquisition, point-in-polygon assignment, validity handling, daily aggregation, and diagnostics code."
+    ],
+    "locked_before_exposure": false
+  },
+  "effects": [
+    {
+      "label": "NO2 STAP\u2014incident cases",
+      "primary": true,
+      "estimate": 1.0056411416,
+      "ci_low": 1.003269188,
+      "ci_high": 1.008018703,
+      "scale": "ratio",
+      "contrast": "1 \u00b5g/m\u00b3",
+      "metric": "RR",
+      "native_estimate": 0.0056252899,
+      "native_ci_low": 0.003263858,
+      "native_ci_high": 0.007986722,
+      "native_scale": "log rate ratio",
+      "native_contrast": "1 \u00b5g/m\u00b3"
+    },
+    {
+      "label": "NO2 LTAP\u2014incident cases",
+      "primary": true,
+      "estimate": 1.2700541556,
+      "ci_low": 1.2678302168,
+      "ci_high": 1.2722819954,
+      "scale": "ratio",
+      "contrast": "1 \u00b5g/m\u00b3",
+      "metric": "RR",
+      "native_estimate": 0.2390595418,
+      "native_ci_low": 0.237307,
+      "native_ci_high": 0.240812,
+      "native_scale": "log rate ratio",
+      "native_contrast": "1 \u00b5g/m\u00b3"
+    },
+    {
+      "label": "NO2 STAP\u2014incident deaths",
+      "primary": true,
+      "estimate": 1.0053099211,
+      "ci_low": 1.0041015542,
+      "ci_high": 1.0065197422,
+      "scale": "ratio",
+      "contrast": "1 \u00b5g/m\u00b3",
+      "metric": "RR",
+      "native_estimate": 0.0052958732,
+      "native_ci_low": 0.004092,
+      "native_ci_high": 0.0065,
+      "native_scale": "log rate ratio",
+      "native_contrast": "1 \u00b5g/m\u00b3"
+    },
+    {
+      "label": "NO2 LTAP\u2014incident deaths",
+      "primary": true,
+      "estimate": 1.3954764404,
+      "ci_low": 1.3942635186,
+      "ci_high": 1.3966904175,
+      "scale": "ratio",
+      "contrast": "1 \u00b5g/m\u00b3",
+      "metric": "RR",
+      "native_estimate": 0.3332358913,
+      "native_ci_low": 0.332367,
+      "native_ci_high": 0.334105,
+      "native_scale": "log rate ratio",
+      "native_contrast": "1 \u00b5g/m\u00b3"
+    }
+  ],
+  "analysis_diagnostics": {
+    "observations": 172,
+    "estimated_parameters": 4,
+    "exposure_unique_values": 86,
+    "outcome_unique_values": 114,
+    "joined_rows": 172,
+    "unmatched_outcome_rows": 0,
+    "unmatched_exposure_rows": 0,
+    "contrast_transformation_verified": true,
+    "reported_variants": [
+      "incident cases",
+      "incident deaths",
+      "cumulative-count sensitivity",
+      "all five pollutants in native output"
+    ]
+  }
+}

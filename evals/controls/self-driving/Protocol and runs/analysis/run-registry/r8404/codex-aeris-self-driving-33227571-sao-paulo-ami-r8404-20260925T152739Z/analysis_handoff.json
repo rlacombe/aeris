@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "study_id": "33227571-sao-paulo-ami",
+  "status": "blocked",
+  "fidelity": "none",
+  "target": {
+    "outcome": "Daily acute myocardial infarction admissions and in-hospital mortality",
+    "pollutant": "NO2, PM2.5, and PM10",
+    "geography": "39 municipalities of metropolitan Sao Paulo, Brazil",
+    "population": "Acute myocardial infarction patients admitted in the 39 metropolitan Sao Paulo municipalities",
+    "period": "2012-01-01 to 2015-12-31",
+    "effect_scale": "The supplied abstract reports cluster summaries and p-values; no article-verified effect scale or regression contrast was recovered.",
+    "exposure_assignment": "Daily municipality-region air-pollution and weather features clustered hierarchically; no usable daily pollutant series was recovered.",
+    "model": "Article model form not recoverable from supplied abstract; pollutant-weather cluster comparison cannot be fit without pollutant observations.",
+    "covariates": ["temperature", "temperature variation", "rainfall", "relative humidity"],
+    "named_outcome_source": "DataSUS SIH-RD",
+    "specification_evidence": ["/output/article-specification-evidence.md", "/study/article.xml", "/output/aeris-workspace/.aeris/contracts/reanalysis-invariants.json"]
+  },
+  "sources": [
+    {"role":"outcome","url":"https://api.laundos.com.br/api/ftp-download","route_origin":"agent_discovered","retrieved":true,"sha256":null,"evidence_artifact":"/output/outcome-checkpoint.json"},
+    {"role":"weather","url":"https://archive-api.open-meteo.com/v1/archive","route_origin":"agent_discovered","retrieved":true,"sha256":"65f5e2f55e4101fa283b32be44729ec0e0220c370f4fb24377c880372be34410","evidence_artifact":"/output/openmeteo-weather-2012.json"},
+    {"role":"exposure","url":"OpenAQ boundary route via AERIS","route_origin":"agent_discovered","retrieved":false,"sha256":"68e86022323230543e0754a99ea87595e5e15e57ece0afed884c4cc424d7a91e","evidence_artifact":"/output/aeris-workspace/.aeris/artifacts/exposure_pm10_2026-09-25T153609.9356110000.csv"}
+  ],
+  "substitutions": [
+    {"dimension":"exposure","change_type":"construct_change","published":"Pollutant-weather clusters with NO2, PM2.5, and PM10","reanalysis":"No pollutant substitution used; a weather-only diagnostic was retained separately and is not a fit to the target.","reason":"The retained AERIS PM10 query contains zero stations and 0% temporal coverage; pollutant values were not imputed."},
+    {"dimension":"period","change_type":"coverage_subset","published":"2012-2015","reanalysis":"Jan-May 2012 outcome and weather diagnostic slice only","reason":"Five verified monthly outcome files were retained before proxy rate limiting; this does not remedy absent pollutant exposure."}
+  ],
+  "coverage": {
+    "eligible_units": 39,
+    "included_units": 0,
+    "eligible_times": 1461,
+    "included_times": 0,
+    "rule": "No outcome-pollutant analytic rows were created because no daily NO2, PM2.5, or PM10 observations overlap the retained outcome data.",
+    "notes": "The retained 152-day weather/outcome panel is a diagnostic bounded sensitivity only; it is excluded from the pollutant-analysis handoff. The AERIS PM10 probe reports 0 stations and 0% coverage."
+  },
+  "artifacts": {
+    "code": "/output/analyze_bounded_slice.py; /output/retrieve_outcomes.py",
+    "source_manifest": "/output/source-manifest.json",
+    "exposure": "/output/aeris-workspace/.aeris/artifacts/exposure_pm10_2026-09-25T153609.9356110000.csv; /output/aeris-workspace/.aeris/artifacts/exposure_pm10_2026-09-25T153609.9356110000.json",
+    "analysis_panel": "/output/analysis-panel.csv",
+    "model_output": "/output/model-output.json",
+    "decision_log": "/output/decision-log.json",
+    "research_notebook": "/output/aeris-workspace/.aeris/research-notebook.json",
+    "blocker_ledger": "/output/blocker-ledger.json",
+    "fidelity_record": "/output/aeris-workspace/.aeris/artifacts/reanalysis-fidelity_reanalysis-fidelity_2026-09-25T153910.4922070000.json",
+    "coverage_diagnostics": "/output/coverage-diagnostics.json",
+    "counterexample_review": "/output/recovery-critic/recovery-counterexample-review.json",
+    "boundary_route_evidence": "/output/cetesb-no2-layer.json",
+    "study_contract": "/output/aeris-workspace/.aeris/contracts/agent-contract-amendment-001.json"
+  },
+  "blockers": [
+    "No usable daily NO2, PM2.5, or PM10 series was recovered for the target geography and period. A fresh counterexample review executed the article-named CETESB portal/client route, catalog and archive routes, and public deposit searches; its retained evidence is /output/recovery-critic/recovery-counterexample-review.json.",
+    "The supplied article materials are an abstract/citation; the precise fitted model and cluster implementation were not recoverable from lawful full-text routes.",
+    "The retained DataSUS outcome records and weather series cannot form an article-aligned pollutant-exposure panel in the absence of pollutant observations."
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "study_id": "39377000-us-stroke",
+  "status": "sensitivity",
+  "fidelity": "bounded",
+  "target": {
+    "outcome": "County ischemic and hemorrhagic stroke mortality rates among adults age 65+ (article target); bounded fit uses all-stroke mortality age 35+",
+    "pollutant": "PM2.5",
+    "geography": "United States counties",
+    "population": "US residents; article target age 65+, bounded outcome source age 35+",
+    "period": "Article 2016-2020; bounded outcome 2018-2020 and exposure 2016-2020",
+    "effect_scale": "Article-native additive deaths per 100,000 per 1 ug/m3; no native ratio was fitted",
+    "exposure_assignment": "County daily EPA Downscaler predictions averaged over 2016-2020",
+    "model": "OLS with HC3 uncertainty in bounded sensitivity",
+    "covariates": ["diabetes","obesity","smoking","lack of insurance (bounded sensitivity only)"],
+    "named_outcome_source": "CDC Interactive Atlas of Heart Disease and Stroke",
+    "specification_evidence": ["/output/article_estimand_ledger.json"]
+  },
+  "sources": [
+    {"role":"outcome","url":"https://data.cdc.gov/api/views/g5fg-bgtw/rows.csv?accessType=DOWNLOAD","route_origin":"article_named","retrieved":true,"sha256":null,"evidence_artifact":"/output/raw/cdc_stroke_2018_2020.csv"},
+    {"role":"exposure","url":"https://data.cdc.gov/resource/53mz-4zqd.json","route_origin":"agent_discovered","retrieved":true,"sha256":null,"evidence_artifact":"/output/raw/cdc_pm25_county_2016_2020.json"},
+    {"role":"covariate","url":"https://data.cdc.gov/api/views/dv4u-3x3q/rows.csv?accessType=DOWNLOAD","route_origin":"agent_discovered","retrieved":true,"sha256":null,"evidence_artifact":"/output/raw/cdc_places_2020.csv"}
+  ],
+  "substitutions": [
+    {"dimension":"outcome","change_type":"construct_change","published":"age-65+ ischemic/hemorrhagic mortality","reanalysis":"age-35+ all-stroke 2018-2020 rate","reason":"Only the latter was recovered as a public, fit-ready county bulk product."},
+    {"dimension":"exposure","change_type":"source","published":"article source unspecified","reanalysis":"CDC EPA Downscaler county prediction","reason":"Provides broad county coverage; monitor probes had uneven station coverage."},
+    {"dimension":"covariate","change_type":"covariate_omission","published":"full 12-variable article adjustment","reanalysis":"four PLACES risk-factor covariates","reason":"Remaining article covariates were not recovered before bounded fit."}
+  ],
+  "coverage":{"eligible_units":3226,"included_units":3103,"eligible_times":1827,"included_times":1461,"rule":"Report-only, no numeric exclusion threshold.","notes":"Per-county PM2.5 days ranged 1461-1827; outcome/exposure intersection had 3103 counties."},
+  "effects":[{"label":"Bounded adjusted sensitivity; model-implied relative outcome change at sample-mean outcome for +10 ug/m3","primary":true,"estimate":1.5171,"ci_low":1.4720,"ci_high":1.5622,"scale":"ratio","contrast":"10 ug/m3; presentation-only rescaling at mean outcome, not article estimand","metric":"outcome_ratio","native_estimate":3.9546332431,"native_ci_low":3.6094473028,"native_ci_high":4.2998191834,"native_scale":"additive deaths per 100,000","native_contrast":"1 ug/m3 PM2.5"}],
+  "analysis_diagnostics":{"observations":3101,"estimated_parameters":6,"exposure_unique_values":3103,"outcome_unique_values":705,"joined_rows":3103,"unmatched_outcome_rows":123,"unmatched_exposure_rows":6,"contrast_transformation_verified":true,"reported_variants":["univariable OLS","risk-factor-adjusted OLS HC3"]},
+  "artifacts":{"code":"/output/code/run_bounded_sensitivity.py","source_manifest":"/output/source_manifest.json","exposure":"/output/raw/cdc_pm25_county_2016_2020.json","analysis_panel":"/output/derived/bounded_analysis_panel.csv","model_output":"/output/derived/bounded_model_output.json","decision_log":"/output/aeris-workspace/.aeris/contracts/agent-contract-amendment-001.json","research_notebook":"/output/aeris-workspace/.aeris/research-notebook.json","blocker_ledger":"/output/blocker_ledger.json","fidelity_record":"reanalysis-fidelity_reanalysis-fidelity_2026-09-26T001909.1842150000","coverage_diagnostics":"/output/coverage_diagnostics.json","boundary_route_evidence":"exposure_pm25_2026-09-26T001600.4546910000","study_contract":"/output/aeris-workspace/.aeris/contracts/reanalysis-invariants.json"},
+  "blockers":["Article-specific age-65+ ischemic and hemorrhagic outcome panel and full adjustment set not recovered. The completed fit is therefore a bounded sensitivity only."]
+}

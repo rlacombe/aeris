@@ -1,0 +1,8 @@
+# Decision log
+
+1. **Target locked from supplied article and public bibliographic record.** The principal comparison is all-cancer mortality in Brazil, 2000-01-01–2019-12-31, against municipality-level three-day (lag 0–2) PM2.5. The reported design is a time-stratified case-crossover with conditional logistic regression. The intended native coefficient is beta per 1 microgram/m3 and the declared primary scale is `OR = exp(10 * beta)` for a 10 microgram/m3 contrast.
+2. **Outcome construct.** Individual SIM death records were required because the reported design needs death date, residence municipality, underlying ICD-10 cause, and matched referent days. Aggregate mortality was not substituted.
+3. **Exposure construct.** The authors' gridded exposure, tables, code, and derived fields were prohibited. A separate public daily gridded PM2.5 source would have been required, followed by municipality/population-weighted assignment. No author exposure was accessed or used.
+4. **Covariates.** The article identifies daily mean temperature and relative humidity (ERA5 in the reported study) with spline adjustment. No data were retrieved and no degrees of freedom were invented where the supplied record was incomplete.
+5. **Coverage and model decision.** The pre-study disk minimum was not met (12 GiB vs. 20 GiB required). Under the campaign policy, acquisition stopped. Therefore coverage is zero, no panel supports the comparison, and no model was executed.
+6. **No substitutions.** There were no geographic, temporal, outcome, covariate, exposure, or model substitutions. Empty CSV artifacts are schemas only, not data.

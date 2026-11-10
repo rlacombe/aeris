@@ -1,0 +1,5 @@
+MODEL NOT EXECUTED
+
+Target model: negative-binomial regression of cumulative in-hospital COVID-19 deaths, with department population offset; continuous long-term PM2.5 and temperature plus the ten published adjustment variables.
+
+Fail-closed blocker: no independently retrieved department-level PM2.5 values for 1999-2016 and no complete independently retrieved covariate panel. Fitting a reduced or substituted model would not reconstruct the principal comparison.

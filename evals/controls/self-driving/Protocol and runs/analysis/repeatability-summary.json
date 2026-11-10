@@ -1,0 +1,35 @@
+{
+  "study": "33227571-sao-paulo-ami",
+  "runs": 3,
+  "zero_intervention_runs": 3,
+  "pollutant_fits": 2,
+  "evidenced_stops": 1,
+  "shared_environment": {
+    "agent": "Codex CLI 0.155.1",
+    "model": "gpt-5.6-terra",
+    "reasoning_effort": "medium",
+    "aeris_commit": "674c6b8ede29f22d7cdb4dfea401ccfdcb0b17f1",
+    "container_image_digest": "sha256:1c4bd461fa4df699684e10077cafe40926e7ae25a0c9baea217a613d04993a1a"
+  },
+  "results": [
+    {
+      "replicate": 8401,
+      "status": "completed_fit",
+      "window_days": 24,
+      "primary_admissions_rr": 1.385417
+    },
+    {
+      "replicate": 8404,
+      "status": "completed_blocker",
+      "window_days": 0,
+      "primary_admissions_rr": null
+    },
+    {
+      "replicate": 8405,
+      "status": "completed_fit",
+      "window_days": 59,
+      "primary_admissions_rr": 0.9275675676
+    }
+  ],
+  "note": "The semantic validator changed between replicate 8401 and later runs only to strengthen host-side artifact checks; agent instructions and the scientific environment were unchanged."
+}

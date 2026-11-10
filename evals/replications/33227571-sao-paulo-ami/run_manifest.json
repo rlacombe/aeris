@@ -1,0 +1,640 @@
+{
+  "created_at_utc": "2026-08-15T16:26:10.546333+00:00",
+  "files": [
+    {
+      "path": ".aeris_openaq_cache.sqlite",
+      "bytes": 122880,
+      "sha256": "d7347ae8fdaef088c6fadbae4d5cba26f77374f3b75a60268a0f9bead74b4937"
+    },
+    {
+      "path": "PROTOCOL.md",
+      "bytes": 1547,
+      "sha256": "21c3fd967e2aed632c7c7e142ec6db66e62f2e2fb1b04696c9ce3a20b770e58f"
+    },
+    {
+      "path": "README.md",
+      "bytes": 1071,
+      "sha256": "e4394c1628aec01bebf39b986c06cfd9e4795166ff2f39986a7eda8a2d054998"
+    },
+    {
+      "path": "RESULT.md",
+      "bytes": 1274,
+      "sha256": "25a4034bfc20f20a960a4bef20b7601baf0a686794361ee6bd67ec700f0c1a14"
+    },
+    {
+      "path": "data/derived/aeris_no2_daily.csv",
+      "bytes": 47,
+      "sha256": "d6e6fe78179ad2bbe7472d3749cdfaacb3f6bb92036eb4e44e5920cd6c4a1878"
+    },
+    {
+      "path": "data/derived/aeris_no2_stations.csv",
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "data/derived/aeris_pm10_daily.csv",
+      "bytes": 47,
+      "sha256": "d6e6fe78179ad2bbe7472d3749cdfaacb3f6bb92036eb4e44e5920cd6c4a1878"
+    },
+    {
+      "path": "data/derived/aeris_pm10_stations.csv",
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "data/derived/aeris_pm25_daily.csv",
+      "bytes": 47,
+      "sha256": "d6e6fe78179ad2bbe7472d3749cdfaacb3f6bb92036eb4e44e5920cd6c4a1878"
+    },
+    {
+      "path": "data/derived/aeris_pm25_stations.csv",
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "data/derived/aeris_tool_trace.json",
+      "bytes": 9743,
+      "sha256": "b913490d2f846a80bbf16df3ea7380e4acaa1e0b8d166e8fe177eedbf440dc29"
+    },
+    {
+      "path": "data/derived/cetesb_daily_recovery.csv",
+      "bytes": 9519,
+      "sha256": "b2356278ddfcb42daa7f6d534579bf9f754f859dbfc7df9f31ea1175cc775948"
+    },
+    {
+      "path": "data/derived/sih_daily_i21_admissions.csv",
+      "bytes": 23420,
+      "sha256": "bf5f4e3f7236df7d0a0cf623865250cfae4e6c90d2e93da2028369315d87899f"
+    },
+    {
+      "path": "data/derived/sih_ingestion_summary.json",
+      "bytes": 313,
+      "sha256": "9e541bfe92caf299436900c7e99679b123c6292949ff703fb577e59d81bc3372"
+    },
+    {
+      "path": "data/derived/weather_daily_open_meteo.csv",
+      "bytes": 48411,
+      "sha256": "e95b5186eef079c6f97cf38b7cfd5a1573156f10838bf9b2696a73a3dcf6b554"
+    },
+    {
+      "path": "data/derived/weather_manifest.json",
+      "bytes": 533,
+      "sha256": "b0e5efd71585d06e69ffcc42eb889b03b3e0ee12fdb907cc410ea8e45320ce12"
+    },
+    {
+      "path": "data/raw/boundaries/3503901.geojson",
+      "bytes": 370,
+      "sha256": "1dd153e91f0082f6266c18134380f8f7ea955a378d3014ea95af355daf94cb71"
+    },
+    {
+      "path": "data/raw/boundaries/3505708.geojson",
+      "bytes": 396,
+      "sha256": "0e0f03660eac66d63a233d6a290dc7c346b9d5bf639b4ccab161dfd15b1ec0ca"
+    },
+    {
+      "path": "data/raw/boundaries/3506607.geojson",
+      "bytes": 502,
+      "sha256": "26af2ef15976674ccd130618cb771efbdd3cf3783e8f9a5a8c50d2d9e9a09733"
+    },
+    {
+      "path": "data/raw/boundaries/3509007.geojson",
+      "bytes": 368,
+      "sha256": "493bbc2fbebbf8c246eed1571af3874933b60c35a6ee5d6d9a439470df211f56"
+    },
+    {
+      "path": "data/raw/boundaries/3509205.geojson",
+      "bytes": 394,
+      "sha256": "30898918b0761b7241152ba83ca4ebdca98b6faa3069665614230cdb1805c493"
+    },
+    {
+      "path": "data/raw/boundaries/3510609.geojson",
+      "bytes": 285,
+      "sha256": "3ae2a454a64d5deb3435770562bdf4beb76a4aa39a3ed162bd63e90da36ce55a"
+    },
+    {
+      "path": "data/raw/boundaries/3513009.geojson",
+      "bytes": 593,
+      "sha256": "55af642fe27696b96b6b5f99ccc7bf9879300ea3ea35122c4020e5e4bc7d2802"
+    },
+    {
+      "path": "data/raw/boundaries/3513801.geojson",
+      "bytes": 302,
+      "sha256": "fc651bfc4121c30f2eb5d9d8a3c03598d4ba967bfb57369bf1b768dc38275ebb"
+    },
+    {
+      "path": "data/raw/boundaries/3515004.geojson",
+      "bytes": 375,
+      "sha256": "33d103148e107806c0925bfbd739ab4843a6a0c63aba7cfe5504446adfe9be4f"
+    },
+    {
+      "path": "data/raw/boundaries/3515103.geojson",
+      "bytes": 416,
+      "sha256": "bda0a45743460d74b213e80fea2dc55f49943e3174e03ac4979ebcd89cc0149c"
+    },
+    {
+      "path": "data/raw/boundaries/3515707.geojson",
+      "bytes": 327,
+      "sha256": "ab885c597b16ea493a0af3c7353b512cc72913c085727f71f9f9aaba7feae811"
+    },
+    {
+      "path": "data/raw/boundaries/3516309.geojson",
+      "bytes": 309,
+      "sha256": "e5fd6dffd49175c6e59fb77e0717dfbf826655c88abbb8ec41f4ed26fb9b5f7e"
+    },
+    {
+      "path": "data/raw/boundaries/3516408.geojson",
+      "bytes": 438,
+      "sha256": "7e87877ada997ecf01c4b6de02d741abba30b5174cf3f4586fd9965d014f5dc0"
+    },
+    {
+      "path": "data/raw/boundaries/3518305.geojson",
+      "bytes": 483,
+      "sha256": "c3983782569eaac7b9cee1cc6cc4789797fb87722d5ec45cd90eb640702190f9"
+    },
+    {
+      "path": "data/raw/boundaries/3518800.geojson",
+      "bytes": 546,
+      "sha256": "2828c4270cd4b726cdbc3e0022bc173eabeeba244f8c77c9e4f539b8c9a3bd71"
+    },
+    {
+      "path": "data/raw/boundaries/3522208.geojson",
+      "bytes": 416,
+      "sha256": "ab8840d3549409bf9e8e11a9f9d7343f810a6b10a1074c5fcc8df67aede9270e"
+    },
+    {
+      "path": "data/raw/boundaries/3522505.geojson",
+      "bytes": 329,
+      "sha256": "a583fdd412d8cdda584393a9f6527cc16522872016549451d599913aaeccfb49"
+    },
+    {
+      "path": "data/raw/boundaries/3523107.geojson",
+      "bytes": 350,
+      "sha256": "0b5d957d437902b82e620dd2f043832143b8775c93604e3c0d68b7cdf9da64ea"
+    },
+    {
+      "path": "data/raw/boundaries/3525003.geojson",
+      "bytes": 264,
+      "sha256": "18744e8c38b49dda67d194766c5ea3ab67fd27341fddf13613e93d196b27187f"
+    },
+    {
+      "path": "data/raw/boundaries/3526209.geojson",
+      "bytes": 634,
+      "sha256": "fc0c24d1f324439c9b427d7a61405f5b024288083f45585aa27d39b94696eac4"
+    },
+    {
+      "path": "data/raw/boundaries/3528502.geojson",
+      "bytes": 527,
+      "sha256": "53dee3b2cb77de47abb66083dcf1722f2fda6343e82f7ed2c4b670ba8a889711"
+    },
+    {
+      "path": "data/raw/boundaries/3529401.geojson",
+      "bytes": 327,
+      "sha256": "fcdf4fb217086ce11ce97cafcee2b1819f97f11b9604dd995014055e77f94a3f"
+    },
+    {
+      "path": "data/raw/boundaries/3530607.geojson",
+      "bytes": 720,
+      "sha256": "be42deb99b4406b090a01915751cf3b33c77a6349c02137213f17710e771b8fb"
+    },
+    {
+      "path": "data/raw/boundaries/3534401.geojson",
+      "bytes": 350,
+      "sha256": "f4cfaeeca649b23557fb104464635039b4bdc2bf6ab56f87ac94674949d1bbb3"
+    },
+    {
+      "path": "data/raw/boundaries/3539103.geojson",
+      "bytes": 375,
+      "sha256": "5433c774db83443031a9591d0eab8542cb34a27ac629d7a0b12151a01b9b189b"
+    },
+    {
+      "path": "data/raw/boundaries/3539806.geojson",
+      "bytes": 241,
+      "sha256": "8d721f71b0165b6ad4a730f2f2841d9cd56ba2e94c2665d31e5360c886ce06e2"
+    },
+    {
+      "path": "data/raw/boundaries/3543303.geojson",
+      "bytes": 373,
+      "sha256": "e10b2f2a4c723121c06f89ec8fdc057cec580c28a5f30a6f8cac5883b034f486"
+    },
+    {
+      "path": "data/raw/boundaries/3544103.geojson",
+      "bytes": 286,
+      "sha256": "f0bbb0512079d2f4c56eddd886ea9a2201aae4dae847aa402f7738702451f78d"
+    },
+    {
+      "path": "data/raw/boundaries/3545001.geojson",
+      "bytes": 594,
+      "sha256": "2dcafd362ea62092af685778618e1bc2be00d9f1c8c5aafab84d04b1b05d7685"
+    },
+    {
+      "path": "data/raw/boundaries/3546801.geojson",
+      "bytes": 526,
+      "sha256": "2d282daa0f0a9ff9603b024967ef6eb863e243dcb1f2293bb19ba627807da21f"
+    },
+    {
+      "path": "data/raw/boundaries/3547304.geojson",
+      "bytes": 394,
+      "sha256": "9ad7cffc666721a47c6027bb463e8f31c734447008db7faf74a8df9fe43e2d79"
+    },
+    {
+      "path": "data/raw/boundaries/3547809.geojson",
+      "bytes": 547,
+      "sha256": "a534b7604243e7079e759248027767d77a980b208d9d356172d35c18de584887"
+    },
+    {
+      "path": "data/raw/boundaries/3548708.geojson",
+      "bytes": 565,
+      "sha256": "7a97c16e17b5f6d1b77a65ad64ad95e08f070f2f8eab35f5d9829775e71beb03"
+    },
+    {
+      "path": "data/raw/boundaries/3548807.geojson",
+      "bytes": 262,
+      "sha256": "0524524851cadd1df73ee0d446acc023d41f167ac75529e7a453e8e2b9ba18d4"
+    },
+    {
+      "path": "data/raw/boundaries/3549953.geojson",
+      "bytes": 394,
+      "sha256": "b3e50877d22963c7ec5462a97914c17f3a964ac4dbd1b2a9b0dacd189583fcd9"
+    },
+    {
+      "path": "data/raw/boundaries/3550308.geojson",
+      "bytes": 1284,
+      "sha256": "741da7ef23477092e77053aa9bbfe142b580a6735a5d018dceb59fb4b63730fe"
+    },
+    {
+      "path": "data/raw/boundaries/3552502.geojson",
+      "bytes": 481,
+      "sha256": "0c71ba58883318fe2b9e3bb07fa14ae42af7cb6596c552b35f2847227df379c8"
+    },
+    {
+      "path": "data/raw/boundaries/3552809.geojson",
+      "bytes": 243,
+      "sha256": "62d55370eb45d6fed663671ea54eeb6cf0b0102a3923dee9ce3d1b814d277dd7"
+    },
+    {
+      "path": "data/raw/boundaries/3556453.geojson",
+      "bytes": 263,
+      "sha256": "0ee5eec712b349896363b470d33f5094d8c70c22fd786e5345687475f7049cc6"
+    },
+    {
+      "path": "data/raw/boundary_manifest.json",
+      "bytes": 571,
+      "sha256": "b92002f107029fbd165db54538084e1fb43d87a84a0fb441e354d889b8fc6957"
+    },
+    {
+      "path": "data/raw/sao_paulo_metropolitan_39.geojson",
+      "bytes": 2188,
+      "sha256": "ae123c97e9c1b9e9e9d5a8a8c2f8c4d6e3d3657b05a68c40686b4a65baf5cf28"
+    },
+    {
+      "path": "data/raw/sao_paulo_metropolitan_municipalities.json",
+      "bytes": 2583,
+      "sha256": "4fc6005bb5f98c3975573f7c812d0dd3c6872c3e7f7db5ae94ef99ec894d4431"
+    },
+    {
+      "path": "data/raw/sih/RDSP1201.dbc",
+      "bytes": 13891006,
+      "sha256": "3edf83e541c3287df66110c3222092d6f1c98b317a6f09804555d80f7244bf07"
+    },
+    {
+      "path": "data/raw/sih/RDSP1202.dbc",
+      "bytes": 14230401,
+      "sha256": "4c65b4f25102bc1d36046118ec569870d8aa1921e50bcfee4eed57cbcaf6bc45"
+    },
+    {
+      "path": "data/raw/sih/RDSP1203.dbc",
+      "bytes": 15531488,
+      "sha256": "8c33e922ac52f1aad4a8310a153258755b7cdeb45f9afa7e5bad3d76a3cbb9ea"
+    },
+    {
+      "path": "data/raw/sih/RDSP1204.dbc",
+      "bytes": 15067802,
+      "sha256": "a813195c736edffb5cb6efc0f1e7a0a255baec85f2f13337b97f655ccde2a874"
+    },
+    {
+      "path": "data/raw/sih/RDSP1205.dbc",
+      "bytes": 15591105,
+      "sha256": "4ce0776906590905ea1409060135e873d76a0f90186faf56594eb58c9d9bd211"
+    },
+    {
+      "path": "data/raw/sih/RDSP1206.dbc",
+      "bytes": 14630042,
+      "sha256": "c32c49e67d35c5d3153ed90c4c8dc5ea1a150765b7d22efc9150ce5385904cb9"
+    },
+    {
+      "path": "data/raw/sih/RDSP1207.dbc",
+      "bytes": 15201987,
+      "sha256": "0aab08a452d48d4b5236eaff489452d3fe964c8a785be787ec2c4432d7f2064f"
+    },
+    {
+      "path": "data/raw/sih/RDSP1208.dbc",
+      "bytes": 15566711,
+      "sha256": "91e2ec9e8bbcdbf2921560bfa09356650e12203930f039f134af299698c552b6"
+    },
+    {
+      "path": "data/raw/sih/RDSP1209.dbc",
+      "bytes": 14906294,
+      "sha256": "0e8f990550af24becb034495400b4fefb18e972626e7a31345eb097cc4b59fc8"
+    },
+    {
+      "path": "data/raw/sih/RDSP1210.dbc",
+      "bytes": 15086228,
+      "sha256": "9567436b83a50659421d0323a0f6a6ded7428b8c257d5f095eaae4cb3c776130"
+    },
+    {
+      "path": "data/raw/sih/RDSP1211.dbc",
+      "bytes": 14439617,
+      "sha256": "d5dcce33c9e54a83c12d751110ae49bccead77f9492bb47cdfd005512c70de6a"
+    },
+    {
+      "path": "data/raw/sih/RDSP1212.dbc",
+      "bytes": 13661718,
+      "sha256": "b316a948461535478d73dad00c20cb16ed9656aedeeeb9015b0f733f4299b824"
+    },
+    {
+      "path": "data/raw/sih/RDSP1301.dbc",
+      "bytes": 14507052,
+      "sha256": "5464dd8ddd1a78fd735163b472da7f339b1789692e11ab13345d8e5b95d00ada"
+    },
+    {
+      "path": "data/raw/sih/RDSP1302.dbc",
+      "bytes": 13811597,
+      "sha256": "a4c2be10e4e9cd7fa0ab8b5f41cb71df9bd47adbb9569a608e3f8242b63fc338"
+    },
+    {
+      "path": "data/raw/sih/RDSP1303.dbc",
+      "bytes": 14572347,
+      "sha256": "7c0b2392e5063f26297ef1187c1a9042c3311b924736483109a67aabe40529ba"
+    },
+    {
+      "path": "data/raw/sih/RDSP1304.dbc",
+      "bytes": 15432780,
+      "sha256": "738e78bf7ea1dd28f40bc16d06dfb76ac2935c8c8b4828d4d38169484ffdc4fd"
+    },
+    {
+      "path": "data/raw/sih/RDSP1305.dbc",
+      "bytes": 15405395,
+      "sha256": "4123e83cab2f109ae24256f8f4b7454bc268367f097378c7c610f4a60cf0a6ad"
+    },
+    {
+      "path": "data/raw/sih/RDSP1306.dbc",
+      "bytes": 14980401,
+      "sha256": "477d7312f17c308ddd7577d140cf5ac6de5fdd2938cf3c738366eef9c37541b0"
+    },
+    {
+      "path": "data/raw/sih/RDSP1307.dbc",
+      "bytes": 15135618,
+      "sha256": "ffd06e4c02750ec111a43f110a4e35c210b7cae7684f4e8185ac2ec91cbafba6"
+    },
+    {
+      "path": "data/raw/sih/RDSP1308.dbc",
+      "bytes": 15697528,
+      "sha256": "fb9b9ee8416f7c482caa5088f65cc793f7a8b5d45187df8b00b0505741caabb1"
+    },
+    {
+      "path": "data/raw/sih/RDSP1309.dbc",
+      "bytes": 15185465,
+      "sha256": "f82dd5648a5cbe2eebf4a4e7dc39e1ed197fa7b5e93c07172827d40465859a6f"
+    },
+    {
+      "path": "data/raw/sih/RDSP1310.dbc",
+      "bytes": 15718682,
+      "sha256": "ecbfff4553aa904d76d786275dc2b3b71dc34a068cee3de8b5432e197c99d763"
+    },
+    {
+      "path": "data/raw/sih/RDSP1311.dbc",
+      "bytes": 14545583,
+      "sha256": "4343fc2c1a4dfafc0ceed463d78c4e9102529eb70ca42f1edee5493fd18bec9a"
+    },
+    {
+      "path": "data/raw/sih/RDSP1312.dbc",
+      "bytes": 13728793,
+      "sha256": "9dc1150dda9ed515cfd82a9466762d99b92757ffe96114ac801cd43a8b6536f5"
+    },
+    {
+      "path": "data/raw/sih/RDSP1401.dbc",
+      "bytes": 15145100,
+      "sha256": "1310c1e8ff09d2b5d3d15055d660b5f7ab0df570e0e22bcebada542accabaced"
+    },
+    {
+      "path": "data/raw/sih/RDSP1402.dbc",
+      "bytes": 14677756,
+      "sha256": "24943321d08488322bee915ad0de208d1c6171a2d19db1ac47ee3e544d40eb63"
+    },
+    {
+      "path": "data/raw/sih/RDSP1403.dbc",
+      "bytes": 14867209,
+      "sha256": "d077c212692b2855b1eea374233c3b9aaa7b317bf02934b23b4914972ffb88d6"
+    },
+    {
+      "path": "data/raw/sih/RDSP1404.dbc",
+      "bytes": 14953894,
+      "sha256": "65e3307bc09a548367c768d43e71564efb76079d9596f6348c8b0de6d250edeb"
+    },
+    {
+      "path": "data/raw/sih/RDSP1405.dbc",
+      "bytes": 16014242,
+      "sha256": "b953e0a8b1e265b8e02dd7bde122d1b76c11b0b891136f76c3bb6cafa607c7b2"
+    },
+    {
+      "path": "data/raw/sih/RDSP1406.dbc",
+      "bytes": 15135960,
+      "sha256": "e768f48bccd076ed668afc4b066ce06ab7cce6ae694d4ec8959ca366eea8a540"
+    },
+    {
+      "path": "data/raw/sih/RDSP1407.dbc",
+      "bytes": 16035299,
+      "sha256": "07fe5685b51ab4a9f43ed6d4ca04cc6552f41b301aba19672f5fa50ecea740bc"
+    },
+    {
+      "path": "data/raw/sih/RDSP1408.dbc",
+      "bytes": 16011663,
+      "sha256": "7690a5738d85f367a46e5221f9e01975a07d80621fdd9bc63a6cb62d45c143b8"
+    },
+    {
+      "path": "data/raw/sih/RDSP1409.dbc",
+      "bytes": 15563589,
+      "sha256": "782f560bf092348eb8e1a93b8cf75d9729c2e4dfb704afc3d02975f6316bc9f8"
+    },
+    {
+      "path": "data/raw/sih/RDSP1410.dbc",
+      "bytes": 15793847,
+      "sha256": "1378e65421953aa6ca2c515e7049b949d2136006a74f047b25ee67b37c83e5a2"
+    },
+    {
+      "path": "data/raw/sih/RDSP1411.dbc",
+      "bytes": 15221737,
+      "sha256": "d09c208e4ff6baab0dc34d23c8af898ab184003273a663b7b3506d1e546d1583"
+    },
+    {
+      "path": "data/raw/sih/RDSP1412.dbc",
+      "bytes": 14214477,
+      "sha256": "c744f524f7a98dc02b30aef346d0efa693dc00d5baeb29a47e378876b808c3ec"
+    },
+    {
+      "path": "data/raw/sih/RDSP1501.dbc",
+      "bytes": 15277346,
+      "sha256": "6d28b7c737fab4c7fd6de4eaa8f9664f0721cf9bd25c34960485b6c611b309e3"
+    },
+    {
+      "path": "data/raw/sih/RDSP1502.dbc",
+      "bytes": 14899189,
+      "sha256": "8011928ad0cb9119ba6ef1c95df8471a44e52a70855624810b3c30ae79b5e8b6"
+    },
+    {
+      "path": "data/raw/sih/RDSP1503.dbc",
+      "bytes": 16334101,
+      "sha256": "c01ae1d14defe4a85f2c73105eb5b99a302357d20cdd62b65f3c479fec9d76e3"
+    },
+    {
+      "path": "data/raw/sih/RDSP1504.dbc",
+      "bytes": 16302946,
+      "sha256": "3465f75fdfa5c794156ce95a6492dd2a965542293eb58f6b60137a75e1935daa"
+    },
+    {
+      "path": "data/raw/sih/RDSP1505.dbc",
+      "bytes": 16390388,
+      "sha256": "156d8cb74207c3fef48b1a06d9a9861fea0f34cb1fd401673489060ba461b076"
+    },
+    {
+      "path": "data/raw/sih/RDSP1506.dbc",
+      "bytes": 16277144,
+      "sha256": "0638cb3878a1a9def4f013262335fea02124567ccc0d77692a8479b1ea3f8d7a"
+    },
+    {
+      "path": "data/raw/sih/RDSP1507.dbc",
+      "bytes": 16273929,
+      "sha256": "af743d283211958aeeb981ae7dddcc3c1575b3332be9f5bee8a1ff329ddc145d"
+    },
+    {
+      "path": "data/raw/sih/RDSP1508.dbc",
+      "bytes": 15990071,
+      "sha256": "16c463e68bab5b2cf091f632a77141073b342fc1b9e3e8c7ccb239b13c3f6c1a"
+    },
+    {
+      "path": "data/raw/sih/RDSP1509.dbc",
+      "bytes": 15646147,
+      "sha256": "45e2c92479a7aed34253f9d7e0c3a6fcd7a4ef8a190f1fe4e681af50bcc87445"
+    },
+    {
+      "path": "data/raw/sih/RDSP1510.dbc",
+      "bytes": 15701007,
+      "sha256": "659facacfb221384961ff89c6289c22013116c2cafc11216d1ee3f47e612d496"
+    },
+    {
+      "path": "data/raw/sih/RDSP1511.dbc",
+      "bytes": 15059045,
+      "sha256": "486cf6beb8da4ff09fd75027c98ff30dc080a6a887e3f31400ef49537eeccfec"
+    },
+    {
+      "path": "data/raw/sih/RDSP1512.dbc",
+      "bytes": 15141672,
+      "sha256": "dc9d9182b6f4cf49336efce863d9ebe4ab0943c7aafd07976c2067267f127d82"
+    },
+    {
+      "path": "data/raw/sih/download_manifest.json",
+      "bytes": 19182,
+      "sha256": "c9f1f23d262599c9633c5f4e9910b27ede28b7d6de8a9430e22b3923019c5c2f"
+    },
+    {
+      "path": "requirements.txt",
+      "bytes": 32,
+      "sha256": "8b47f8b227c7d9bdf0d44670c86a974c397a100e9bfe36565c7b7f689bdfbbcb"
+    },
+    {
+      "path": "scripts/__pycache__/build_panel.cpython-310.pyc",
+      "bytes": 2395,
+      "sha256": "46e2c1829e46be5dc1ebff7c9c907cd19c476fef0d238e860cbaa134af6cc375"
+    },
+    {
+      "path": "scripts/__pycache__/fetch_boundary.cpython-310.pyc",
+      "bytes": 4209,
+      "sha256": "4aaa09773f1412ac36ad234d75aa020eabec7201e063a55c7e76d26773983b9f"
+    },
+    {
+      "path": "scripts/__pycache__/fetch_cetesb_recovery.cpython-310.pyc",
+      "bytes": 4293,
+      "sha256": "cb7db93f39a430991304f705c25cf58bdf758e322cb63e6c42e48ac12b512f9a"
+    },
+    {
+      "path": "scripts/__pycache__/fetch_sih.cpython-310.pyc",
+      "bytes": 3152,
+      "sha256": "ce028814f08764fdd3c4a1dd008d15b52ebd92c11331e768e753221592d614ee"
+    },
+    {
+      "path": "scripts/__pycache__/fetch_weather.cpython-310.pyc",
+      "bytes": 2267,
+      "sha256": "b19e475c8217ff2dafa7438445507bb1864b9d3c7ba6741e30b73d61601bcb19"
+    },
+    {
+      "path": "scripts/__pycache__/fit_clusters.cpython-310.pyc",
+      "bytes": 4969,
+      "sha256": "ead814fcd0622ef7fe36a08023bb025c1ac2fe5bcd9e57aa85ab7d5ec18a26fe"
+    },
+    {
+      "path": "scripts/__pycache__/ingest_sih.cpython-310.pyc",
+      "bytes": 4524,
+      "sha256": "353894197fcee7039a4ea32902831a97086082d26e0c9778a5fb3a9c26ac23aa"
+    },
+    {
+      "path": "scripts/__pycache__/run_aeris_exposure.cpython-310.pyc",
+      "bytes": 3540,
+      "sha256": "3c82323bb28aa0741d26068446126cd7b9a25b7fbd0c1d685e807e883ab450a7"
+    },
+    {
+      "path": "scripts/__pycache__/write_run_manifest.cpython-310.pyc",
+      "bytes": 1718,
+      "sha256": "ad577a77e81b2b677d6f4e1149be924f7fc5b08b13afe7a74b04bdaf1322c9e6"
+    },
+    {
+      "path": "scripts/build_panel.py",
+      "bytes": 2396,
+      "sha256": "e172342e0296d567b0ad3382b34e46105d4483d415586c6470c68864e7bb82d4"
+    },
+    {
+      "path": "scripts/fetch_boundary.py",
+      "bytes": 4213,
+      "sha256": "be800a10427260b28550dba057e11cce189f9877efbfcd769ef23f76899287f4"
+    },
+    {
+      "path": "scripts/fetch_cetesb_recovery.py",
+      "bytes": 3990,
+      "sha256": "066dd27733ef40c9f8ece43aa8d40640a025846b55ff8b6adc166fd07cce8163"
+    },
+    {
+      "path": "scripts/fetch_sih.py",
+      "bytes": 3208,
+      "sha256": "59776b89898fb4d6920e74d3d704b9d7c36aeb4791230528665fc987a7c6a30d"
+    },
+    {
+      "path": "scripts/fetch_weather.py",
+      "bytes": 2040,
+      "sha256": "8077d429888fa8435d14c0661d0729d52fde6588e324c79213d1d7ad16c269ac"
+    },
+    {
+      "path": "scripts/fit_clusters.py",
+      "bytes": 5801,
+      "sha256": "5b11ee613951b4cbce02a12afdad5585c8a2383f41c845c244b7f7dff0d4d48f"
+    },
+    {
+      "path": "scripts/ingest_sih.py",
+      "bytes": 4163,
+      "sha256": "7a78e75f79d4e2027b7a80a74e61d0c4c3ab1b4f063e755a131dafc154260efa"
+    },
+    {
+      "path": "scripts/run_aeris_exposure.py",
+      "bytes": 4070,
+      "sha256": "aed4e24b8fc6b91fa62413467672399be86347d418fe1db005668ddf12875036"
+    },
+    {
+      "path": "scripts/write_run_manifest.py",
+      "bytes": 1078,
+      "sha256": "7a97550f349c4ea6152f5d2ab8a8a21118b86647fe61c7ff6291f6ffe1591a01"
+    },
+    {
+      "path": "source_manifest.json",
+      "bytes": 2034,
+      "sha256": "048cf5505693977a95549207386a942e55d0115746b513a5609c3270649e4b5d"
+    }
+  ]
+}

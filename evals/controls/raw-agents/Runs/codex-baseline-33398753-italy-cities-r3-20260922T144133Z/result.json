@@ -1,0 +1,78 @@
+{
+  "study_id": "33398753",
+  "status": "completed_blocker",
+  "target": {
+    "outcome": "Confirmed COVID-19 infected individuals, city, 7 April 2020",
+    "pollutant": "2018 days exceeding PM10 or ozone limits",
+    "geography": "55 Italian provincial capitals",
+    "period": "2018 exposure; March-April 2020 outcomes",
+    "effect_scale": "log-log OLS elasticity and transformed outcome ratio per 1% exposure increase"
+  },
+  "sources": [
+    {
+      "role": "article",
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC7781409/fullTextXML",
+      "retrieved": true,
+      "sha256": "dc2e0d8ceca27033d2746cf45607e0058d07fe16288aae3206722a9ff5aed02f"
+    },
+    {
+      "role": "author_designated_outcome_and_covariate_table_sanitized",
+      "url": "https://data.mendeley.com/datasets/bbnyhp6gfh/1",
+      "retrieved": true,
+      "sha256": "c0e25d564b2a64308488e043bd4bc51e757dd4373c55ce6604242b8449dfb16a"
+    },
+    {
+      "role": "independent_exposure_station_catalogue",
+      "url": "https://air.discomap.eea.europa.eu/arcgis/rest/services/AirQuality/AirQualityDownloadServiceEUMonitoringStations/MapServer/0",
+      "retrieved": true,
+      "sha256": "274821aa486bc512bc9d0c5f3bbb450280a94bd39f22ac0549337e46678b2a57"
+    },
+    {
+      "role": "independent_exposure_historical_series_attempt",
+      "url": "https://eeadmz1batchservice02.blob.core.windows.net/airquality-p-e1a/IT/SPO.IT1846A_5_BETA_2006-04-30_00_00_00.parquet",
+      "retrieved": false,
+      "sha256": null
+    },
+    {
+      "role": "geographic_assignment",
+      "url": "https://nominatim.openstreetmap.org/search",
+      "retrieved": true,
+      "sha256": "55d1ac906d1c0fbb0131b9435d589e0ed279630d7f1f4222c3986939d7f60b23"
+    }
+  ],
+  "substitutions": [
+    {
+      "dimension": "exposure",
+      "published": "PM10-or-ozone exceedance days",
+      "reanalysis": "EEA PM10 daily means >50 ug/m3",
+      "reason": "Independent source required; unavailable after terminal 404."
+    },
+    {
+      "dimension": "outcome",
+      "published": "Ministero della Salute city counts",
+      "reanalysis": "Sanitized author-designated Mendeley table",
+      "reason": "Public deposited table; pollution field dropped before inspection."
+    }
+  ],
+  "coverage": {
+    "eligible_units": 55,
+    "included_units": 0,
+    "eligible_times": 2,
+    "included_times": 0,
+    "notes": "EEA historical series retrieval failed at the first deterministic station assignment; no model fit."
+  },
+  "effect": null,
+  "artifacts": {
+    "code": "/output/code/run_analysis.py",
+    "source_manifest": "/output/source_manifest.json",
+    "exposure": "/output/derived/eea_pm10_exposure.csv",
+    "analysis_panel": "/output/derived/analysis_panel.csv",
+    "model_output": "/output/models/model_output.txt",
+    "decision_log": "/output/decision_log.md",
+    "fidelity_record": "/output/fidelity_record.json"
+  },
+  "blockers": [
+    "EEA advertised historical PM10 object returned terminal HTTP 404.",
+    "Independent exposure coverage is 0/55; model fitting would violate the contract."
+  ]
+}

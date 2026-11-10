@@ -1,0 +1,16 @@
+pmid,study,status,reason
+38182658,United Kingdom COVID-19,completed_same_pollutant_fit,Included in quantitative meta-reproduction.
+33398753,Italian provincial capitals COVID-19,completed_same_pollutant_fit,Included in quantitative meta-reproduction.
+33484722,OECD COVID-19,completed_same_pollutant_fit,Included in quantitative meta-reproduction.
+34488764,France COVID-19,completed_same_pollutant_fit,Included in quantitative meta-reproduction.
+34004167,Northern Italy COVID-19,completed_same_pollutant_fit,Included in quantitative meta-reproduction.
+36383802,Sao Jose dos Campos COVID admissions,completed_same_pollutant_fit,Included in quantitative meta-reproduction.
+33227571,Sao Paulo AMI admissions,completed_same_pollutant_fit,Included in quantitative meta-reproduction.
+38788590,Brazil cancer mortality,completed_same_pollutant_fit,Included in quantitative meta-reproduction.
+39377000,United States stroke mortality,completed_same_pollutant_fit,Included in quantitative meta-reproduction.
+33585383,China COVID-19,excluded_after_execution,OpenAQ API and public S3 archive did not supply sufficient 2014-2016 PM2.5 coverage.
+34260961,Israel COVID-19,excluded_after_execution,No usable spatially varying PM2.5 exposure panel for the study dates.
+36197352,Taubate COVID admissions,excluded_after_execution,Required daily SIH/SUS outcome export was not recovered.
+38249516,Alaska wildfire asthma,excluded_after_execution,Required regional asthma outcome table is unavailable for direct public download.
+39689648,Argentina COVID-19,excluded_after_execution,Boundary reconstruction did not supply sufficient PM2.5 observations for a fitted panel.
+34389545,United States wildfire COVID,coverage_limited_candidate,Exposure panel recovered but the bounded model did not fit; retained outside the quantitative benchmark.

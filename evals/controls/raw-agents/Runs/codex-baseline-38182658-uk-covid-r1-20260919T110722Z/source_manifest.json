@@ -1,0 +1,105 @@
+{
+  "sources": [
+    {
+      "role": "outcome_cases",
+      "url": "https://archive.ukhsa-dashboard.data.gov.uk/coronavirus-dashboard/cases.zip",
+      "retrieved": true,
+      "sha256": "9376efeb41f60df24ceb850d9b8359d9ac1417b88e4267efbbf71a23cefebf9e"
+    },
+    {
+      "role": "outcome_deaths",
+      "url": "https://archive.ukhsa-dashboard.data.gov.uk/coronavirus-dashboard/deaths.zip",
+      "retrieved": true,
+      "sha256": "fcb6b40fdb1b93e283b25e53093177d4c7acd848af969565992f8d3256ba1ea3"
+    },
+    {
+      "role": "exposure_and_weather",
+      "url": "https://air-quality-api.open-meteo.com/v1/air-quality",
+      "retrieved": true,
+      "sha256": "207bc81db86e01d895cf5ffdd680d70ce63976e514158e6af0eaf2836ca32541"
+    },
+    {
+      "role": "article",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10770173/",
+      "retrieved": true,
+      "sha256": "d88727b655e51183c8f8ece19f54c2e21e310c8e07e9ed839a349fcd352d132c"
+    }
+  ],
+  "requests": [
+    {
+      "url": "https://air-quality-api.open-meteo.com/v1/air-quality?latitude=52.3555&longitude=-1.1743&start_date=2020-03-26&end_date=2020-09-15&hourly=pm2_5&timezone=UTC",
+      "attempt": 1,
+      "http_status": 200,
+      "bytes": 97396,
+      "delay_seconds": 0,
+      "elapsed_seconds": 0.168
+    },
+    {
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=52.3555&longitude=-1.1743&start_date=2020-03-26&end_date=2020-09-15&hourly=temperature_2m,relative_humidity_2m,sunshine_duration&timezone=UTC",
+      "attempt": 1,
+      "http_status": 200,
+      "bytes": 139111,
+      "delay_seconds": 0,
+      "elapsed_seconds": 0.188
+    },
+    {
+      "url": "https://air-quality-api.open-meteo.com/v1/air-quality?latitude=56.4907&longitude=-4.2026&start_date=2020-03-26&end_date=2020-09-15&hourly=pm2_5&timezone=UTC",
+      "attempt": 1,
+      "http_status": 200,
+      "bytes": 96378,
+      "delay_seconds": 0,
+      "elapsed_seconds": 0.225
+    },
+    {
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=56.4907&longitude=-4.2026&start_date=2020-03-26&end_date=2020-09-15&hourly=temperature_2m,relative_humidity_2m,sunshine_duration&timezone=UTC",
+      "attempt": 1,
+      "http_status": 200,
+      "bytes": 137883,
+      "delay_seconds": 0,
+      "elapsed_seconds": 0.192
+    },
+    {
+      "url": "https://air-quality-api.open-meteo.com/v1/air-quality?latitude=52.1307&longitude=-3.7837&start_date=2020-03-26&end_date=2020-09-15&hourly=pm2_5&timezone=UTC",
+      "attempt": 1,
+      "http_status": 200,
+      "bytes": 96891,
+      "delay_seconds": 0,
+      "elapsed_seconds": 0.251
+    },
+    {
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=52.1307&longitude=-3.7837&start_date=2020-03-26&end_date=2020-09-15&hourly=temperature_2m,relative_humidity_2m,sunshine_duration&timezone=UTC",
+      "attempt": 1,
+      "http_status": 200,
+      "bytes": 138478,
+      "delay_seconds": 0,
+      "elapsed_seconds": 0.195
+    },
+    {
+      "url": "https://air-quality-api.open-meteo.com/v1/air-quality?latitude=54.7877&longitude=-6.4923&start_date=2020-03-26&end_date=2020-09-15&hourly=pm2_5&timezone=UTC",
+      "attempt": 1,
+      "http_status": 200,
+      "bytes": 96534,
+      "delay_seconds": 0,
+      "elapsed_seconds": 0.155
+    },
+    {
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=54.7877&longitude=-6.4923&start_date=2020-03-26&end_date=2020-09-15&hourly=temperature_2m,relative_humidity_2m,sunshine_duration&timezone=UTC",
+      "attempt": 1,
+      "http_status": 200,
+      "bytes": 138268,
+      "delay_seconds": 0,
+      "elapsed_seconds": 0.287
+    }
+  ],
+  "raw_archives": [
+    {
+      "path": "/output/cases.zip",
+      "sha256": "8eef8d631e725c6d0ce30b960beac3038ae7611f64bb67ee11995f8f62da5c3a"
+    },
+    {
+      "path": "/output/deaths.zip",
+      "sha256": "b6593af05006ef50dfc98e48c225cdb64bb967089505835bdee6a0155a61ff81"
+    }
+  ],
+  "created_utc": "2026-09-19T11:11:52Z"
+}

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="840" height="296" viewBox="0 0 840 296">
+  <defs>
+    <style>
+      text { font-family: Helvetica, Arial, sans-serif; }
+      .funnel-count { font-size: 30px; font-weight: 700; }
+      .funnel-label { font-size: 14.5px; font-weight: 400; fill: #20242A; }
+    </style>
+    <marker id="funnel-arrow" viewBox="0 0 10 10" refX="7.5" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto">
+      <path d="M 0 1.5 L 8.5 5 L 0 8.5 z" fill="#767A80"/>
+    </marker>
+  </defs>
+
+  <path d="M 12.00 12.00 Q 12.00 7.00 16.98 7.42 L 193.02 22.31 Q 198.00 22.73 198.00 27.73 L 198.00 268.27 Q 198.00 273.27 193.02 273.69 L 16.98 288.58 Q 12.00 289.00 12.00 284.00 Z" fill="#DCEFEB" stroke="#88C9C0" stroke-width="2.2"/>
+  <text x="105.00" y="126.00" text-anchor="middle" class="funnel-count" fill="#0B7A75">18,919</text>
+  <text x="105.00" y="166.00" text-anchor="middle" class="funnel-label">PubMed + OpenAlex</text>
+  <text x="105.00" y="186.00" text-anchor="middle" class="funnel-label">search records</text>
+  <path d="M 222.00 29.76 Q 222.00 24.76 226.98 25.18 L 385.02 38.54 Q 390.00 38.96 390.00 43.96 L 390.00 252.04 Q 390.00 257.04 385.02 257.46 L 226.98 270.82 Q 222.00 271.24 222.00 266.24 Z" fill="#E3EEFD" stroke="#8FB8F6" stroke-width="2.2"/>
+  <text x="306.00" y="126.00" text-anchor="middle" class="funnel-count" fill="#1C78D8">22</text>
+  <text x="306.00" y="159.00" text-anchor="middle" class="funnel-label">Route hits</text>
+  <text x="306.00" y="178.00" text-anchor="middle" class="funnel-label">9 scope +</text>
+  <text x="306.00" y="197.00" text-anchor="middle" class="funnel-label">13 access</text>
+  <path d="M 414.00 45.99 Q 414.00 40.99 418.98 41.41 L 547.02 52.24 Q 552.00 52.66 552.00 57.66 L 552.00 238.34 Q 552.00 243.34 547.02 243.76 L 418.98 254.59 Q 414.00 255.01 414.00 250.01 Z" fill="#DDE1F8" stroke="#9EA6DF" stroke-width="2.2"/>
+  <text x="483.00" y="126.00" text-anchor="middle" class="funnel-count" fill="#3C4BA6">21</text>
+  <text x="483.00" y="166.00" text-anchor="middle" class="funnel-label">Unique</text>
+  <text x="483.00" y="186.00" text-anchor="middle" class="funnel-label">candidates</text>
+  <path d="M 576.00 59.69 Q 576.00 54.69 580.98 55.11 L 679.02 63.40 Q 684.00 63.82 684.00 68.82 L 684.00 227.18 Q 684.00 232.18 679.02 232.60 L 580.98 240.89 Q 576.00 241.31 576.00 236.31 Z" fill="#EFE0F2" stroke="#A66AA8" stroke-width="2.2"/>
+  <text x="630.00" y="126.00" text-anchor="middle" class="funnel-count" fill="#8A308F">14</text>
+  <text x="630.00" y="166.00" text-anchor="middle" class="funnel-label">Eligible</text>
+  <text x="630.00" y="186.00" text-anchor="middle" class="funnel-label">studies</text>
+  <path d="M 708.00 70.85 Q 708.00 65.85 712.98 66.27 L 823.02 75.58 Q 828.00 76.00 828.00 81.00 L 828.00 215.00 Q 828.00 220.00 823.02 220.42 L 712.98 229.73 Q 708.00 230.15 708.00 225.15 Z" fill="#FBE5DE" stroke="#DE8A75" stroke-width="2.2"/>
+  <text x="768.00" y="126.00" text-anchor="middle" class="funnel-count" fill="#D56650">9</text>
+  <text x="768.00" y="166.00" text-anchor="middle" class="funnel-label">Completed</text>
+  <text x="768.00" y="186.00" text-anchor="middle" class="funnel-label">reanalyses</text>
+  <line x1="201.30" y1="148.00" x2="217.50" y2="148.00" stroke="#767A80" stroke-width="1.8" marker-end="url(#funnel-arrow)"/>
+  <line x1="393.30" y1="148.00" x2="409.50" y2="148.00" stroke="#767A80" stroke-width="1.8" marker-end="url(#funnel-arrow)"/>
+  <line x1="555.30" y1="148.00" x2="571.50" y2="148.00" stroke="#767A80" stroke-width="1.8" marker-end="url(#funnel-arrow)"/>
+  <line x1="687.30" y1="148.00" x2="703.50" y2="148.00" stroke="#767A80" stroke-width="1.8" marker-end="url(#funnel-arrow)"/>
+</svg>

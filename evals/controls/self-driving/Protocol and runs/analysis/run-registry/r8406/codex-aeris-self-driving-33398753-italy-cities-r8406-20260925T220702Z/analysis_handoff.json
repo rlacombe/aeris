@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "study_id": "33398753-italy-cities",
+  "status": "fitted",
+  "fidelity": "reduced_coverage",
+  "target": {
+    "outcome": "Cumulative confirmed COVID-19 infections on 17 March, 7 April, and 27 April 2020",
+    "pollutant": "PM10",
+    "geography": "55 Italian provincial-capital cities",
+    "population": "Residents of sampled provincial-capital cities",
+    "period": "2018 exposure; 2020 outcomes",
+    "effect_scale": "Outcome ratio per doubling annual PM10 exceedance-day count",
+    "exposure_assignment": "Nearest monitor within 100 km of provincial-capital reference coordinate; daily series",
+    "model": "OLS of log cumulative infections on log PM10 exceedance days and log 2019 population density",
+    "covariates": [
+      "2019 population density (log)"
+    ],
+    "named_outcome_source": "Italian Ministry of Health / public Protezione Civile provincial archive substitution",
+    "specification_evidence": [
+      "/study/article.md",
+      "/run/contract/study-target.json"
+    ]
+  },
+  "sources": [
+    {
+      "role": "covariate",
+      "url": "https://data.mendeley.com/public-api/datasets/bbnyhp6gfh",
+      "route_origin": "article_linked",
+      "retrieved": true,
+      "sha256": "eff39c6791990840d7b58d65a64c842507ff49d9cdcc7ad629242944b60a9c4b",
+      "evidence_artifact": "/output/recovery/mendeley-record.json"
+    },
+    {
+      "role": "outcome",
+      "url": "https://github.com/pcm-dpc/COVID-19/tree/master/dati-province",
+      "route_origin": "article_named",
+      "retrieved": true,
+      "sha256": null,
+      "evidence_artifact": "/output/recovery/checksums.sha256"
+    },
+    {
+      "role": "exposure",
+      "url": "https://api.openaq.org/v3/",
+      "route_origin": "agent_discovered",
+      "retrieved": true,
+      "sha256": null,
+      "evidence_artifact": "/output/data/pm10_daily_observations_raw.csv"
+    }
+  ],
+  "substitutions": [
+    {
+      "dimension": "exposure",
+      "change_type": "source",
+      "published": "Regional environmental agencies/Legambiente",
+      "reanalysis": "OpenAQ v3 plus public S3 historical archive",
+      "reason": "Independently retrieved monitor observations; published exposure values excluded."
+    },
+    {
+      "dimension": "outcome",
+      "change_type": "source",
+      "published": "Ministero della Salute",
+      "reanalysis": "Protezione Civile provincial archive",
+      "reason": "Public historical cumulative snapshots available for all article dates."
+    },
+    {
+      "dimension": "exposure",
+      "change_type": "coverage_subset",
+      "published": "55 cities",
+      "reanalysis": "32 positive-count complete cases",
+      "reason": "13 missing series and 10 zero counts make log exposure undefined."
+    }
+  ],
+  "coverage": {
+    "eligible_units": 55,
+    "included_units": 32,
+    "eligible_times": 365,
+    "included_times": null,
+    "rule": "All units with retrieved series and strictly positive PM10>50 annual count; no numeric coverage cutoff.",
+    "notes": "42 units had 284\u2013343 observed days; 10 had zero count and 13 had no series."
+  },
+  "effects": [
+    {
+      "label": "COVID-19 infections 20200317",
+      "primary": false,
+      "estimate": 1.2007807143024714,
+      "ci_low": 0.8100296498507201,
+      "ci_high": 1.7800266003923135,
+      "scale": "ratio",
+      "contrast": "doubling annual 2018 PM10 >50 ug/m3 day count",
+      "metric": "outcome_ratio",
+      "native_estimate": 0.26397271118214966,
+      "native_ci_low": -0.3039533783595823,
+      "native_ci_high": 0.8318988007238817,
+      "native_scale": "log-log OLS coefficient",
+      "native_contrast": "one-unit increase in log PM10 count"
+    },
+    {
+      "label": "COVID-19 infections 20200407",
+      "primary": true,
+      "estimate": 1.1503218860519138,
+      "ci_low": 0.8942145943291312,
+      "ci_high": 1.4797795181622706,
+      "scale": "ratio",
+      "contrast": "doubling annual 2018 PM10 >50 ug/m3 day count",
+      "metric": "outcome_ratio",
+      "native_estimate": 0.20203761632815598,
+      "native_ci_low": -0.16130700282648697,
+      "native_ci_high": 0.5653822354827989,
+      "native_scale": "log-log OLS coefficient",
+      "native_contrast": "one-unit increase in log PM10 count"
+    },
+    {
+      "label": "COVID-19 infections 20200427",
+      "primary": false,
+      "estimate": 1.1672914936694847,
+      "ci_low": 0.9193376498072579,
+      "ci_high": 1.4821207762771427,
+      "scale": "ratio",
+      "contrast": "doubling annual 2018 PM10 >50 ug/m3 day count",
+      "metric": "outcome_ratio",
+      "native_estimate": 0.22316487292125647,
+      "native_ci_low": -0.12133327011193257,
+      "native_ci_high": 0.5676630159544456,
+      "native_scale": "log-log OLS coefficient",
+      "native_contrast": "one-unit increase in log PM10 count"
+    }
+  ],
+  "analysis_diagnostics": {
+    "observations": 32,
+    "estimated_parameters": 3,
+    "exposure_unique_values": 18,
+    "outcome_unique_values": 32,
+    "joined_rows": 55,
+    "unmatched_outcome_rows": 0,
+    "unmatched_exposure_rows": 13,
+    "contrast_transformation_verified": true,
+    "reported_variants": [
+      "17 March 2020",
+      "7 April 2020",
+      "27 April 2020"
+    ]
+  },
+  "artifacts": {
+    "code": "/output/code",
+    "source_manifest": "/output/source_manifest.json",
+    "exposure": "/output/data/pm10_exposure_2018.csv",
+    "analysis_panel": "/output/data/analysis_panel.csv",
+    "model_output": "/output/model_output.json",
+    "decision_log": "/output/decision_log.json",
+    "research_notebook": "/output/aeris-workspace/.aeris/research-notebook.json",
+    "blocker_ledger": "/output/blocker_ledger.md",
+    "fidelity_record": "/output/aeris-workspace/.aeris/artifacts/reanalysis-fidelity_reanalysis-fidelity_2026-09-25T222340.8978740000.json",
+    "coverage_diagnostics": "/output/coverage_diagnostics.md",
+    "boundary_route_evidence": "/output/data/aeris_city_cohort.csv",
+    "study_contract": "/output/aeris-workspace/.aeris/contracts/agent-contract-amendment-001.json"
+  },
+  "blockers": []
+}

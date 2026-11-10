@@ -1,0 +1,89 @@
+{
+  "sources": [
+    {
+      "role": "independent PM2.5 exposure",
+      "url": "https://api.worldbank.org/v2/country/AUS;AUT;BEL;CAN;CHL;CZE;DNK;EST;FIN;FRA;DEU;GRC;HUN;ISL;IRL;ISR;ITA;JPN;KOR;LVA;LTU;LUX;MEX;NLD;NZL;NOR;POL;PRT;SVK;SVN;ESP;SWE;CHE;TUR;GBR;USA/indicator/EN.ATM.PM25.MC.M3?date=2017&format=json&per_page=100",
+      "retrieved": true,
+      "sha256": "11ec4452a6e3b118a335d12e9b3fdd1e9f8646cfc6051b5ce83408aa4eddd852"
+    },
+    {
+      "role": "population denominator",
+      "url": "https://api.worldbank.org/v2/country/AUS;AUT;BEL;CAN;CHL;CZE;DNK;EST;FIN;FRA;DEU;GRC;HUN;ISL;IRL;ISR;ITA;JPN;KOR;LVA;LTU;LUX;MEX;NLD;NZL;NOR;POL;PRT;SVK;SVN;ESP;SWE;CHE;TUR;GBR;USA/indicator/SP.POP.TOTL?date=2019&format=json&per_page=100",
+      "retrieved": true,
+      "sha256": "f09c0748a14b5a29b2a4f0c6c39fefc857a2e759f5c41952c92c83f9b1c80c41"
+    },
+    {
+      "role": "percent population age 65+",
+      "url": "https://api.worldbank.org/v2/country/AUS;AUT;BEL;CAN;CHL;CZE;DNK;EST;FIN;FRA;DEU;GRC;HUN;ISL;IRL;ISR;ITA;JPN;KOR;LVA;LTU;LUX;MEX;NLD;NZL;NOR;POL;PRT;SVK;SVN;ESP;SWE;CHE;TUR;GBR;USA/indicator/SP.POP.65UP.TO.ZS?date=2018&format=json&per_page=100",
+      "retrieved": true,
+      "sha256": "8261ef181616f6513e0dfb8c4c49e039f619f0bcf8ae0d83298338e6160dc142"
+    },
+    {
+      "role": "population density",
+      "url": "https://api.worldbank.org/v2/country/AUS;AUT;BEL;CAN;CHL;CZE;DNK;EST;FIN;FRA;DEU;GRC;HUN;ISL;IRL;ISR;ITA;JPN;KOR;LVA;LTU;LUX;MEX;NLD;NZL;NOR;POL;PRT;SVK;SVN;ESP;SWE;CHE;TUR;GBR;USA/indicator/EN.POP.DNST?date=2019&format=json&per_page=100",
+      "retrieved": true,
+      "sha256": "f5c5f8652a4acf25fd7075b22e096129c64df79c03d173b9dc2a06059e8017ed"
+    },
+    {
+      "role": "GDP per capita",
+      "url": "https://api.worldbank.org/v2/country/AUS;AUT;BEL;CAN;CHL;CZE;DNK;EST;FIN;FRA;DEU;GRC;HUN;ISL;IRL;ISR;ITA;JPN;KOR;LVA;LTU;LUX;MEX;NLD;NZL;NOR;POL;PRT;SVK;SVN;ESP;SWE;CHE;TUR;GBR;USA/indicator/NY.GDP.PCAP.CD?date=2019&format=json&per_page=100",
+      "retrieved": true,
+      "sha256": "8d5c935be154fcc9e8eb840b92837f2a57cc042ef143fcd504f1670208197e38"
+    },
+    {
+      "role": "physicians per 1,000",
+      "url": "https://api.worldbank.org/v2/country/AUS;AUT;BEL;CAN;CHL;CZE;DNK;EST;FIN;FRA;DEU;GRC;HUN;ISL;IRL;ISR;ITA;JPN;KOR;LVA;LTU;LUX;MEX;NLD;NZL;NOR;POL;PRT;SVK;SVN;ESP;SWE;CHE;TUR;GBR;USA/indicator/SH.MED.PHYS.ZS?date=2017&format=json&per_page=100",
+      "retrieved": true,
+      "sha256": "eb74e333c4b839ace80e6dc2b3e3f6e5f9a29d9bd58727d0176a677707b37ee3"
+    },
+    {
+      "role": "physicians per 1,000",
+      "url": "https://api.worldbank.org/v2/country/AUS;AUT;BEL;CAN;CHL;CZE;DNK;EST;FIN;FRA;DEU;GRC;HUN;ISL;IRL;ISR;ITA;JPN;KOR;LVA;LTU;LUX;MEX;NLD;NZL;NOR;POL;PRT;SVK;SVN;ESP;SWE;CHE;TUR;GBR;USA/indicator/SH.MED.PHYS.ZS?date=2016&format=json&per_page=100",
+      "retrieved": true,
+      "sha256": "c8e40e110e87925f2cf97d1195e1a16bc6dc1cd88eef0e4ae0f137e8b81504bd"
+    },
+    {
+      "role": "physicians per 1,000",
+      "url": "https://api.worldbank.org/v2/country/AUS;AUT;BEL;CAN;CHL;CZE;DNK;EST;FIN;FRA;DEU;GRC;HUN;ISL;IRL;ISR;ITA;JPN;KOR;LVA;LTU;LUX;MEX;NLD;NZL;NOR;POL;PRT;SVK;SVN;ESP;SWE;CHE;TUR;GBR;USA/indicator/SH.MED.PHYS.ZS?date=2015&format=json&per_page=100",
+      "retrieved": true,
+      "sha256": "50cb1f986ba786b7295f0d1d79f31b65bf2e3f9b4ed6a528d3ba913fa5418204"
+    },
+    {
+      "role": "hospital beds per 1,000",
+      "url": "https://api.worldbank.org/v2/country/AUS;AUT;BEL;CAN;CHL;CZE;DNK;EST;FIN;FRA;DEU;GRC;HUN;ISL;IRL;ISR;ITA;JPN;KOR;LVA;LTU;LUX;MEX;NLD;NZL;NOR;POL;PRT;SVK;SVN;ESP;SWE;CHE;TUR;GBR;USA/indicator/SH.MED.BEDS.ZS?date=2015&format=json&per_page=100",
+      "retrieved": true,
+      "sha256": "fcc37db2f7edee1da0177bac8819fc31c41364cb018f287c917ea6f8d89229d1"
+    },
+    {
+      "role": "hospital beds per 1,000",
+      "url": "https://api.worldbank.org/v2/country/AUS;AUT;BEL;CAN;CHL;CZE;DNK;EST;FIN;FRA;DEU;GRC;HUN;ISL;IRL;ISR;ITA;JPN;KOR;LVA;LTU;LUX;MEX;NLD;NZL;NOR;POL;PRT;SVK;SVN;ESP;SWE;CHE;TUR;GBR;USA/indicator/SH.MED.BEDS.ZS?date=2014&format=json&per_page=100",
+      "retrieved": true,
+      "sha256": "8b67ef85471a06decc2975346f50ce7d417797f0255ad8b785fbb67b386913d7"
+    },
+    {
+      "role": "hospital beds per 1,000",
+      "url": "https://api.worldbank.org/v2/country/AUS;AUT;BEL;CAN;CHL;CZE;DNK;EST;FIN;FRA;DEU;GRC;HUN;ISL;IRL;ISR;ITA;JPN;KOR;LVA;LTU;LUX;MEX;NLD;NZL;NOR;POL;PRT;SVK;SVN;ESP;SWE;CHE;TUR;GBR;USA/indicator/SH.MED.BEDS.ZS?date=2013&format=json&per_page=100",
+      "retrieved": true,
+      "sha256": "c4d9b7e8f51a2568d0a293c79abd48cd9cb488d5adf1d84bff2c52ff727327b3"
+    },
+    {
+      "role": "hospital beds per 1,000",
+      "url": "https://api.worldbank.org/v2/country/AUS;AUT;BEL;CAN;CHL;CZE;DNK;EST;FIN;FRA;DEU;GRC;HUN;ISL;IRL;ISR;ITA;JPN;KOR;LVA;LTU;LUX;MEX;NLD;NZL;NOR;POL;PRT;SVK;SVN;ESP;SWE;CHE;TUR;GBR;USA/indicator/SH.MED.BEDS.ZS?date=2012&format=json&per_page=100",
+      "retrieved": true,
+      "sha256": "db95d60e32446b29917b8d952940ebedb99196a7ed2cbdd5bf8646897d513294"
+    },
+    {
+      "role": "COVID-19 confirmed cases",
+      "url": "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv",
+      "retrieved": true,
+      "sha256": "e6234a59eec4359d2577358b5220e1a7e3da74c162913cdb7d882db1413f98c2"
+    },
+    {
+      "role": "COVID-19 deaths",
+      "url": "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv",
+      "retrieved": true,
+      "sha256": "4e87757a3e059c45650a1e1856614f8e339ee3c70653c378a7ba6f7b0ee8c72e"
+    }
+  ],
+  "request_log": "/output/request_log.json"
+}

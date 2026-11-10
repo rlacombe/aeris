@@ -1,0 +1,241 @@
+{
+  "schema_version": 3,
+  "study_id": "33227571-sao-paulo-ami",
+  "status": "completed_fit",
+  "fidelity": "bounded",
+  "target": {
+    "outcome": "Daily acute myocardial infarction admissions and in-hospital mortality",
+    "pollutant": "Joint daily NO2, PM2.5, and PM10 feature set",
+    "geography": "39 municipalities of metropolitan S\u00e3o Paulo, Brazil",
+    "population": "AMI patients admitted in the 39 municipalities",
+    "period": "2012-01-01 through 2015-12-31; bounded fit uses 2014-01-01 through 2014-02-28",
+    "effect_scale": "Exploratory rate ratios from robust Poisson models comparing environmental clusters",
+    "exposure_assignment": "Bounded Congonhas CETESB station daily-mean proxy, not municipality-specific or population-weighted exposure",
+    "model": "Ward hierarchical clustering (k=3) of standardized weather and joint-pollutant features, followed by robust Poisson cluster comparisons; exact article test unavailable in abstract-only materials",
+    "covariates": [
+      "temperature",
+      "temperature variation",
+      "rainfall",
+      "relative humidity"
+    ],
+    "named_outcome_source": "DataSUS SIH-RD",
+    "specification_evidence": [
+      "/study/article.pdf",
+      "/output/aeris-workspace/.aeris/contracts/reanalysis-invariants.json"
+    ]
+  },
+  "sources": [
+    {
+      "role": "outcome",
+      "url": "https://huggingface.co/datasets/SidneyBissoli/sih-rd",
+      "route_origin": "agent_discovered",
+      "retrieved": true,
+      "sha256": null,
+      "evidence_artifact": "/output/recovery/review2/sih_ami_rmsp_201401_201402_deduplicated.csv"
+    },
+    {
+      "role": "exposure",
+      "url": "https://sistemasinter.cetesb.sp.gov.br/Ar/php/ar_dados_horarios_resultado.php",
+      "route_origin": "article_named",
+      "retrieved": true,
+      "sha256": null,
+      "evidence_artifact": "/output/recovery/review2/cetesb-legacy-selector-scan.json"
+    },
+    {
+      "role": "weather",
+      "url": "https://power.larc.nasa.gov/api/temporal/daily/point",
+      "route_origin": "agent_discovered",
+      "retrieved": true,
+      "sha256": null,
+      "evidence_artifact": "/output/recovery/review2/nasa_power_congonhas_201401.csv"
+    }
+  ],
+  "substitutions": [
+    {
+      "dimension": "period",
+      "change_type": "coverage_subset",
+      "published": "2012-2015",
+      "reanalysis": "2014-01-01 through 2014-02-28",
+      "reason": "Complete public overlap was recovered only for this bounded slice."
+    },
+    {
+      "dimension": "exposure",
+      "change_type": "construct_change",
+      "published": "Unspecified study-wide CETESB environmental construct",
+      "reanalysis": "Congonhas station daily means",
+      "reason": "Public legacy route supplied all three pollutants; proxy limitation is explicit."
+    },
+    {
+      "dimension": "covariate",
+      "change_type": "source",
+      "published": "Meteorological Database for Teaching and Research",
+      "reanalysis": "NASA POWER MERRA-2 daily point weather",
+      "reason": "Public source-substituted covariates."
+    },
+    {
+      "dimension": "model",
+      "change_type": "construct_change",
+      "published": "Exact comparison test unspecified in supplied abstract",
+      "reanalysis": "Ward clustering plus robust Poisson comparisons",
+      "reason": "Exploratory fitting choice retained the three-cluster comparison structure."
+    }
+  ],
+  "coverage": {
+    "eligible_units": 39,
+    "included_units": 39,
+    "eligible_times": 59,
+    "included_times": 59,
+    "rule": "Report-only completeness: retain dates with nonmissing NO2, PM2.5, PM10, weather, and deduplicated outcome counts.",
+    "notes": "All 59 bounded-window dates were complete. Minimum contributing hours were 11 for NO2, 21 for PM2.5, and 21 for PM10."
+  },
+  "artifacts": {
+    "code": "reanalysis_bounded.py",
+    "source_manifest": "source_manifest_bounded.json",
+    "exposure": "recovery/review2/cetesb_congonhas_20140101_20140131.csv",
+    "analysis_panel": "analysis_panel_bounded.csv",
+    "model_output": "model_output_bounded.txt",
+    "decision_log": "decision_log_bounded.json",
+    "research_notebook": "aeris-workspace/.aeris/research-notebook.json",
+    "blocker_ledger": "blocker_ledger.md",
+    "fidelity_record": "aeris-workspace/.aeris/artifacts/reanalysis-fidelity_reanalysis-fidelity_2026-09-25T163137.2531190000.json",
+    "coverage_diagnostics": "coverage_diagnostics_bounded.json",
+    "boundary_route_evidence": "recovery/review2/cetesb-legacy-selector-scan.json",
+    "study_contract": "aeris-workspace/.aeris/contracts/agent-contract-amendment-002.json"
+  },
+  "blockers": [
+    "A full 2012-2015 municipality-specific daily exposure panel was not recovered.",
+    "The supplied article materials are abstract-only, so exact preprocessing and inferential specifications remain unknown.",
+    "The bounded fit uses a single-station proxy and source-substituted weather; it is not a full replication."
+  ],
+  "stopping_checklist": {
+    "target_specification_complete": true,
+    "complete_article_checked": true,
+    "outcome_routes_attempted": 1,
+    "normal_exposure_source_tested": true,
+    "historical_fallback_applicable": false,
+    "historical_fallback_tested": false,
+    "geographic_batching_applicable": true,
+    "geographic_batching_attempted": true,
+    "fidelity_levels_evaluated": [
+      "bounded"
+    ],
+    "pending_requests": 0,
+    "evidence_artifacts": [
+      "/output/recovery/review2/cetesb-legacy-selector-scan.json",
+      "/output/recovery/review2/nasa_power_congonhas_201401.csv",
+      "/output/recovery/review2/sih_ami_rmsp_201401_201402_deduplicated.csv",
+      "aeris-workspace/.aeris/artifacts/reanalysis-fidelity_reanalysis-fidelity_2026-09-25T163137.2531190000.json",
+      "aeris-workspace/.aeris/contracts/agent-contract-amendment-002.json",
+      "aeris-workspace/.aeris/research-notebook.json",
+      "analysis_panel_bounded.csv",
+      "blocker_ledger.md",
+      "coverage_diagnostics_bounded.json",
+      "decision_log_bounded.json",
+      "model_output_bounded.txt",
+      "reanalysis_bounded.py",
+      "recovery/review2/cetesb-legacy-selector-scan.json",
+      "recovery/review2/cetesb_congonhas_20140101_20140131.csv",
+      "source_manifest_bounded.json"
+    ]
+  },
+  "design_provenance": {
+    "contract_id": "33227571-sao-paulo-ami-reanalysis-invariants",
+    "contract_sha256": "5c8835f7d5d4a3284bda61b6f6860109237823b34891f75a5643f68cf84db348",
+    "contract_author": "agent",
+    "geographic_representation": "administrative_area",
+    "assignment_method": "One fixed CETESB station selected after bounded multi-station/multi-date selector scan demonstrated all-three-pollutant coverage.",
+    "representative_location_rule": null,
+    "maximum_monitor_distance_km": null,
+    "monitor_distance_evidence": "Not applicable to the selected assignment method.",
+    "source_strategy": "public_monitor_network",
+    "exposure_metric": "Daily arithmetic mean of valid hourly NO2, PM2.5, and PM10 values.",
+    "coverage_policy": {
+      "mode": "report_only",
+      "minimum_percent": null,
+      "threshold_source": "none",
+      "evidence": "Report-only; include dates with nonmissing joint features, retaining per-pollutant contributing-hour counts; January-February 2014 has 59/59 complete days."
+    },
+    "decision_rationale": "The public recovery routes yielded a valid overlapping outcome-exposure panel. This amendment records the evidence-based implementation design while preserving the locked outcome, pollutants, clustering construct, and target geography.",
+    "evidence_basis": [
+      "Public legacy selector scan identified Congonhas as having NO2, PM10, and PM2.5 data on representative 2014 and 2015 dates.",
+      "59 complete daily joint records and retained hour-count diagnostics."
+    ],
+    "locked_before_exposure": false
+  },
+  "effects": [
+    {
+      "label": "Admissions: high-pollution vs low-pollution reference",
+      "primary": true,
+      "estimate": 0.9275675676,
+      "ci_low": 0.770240803,
+      "ci_high": 1.1170293616,
+      "scale": "ratio",
+      "contrast": "High-pollution cluster versus low-pollution reference",
+      "metric": "RR",
+      "native_estimate": -0.07519,
+      "native_ci_low": -0.261052,
+      "native_ci_high": 0.110667,
+      "native_scale": "log rate ratio",
+      "native_contrast": "high versus low cluster"
+    },
+    {
+      "label": "Admissions: intermediate-pollution vs low-pollution reference",
+      "primary": false,
+      "estimate": 0.9837837838,
+      "ci_low": 0.824416838,
+      "ci_high": 1.1739577464,
+      "scale": "ratio",
+      "contrast": "Intermediate-pollution cluster versus low-pollution reference",
+      "metric": "RR",
+      "native_estimate": -0.016349,
+      "native_ci_low": -0.193933,
+      "native_ci_high": 0.160377,
+      "native_scale": "log rate ratio",
+      "native_contrast": "intermediate versus low cluster"
+    },
+    {
+      "label": "Mortality: high-pollution vs low-pollution reference",
+      "primary": false,
+      "estimate": 0.8590909091,
+      "ci_low": 0.5667986354,
+      "ci_high": 1.3021153264,
+      "scale": "ratio",
+      "contrast": "High-pollution cluster versus low-pollution reference",
+      "metric": "RR",
+      "native_estimate": -0.151872,
+      "native_ci_low": -0.567744,
+      "native_ci_high": 0.264033,
+      "native_scale": "log rate ratio",
+      "native_contrast": "high versus low cluster"
+    },
+    {
+      "label": "Mortality: intermediate-pollution vs low-pollution reference",
+      "primary": false,
+      "estimate": 0.7933884298,
+      "ci_low": 0.5304661895,
+      "ci_high": 1.1866264297,
+      "scale": "ratio",
+      "contrast": "Intermediate-pollution cluster versus low-pollution reference",
+      "metric": "RR",
+      "native_estimate": -0.23197,
+      "native_ci_low": -0.634999,
+      "native_ci_high": 0.171059,
+      "native_scale": "log rate ratio",
+      "native_contrast": "intermediate versus low cluster"
+    }
+  ],
+  "analysis_diagnostics": {
+    "observations": 59,
+    "estimated_parameters": 3,
+    "exposure_unique_values": 59,
+    "outcome_unique_values": 29,
+    "joined_rows": 59,
+    "unmatched_outcome_rows": 0,
+    "unmatched_exposure_rows": 0,
+    "contrast_transformation_verified": true,
+    "reported_variants": [
+      "admissions cluster comparison",
+      "in-hospital mortality cluster comparison"
+    ]
+  }
+}

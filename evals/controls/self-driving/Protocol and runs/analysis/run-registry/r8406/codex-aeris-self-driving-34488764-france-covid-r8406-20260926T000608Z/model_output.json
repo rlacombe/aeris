@@ -1,0 +1,146 @@
+{
+  "outcome_date": "2020-05-01",
+  "n_departments": 96,
+  "death_count_total": 15310,
+  "exposure_coverage": {
+    "eligible_departments": 96,
+    "included_departments": 96,
+    "annual_slices_required": 18,
+    "annual_slices_observed_min": 18,
+    "annual_slices_observed_max": 18,
+    "pm25_mean": 12.358379526170703,
+    "pm25_sd": 2.4975030906233098
+  },
+  "missingness": {
+    "pm25_1999_2016_mean": 0,
+    "temperature_worldclim_bio1_c": 0,
+    "beds_per_100k": 0,
+    "medical_density": 0,
+    "age60": 0,
+    "male": 0,
+    "unemployment": 0,
+    "poverty": 0,
+    "urban": 0,
+    "pop_density": 0,
+    "diabetes": 0,
+    "covid_hospital_deaths_2020_05_01": 0,
+    "population": 0
+  },
+  "effects": [
+    {
+      "analysis": "continuous_pm25_per_1_ug_m3",
+      "term": "pm25_1999_2016_mean",
+      "log_rate_ratio": 0.30283411927972426,
+      "standard_error": 0.06476372776832462,
+      "rate_ratio": 1.35368989476214,
+      "ci95_low": 1.192318278718279,
+      "ci95_high": 1.536901986566048,
+      "p_value": 2.925481995051685e-06
+    },
+    {
+      "analysis": "pm25_quartile_vs_q1",
+      "term": "pm25_quartile_Q2",
+      "log_rate_ratio": 0.425838263197432,
+      "standard_error": 0.19546691353719828,
+      "rate_ratio": 1.5308731565797882,
+      "ci95_low": 1.0436562288198028,
+      "ci95_high": 2.245540779444919,
+      "p_value": 0.029363661308349723
+    },
+    {
+      "analysis": "pm25_quartile_vs_q1",
+      "term": "pm25_quartile_Q3",
+      "log_rate_ratio": 1.106217543889301,
+      "standard_error": 0.24887426141731123,
+      "rate_ratio": 3.0229027458864888,
+      "ci95_low": 1.85601729886991,
+      "ci95_high": 4.923413707755836,
+      "p_value": 8.793877541773926e-06
+    },
+    {
+      "analysis": "pm25_quartile_vs_q1",
+      "term": "pm25_quartile_Q4",
+      "log_rate_ratio": 1.3958474678300923,
+      "standard_error": 0.35233596622386576,
+      "rate_ratio": 4.038395533149997,
+      "ci95_low": 2.024416809099096,
+      "ci95_high": 8.055968715959981,
+      "p_value": 7.441971566096252e-05
+    }
+  ],
+  "continuous_model": {
+    "aic": 995.9433295799398,
+    "llf": -484.9716647899699,
+    "params": {
+      "const": -8.818119597760786,
+      "pm25_1999_2016_mean": 0.7523796223803544,
+      "temperature_worldclim_bio1_c": 0.05456858897823734,
+      "beds_per_100k": 0.2135049142045123,
+      "medical_density": -0.18093699008170047,
+      "age60": 0.4866197784012426,
+      "male": 0.12053874770922017,
+      "unemployment": -0.009805064473532348,
+      "poverty": -0.0700506246580526,
+      "urban": 0.32698843331396416,
+      "pop_density": 0.06555454989649613,
+      "diabetes": 0.16592268731448281,
+      "alpha": 0.2859821949859508
+    },
+    "bse": {
+      "const": 0.057097416552831196,
+      "pm25_1999_2016_mean": 0.16090296944799568,
+      "temperature_worldclim_bio1_c": 0.09182880543549514,
+      "beds_per_100k": 0.08702523971865918,
+      "medical_density": 0.10681445209927408,
+      "age60": 0.14874911954730585,
+      "male": 0.09404991215038147,
+      "unemployment": 0.10980532866379333,
+      "poverty": 0.13022273526947195,
+      "urban": 0.15135719731782418,
+      "pop_density": 0.10904038843421394,
+      "diabetes": 0.11255178924296923,
+      "alpha": 0.04312308554691049
+    },
+    "converged": true
+  },
+  "quartile_model": {
+    "aic": 1000.0414977524606,
+    "llf": -485.0207488762303,
+    "params": {
+      "const": -9.551100134035957,
+      "pm25_quartile_Q2": 0.425838263197432,
+      "pm25_quartile_Q3": 1.106217543889301,
+      "pm25_quartile_Q4": 1.3958474678300923,
+      "temperature_worldclim_bio1_c": 0.024186481890603108,
+      "beds_per_100k": 0.23633246275571984,
+      "medical_density": -0.24714354960611976,
+      "age60": 0.35066671969747587,
+      "male": 0.12254306778234773,
+      "unemployment": 0.014137087239810211,
+      "poverty": -0.032153675591443734,
+      "urban": 0.3026076284825163,
+      "pop_density": 0.25642587414303764,
+      "diabetes": 0.21698970691615588,
+      "alpha": 0.28479100042285177
+    },
+    "bse": {
+      "const": 0.18908365221178433,
+      "pm25_quartile_Q2": 0.19546691353719828,
+      "pm25_quartile_Q3": 0.24887426141731123,
+      "pm25_quartile_Q4": 0.35233596622386576,
+      "temperature_worldclim_bio1_c": 0.08843281196446326,
+      "beds_per_100k": 0.0885271869149777,
+      "medical_density": 0.1063246560548105,
+      "age60": 0.14354375391130317,
+      "male": 0.09580883632351432,
+      "unemployment": 0.10955115423234421,
+      "poverty": 0.1367661019401421,
+      "urban": 0.15426333115182497,
+      "pop_density": 0.091863518077719,
+      "diabetes": 0.1105219466463989,
+      "alpha": 0.04314481691855637
+    },
+    "converged": true
+  },
+  "model_formula": "NegativeBinomial(COVID hospital deaths) with log(population) offset; continuous PM2.5 + temperature + beds_per_100k + medical_density + age60 + male + unemployment + poverty + urban + population density + diabetes."
+}

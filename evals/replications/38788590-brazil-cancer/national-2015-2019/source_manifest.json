@@ -1,0 +1,36 @@
+{
+  "accessed_utc": "2026-08-15",
+  "study": {
+    "pmid": "38788590",
+    "doi": "10.1016/j.jhazmat.2024.134606",
+    "title": "Cancer mortality risk from short-term PM2.5 exposure and temporal variations in Brazil"
+  },
+  "outcomes": {
+    "provider": "Brazilian Ministry of Health, Sistema de Informacoes sobre Mortalidade (SIM)",
+    "catalog_url": "https://datasus.saude.gov.br/acesso-a-informacao/mortalidade-desde-1996-pela-cid-10/",
+    "official_url_template": "https://ftp.datasus.gov.br/dissemin/publicos/SIM/CID10/DORES/DO{UF}{YEAR}.dbc",
+    "mirror_url_template": "https://datasus-ftp-mirror.nyc3.digitaloceanspaces.com/SIM/CID10/DORES/DO{UF}{YEAR}.dbc",
+    "scope": "Resident death records for all 27 Brazilian federative units, 2015--2019."
+  },
+  "boundary": {
+    "provider": "geoBoundaries / IBGE",
+    "metadata_url": "https://www.geoboundaries.org/api/current/gbOpen/BRA/ADM0/",
+    "geometry_url": "https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/BRA/ADM0/geoBoundaries-BRA-ADM0_simplified.geojson",
+    "scope": "Brazil national ADM0 boundary."
+  },
+  "exposure": {
+    "provider": "OpenAQ v3 and historical OpenAQ S3 archive through AERIS",
+    "api_url": "https://api.openaq.org/v3/",
+    "scope": "Daily unweighted mean across AERIS-discovered PM2.5 monitors within the Brazil boundary, 2015--2019.",
+    "recovery": {
+      "provider": "Instituto de Energia e Meio Ambiente (IEMA)",
+      "landing_page": "https://energiaeambiente.org.br/qualidadedoar/",
+      "scope": "Standardized public state-monitor archives used after the AERIS/OpenAQ archive audit found only 100 days. The retained 2015--2019 PM2.5 record covers CE, ES, MG, RJ, and SP."
+    }
+  },
+  "weather": {
+    "provider": "Open-Meteo historical weather API",
+    "api_url": "https://archive-api.open-meteo.com/v1/archive",
+    "scope": "Daily unweighted mean temperature and relative humidity at retained AERIS monitor coordinates."
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "study_id": "PMID:39377000",
+  "status": "completed_blocker",
+  "target": {
+    "outcome": "County ischemic and hemorrhagic stroke mortality among adults aged 65 years or older",
+    "pollutant": "Annual PM2.5 concentration (ug/m3)",
+    "geography": "United States counties and county equivalents, excluding Puerto Rico, American Samoa, Guam, and US Virgin Islands",
+    "period": "2016-2020",
+    "effect_scale": "Linear mortality-rate difference (deaths per 100,000) per +1 ug/m3 PM2.5; published model includes stated county covariates"
+  },
+  "sources": [
+    {
+      "role": "independent PM2.5 exposure source",
+      "url": "https://aqs.epa.gov/aqsweb/airdata/daily_88101_2020.zip",
+      "retrieved": true,
+      "sha256": "18283fe4ffceb53e3091a7fa7de57a2d5b925ce3d56a08d3518021e00212a3ec"
+    },
+    {
+      "role": "public outcome release assessed but not used",
+      "url": "https://data.cdc.gov/api/v3/views/g5fg-bgtw/export.csv?accessType=DOWNLOAD",
+      "retrieved": true,
+      "sha256": "53f17f576e01021b973e840e93f8590a212595ae848edcd210c64359471c7ee0"
+    },
+    {
+      "role": "exact-outcome endpoint attempt",
+      "url": "https://wonder.cdc.gov/controller/datarequest/D176",
+      "retrieved": false,
+      "sha256": null
+    }
+  ],
+  "substitutions": [
+    {
+      "dimension": "exposure",
+      "published": "Unspecified county annual PM2.5 source/assignment",
+      "reanalysis": "EPA AQS 2020 PM2.5 monitor-day arithmetic-mean county aggregation",
+      "reason": "Independent public source required; this monitor-only, single-year assignment is documented but not used to fit the target model."
+    }
+  ],
+  "coverage": {
+    "eligible_units": 3142,
+    "included_units": 0,
+    "eligible_times": 5,
+    "included_times": 0,
+    "notes": "EPA monitor exposure table has 625 county FIPS for 2020, but no units/times were included in an analysis panel because a compatible target outcome was not retrieved."
+  },
+  "effect": null,
+  "artifacts": {
+    "code": "/output/code/reanalysis.py",
+    "source_manifest": "/output/source_manifest.json",
+    "exposure": "/output/exposure_epa_aqs_2020.csv",
+    "analysis_panel": "/output/analysis_panel.csv",
+    "model_output": "/output/model_output.json",
+    "decision_log": "/output/decision_log.md",
+    "fidelity_record": "/output/fidelity_record.json",
+    "sanitization_audit": "/output/sanitization_audit.json",
+    "blocker_ledger": "/output/blocker_ledger.md"
+  },
+  "blockers": [
+    "No compatible public county outcome for ischemic and hemorrhagic stroke mortality among adults 65+ for 2016-2020 was retrieved. CDC WONDER D176 returned HTTP 500; the alternative accessible CDC Atlas release is all-stroke, age 35+, 2018-2020 three-year age-adjusted/smoothed data and was not substituted.",
+    "Consequently the target outcome cannot be joined to the published covariate set and independent exposure without materially changing the scientific question; no regression was run."
+  ]
+}

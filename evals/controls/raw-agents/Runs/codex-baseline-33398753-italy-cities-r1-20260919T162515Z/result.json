@@ -1,0 +1,159 @@
+{
+  "study_id": "PMID-33398753",
+  "status": "completed_fit",
+  "target": {
+    "outcome": "Cumulative confirmed COVID-19 cases (province-level public series; 17 March 2020 primary, with 7 and 27 April replications)",
+    "pollutant": "2018 days exceeding PM10 daily mean >50 ug/m3 or ozone maximum 8-hour rolling mean >120 ug/m3",
+    "geography": "Italian provinces, assigned exposure at each provincial-capital coordinate",
+    "period": "Exposure: 2018; outcomes: 17 March, 7 April, and 27 April 2020",
+    "effect_scale": "OLS elasticity: log cumulative cases regressed on log annual exceedance days and log population density"
+  },
+  "sources": [
+    {
+      "role": "health outcome (official provincial daily cases)",
+      "url": "https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-province/dpc-covid19-ita-province-20200317.csv",
+      "retrieved": true,
+      "sha256": "b79039334dc4f05e83b7e6e56fe4937e1cf442540e2f9c6d9f90bc46998c8058"
+    },
+    {
+      "role": "health outcome (official provincial daily cases)",
+      "url": "https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-province/dpc-covid19-ita-province-20200407.csv",
+      "retrieved": true,
+      "sha256": "e86bdeec573e43c771f918afa32b05a90e9837cc71d4a4752832429bebb3a69e"
+    },
+    {
+      "role": "health outcome (official provincial daily cases)",
+      "url": "https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-province/dpc-covid19-ita-province-20200427.csv",
+      "retrieved": true,
+      "sha256": "3e40334122b6991c1381ac07c9601f73e1a578dcd17601ae4511223085a7ca0b"
+    },
+    {
+      "role": "population-density covariate",
+      "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/demo_r_d3dens?time=2019",
+      "retrieved": true,
+      "sha256": "66862a58e51783aec254cea7350283c892e94f8645363cf81a5f86d13b6cadd0"
+    },
+    {
+      "role": "independent pollution exposure, CAMS via Open-Meteo",
+      "url": "https://air-quality-api.open-meteo.com/v1/air-quality",
+      "retrieved": true,
+      "sha256": "990db7657c39aaa2229bbaf5175c6bdde5f94fccfa031a61eed8b3b987741042"
+    },
+    {
+      "role": "independent pollution exposure, CAMS via Open-Meteo (additional coordinate batch)",
+      "url": "https://air-quality-api.open-meteo.com/v1/air-quality",
+      "retrieved": true,
+      "sha256": "220d0d8e51aa7dc90c793b6be6bb0fea66983398a80e6b5f2ee8747d259eee6b"
+    },
+    {
+      "role": "independent pollution exposure, CAMS via Open-Meteo (additional coordinate batch)",
+      "url": "https://air-quality-api.open-meteo.com/v1/air-quality",
+      "retrieved": true,
+      "sha256": "3d1d8fd89338eb13896bb32dcbbed39882b56b8ee22528e81ae1bcb159c9567a"
+    },
+    {
+      "role": "independent pollution exposure, CAMS via Open-Meteo (additional coordinate batch)",
+      "url": "https://air-quality-api.open-meteo.com/v1/air-quality",
+      "retrieved": true,
+      "sha256": "a4f472d6b1bd5cf47dc1c8e68862dcb11f2ea360ce7b678f3a011df882387228"
+    },
+    {
+      "role": "independent pollution exposure, CAMS via Open-Meteo (additional coordinate batch)",
+      "url": "https://air-quality-api.open-meteo.com/v1/air-quality",
+      "retrieved": true,
+      "sha256": "c2e298377b316c437f317e026858a71b95c343554a9065527eb34f8124a65709"
+    },
+    {
+      "role": "independent pollution exposure, CAMS via Open-Meteo (additional coordinate batch)",
+      "url": "https://air-quality-api.open-meteo.com/v1/air-quality",
+      "retrieved": true,
+      "sha256": "b19ea3ea161a8225aeaee1b94c176493a0a25a0364511183da3cdf3a6724f554"
+    },
+    {
+      "role": "independent pollution exposure, CAMS via Open-Meteo (additional coordinate batch)",
+      "url": "https://air-quality-api.open-meteo.com/v1/air-quality",
+      "retrieved": true,
+      "sha256": "fdee17a5eaef28fc936a5f4903d0e5a4fa3767931c1599ee526dd8d2e72b3eeb"
+    },
+    {
+      "role": "independent pollution exposure, CAMS via Open-Meteo (additional coordinate batch)",
+      "url": "https://air-quality-api.open-meteo.com/v1/air-quality",
+      "retrieved": true,
+      "sha256": "ccb5110d13dfe8cdcebabe73b85d48a26dba1de7ca0f4ceb4c7a190f5533ce26"
+    },
+    {
+      "role": "independent pollution exposure, CAMS via Open-Meteo (additional coordinate batch)",
+      "url": "https://air-quality-api.open-meteo.com/v1/air-quality",
+      "retrieved": true,
+      "sha256": "2aefe7a42404ed22d644809227d9ee9b839bb012c84c87d06936f97598c37fe4"
+    },
+    {
+      "role": "independent pollution exposure, CAMS via Open-Meteo (additional coordinate batch)",
+      "url": "https://air-quality-api.open-meteo.com/v1/air-quality",
+      "retrieved": true,
+      "sha256": "6dd554b3cda43cb3c141369f50b4fe6dac42cf37c42eea43028bf7e975c0b0b6"
+    },
+    {
+      "role": "independent pollution exposure, CAMS via Open-Meteo (additional coordinate batch)",
+      "url": "https://air-quality-api.open-meteo.com/v1/air-quality",
+      "retrieved": true,
+      "sha256": "2a466d22d25766a38db2d06603d2bd0ce31300b23de5dbaa91de5e65f21da795"
+    }
+  ],
+  "substitutions": [
+    {
+      "dimension": "geography",
+      "published": "55 randomly selected provincial-capital cities (identities not reported)",
+      "reanalysis": "All 107 official reporting provinces initially eligible; 100 entered the complete-case model",
+      "reason": "The article does not identify its random 55-city sample; public outcome data are provincial."
+    },
+    {
+      "dimension": "outcome",
+      "published": "Infected individuals attributed to cities",
+      "reanalysis": "Official cumulative confirmed cases reported by province",
+      "reason": "The publicly available national series is province-level; city-specific case totals were not supplied."
+    },
+    {
+      "dimension": "exposure",
+      "published": "Legambiente-derived regulatory-monitor total days exceeding PM10 or ozone limits in 2018",
+      "reanalysis": "CAMS reanalysis hourly PM10 and ozone at provincial-capital coordinates, aggregated using stated EU thresholds",
+      "reason": "Required independent public exposure source; avoids article-author values and makes assignment reproducible."
+    },
+    {
+      "dimension": "covariate",
+      "published": "2019 municipal population density",
+      "reanalysis": "2019 Eurostat NUTS3/provincial population density",
+      "reason": "Aligns the covariate\u2019s geographic unit to the official provincial outcome."
+    }
+  ],
+  "coverage": {
+    "eligible_units": 107,
+    "included_units": 100,
+    "eligible_times": 3,
+    "included_times": 3,
+    "notes": "Four provinces lacked a direct 2019 Eurostat NUTS3-density match; three further provinces had zero modeled exceedance days and cannot enter a log-exposure model. All included points had 365 complete modeled exposure days."
+  },
+  "effect": {
+    "estimate": 0.7103243434902615,
+    "ci_low": 0.5209219964158393,
+    "ci_high": 0.8997266905646838,
+    "scale": "OLS log-log coefficient adjusted for log 2019 population density",
+    "contrast": "1% higher 2018 CAMS-derived limit-exceedance days at the provincial-capital coordinate"
+  },
+  "artifacts": {
+    "code": "/output/code/reanalyze.py",
+    "source_manifest": "/output/source_manifest.json",
+    "exposure": "/output/exposure_table.csv",
+    "analysis_panel": "/output/analysis_panel.csv",
+    "model_output": "/output/model_output.txt",
+    "decision_log": "/output/decision_log.md",
+    "request_log": "/output/request_log.json",
+    "model_estimates": "/output/model_estimates.csv"
+  },
+  "blockers": [
+    "Exact reproduction of the published 55-city sample is impossible: the article says it was randomly selected but does not identify the cities.",
+    "The public national COVID-19 series reports cumulative cases by province, not city.",
+    "Four eligible provinces could not be directly matched to 2019 Eurostat NUTS3 density and were not imputed.",
+    "Three further provinces had zero CAMS-derived exceedance days; log(0) is undefined, so they were excluded rather than transformed."
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "study_id": "pmid-38788590",
+  "status": "completed_blocker",
+  "target": {
+    "outcome": "All-cancer mortality (ICD-10 C00–C97) from Brazil's SIM individual death records",
+    "pollutant": "Daily ambient PM2.5, 3-day moving average (lag 0–2)",
+    "geography": "Brazil, 5,570 municipalities (residential municipality)",
+    "period": "2000-01-01 to 2019-12-31",
+    "effect_scale": "Odds ratio per 10 µg/m3 increase in lag 0–2 PM2.5"
+  },
+  "sources": [
+    {"role": "SIM API probe", "url": "https://apidadosabertos.saude.gov.br/vigilancia-e-meio-ambiente/sistema-de-informacao-sobre-mortalidade?ano=2019&limit=20&offset=0", "retrieved": true, "sha256": "94fc8652f51aa9bf519222ba41237cc471baea2a0147ebc0f5047116c101db40"},
+    {"role": "SIM API specification", "url": "https://apidadosabertos.saude.gov.br/static/swagger.json", "retrieved": true, "sha256": "a3ff1a1c6737a60a75b02017536a8400771598d65556cacfd6d907db427fc65d"},
+    {"role": "historical SIM archive", "url": "https://ftp.datasus.gov.br/dissemin/publicos/SIM/CID10/DADOS/DO2000.dbc", "retrieved": false, "sha256": null}
+  ],
+  "substitutions": [],
+  "coverage": {
+    "eligible_units": 5570,
+    "included_units": 0,
+    "eligible_times": 7305,
+    "included_times": 0,
+    "notes": "No historical individual SIM records for 2000–2019 were retrieved. The official API query returned 2025 records despite ano=2019, and the historical archive timed out."
+  },
+  "artifacts": {
+    "code": "/output/code/analysis.py",
+    "source_manifest": "/output/source_manifest.json",
+    "exposure": "/output/exposure_table.csv",
+    "analysis_panel": "/output/analysis_panel.csv",
+    "model_output": "/output/model_output.md",
+    "decision_log": "/output/decision_log.md",
+    "retry_log": "/output/logs/sim_archive_attempts.jsonl",
+    "input_validation": "/output/raw/sim_api_validation.json"
+  },
+  "blockers": [
+    "Required public 2000–2019 individual-level Brazilian SIM mortality records were not retrieved. The current official API returned 2025 data despite a 2019 query and exposes no historical-period parameter; the official historical archive request timed out with zero bytes.",
+    "Without death dates and residential municipality for the target period, valid time-stratified case-crossover strata and municipality-specific exposure assignment cannot be constructed."
+  ]
+}

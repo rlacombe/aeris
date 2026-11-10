@@ -1,0 +1,42 @@
+{
+  "study_id": "PMID-33227571",
+  "status": "completed_blocker",
+  "target": {
+    "outcome": "Daily acute myocardial infarction admissions in the Brazilian public health system (secondary outcome: in-hospital mortality)",
+    "pollutant": "Daily NO2, PM2.5, and PM10 as components of a joint weather-and-pollution hierarchical cluster exposure",
+    "geography": "39 municipalities in metropolitan São Paulo, Brazil",
+    "period": "2012-01-01 through 2015-12-31 (article reports 1,092 clustered days)",
+    "effect_scale": "Published comparison was a 9% increase in daily admissions for the high-pollution cluster; no independently fitted effect scale is available"
+  },
+  "sources": [
+    {"role": "citation and study specification", "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=33227571&retmode=xml", "retrieved": true, "sha256": "9d9e00109ca8d7f56baaeed6117e210d0be3b0d6093fe985d7da8825be4b50f6"},
+    {"role": "publisher landing record", "url": "https://doi.org/10.1016/j.hrtlng.2020.04.018", "retrieved": true, "sha256": "1a905237757ad4c13e99784466e5fcbcf7a033fb348aac8d5d8c0be85f323384"},
+    {"role": "DataSUS portal availability check", "url": "https://datasus.saude.gov.br/transferencia-de-arquivos/", "retrieved": true, "sha256": "4a591e15aa3043dfd16db4292185fd9742159da4b20ddb8f2c8d74705118b1d9"},
+    {"role": "independent exposure (not retrieved)", "url": "CETESB public monitoring data", "retrieved": false, "sha256": null}
+  ],
+  "substitutions": [],
+  "coverage": {
+    "eligible_units": 39,
+    "included_units": 0,
+    "eligible_times": 1092,
+    "included_times": 0,
+    "notes": "No public inputs were acquired after the mandatory preflight disk guard failed. Eligible counts are article-reported target scope, not observed panel coverage."
+  },
+  "effect": null,
+  "artifacts": {
+    "code": "/output/code/reanalysis.py",
+    "source_manifest": "/output/source_manifest.json",
+    "exposure": null,
+    "analysis_panel": null,
+    "model_output": "/output/model_output.txt",
+    "decision_log": "/output/decision_log.md",
+    "blocker_ledger": "/output/blocker_ledger.md",
+    "fidelity_record": "/output/fidelity_record.json",
+    "run_summary": "/output/run_summary.json",
+    "preflight_evidence": "/output/preflight_disk_check.json"
+  },
+  "blockers": [
+    "Policy termination at preflight: 15.69 GiB free at /output, below the mandatory 20 GiB minimum before a study.",
+    "Exact principal model and contrasts are not recoverable from the supplied abstract and lawful publisher landing response."
+  ]
+}

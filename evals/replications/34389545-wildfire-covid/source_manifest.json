@@ -1,0 +1,39 @@
+{
+  "study": {
+    "pmid": "34389545",
+    "doi": "10.1126/sciadv.abi8789",
+    "authors": "Zhou et al.",
+    "source_package_commit": "588cd8e0b4d2296a0c599f394a458cb2f7d7b281",
+    "period": ["2020-03-15", "2020-12-16"]
+  },
+  "source_policy": "The author package supplied county identifiers, county geometry, population, and COVID-19 outcomes only. This reconstruction did not download, read, or use author PM2.5, wildfire, smoke, weather, mobility, or merged-analysis fields.",
+  "aeris_exposure": {
+    "provider": "OpenAQ API",
+    "pollutant": "PM2.5",
+    "catalogue_scope": "California, Oregon, and Washington",
+    "assignment": "nearest historical PM2.5 monitor to county bounding-box centroid within 100 km",
+    "aggregation": "daily monitor value; planned 28-day mean over lags 0-28",
+    "candidate_counties": 133,
+    "counties_with_monitor_within_100_km": 132,
+    "distinct_catalogue_monitors": 116,
+    "first_panel_monitors": 24,
+    "first_panel_counties": 26,
+    "coverage_eligible_counties": 17,
+    "observed_county_days": 4576,
+    "study_days": 277,
+    "selection": "The first panel retained monitors assigned to the highest-population counties before exposure retrieval. It did not use author PM2.5 values or wildfire fields."
+  },
+  "model_status": {
+    "status": "not_fit",
+    "reason": "The first Poisson fixed-effects model had a singular design matrix because the time-spline design duplicated the intercept. No substitute model was run.",
+    "planned_model": "Poisson county-day model with log(population) offset, county fixed effects, six-degree calendar-time spline, and 28-day mean PM2.5."
+  },
+  "outputs": {
+    "catalogue": "outputs/openaq_western_us_pm25_catalog.csv",
+    "all_assignments": "outputs/county_monitor_assignment.csv",
+    "selected_assignments": "outputs/selected_county_monitor_assignment.csv",
+    "retrieval_audit": "outputs/monitor_retrieval_audit.csv",
+    "coverage": "outputs/county_coverage.csv",
+    "panel": "outputs/county_day_panel.csv"
+  }
+}

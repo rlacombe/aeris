@@ -1,0 +1,41 @@
+{
+  "study_id": "pmid:33227571",
+  "retrieved_at_utc": "2026-09-22",
+  "sources": [
+    {
+      "role": "article citation and abstract",
+      "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=33227571&retmode=xml",
+      "retrieved": true,
+      "sha256": "9d9e00109ca8d7f56baaeed6117e210d0be3b0d6093fe985d7da8825be4b50f6",
+      "local_artifact": "/study/article.xml"
+    },
+    {
+      "role": "official DataSUS SIH-SUS daily-admission microdata, attempted",
+      "url": "https://ftp.datasus.gov.br/dissemin/publicos/SIHSUS/200801_/Dados/RDSP1201.dbc",
+      "retrieved": false,
+      "sha256": null,
+      "evidence": "/output/raw/datasus_headers.txt"
+    },
+    {
+      "role": "official DataSUS transfer portal and SIHSUS file catalogue",
+      "url": "https://datasus.saude.gov.br/transferencia-de-arquivos/",
+      "retrieved": true,
+      "sha256": "4a591e15aa3043dfd16db4292185fd9742159da4b20ddb8f2c8d74705118b1d9",
+      "local_artifact": "/output/raw/attempt_6d4ad58e03.body"
+    },
+    {
+      "role": "independent historical pollution and meteorology, Open-Meteo/CAMS endpoint",
+      "url": "https://air-quality-api.open-meteo.com/v1/air-quality",
+      "retrieved": true,
+      "sha256": null,
+      "local_artifacts": [
+        "/output/raw/openmeteo_2012.json",
+        "/output/raw/openmeteo_2013.json",
+        "/output/raw/openmeteo_2014.json",
+        "/output/raw/openmeteo_2015.json"
+      ],
+      "usability": "2012 rejected by endpoint; 2013-2015 variables all null"
+    }
+  ],
+  "request_log": "/output/request_log.json"
+}

@@ -1,0 +1,187 @@
+{
+  "created_at_utc": "2026-08-15T16:19:48.851995+00:00",
+  "pmid": "36383802",
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 1694,
+      "sha256": "3142478a994cbe886478f9ba7c2426d0e4b2a1fa6a53dae679ad82de0ae50ab3"
+    },
+    {
+      "path": "REPLICATION.md",
+      "bytes": 1023,
+      "sha256": "c10fdec69e4a65369d1c28fd48a63d95e79491f293cf899c74526309aa76b30a"
+    },
+    {
+      "path": "RESULT.md",
+      "bytes": 1482,
+      "sha256": "fc133239e85a4055b9df36426dee9cc90a2b1aaa683b6c231ff0e8fc75d436f9"
+    },
+    {
+      "path": "availability_heatmap_no2.png",
+      "bytes": 178388,
+      "sha256": "331a7d94c3d0671cbb6dd29324ced819ee94ce4232a198e76cabab0b9509f89c"
+    },
+    {
+      "path": "availability_heatmap_o3.png",
+      "bytes": 173772,
+      "sha256": "f1732699cc216c73e9253131c9aba8008179ceab89d323633ffef4db300250b3"
+    },
+    {
+      "path": "availability_heatmap_pm10.png",
+      "bytes": 176630,
+      "sha256": "28f8b698d4ceb380edb538d953d68dabac0fdb72cd2e5d067d807583540307df"
+    },
+    {
+      "path": "daily_mean_heatmap_no2.png",
+      "bytes": 179544,
+      "sha256": "23e0f9382b1d96dc6087ad8689ca27e295319b9f60da477238533cf141f684db"
+    },
+    {
+      "path": "daily_mean_heatmap_o3.png",
+      "bytes": 181872,
+      "sha256": "f2f296e6094e47779c55a8ad57f15399a39d0a5dc12c7c97f27259e1c3fa300e"
+    },
+    {
+      "path": "daily_mean_heatmap_pm10.png",
+      "bytes": 180742,
+      "sha256": "d485f43192ad444841a9c1e387a17ac459fb349ebcc48c821cc523e217840195"
+    },
+    {
+      "path": "data/derived/.aeris_openaq_cache.sqlite",
+      "bytes": 204800,
+      "sha256": "6febb68b721370762e7912c8710d9631486cc3bf09c41635ecbd00a75e94eb39"
+    },
+    {
+      "path": "data/derived/aeris_cohort.csv",
+      "bytes": 122,
+      "sha256": "c54feb4c51b7d762e37b6ecfb6e1087b0b34ed36c8747670b51cbaa1d79a0227"
+    },
+    {
+      "path": "data/derived/aeris_no2_daily.csv",
+      "bytes": 5301,
+      "sha256": "0d8c5616a9f7b3a6a8dcaca811ed970a0b0e6b449a8069f2a73bcfde475855d7"
+    },
+    {
+      "path": "data/derived/aeris_o3_daily.csv",
+      "bytes": 5037,
+      "sha256": "cc36670d4596f4787190919912eb3dbae9e9c59c4a75d622e17c4a5fe3f1a523"
+    },
+    {
+      "path": "data/derived/aeris_pm10_daily.csv",
+      "bytes": 5660,
+      "sha256": "1588f993460f318ca04badff701a27eeb5e05a38483e68efde4822af5190dca2"
+    },
+    {
+      "path": "data/derived/aeris_tool_trace.json",
+      "bytes": 74350,
+      "sha256": "84f59d3417243d6adc995a7b7ee2c8ddf61dd85e7265934fdde46fe58d74cfdd"
+    },
+    {
+      "path": "data/derived/analysis_panel_sivep_fallback.csv",
+      "bytes": 34207,
+      "sha256": "da1b896546cdb6ac0f442380808b4d76a3eadaf4382a72f02601e018015cdeeb"
+    },
+    {
+      "path": "data/derived/panel_manifest.json",
+      "bytes": 769,
+      "sha256": "de1ae207d8a887d0f9e002bce560abcc1fab98ddb4d3f95ce36213a1052aef2e"
+    },
+    {
+      "path": "data/derived/sivep_daily_covid_admissions.csv",
+      "bytes": 6308,
+      "sha256": "a082ab3b1f22273a399fe804431d0eaabeb0e3309a25b849519b7ddc17eba91a"
+    },
+    {
+      "path": "data/derived/sivep_fallback_manifest.json",
+      "bytes": 950,
+      "sha256": "83e7f863b935d75691e6875eb8da19054c8915fc0a852c1342c736df0b1a7536"
+    },
+    {
+      "path": "data/derived/weather_daily_open_meteo.csv",
+      "bytes": 7546,
+      "sha256": "ca3e0f8826781a98a3a9ae85190f9cf7c7cc12a2ba4ca14b16a584826fe488fe"
+    },
+    {
+      "path": "data/derived/weather_download_manifest.json",
+      "bytes": 453,
+      "sha256": "9f021d490a4cc4810b8191adaf0932df749ba2f772a282ca4f984a16bfc16340"
+    },
+    {
+      "path": "data/raw/sivep_hospital_2022.rds",
+      "bytes": 54792774,
+      "sha256": "1bdcb04998180ecc6bc3ed9f2ff196e36a42016ad8052634598f2caed91353db"
+    },
+    {
+      "path": "distance_plot_no2.png",
+      "bytes": 109037,
+      "sha256": "083ed3c9113dbc7a5e80d54304b58be36de16c1441a687ed8182800246bdffbc"
+    },
+    {
+      "path": "distance_plot_o3.png",
+      "bytes": 108994,
+      "sha256": "3cd67adff45978a9558a20f85a989baf99aab17972bc4245c185e8610c1c2b7b"
+    },
+    {
+      "path": "distance_plot_pm10.png",
+      "bytes": 108084,
+      "sha256": "f1807ea20c6dc35f2e0fa5fa94d592bbe2683c67411c74b1cc67c008e648143e"
+    },
+    {
+      "path": "outputs/effect_results_sivep_fallback.json",
+      "bytes": 1886,
+      "sha256": "e2a724ed2c7a62e7afeee3f4d760d0cf31b08c08ce6acaff679098bc8acbd8cd"
+    },
+    {
+      "path": "requirements.txt",
+      "bytes": 58,
+      "sha256": "91192d9ba60e49cdcdd0e8f77dfe485672642747b4992dca75bf51fbd185a63b"
+    },
+    {
+      "path": "scripts/build_panel.py",
+      "bytes": 2737,
+      "sha256": "1436d10bd4f3fb9d46c97d695e55b6ba089aa4cf4ee1029889de7f091f86cedd"
+    },
+    {
+      "path": "scripts/fetch_sih.py",
+      "bytes": 2825,
+      "sha256": "05c8da9cff1cc2773b3779bde8a18aa11f081d0c6342e44196ad486a78ed0223"
+    },
+    {
+      "path": "scripts/fetch_weather.py",
+      "bytes": 1717,
+      "sha256": "20a7d6390771002c02e8658387062def5626ee4dca7723997c678425754fbf38"
+    },
+    {
+      "path": "scripts/fit_reproduction.py",
+      "bytes": 3821,
+      "sha256": "7267bd76c177f685298a41e80301338a3cc2e94a58b7ed59d262402a712a6f50"
+    },
+    {
+      "path": "scripts/ingest_sih.py",
+      "bytes": 4093,
+      "sha256": "9a7db0af6ecb0863f1e7c552b34ef715cb0f54997998ad3f0a1f2163715e43a9"
+    },
+    {
+      "path": "scripts/ingest_sivep_fallback.py",
+      "bytes": 2866,
+      "sha256": "d61e32ae8f179743f386a80080f558b859017960c46d98b84bd34f22fa1a5518"
+    },
+    {
+      "path": "scripts/run_aeris_tools.py",
+      "bytes": 2586,
+      "sha256": "f5bb0079859238c02cf251e470129ee73094ccfd3b5cdfcab4d7a9f72bfbd6bf"
+    },
+    {
+      "path": "scripts/write_run_manifest.py",
+      "bytes": 1337,
+      "sha256": "7313b6d12d2396775afb43b9d327077da0d6f655f1bb658e1b8d01e8717fc996"
+    },
+    {
+      "path": "source_manifest.json",
+      "bytes": 1195,
+      "sha256": "082b19a2dc96b05b18441b9f76ed7b8a15295d36bfe09ee8ac854135d4cc060d"
+    }
+  ],
+  "result": "Bounded reconstruction with public SIVEP-Gripe outcome fallback; SIH/SUS transfer remains unresolved."
+}

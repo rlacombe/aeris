@@ -1,0 +1,39 @@
+{
+  "study_id": "PMID:36383802",
+  "status": "completed_blocker",
+  "target": {
+    "outcome": "Daily SUS hospital admissions among São José dos Campos residents with principal ICD-10 B34.2, by admission date",
+    "pollutant": "Ozone, nitrogen dioxide, and PM10; lags 0-7 days",
+    "geography": "São José dos Campos, São Paulo, Brazil (IBGE 354990)",
+    "period": "2020-04-01 through 2021-04-30",
+    "effect_scale": "RR per 10 ug/m3, exp(beta*10), from negative-binomial regression"
+  },
+  "sources": [
+    {"role":"health_outcome_microdata","url":"https://huggingface.co/datasets/SidneyBissoli/sih-rd/raw/main/README.md","retrieved":true,"sha256":null},
+    {"role":"independent_air_pollution_exposure","url":"https://air-quality-api.open-meteo.com/v1/air-quality?latitude=-23.1826&longitude=-45.8872&hourly=ozone,nitrogen_dioxide,pm10,temperature_2m,relative_humidity_2m&timezone=America%2FSao_Paulo&start_date=2020-03-25&end_date=2021-04-30","retrieved":true,"sha256":"9566e3312e72b8bc8a7f31f4cd93fd5793ccf64a37ac0bceed94223cabbc0894"},
+    {"role":"weather_covariates","url":"https://archive-api.open-meteo.com/v1/archive?latitude=-23.1826&longitude=-45.8872&hourly=temperature_2m,relative_humidity_2m&timezone=America%2FSao_Paulo&start_date=2020-03-25&end_date=2021-04-30","retrieved":true,"sha256":"0c5c97682cefad68281e9405ac7d9fc6696e1da4c47199c25d9d9ca1331abf9a"}
+  ],
+  "substitutions": [
+    {"dimension":"other","published":"Direct DATASUS SIH-SUS source","reanalysis":"Public SIH-RD re-release of official DATASUS microdata","reason":"The direct FTP request timed out; the fallback preserves the same record-level outcome fields and definition."}
+  ],
+  "coverage": {
+    "eligible_units":1,
+    "included_units":1,
+    "eligible_times":395,
+    "included_times":0,
+    "notes":"The health panel covers all 395 study days and reproduces 1,873 records. All pollutant values are missing in the independent historical response, so zero days support an exposure model."
+  },
+  "effect": null,
+  "artifacts": {
+    "code":"/output/code/reanalyze.py",
+    "source_manifest":"/output/source_manifest.json",
+    "exposure":"/output/exposure_daily.csv",
+    "analysis_panel":"/output/analysis_panel.csv",
+    "model_output":"/output/model_output.csv",
+    "decision_log":"/output/decision_log.md",
+    "fidelity_record":"/output/fidelity_record.json"
+  },
+  "blockers": [
+    "Independent historical O3, NO2, and PM10 response contains no usable values for 2020-03-25 through 2021-04-30; the locked lagged exposure model cannot be fitted."
+  ]
+}

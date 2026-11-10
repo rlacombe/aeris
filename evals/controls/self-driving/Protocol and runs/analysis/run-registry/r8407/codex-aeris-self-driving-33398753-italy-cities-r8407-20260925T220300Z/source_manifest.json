@@ -1,0 +1,26 @@
+[
+  {
+    "path": "/output/raw/dpc_province.csv",
+    "role": "outcome",
+    "url": "https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-province/dpc-covid19-ita-province.csv",
+    "sha256": "d9f39377b0c3b0e8f4ac68b8e57cd9c1e953a4b922574b9438dc62094fb6446f"
+  },
+  {
+    "path": "/output/aeris-workspace/.aeris/artifacts/exposure_pm10-daily-observations_2026-09-25T220544.5818550000.csv",
+    "role": "exposure",
+    "url": "AERIS/OpenAQ artifact",
+    "sha256": "19effd9481f72233a1daec7bf068b0d88203659f0d337eb8bab35e8ae38cd9dd"
+  },
+  {
+    "path": "/output/aeris-workspace/.aeris/artifacts/exposure_pm10-daily-observations_2026-09-25T220644.0163530000.csv",
+    "role": "exposure",
+    "url": "AERIS/OpenAQ artifact",
+    "sha256": "18b449d495d2025b0cd00b6d3d5c8625baacc97550f6cfa6ab6a84391d0eeb26"
+  },
+  {
+    "path": "/output/aeris-workspace/.aeris/artifacts/exposure_pm10-daily-observations_2026-09-25T220706.8111180000.csv",
+    "role": "exposure",
+    "url": "AERIS/OpenAQ artifact",
+    "sha256": "6b495ef3aa11375439bb481c0a6edae13778e9516275acad3e83d099200b82d8"
+  }
+]

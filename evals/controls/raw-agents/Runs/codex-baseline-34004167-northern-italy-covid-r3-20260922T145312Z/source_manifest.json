@@ -1,0 +1,54 @@
+[
+  {
+    "role": "study article supplied for protocol extraction",
+    "url": "file:///study/article.pdf",
+    "retrieved": true,
+    "sha256": null,
+    "local_path": "/study/article.pdf",
+    "notes": "Supplied study material; used only to extract the published contract."
+  },
+  {
+    "role": "COVID-19 outcomes",
+    "url": "https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-regioni/dpc-covid19-ita-regioni.csv",
+    "retrieved": true,
+    "sha256": "3438a0a85bdb0bca56a48a2edd0c69f3005d6c1c20c4a2a75bed668a8f01ead7",
+    "local_path": "/output/raw/dpc-covid19-ita-regioni.csv",
+    "request_log": "/output/logs/github_covid_headers.txt",
+    "attempts": 1,
+    "bytes": 8522505,
+    "notes": "Italian Civil Protection GitHub release; regional daily series begins 2020-02-24."
+  },
+  {
+    "role": "independent Lombardy exposure candidate",
+    "url": "https://www.arpalombardia.it/media/lo4mdame/013_aria_qa_dati_2020.xls",
+    "retrieved": true,
+    "sha256": "b2776a8572dda17e5d44564600c272da0b20cca78ddd48b911b03e251ae3d919",
+    "local_path": "/output/raw/arpa_lombardia_2020.xls",
+    "request_log": "/output/logs/arpa_lombardia_headers.txt",
+    "attempts": 1,
+    "bytes": 304640,
+    "notes": "Official regional annual 2020 summary. It contains annual station indicators, not required daily 2013-2020 exposures."
+  },
+  {
+    "role": "independent Veneto exposure candidate / endpoint evidence",
+    "url": "https://www.arpa.veneto.it/dati-ambientali/dati-storici/aria/dati-parametro",
+    "retrieved": true,
+    "sha256": "be9423e013de6fd6f2366c48aea63ac06835d3af8a3edd087cb8de2515b8b054",
+    "local_path": "/output/raw/arpa_veneto_data_page.html",
+    "request_log": "/output/logs/arpa_veneto_headers.txt",
+    "attempts": 1,
+    "bytes": 243097,
+    "notes": "Page states requested CSV data are sent by email. No request was submitted because the task prohibits human assistance and no study-owned email credential was supplied."
+  },
+  {
+    "role": "independent multi-region exposure candidate / terminal failure",
+    "url": "https://api.openaq.org/v3/locations?limit=1",
+    "retrieved": false,
+    "sha256": null,
+    "request_log": "/output/logs/openaq_headers.txt",
+    "attempts": 1,
+    "http_status": 401,
+    "bytes": 0,
+    "notes": "Other HTTP 4xx: inspected and not retried, following retry policy."
+  }
+]

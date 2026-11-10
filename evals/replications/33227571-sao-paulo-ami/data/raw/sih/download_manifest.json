@@ -1,0 +1,391 @@
+{
+  "retrieved_at_utc": "2026-08-15T16:23:05.962068+00:00",
+  "official_source_template": "https://ftp.datasus.gov.br/dissemin/publicos/SIHSUS/200801_/Dados/RDSP{yy}{mm}.dbc",
+  "mirror_source_template": "https://datasus-ftp-mirror.nyc3.digitaloceanspaces.com/SIHSUS/200801_/Dados/RDSP{yy}{mm}.dbc",
+  "files": [
+    {
+      "file": "RDSP1201.dbc",
+      "official_url": "https://ftp.datasus.gov.br/dissemin/publicos/SIHSUS/200801_/Dados/RDSP1201.dbc",
+      "mirror_url": "https://datasus-ftp-mirror.nyc3.digitaloceanspaces.com/SIHSUS/200801_/Dados/RDSP1201.dbc",
+      "source": "mirror",
+      "bytes": 13891006,
+      "sha256": "3edf83e541c3287df66110c3222092d6f1c98b317a6f09804555d80f7244bf07"
+    },
+    {
+      "file": "RDSP1202.dbc",
+      "official_url": "https://ftp.datasus.gov.br/dissemin/publicos/SIHSUS/200801_/Dados/RDSP1202.dbc",
+      "mirror_url": "https://datasus-ftp-mirror.nyc3.digitaloceanspaces.com/SIHSUS/200801_/Dados/RDSP1202.dbc",
+      "source": "mirror",
+      "bytes": 14230401,
+      "sha256": "4c65b4f25102bc1d36046118ec569870d8aa1921e50bcfee4eed57cbcaf6bc45"
+    },
+    {
+      "file": "RDSP1203.dbc",
+      "official_url": "https://ftp.datasus.gov.br/dissemin/publicos/SIHSUS/200801_/Dados/RDSP1203.dbc",
+      "mirror_url": "https://datasus-ftp-mirror.nyc3.digitaloceanspaces.com/SIHSUS/200801_/Dados/RDSP1203.dbc",
+      "source": "mirror",
+      "bytes": 15531488,
+      "sha256": "8c33e922ac52f1aad4a8310a153258755b7cdeb45f9afa7e5bad3d76a3cbb9ea"
+    },
+    {
+      "file": "RDSP1204.dbc",
+      "official_url": "https://ftp.datasus.gov.br/dissemin/publicos/SIHSUS/200801_/Dados/RDSP1204.dbc",
+      "mirror_url": "https://datasus-ftp-mirror.nyc3.digitaloceanspaces.com/SIHSUS/200801_/Dados/RDSP1204.dbc",
+      "source": "mirror",
+      "bytes": 15067802,
+      "sha256": "a813195c736edffb5cb6efc0f1e7a0a255baec85f2f13337b97f655ccde2a874"
+    },
+    {
+      "file": "RDSP1205.dbc",
+      "official_url": "https://ftp.datasus.gov.br/dissemin/publicos/SIHSUS/200801_/Dados/RDSP1205.dbc",
+      "mirror_url": "https://datasus-ftp-mirror.nyc3.digitaloceanspaces.com/SIHSUS/200801_/Dados/RDSP1205.dbc",
+      "source": "mirror",
+      "bytes": 15591105,
+      "sha256": "4ce0776906590905ea1409060135e873d76a0f90186faf56594eb58c9d9bd211"
+    },
+    {
+      "file": "RDSP1206.dbc",
+      "official_url": "https://ftp.datasus.gov.br/dissemin/publicos/SIHSUS/200801_/Dados/RDSP1206.dbc",
+      "mirror_url": "https://datasus-ftp-mirror.nyc3.digitaloceanspaces.com/SIHSUS/200801_/Dados/RDSP1206.dbc",
+      "source": "mirror",
+      "bytes": 14630042,
+      "sha256": "c32c49e67d35c5d3153ed90c4c8dc5ea1a150765b7d22efc9150ce5385904cb9"
+    },
+    {
+      "file": "RDSP1207.dbc",
+      "official_url": "https://ftp.datasus.gov.br/dissemin/publicos/SIHSUS/200801_/Dados/RDSP1207.dbc",
+      "mirror_url": "https://datasus-ftp-mirror.nyc3.digitaloceanspaces.com/SIHSUS/200801_/Dados/RDSP1207.dbc",
+      "source": "mirror",
+      "bytes": 15201987,
+      "sha256": "0aab08a452d48d4b5236eaff489452d3fe964c8a785be787ec2c4432d7f2064f"
+    },
+    {
+      "file": "RDSP1208.dbc",
+      "official_url": "https://ftp.datasus.gov.br/dissemin/publicos/SIHSUS/200801_/Dados/RDSP1208.dbc",
+      "mirror_url": "https://datasus-ftp-mirror.nyc3.digitaloceanspaces.com/SIHSUS/200801_/Dados/RDSP1208.dbc",
+      "source": "mirror",
+      "bytes": 15566711,
+      "sha256": "91e2ec9e8bbcdbf2921560bfa09356650e12203930f039f134af299698c552b6"
+    },
+    {
+      "file": "RDSP1209.dbc",
+      "official_url": "https://ftp.datasus.gov.br/dissemin/publicos/SIHSUS/200801_/Dados/RDSP1209.dbc",
+      "mirror_url": "https://datasus-ftp-mirror.nyc3.digitaloceanspaces.com/SIHSUS/200801_/Dados/RDSP1209.dbc",
+      "source": "mirror",
+      "bytes": 14906294,
+      "sha256": "0e8f990550af24becb034495400b4fefb18e972626e7a31345eb097cc4b59fc8"
+    },
+    {
+      "file": "RDSP1210.dbc",
+      "official_url": "https://ftp.datasus.gov.br/dissemin/publicos/SIHSUS/200801_/Dados/RDSP1210.dbc",
+      "mirror_url": "https://datasus-ftp-mirror.nyc3.digitaloceanspaces.com/SIHSUS/200801_/Dados/RDSP1210.dbc",
+      "source": "mirror",
+      "bytes": 15086228,
+      "sha256": "9567436b83a50659421d0323a0f6a6ded7428b8c257d5f095eaae4cb3c776130"
+    },
+    {
+      "file": "RDSP1211.dbc",
+      "official_url": "https://ftp.datasus.gov.br/dissemin/publicos/SIHSUS/200801_/Dados/RDSP1211.dbc",
+      "mirror_url": "https://datasus-ftp-mirror.nyc3.digitaloceanspaces.com/SIHSUS/200801_/Dados/RDSP1211.dbc",
+      "source": "mirror",
+      "bytes": 14439617,
+      "sha256": "d5dcce33c9e54a83c12d751110ae49bccead77f9492bb47cdfd005512c70de6a"
+    },
+    {
+      "file": "RDSP1212.dbc",
+      "official_url": "https://ftp.datasus.gov.br/dissemin/publicos/SIHSUS/200801_/Dados/RDSP1212.dbc",
+      "mirror_url": "https://datasus-ftp-mirror.nyc3.digitaloceanspaces.com/SIHSUS/200801_/Dados/RDSP1212.dbc",
+      "source": "mirror",
+      "bytes": 13661718,
+      "sha256": "b316a948461535478d73dad00c20cb16ed9656aedeeeb9015b0f733f4299b824"
+    },
+    {
+      "file": "RDSP1301.dbc",
+      "official_url": "https://ftp.datasus.gov.br/dissemin/publicos/SIHSUS/200801_/Dados/RDSP1301.dbc",
+      "mirror_url": "https://datasus-ftp-mirror.nyc3.digitaloceanspaces.com/SIHSUS/200801_/Dados/RDSP1301.dbc",
+      "source": "mirror",
+      "bytes": 14507052,
+      "sha256": "5464dd8ddd1a78fd735163b472da7f339b1789692e11ab13345d8e5b95d00ada"
+    },
+    {
+      "file": "RDSP1302.dbc",
+      "official_url": "https://ftp.datasus.gov.br/dissemin/publicos/SIHSUS/200801_/Dados/RDSP1302.dbc",
+      "mirror_url": "https://datasus-ftp-mirror.nyc3.digitaloceanspaces.com/SIHSUS/200801_/Dados/RDSP1302.dbc",
+      "source": "mirror",
+      "bytes": 13811597,
+      "sha256": "a4c2be10e4e9cd7fa0ab8b5f41cb71df9bd47adbb9569a608e3f8242b63fc338"
+    },
+    {
+      "file": "RDSP1303.dbc",
+      "official_url": "https://ftp.datasus.gov.br/dissemin/publicos/SIHSUS/200801_/Dados/RDSP1303.dbc",
+      "mirror_url": "https://datasus-ftp-mirror.nyc3.digitaloceanspaces.com/SIHSUS/200801_/Dados/RDSP1303.dbc",
+      "source": "mirror",
+      "bytes": 14572347,
+      "sha256": "7c0b2392e5063f26297ef1187c1a9042c3311b924736483109a67aabe40529ba"
+    },
+    {
+      "file": "RDSP1304.dbc",
+      "official_url": "https://ftp.datasus.gov.br/dissemin/publicos/SIHSUS/200801_/Dados/RDSP1304.dbc",
+      "mirror_url": "https://datasus-ftp-mirror.nyc3.digitaloceanspaces.com/SIHSUS/200801_/Dados/RDSP1304.dbc",
+      "source": "mirror",
+      "bytes": 15432780,
+      "sha256": "738e78bf7ea1dd28f40bc16d06dfb76ac2935c8c8b4828d4d38169484ffdc4fd"
+    },
+    {
+      "file": "RDSP1305.dbc",
+      "official_url": "https://ftp.datasus.gov.br/dissemin/publicos/SIHSUS/200801_/Dados/RDSP1305.dbc",
+      "mirror_url": "https://datasus-ftp-mirror.nyc3.digitaloceanspaces.com/SIHSUS/200801_/Dados/RDSP1305.dbc",
+      "source": "mirror",
+      "bytes": 15405395,
+      "sha256": "4123e83cab2f109ae24256f8f4b7454bc268367f097378c7c610f4a60cf0a6ad"
+    },
+    {
+      "file": "RDSP1306.dbc",
+      "official_url": "https://ftp.datasus.gov.br/dissemin/publicos/SIHSUS/200801_/Dados/RDSP1306.dbc",
+      "mirror_url": "https://datasus-ftp-mirror.nyc3.digitaloceanspaces.com/SIHSUS/200801_/Dados/RDSP1306.dbc",
+      "source": "mirror",
+      "bytes": 14980401,
+      "sha256": "477d7312f17c308ddd7577d140cf5ac6de5fdd2938cf3c738366eef9c37541b0"
+    },
+    {
+      "file": "RDSP1307.dbc",
+      "official_url": "https://ftp.datasus.gov.br/dissemin/publicos/SIHSUS/200801_/Dados/RDSP1307.dbc",
+      "mirror_url": "https://datasus-ftp-mirror.nyc3.digitaloceanspaces.com/SIHSUS/200801_/Dados/RDSP1307.dbc",
+      "source": "mirror",
+      "bytes": 15135618,
+      "sha256": "ffd06e4c02750ec111a43f110a4e35c210b7cae7684f4e8185ac2ec91cbafba6"
+    },
+    {
+      "file": "RDSP1308.dbc",
+      "official_url": "https://ftp.datasus.gov.br/dissemin/publicos/SIHSUS/200801_/Dados/RDSP1308.dbc",
+      "mirror_url": "https://datasus-ftp-mirror.nyc3.digitaloceanspaces.com/SIHSUS/200801_/Dados/RDSP1308.dbc",
+      "source": "mirror",
+      "bytes": 15697528,
+      "sha256": "fb9b9ee8416f7c482caa5088f65cc793f7a8b5d45187df8b00b0505741caabb1"
+    },
+    {
+      "file": "RDSP1309.dbc",
+      "official_url": "https://ftp.datasus.gov.br/dissemin/publicos/SIHSUS/200801_/Dados/RDSP1309.dbc",
+      "mirror_url": "https://datasus-ftp-mirror.nyc3.digitaloceanspaces.com/SIHSUS/200801_/Dados/RDSP1309.dbc",
+      "source": "mirror",
+      "bytes": 15185465,
+      "sha256": "f82dd5648a5cbe2eebf4a4e7dc39e1ed197fa7b5e93c07172827d40465859a6f"
+    },
+    {
+      "file": "RDSP1310.dbc",
+      "official_url": "https://ftp.datasus.gov.br/dissemin/publicos/SIHSUS/200801_/Dados/RDSP1310.dbc",
+      "mirror_url": "https://datasus-ftp-mirror.nyc3.digitaloceanspaces.com/SIHSUS/200801_/Dados/RDSP1310.dbc",
+      "source": "mirror",
+      "bytes": 15718682,
+      "sha256": "ecbfff4553aa904d76d786275dc2b3b71dc34a068cee3de8b5432e197c99d763"
+    },
+    {
+      "file": "RDSP1311.dbc",
+      "official_url": "https://ftp.datasus.gov.br/dissemin/publicos/SIHSUS/200801_/Dados/RDSP1311.dbc",
+      "mirror_url": "https://datasus-ftp-mirror.nyc3.digitaloceanspaces.com/SIHSUS/200801_/Dados/RDSP1311.dbc",
+      "source": "mirror",
+      "bytes": 14545583,
+      "sha256": "4343fc2c1a4dfafc0ceed463d78c4e9102529eb70ca42f1edee5493fd18bec9a"
+    },
+    {
+      "file": "RDSP1312.dbc",
+      "official_url": "https://ftp.datasus.gov.br/dissemin/publicos/SIHSUS/200801_/Dados/RDSP1312.dbc",
+      "mirror_url": "https://datasus-ftp-mirror.nyc3.digitaloceanspaces.com/SIHSUS/200801_/Dados/RDSP1312.dbc",
+      "source": "mirror",
+      "bytes": 13728793,
+      "sha256": "9dc1150dda9ed515cfd82a9466762d99b92757ffe96114ac801cd43a8b6536f5"
+    },
+    {
+      "file": "RDSP1401.dbc",
+      "official_url": "https://ftp.datasus.gov.br/dissemin/publicos/SIHSUS/200801_/Dados/RDSP1401.dbc",
+      "mirror_url": "https://datasus-ftp-mirror.nyc3.digitaloceanspaces.com/SIHSUS/200801_/Dados/RDSP1401.dbc",
+      "source": "mirror",
+      "bytes": 15145100,
+      "sha256": "1310c1e8ff09d2b5d3d15055d660b5f7ab0df570e0e22bcebada542accabaced"
+    },
+    {
+      "file": "RDSP1402.dbc",
+      "official_url": "https://ftp.datasus.gov.br/dissemin/publicos/SIHSUS/200801_/Dados/RDSP1402.dbc",
+      "mirror_url": "https://datasus-ftp-mirror.nyc3.digitaloceanspaces.com/SIHSUS/200801_/Dados/RDSP1402.dbc",
+      "source": "mirror",
+      "bytes": 14677756,
+      "sha256": "24943321d08488322bee915ad0de208d1c6171a2d19db1ac47ee3e544d40eb63"
+    },
+    {
+      "file": "RDSP1403.dbc",
+      "official_url": "https://ftp.datasus.gov.br/dissemin/publicos/SIHSUS/200801_/Dados/RDSP1403.dbc",
+      "mirror_url": "https://datasus-ftp-mirror.nyc3.digitaloceanspaces.com/SIHSUS/200801_/Dados/RDSP1403.dbc",
+      "source": "mirror",
+      "bytes": 14867209,
+      "sha256": "d077c212692b2855b1eea374233c3b9aaa7b317bf02934b23b4914972ffb88d6"
+    },
+    {
+      "file": "RDSP1404.dbc",
+      "official_url": "https://ftp.datasus.gov.br/dissemin/publicos/SIHSUS/200801_/Dados/RDSP1404.dbc",
+      "mirror_url": "https://datasus-ftp-mirror.nyc3.digitaloceanspaces.com/SIHSUS/200801_/Dados/RDSP1404.dbc",
+      "source": "mirror",
+      "bytes": 14953894,
+      "sha256": "65e3307bc09a548367c768d43e71564efb76079d9596f6348c8b0de6d250edeb"
+    },
+    {
+      "file": "RDSP1405.dbc",
+      "official_url": "https://ftp.datasus.gov.br/dissemin/publicos/SIHSUS/200801_/Dados/RDSP1405.dbc",
+      "mirror_url": "https://datasus-ftp-mirror.nyc3.digitaloceanspaces.com/SIHSUS/200801_/Dados/RDSP1405.dbc",
+      "source": "mirror",
+      "bytes": 16014242,
+      "sha256": "b953e0a8b1e265b8e02dd7bde122d1b76c11b0b891136f76c3bb6cafa607c7b2"
+    },
+    {
+      "file": "RDSP1406.dbc",
+      "official_url": "https://ftp.datasus.gov.br/dissemin/publicos/SIHSUS/200801_/Dados/RDSP1406.dbc",
+      "mirror_url": "https://datasus-ftp-mirror.nyc3.digitaloceanspaces.com/SIHSUS/200801_/Dados/RDSP1406.dbc",
+      "source": "mirror",
+      "bytes": 15135960,
+      "sha256": "e768f48bccd076ed668afc4b066ce06ab7cce6ae694d4ec8959ca366eea8a540"
+    },
+    {
+      "file": "RDSP1407.dbc",
+      "official_url": "https://ftp.datasus.gov.br/dissemin/publicos/SIHSUS/200801_/Dados/RDSP1407.dbc",
+      "mirror_url": "https://datasus-ftp-mirror.nyc3.digitaloceanspaces.com/SIHSUS/200801_/Dados/RDSP1407.dbc",
+      "source": "mirror",
+      "bytes": 16035299,
+      "sha256": "07fe5685b51ab4a9f43ed6d4ca04cc6552f41b301aba19672f5fa50ecea740bc"
+    },
+    {
+      "file": "RDSP1408.dbc",
+      "official_url": "https://ftp.datasus.gov.br/dissemin/publicos/SIHSUS/200801_/Dados/RDSP1408.dbc",
+      "mirror_url": "https://datasus-ftp-mirror.nyc3.digitaloceanspaces.com/SIHSUS/200801_/Dados/RDSP1408.dbc",
+      "source": "mirror",
+      "bytes": 16011663,
+      "sha256": "7690a5738d85f367a46e5221f9e01975a07d80621fdd9bc63a6cb62d45c143b8"
+    },
+    {
+      "file": "RDSP1409.dbc",
+      "official_url": "https://ftp.datasus.gov.br/dissemin/publicos/SIHSUS/200801_/Dados/RDSP1409.dbc",
+      "mirror_url": "https://datasus-ftp-mirror.nyc3.digitaloceanspaces.com/SIHSUS/200801_/Dados/RDSP1409.dbc",
+      "source": "mirror",
+      "bytes": 15563589,
+      "sha256": "782f560bf092348eb8e1a93b8cf75d9729c2e4dfb704afc3d02975f6316bc9f8"
+    },
+    {
+      "file": "RDSP1410.dbc",
+      "official_url": "https://ftp.datasus.gov.br/dissemin/publicos/SIHSUS/200801_/Dados/RDSP1410.dbc",
+      "mirror_url": "https://datasus-ftp-mirror.nyc3.digitaloceanspaces.com/SIHSUS/200801_/Dados/RDSP1410.dbc",
+      "source": "mirror",
+      "bytes": 15793847,
+      "sha256": "1378e65421953aa6ca2c515e7049b949d2136006a74f047b25ee67b37c83e5a2"
+    },
+    {
+      "file": "RDSP1411.dbc",
+      "official_url": "https://ftp.datasus.gov.br/dissemin/publicos/SIHSUS/200801_/Dados/RDSP1411.dbc",
+      "mirror_url": "https://datasus-ftp-mirror.nyc3.digitaloceanspaces.com/SIHSUS/200801_/Dados/RDSP1411.dbc",
+      "source": "mirror",
+      "bytes": 15221737,
+      "sha256": "d09c208e4ff6baab0dc34d23c8af898ab184003273a663b7b3506d1e546d1583"
+    },
+    {
+      "file": "RDSP1412.dbc",
+      "official_url": "https://ftp.datasus.gov.br/dissemin/publicos/SIHSUS/200801_/Dados/RDSP1412.dbc",
+      "mirror_url": "https://datasus-ftp-mirror.nyc3.digitaloceanspaces.com/SIHSUS/200801_/Dados/RDSP1412.dbc",
+      "source": "mirror",
+      "bytes": 14214477,
+      "sha256": "c744f524f7a98dc02b30aef346d0efa693dc00d5baeb29a47e378876b808c3ec"
+    },
+    {
+      "file": "RDSP1501.dbc",
+      "official_url": "https://ftp.datasus.gov.br/dissemin/publicos/SIHSUS/200801_/Dados/RDSP1501.dbc",
+      "mirror_url": "https://datasus-ftp-mirror.nyc3.digitaloceanspaces.com/SIHSUS/200801_/Dados/RDSP1501.dbc",
+      "source": "mirror",
+      "bytes": 15277346,
+      "sha256": "6d28b7c737fab4c7fd6de4eaa8f9664f0721cf9bd25c34960485b6c611b309e3"
+    },
+    {
+      "file": "RDSP1502.dbc",
+      "official_url": "https://ftp.datasus.gov.br/dissemin/publicos/SIHSUS/200801_/Dados/RDSP1502.dbc",
+      "mirror_url": "https://datasus-ftp-mirror.nyc3.digitaloceanspaces.com/SIHSUS/200801_/Dados/RDSP1502.dbc",
+      "source": "mirror",
+      "bytes": 14899189,
+      "sha256": "8011928ad0cb9119ba6ef1c95df8471a44e52a70855624810b3c30ae79b5e8b6"
+    },
+    {
+      "file": "RDSP1503.dbc",
+      "official_url": "https://ftp.datasus.gov.br/dissemin/publicos/SIHSUS/200801_/Dados/RDSP1503.dbc",
+      "mirror_url": "https://datasus-ftp-mirror.nyc3.digitaloceanspaces.com/SIHSUS/200801_/Dados/RDSP1503.dbc",
+      "source": "mirror",
+      "bytes": 16334101,
+      "sha256": "c01ae1d14defe4a85f2c73105eb5b99a302357d20cdd62b65f3c479fec9d76e3"
+    },
+    {
+      "file": "RDSP1504.dbc",
+      "official_url": "https://ftp.datasus.gov.br/dissemin/publicos/SIHSUS/200801_/Dados/RDSP1504.dbc",
+      "mirror_url": "https://datasus-ftp-mirror.nyc3.digitaloceanspaces.com/SIHSUS/200801_/Dados/RDSP1504.dbc",
+      "source": "mirror",
+      "bytes": 16302946,
+      "sha256": "3465f75fdfa5c794156ce95a6492dd2a965542293eb58f6b60137a75e1935daa"
+    },
+    {
+      "file": "RDSP1505.dbc",
+      "official_url": "https://ftp.datasus.gov.br/dissemin/publicos/SIHSUS/200801_/Dados/RDSP1505.dbc",
+      "mirror_url": "https://datasus-ftp-mirror.nyc3.digitaloceanspaces.com/SIHSUS/200801_/Dados/RDSP1505.dbc",
+      "source": "mirror",
+      "bytes": 16390388,
+      "sha256": "156d8cb74207c3fef48b1a06d9a9861fea0f34cb1fd401673489060ba461b076"
+    },
+    {
+      "file": "RDSP1506.dbc",
+      "official_url": "https://ftp.datasus.gov.br/dissemin/publicos/SIHSUS/200801_/Dados/RDSP1506.dbc",
+      "mirror_url": "https://datasus-ftp-mirror.nyc3.digitaloceanspaces.com/SIHSUS/200801_/Dados/RDSP1506.dbc",
+      "source": "mirror",
+      "bytes": 16277144,
+      "sha256": "0638cb3878a1a9def4f013262335fea02124567ccc0d77692a8479b1ea3f8d7a"
+    },
+    {
+      "file": "RDSP1507.dbc",
+      "official_url": "https://ftp.datasus.gov.br/dissemin/publicos/SIHSUS/200801_/Dados/RDSP1507.dbc",
+      "mirror_url": "https://datasus-ftp-mirror.nyc3.digitaloceanspaces.com/SIHSUS/200801_/Dados/RDSP1507.dbc",
+      "source": "mirror",
+      "bytes": 16273929,
+      "sha256": "af743d283211958aeeb981ae7dddcc3c1575b3332be9f5bee8a1ff329ddc145d"
+    },
+    {
+      "file": "RDSP1508.dbc",
+      "official_url": "https://ftp.datasus.gov.br/dissemin/publicos/SIHSUS/200801_/Dados/RDSP1508.dbc",
+      "mirror_url": "https://datasus-ftp-mirror.nyc3.digitaloceanspaces.com/SIHSUS/200801_/Dados/RDSP1508.dbc",
+      "source": "mirror",
+      "bytes": 15990071,
+      "sha256": "16c463e68bab5b2cf091f632a77141073b342fc1b9e3e8c7ccb239b13c3f6c1a"
+    },
+    {
+      "file": "RDSP1509.dbc",
+      "official_url": "https://ftp.datasus.gov.br/dissemin/publicos/SIHSUS/200801_/Dados/RDSP1509.dbc",
+      "mirror_url": "https://datasus-ftp-mirror.nyc3.digitaloceanspaces.com/SIHSUS/200801_/Dados/RDSP1509.dbc",
+      "source": "mirror",
+      "bytes": 15646147,
+      "sha256": "45e2c92479a7aed34253f9d7e0c3a6fcd7a4ef8a190f1fe4e681af50bcc87445"
+    },
+    {
+      "file": "RDSP1510.dbc",
+      "official_url": "https://ftp.datasus.gov.br/dissemin/publicos/SIHSUS/200801_/Dados/RDSP1510.dbc",
+      "mirror_url": "https://datasus-ftp-mirror.nyc3.digitaloceanspaces.com/SIHSUS/200801_/Dados/RDSP1510.dbc",
+      "source": "mirror",
+      "bytes": 15701007,
+      "sha256": "659facacfb221384961ff89c6289c22013116c2cafc11216d1ee3f47e612d496"
+    },
+    {
+      "file": "RDSP1511.dbc",
+      "official_url": "https://ftp.datasus.gov.br/dissemin/publicos/SIHSUS/200801_/Dados/RDSP1511.dbc",
+      "mirror_url": "https://datasus-ftp-mirror.nyc3.digitaloceanspaces.com/SIHSUS/200801_/Dados/RDSP1511.dbc",
+      "source": "mirror",
+      "bytes": 15059045,
+      "sha256": "486cf6beb8da4ff09fd75027c98ff30dc080a6a887e3f31400ef49537eeccfec"
+    },
+    {
+      "file": "RDSP1512.dbc",
+      "official_url": "https://ftp.datasus.gov.br/dissemin/publicos/SIHSUS/200801_/Dados/RDSP1512.dbc",
+      "mirror_url": "https://datasus-ftp-mirror.nyc3.digitaloceanspaces.com/SIHSUS/200801_/Dados/RDSP1512.dbc",
+      "source": "mirror",
+      "bytes": 15141672,
+      "sha256": "dc9d9182b6f4cf49336efce863d9ebe4ab0943c7aafd07976c2067267f127d82"
+    }
+  ]
+}

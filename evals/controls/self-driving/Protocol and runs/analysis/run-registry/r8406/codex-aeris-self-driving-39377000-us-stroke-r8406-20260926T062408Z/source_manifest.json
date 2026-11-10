@@ -1,0 +1,89 @@
+{
+  "raw_sources": [
+    {
+      "url": "https://heart-stroke-atlas.cdc.gov/api/api/data",
+      "file": "/output/raw/ischemic.json",
+      "sha256": "98452451b5200a7a58458587307482575d7d877e6df7944e5610758d587c5e4b",
+      "bytes": 357329
+    },
+    {
+      "url": "https://heart-stroke-atlas.cdc.gov/api/api/data",
+      "file": "/output/raw/hemorrhagic.json",
+      "sha256": "5a6378a5e902d02f5dc9e92317247af440c6ae320cba3fa6b651d61b75437cb2",
+      "bytes": 355790
+    },
+    {
+      "url": "https://aqs.epa.gov/aqsweb/airdata/annual_conc_by_monitor_2020.zip",
+      "file": "/output/raw/annual_conc_by_monitor_2020.zip",
+      "sha256": "b2c0c6b89dfc125e740cf9f941cf1b05a3ab0d5026db6315720cab45eb7a5a80",
+      "bytes": 4308901
+    },
+    {
+      "url": "https://aqs.epa.gov/aqsweb/airdata/annual_conc_by_monitor_2021.zip",
+      "file": "/output/raw/annual_conc_by_monitor_2021.zip",
+      "sha256": "499e4b022f0b01882477e42664b5ba4441b2d6082f4f317707c31d150cc1b61b",
+      "bytes": 4936189
+    },
+    {
+      "url": "https://aqs.epa.gov/aqsweb/airdata/annual_conc_by_monitor_2022.zip",
+      "file": "/output/raw/annual_conc_by_monitor_2022.zip",
+      "sha256": "200440796d5fbe66c604648d8ac115751971f6d25694abad13171883f978aab9",
+      "bytes": 4263402
+    },
+    {
+      "url": "https://api.census.gov/data/2021/acs/acs5?get=NAME,B19013_001E,B17001_001E,B17001_002E,B19083_001E&for=county:*&in=state:*",
+      "file": "/output/raw/acs2021.json",
+      "sha256": "c2f4687e09b80676de7f68dec92ebea395209616dbc6f895520e547c5f68c0f5",
+      "bytes": 8531
+    }
+  ],
+  "outcome_period": "2020-2022",
+  "outcome_units_total": 3226,
+  "outcome_units_with_ischemic": 1685,
+  "exposure_units": 643,
+  "joined_units": 551,
+  "monitor_year_rows": 2978,
+  "county_year_rows": 1882,
+  "pm25_summary": {
+    "count": 643.0,
+    "mean": 7.935467632979839,
+    "std": 2.143725422786473,
+    "min": 2.1712973333333334,
+    "25%": 6.720589,
+    "50%": 7.821366666666667,
+    "75%": 8.895711333333335,
+    "max": 25.220484499999998
+  },
+  "models": [
+    {
+      "label": "ischemic_unadjusted",
+      "primary": true,
+      "outcome": "ischemic",
+      "n": 551,
+      "parameters": 2,
+      "estimate_per_1ugm3": 2.355709974602557,
+      "ci_low": 0.6641957406370227,
+      "ci_high": 4.047224208568091,
+      "p_value": 0.0064280649043067135,
+      "r_squared": 0.013447860703210801,
+      "covariates": [
+        "pm25"
+      ]
+    },
+    {
+      "label": "hemorrhagic_unadjusted",
+      "primary": false,
+      "outcome": "hemorrhagic",
+      "n": 430,
+      "parameters": 2,
+      "estimate_per_1ugm3": 0.6559801667719823,
+      "ci_low": -0.01319702783509813,
+      "ci_high": 1.3251573613790628,
+      "p_value": 0.054671340864980954,
+      "r_squared": 0.00859924847461746,
+      "covariates": [
+        "pm25"
+      ]
+    }
+  ]
+}

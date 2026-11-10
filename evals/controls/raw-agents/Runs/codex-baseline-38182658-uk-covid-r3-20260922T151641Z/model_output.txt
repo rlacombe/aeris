@@ -1,0 +1,1 @@
+MODEL NOT FIT: the public outcome release has no nonmissing daily case/death observations for the four constituent countries.

@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "run_id": "codex-baseline-39377000-us-stroke-r3-20260922T152944Z",
+  "condition": "codex-baseline",
+  "study": {
+    "pmid": "39377000",
+    "slug": "us-stroke",
+    "bundle_sha256": "705e7e06df07ce0e45f29924a4062417504fe74a53cf529d2be9d78f0ee0ac17",
+    "input_mode": "complete_article"
+  },
+  "replicate": 3,
+  "agent": {
+    "host": "Codex CLI",
+    "host_version": "0.155.1",
+    "model": "gpt-5.6-terra",
+    "reasoning_effort": "medium",
+    "session_id_redacted": null
+  },
+  "environment": {
+    "container_image_digest": "sha256:56cc58cd3a1eaebb232130801c1905aa7ec4fdc3d8ed9b895286a7ed77a3745f",
+    "aeris_commit": null,
+    "network_policy_sha256": "961d0161ba4f36b2c9cf69bea0be5831f656c238672b38bceb2b993944a6970c"
+  },
+  "started_at": "2026-09-22T15:29:45.034879+00:00",
+  "ended_at": "2026-09-22T15:36:17.367977+00:00",
+  "status": "completed_blocker",
+  "infrastructure_restarts": 0,
+  "human_scientific_interventions": 0,
+  "artifacts": {
+    "agent.stderr.log": "agent.stderr.log",
+    "analysis_panel.csv": "analysis_panel.csv",
+    "baseline_audit.txt": "baseline_audit.txt",
+    "blocker_ledger.md": "blocker_ledger.md",
+    "code/reanalysis.py": "code/reanalysis.py",
+    "container_exit_code.txt": "container_exit_code.txt",
+    "decision_log.md": "decision_log.md",
+    "exposure_epa_aqs_2020.csv": "exposure_epa_aqs_2020.csv",
+    "fidelity_record.json": "fidelity_record.json",
+    "logs/cdc_atlas_headers.txt": "logs/cdc_atlas_headers.txt",
+    "logs/epa_aqs_headers.txt": "logs/epa_aqs_headers.txt",
+    "logs/epa_zip_test.txt": "logs/epa_zip_test.txt",
+    "logs/wonder_headers.txt": "logs/wonder_headers.txt",
+    "logs/wonder_response.html": "logs/wonder_response.html",
+    "model_output.json": "model_output.json",
+    "raw/annual_88101_2020.zip": "raw/annual_88101_2020.zip",
+    "raw/cdc_atlas_all_stroke_2018_2020.csv": "raw/cdc_atlas_all_stroke_2018_2020.csv",
+    "raw/daily_88101_2020.zip": "raw/daily_88101_2020.zip",
+    "result.json": "result.json",
+    "run_manifest.json": "run_manifest.json",
+    "run_summary.json": "run_summary.json",
+    "sanitization_audit.json": "sanitization_audit.json",
+    "schema_validation.log": "schema_validation.log",
+    "schema_validation_exit_code.txt": "schema_validation_exit_code.txt",
+    "source_manifest.json": "source_manifest.json",
+    "transcript.jsonl": "transcript.jsonl"
+  },
+  "termination_reason": "Compatible public age-65+ ischemic and hemorrhagic county mortality outcome for 2016-2020 was not retrieved; no proxy-outcome model was permitted."
+}

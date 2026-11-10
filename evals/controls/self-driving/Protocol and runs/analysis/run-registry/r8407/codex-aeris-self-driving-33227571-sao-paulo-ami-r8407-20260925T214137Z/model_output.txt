@@ -1,0 +1,17 @@
+                 Generalized Linear Model Regression Results                  
+==============================================================================
+Dep. Variable:             admissions   No. Observations:                  889
+Model:                            GLM   Df Residuals:                      887
+Model Family:                 Poisson   Df Model:                            1
+Link Function:                    Log   Scale:                          1.0000
+Method:                          IRLS   Log-Likelihood:                -3340.5
+Date:                Fri, 25 Sep 2026   Deviance:                       1904.2
+Time:                        21:49:49   Pearson chi2:                 1.78e+03
+No. Iterations:                     4   Pseudo R-squ. (CS):            0.02714
+Covariance Type:                  HC1                                         
+===========================================================================================
+                              coef    std err          z      P>|z|      [0.025      0.975]
+-------------------------------------------------------------------------------------------
+const                       3.5462      0.010    339.650      0.000       3.526       3.567
+adverse_weather_cluster     0.0565      0.016      3.499      0.000       0.025       0.088
+===========================================================================================

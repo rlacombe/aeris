@@ -1,0 +1,27 @@
+[
+  {
+    "decision": "Recover a single annual SIM member through a public byte-range route",
+    "evidence": "/output/recovery/review2/sim2019-range.headers",
+    "rationale": "The fresh Dataverse probe returned HTTP 206 and a precise byte range, disproving the prior conclusion that the archive could not be selectively recovered."
+  },
+  {
+    "decision": "Use a predeclared 2019 Sao Paulo bounded subset",
+    "evidence": "/output/aeris-workspace/.aeris/contracts/agent-contract-amendment-001.json",
+    "rationale": "The amendment fixes the first fully decoded annual partition and municipality 3550308 independently of effect estimates."
+  },
+  {
+    "decision": "Use CETESB monitor-derived daily PM2.5 as a source substitution",
+    "evidence": "/output/recovery/cetesb_mp25.parquet",
+    "rationale": "It supplies daily observed PM2.5 and supports the required three-day lag calculation, but is not the article's population-weighted gridded source."
+  },
+  {
+    "decision": "Fit a reduced-adjustment conditional logistic model",
+    "evidence": "/output/recovery/review2/bounded_model_output.json",
+    "rationale": "No recovered daily temperature, relative humidity, or public-holiday covariates were incorporated; the model preserves the case-crossover family and stated PM2.5 contrast but is explicitly reduced adjustment."
+  },
+  {
+    "decision": "Use the retained event-expanded table as the analysis panel",
+    "evidence": "/output/recovery/review2/casecrossover_row_accounting_audit.json",
+    "rationale": "Conditional logistic regression is fit to one case/referent set per death event. The daily 365-row table remains retained as the pre-expansion source panel, while the 68,454-row expanded table reconciles exactly to model observations."
+  }
+]

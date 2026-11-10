@@ -1,0 +1,64 @@
+{
+  "analysis": "bounded weather-only hierarchical-cluster sensitivity; pollutants omitted because no public daily historical record series was recovered",
+  "period": [
+    "2012-10-01",
+    "2015-09-30"
+  ],
+  "outcome_records_in_window": 38618,
+  "panel_rows": 1095,
+  "adverse_cluster": 3,
+  "reference_cluster": 1,
+  "cluster_days": {
+    "1": 527,
+    "2": 206,
+    "3": 362
+  },
+  "cluster_means": [
+    {
+      "cluster": 1,
+      "tmax": 21.99032258064516,
+      "tmin": 16.112523719165083,
+      "temp_variation": 5.877798861480076,
+      "rain": 5.543833017077799,
+      "rh": 88.03605313092979,
+      "admissions": 34.68121442125237,
+      "deaths": 3.8197343453510437
+    },
+    {
+      "cluster": 2,
+      "tmax": 29.760194174757284,
+      "tmin": 20.34611650485437,
+      "temp_variation": 9.414077669902913,
+      "rain": 2.237378640776699,
+      "rh": 77.7621359223301,
+      "admissions": 34.25728155339806,
+      "deaths": 3.8349514563106797
+    },
+    {
+      "cluster": 3,
+      "tmax": 25.64972375690608,
+      "tmin": 14.357734806629834,
+      "temp_variation": 11.291988950276243,
+      "rain": 0.3602209944751381,
+      "rh": 75.83977900552486,
+      "admissions": 36.69613259668508,
+      "deaths": 4.232044198895028
+    }
+  ],
+  "admission_rate_ratio_adverse_vs_reference": 1.0580982589294248,
+  "ci95": [
+    1.0251498881952532,
+    1.0921055920129434
+  ],
+  "coefficient": 0.05647320145778922,
+  "robust_se": 0.016139983251386658,
+  "deaths_total": 4335,
+  "model_summary": "                 Generalized Linear Model Regression Results                  \n==============================================================================\nDep. Variable:             admissions   No. Observations:                  889\nModel:                            GLM   Df Residuals:                      887\nModel Family:                 Poisson   Df Model:                            1\nLink Function:                    Log   Scale:                          1.0000\nMethod:                          IRLS   Log-Likelihood:                -3340.5\nDate:                Fri, 25 Sep 2026   Deviance:                       1904.2\nTime:                        21:49:49   Pearson chi2:                 1.78e+03\nNo. Iterations:                     4   Pseudo R-squ. (CS):            0.02714\nCovariance Type:                  HC1                                         \n===========================================================================================\n                              coef    std err          z      P>|z|      [0.025      0.975]\n-------------------------------------------------------------------------------------------\nconst                       3.5462      0.010    339.650      0.000       3.526       3.567\nadverse_weather_cluster     0.0565      0.016      3.499      0.000       0.025       0.088\n===========================================================================================",
+  "mortality_rate_ratio_adverse_vs_reference": 1.107942023257665,
+  "mortality_ci95": [
+    1.0359467543055925,
+    1.1849407527929565
+  ],
+  "mortality_coefficient": 0.10250426137633663,
+  "mortality_robust_se": 0.03427985424375478
+}

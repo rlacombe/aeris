@@ -1,0 +1,27 @@
+[
+  {
+    "decision": "Lock 2017 population-weighted PM2.5 and four log-rate regression variants",
+    "basis": "Article Methods sections 2.1-2.2 and Table 1; locked AERIS contract.",
+    "artifact": "/output/aeris-workspace/.aeris/contracts/reanalysis-invariants.json"
+  },
+  {
+    "decision": "Use World Bank EN.ATM.PM25.MC.M3 for exposure",
+    "basis": "It is the article-named public indicator for national population-weighted PM2.5 and supplied all 36 2017 records.",
+    "artifact": "/output/worldbank_EN_ATM_PM25_MC_M3_2017.json"
+  },
+  {
+    "decision": "Use JHU daily global series for COVID outcomes",
+    "basis": "The current WHO direct archive was retrievable but weekly, making exact day-60/day-80 extraction impossible without interpolation. JHU supplied daily national cumulative series.",
+    "artifact": "/output/who_covid_global_archive.csv"
+  },
+  {
+    "decision": "Use 35-country complete-case models",
+    "basis": "US physician indicator values were null for all article-permitted fallback years (2015-2017); no imputation or year expansion was used.",
+    "artifact": "/output/analysis_panel.csv"
+  },
+  {
+    "decision": "Define day 60/day 80 with first confirmed case as day 1",
+    "basis": "Article specifies days since first confirmed positive case. Both case and death series are anchored to the case date in executable code.",
+    "artifact": "/output/reanalysis.py"
+  }
+]

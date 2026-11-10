@@ -1,0 +1,16 @@
+study,effect_scale,published_ratio,aeris_ratio,published_ci_low,published_ci_high,aeris_ci_low,aeris_ci_high,included_primary_meta,primary_meta_exclusion
+UK COVID-19,OR per 10 ug/m3 PM2.5,1.13,1.4576,1.09,1.16,1.2059,1.7619,true,
+Italy COVID-19,OR per doubling PM10 exceedance days,1.7569,1.7408,,,1.1279,2.6878,true,
+France COVID-19,rate ratio per 1 ug/m3 PM2.5,1.244,1.048509,1.083,1.428,0.953344,1.153174,true,
+OECD COVID-19,"rate ratio per 1 ug/m3 PM2.5, day 60 cases",1.0202013,0.9981993,,,0.8532257,1.1678056,true,
+OECD COVID-19,"rate ratio per 1 ug/m3 PM2.5, day 60 deaths",1.0304545,1.0156307,,,0.8062486,1.279389,true,
+OECD COVID-19,"rate ratio per 1 ug/m3 PM2.5, day 80 cases",1.0202013,0.970943,,,0.9260276,1.0180369,true,
+OECD COVID-19,"rate ratio per 1 ug/m3 PM2.5, day 80 deaths",1.0090406,0.9705941,,,0.8726769,1.079498,true,
+Israel COVID-19,rate ratio per 1 SD pollutant,1.0898063283051287,0.9984013620850758,,,0.8618561133665467,1.1565796939348207,false,No usable spatially varying PM2.5 exposure panel for the study dates.
+Northern Italy COVID-19,"rate ratio per 1 ug/m3 NO2, incidence",1.0,1.05056,,,1.04162,1.05958,true,
+Northern Italy COVID-19,"rate ratio per 1 ug/m3 NO2, mortality",1.0,0.98813,,,0.98662,0.98964,true,
+Sao Jose COVID admissions,"rate ratio per 10 ug/m3 O3, lag 2",1.061,1.003,1.016,1.108,0.981,1.026,true,
+Sao Jose COVID admissions,"rate ratio per 10 ug/m3 NO2, lag 3",1.125,1.034,1.05,1.205,0.876,1.22,true,
+Sao Paulo AMI admissions,"rate ratio, high-pollution cluster",1.09,1.0688491129,,,1.0061673232,1.1351658487,true,
+Brazil cancer mortality,OR per 10 ug/m3 PM2.5,1.01,1.06,1.0,1.02,1.052,1.069,true,
+US stroke mortality,rate ratio per 10 ug/m3 PM2.5,1.1317073170731706,1.110793424679586,,,0.6277982872937097,1.5937885620654626,true,

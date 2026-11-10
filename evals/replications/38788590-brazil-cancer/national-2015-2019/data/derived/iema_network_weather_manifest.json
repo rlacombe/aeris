@@ -1,0 +1,48 @@
+{
+  "retrieved_at_utc": "2026-08-15T16:40:13.946974+00:00",
+  "states": [
+    "CE",
+    "ES",
+    "MG",
+    "RJ",
+    "SP"
+  ],
+  "aggregation": "Unweighted daily mean across capitals of states with retained IEMA PM2.5 stations.",
+  "calls": [
+    {
+      "uf": "CE",
+      "latitude": -3.7319,
+      "longitude": -38.5267,
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-3.7319&longitude=-38.5267&start_date=2015-01-01&end_date=2019-12-31&daily=temperature_2m_mean%2Crelative_humidity_2m_mean&timezone=UTC",
+      "sha256": "dfd98d9324c8c3b7215f438de00f3b89b6f26270bee530ffeb7549bcc15555d5"
+    },
+    {
+      "uf": "ES",
+      "latitude": -20.3155,
+      "longitude": -40.3128,
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-20.3155&longitude=-40.3128&start_date=2015-01-01&end_date=2019-12-31&daily=temperature_2m_mean%2Crelative_humidity_2m_mean&timezone=UTC",
+      "sha256": "89d984ec27a5fedda3a331fa3704fa8c419372e81ac7ef6ad47b0d4023796d24"
+    },
+    {
+      "uf": "MG",
+      "latitude": -19.9167,
+      "longitude": -43.9345,
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-19.9167&longitude=-43.9345&start_date=2015-01-01&end_date=2019-12-31&daily=temperature_2m_mean%2Crelative_humidity_2m_mean&timezone=UTC",
+      "sha256": "ca364a27fcb44b2a802c2b39c2e32a340e3cbcf155bf0646ea71d2572e15ccb1"
+    },
+    {
+      "uf": "RJ",
+      "latitude": -22.9068,
+      "longitude": -43.1729,
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-22.9068&longitude=-43.1729&start_date=2015-01-01&end_date=2019-12-31&daily=temperature_2m_mean%2Crelative_humidity_2m_mean&timezone=UTC",
+      "sha256": "76b2ab50381e1462b8d8d0e6002f656c5f11e04697ff23f4db3e23d280f21214"
+    },
+    {
+      "uf": "SP",
+      "latitude": -23.5505,
+      "longitude": -46.6333,
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-23.5505&longitude=-46.6333&start_date=2015-01-01&end_date=2019-12-31&daily=temperature_2m_mean%2Crelative_humidity_2m_mean&timezone=UTC",
+      "sha256": "3598ece1960c773884248cefb4863c131afff45925d258c70b8aaa12fc810ac6"
+    }
+  ]
+}

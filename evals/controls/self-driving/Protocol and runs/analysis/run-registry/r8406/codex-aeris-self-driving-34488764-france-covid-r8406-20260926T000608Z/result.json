@@ -1,0 +1,234 @@
+{
+  "schema_version": 3,
+  "study_id": "34488764-france-covid",
+  "status": "completed_fit",
+  "fidelity": "source_substitution",
+  "target": {
+    "outcome": "Cumulative COVID-19 deaths in hospitals through 2020-05-01",
+    "pollutant": "PM2.5",
+    "geography": "96 mainland French departments (NUTS 3)",
+    "population": "Department residents",
+    "period": "PM2.5 annual means 1999\u20132016; mortality through 2020-05-01",
+    "effect_scale": "Rate ratio per 1 microgram per cubic metre PM2.5",
+    "exposure_assignment": "Unweighted polygon zonal mean of 18 annual NASA PM2.5 rasters",
+    "model": "NB2 count regression with log department population offset",
+    "covariates": [
+      "WorldClim temperature climatology",
+      "combined resuscitation and intensive-care beds per 100k",
+      "medical density",
+      "age 60+ share",
+      "male share",
+      "unemployment",
+      "poverty",
+      "urban share",
+      "population density",
+      "diabetes"
+    ],
+    "named_outcome_source": "French Ministry of Health / Sant\u00e9 publique France data.gouv hospital COVID dataset",
+    "specification_evidence": [
+      "/output/evidence/article.txt",
+      "/output/aeris-workspace/.aeris/contracts/reanalysis-invariants.json"
+    ]
+  },
+  "sources": [
+    {
+      "role": "exposure",
+      "url": "https://gis.earthdata.nasa.gov/portal/rest/services/sdei/sdei-global-annual-gwr-pm2-5-modis-misr-seawifs-aod-v4-gl-03/ImageServer",
+      "route_origin": "article_named",
+      "retrieved": true,
+      "sha256": null,
+      "evidence_artifact": "/output/retrieval/nasa_imageserver.json"
+    },
+    {
+      "role": "outcome",
+      "url": "https://www.data.gouv.fr/fr/datasets/donnees-hospitalieres-relatives-a-lepidemie-de-covid-19/",
+      "route_origin": "article_named",
+      "retrieved": true,
+      "sha256": null,
+      "evidence_artifact": "/output/retrieval/covid_hospit.csv"
+    },
+    {
+      "role": "boundary",
+      "url": "https://www.geoboundaries.org/api/current/gbOpen/FRA/ADM2/",
+      "route_origin": "agent_discovered",
+      "retrieved": true,
+      "sha256": null,
+      "evidence_artifact": "/output/retrieval/geoboundaries.json"
+    },
+    {
+      "role": "weather",
+      "url": "https://geodata.ucdavis.edu/climate/worldclim/2_1/base/wc2.1_10m_bio.zip",
+      "route_origin": "article_named",
+      "retrieved": true,
+      "sha256": null,
+      "evidence_artifact": "/output/retrieval/wc2.1_10m_bio.zip"
+    }
+  ],
+  "substitutions": [
+    {
+      "dimension": "covariate",
+      "change_type": "source",
+      "published": "Article-stated WorldClim 2001\u20132012 temperature aggregation",
+      "reanalysis": "WorldClim v2.1 BIO1 climatological department mean; centroid-cell fallback for Paris",
+      "reason": "Exact article temperature aggregation was not recovered; complete public climatology is retained and explicitly classified as a substitution."
+    }
+  ],
+  "coverage": {
+    "eligible_units": 96,
+    "included_units": 96,
+    "eligible_times": 18,
+    "included_times": 18,
+    "rule": "Include departments with complete outcomes, covariates, and all 18 required annual PM2.5 slices.",
+    "notes": "All 96 departments met this rule. PM2.5 is 18/18 years for every unit."
+  },
+  "artifacts": {
+    "code": "retrieve_exposure.py",
+    "source_manifest": "source_manifest.json",
+    "exposure": "retrieval/department_environment.csv",
+    "analysis_panel": "analysis_panel.csv",
+    "model_output": "model_output.json",
+    "decision_log": "decision_log.json",
+    "research_notebook": "aeris-workspace/.aeris/research-notebook.json",
+    "blocker_ledger": "blocker_ledger.json",
+    "fidelity_record": "aeris-workspace/.aeris/artifacts/reanalysis-fidelity_reanalysis-fidelity_2026-09-26T001425.6974420000.json",
+    "coverage_diagnostics": "coverage_report.json",
+    "boundary_route_evidence": "retrieval/geoboundaries.json",
+    "study_contract": "aeris-workspace/.aeris/contracts/agent-contract-amendment-001.json"
+  },
+  "blockers": [
+    "Exact article-stated WorldClim 2001\u20132012 temperature aggregation was not recovered; the temperature covariate is a declared source/time-window substitution."
+  ],
+  "stopping_checklist": {
+    "target_specification_complete": true,
+    "complete_article_checked": true,
+    "outcome_routes_attempted": 1,
+    "normal_exposure_source_tested": true,
+    "historical_fallback_applicable": false,
+    "historical_fallback_tested": false,
+    "geographic_batching_applicable": true,
+    "geographic_batching_attempted": true,
+    "fidelity_levels_evaluated": [
+      "source_substitution"
+    ],
+    "pending_requests": 0,
+    "evidence_artifacts": [
+      "/output/retrieval/covid_hospit.csv",
+      "/output/retrieval/geoboundaries.json",
+      "/output/retrieval/nasa_imageserver.json",
+      "/output/retrieval/wc2.1_10m_bio.zip",
+      "aeris-workspace/.aeris/artifacts/reanalysis-fidelity_reanalysis-fidelity_2026-09-26T001425.6974420000.json",
+      "aeris-workspace/.aeris/contracts/agent-contract-amendment-001.json",
+      "aeris-workspace/.aeris/research-notebook.json",
+      "analysis_panel.csv",
+      "blocker_ledger.json",
+      "coverage_report.json",
+      "decision_log.json",
+      "model_output.json",
+      "retrieval/department_environment.csv",
+      "retrieval/geoboundaries.json",
+      "retrieve_exposure.py",
+      "source_manifest.json"
+    ]
+  },
+  "design_provenance": {
+    "contract_id": "34488764-france-covid-reanalysis-invariants",
+    "contract_sha256": "5b29ac517b34b018ee526b09cc6033d02a62a2ae6b8efe9901cdec37138bdc0e",
+    "contract_author": "agent",
+    "geographic_representation": "96 geoBoundaries France ADM2 department polygons (official IGN source stated in GeoBoundaries metadata); all mainland departments.",
+    "assignment_method": "Unweighted zonal mean over every valid 0.01-degree PM2.5 grid cell whose center falls in each department polygon; no monitor assignment.",
+    "representative_location_rule": null,
+    "maximum_monitor_distance_km": null,
+    "monitor_distance_evidence": "Not applicable to the selected assignment method.",
+    "source_strategy": "NASA Earthdata ImageServer public multidimensional Global Annual PM2.5 Grids (V4.GL.03), explicitly selecting each 1999\u20132016 annual slice; WorldClim v2.1 BIO1 used for temperature adjustment.",
+    "exposure_metric": "Arithmetic mean of 18 department annual PM2.5 zonal means, 1999\u20132016, \u00b5g/m\u00b3.",
+    "coverage_policy": {
+      "mode": "report_only",
+      "minimum_percent": null,
+      "threshold_source": "none",
+      "evidence": "Report-only: retain departments with all 18 valid annual PM2.5 means. WorldClim 10-arcminute cell containing the centroid is used only for Paris because its polygon contains no 10-arcminute cell center."
+    },
+    "decision_rationale": "This directly implements the article's GOME/NASA SEDAC 1999\u20132016 department-level spatial mean construct using a maintained public NASA Earthdata distribution. It does not use author-published PM2.5 values. The covariate temperature source is a WorldClim climatology rather than the article-stated 2001\u20132012 aggregation, so that covariate substitution is declared separately.",
+    "evidence_basis": [
+      "NASA ImageServer metadata identifies the public global annual PM2.5 raster service, WGS84, 0.01-degree pixels, annual temporal dimension.",
+      "Independent zonal processing yielded 18/18 annual PM2.5 values for each of 96 departments; output includes mean/range and temperature coverage.",
+      "GeoBoundaries metadata reports France ADM2/Department, official IGN source, and 96 units."
+    ],
+    "locked_before_exposure": false
+  },
+  "effects": [
+    {
+      "label": "Continuous PM2.5",
+      "primary": true,
+      "estimate": 1.3536898948,
+      "ci_low": 1.1923182787,
+      "ci_high": 1.5369019866,
+      "scale": "ratio",
+      "contrast": "1 \u00b5g/m\u00b3 increase in long-term PM2.5",
+      "metric": "RR",
+      "native_estimate": 0.3028341193,
+      "native_ci_low": 0.175833639,
+      "native_ci_high": 0.4298346,
+      "native_scale": "log rate ratio",
+      "native_contrast": "1 \u00b5g/m\u00b3 increase"
+    },
+    {
+      "label": "PM2.5 quartile Q2 versus Q1",
+      "primary": false,
+      "estimate": 1.5308731566,
+      "ci_low": 1.0436562288,
+      "ci_high": 2.2455407794,
+      "scale": "ratio",
+      "contrast": "Q2 versus Q1 derived from independent PM2.5 distribution",
+      "metric": "RR",
+      "native_estimate": 0.4258382632,
+      "native_ci_low": 0.042845,
+      "native_ci_high": 0.808832,
+      "native_scale": "log rate ratio",
+      "native_contrast": "Q2 versus Q1"
+    },
+    {
+      "label": "PM2.5 quartile Q3 versus Q1",
+      "primary": false,
+      "estimate": 3.0229027459,
+      "ci_low": 1.8560172989,
+      "ci_high": 4.9234137078,
+      "scale": "ratio",
+      "contrast": "Q3 versus Q1 derived from independent PM2.5 distribution",
+      "metric": "RR",
+      "native_estimate": 1.1062175439,
+      "native_ci_low": 0.61837,
+      "native_ci_high": 1.59407,
+      "native_scale": "log rate ratio",
+      "native_contrast": "Q3 versus Q1"
+    },
+    {
+      "label": "PM2.5 quartile Q4 versus Q1",
+      "primary": false,
+      "estimate": 4.0383955331,
+      "ci_low": 2.0244168091,
+      "ci_high": 8.05596871596,
+      "scale": "ratio",
+      "contrast": "Q4 versus Q1 derived from independent PM2.5 distribution",
+      "metric": "RR",
+      "native_estimate": 1.3958474678,
+      "native_ci_low": 0.70528,
+      "native_ci_high": 2.08642,
+      "native_scale": "log rate ratio",
+      "native_contrast": "Q4 versus Q1"
+    }
+  ],
+  "analysis_diagnostics": {
+    "observations": 96,
+    "estimated_parameters": 13,
+    "exposure_unique_values": 96,
+    "outcome_unique_values": 81,
+    "joined_rows": 96,
+    "unmatched_outcome_rows": 0,
+    "unmatched_exposure_rows": 0,
+    "contrast_transformation_verified": true,
+    "reported_variants": [
+      "continuous PM2.5",
+      "PM2.5 quartiles Q2/Q3/Q4 vs Q1"
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "study": {
+    "pmid": "36383802",
+    "doi": "10.1590/1414-431x2021e12273",
+    "title": "Exposure to air pollution and hospitalization due to COVID-19 in São José dos Campos, Brazil"
+  },
+  "observation_window": {
+    "start": "2020-04-01",
+    "end": "2021-04-30"
+  },
+  "outcomes": {
+    "system": "DATASUS SIH/SUS reduced admission files",
+    "file_pattern": "https://ftp.datasus.gov.br/dissemin/publicos/SIHSUS/200801_/Dados/RDSP{YYMM}.dbc",
+    "selection": "MUNIC_RES=354990 (São José dos Campos), DIAG_PRINC=B34.2, daily DT_INTER"
+  },
+  "exposure": {
+    "system": "AERIS OpenAQ v3 plus historical S3 retrieval",
+    "pollutants": ["pm10", "no2", "o3"],
+    "location": "São José dos Campos municipality centroid"
+  },
+  "weather": {
+    "system": "Open-Meteo archive API",
+    "variables": ["temperature_2m_mean", "relative_humidity_2m_mean"],
+    "departure_from_paper": "The paper used CETESB weather observations; this reconstruction uses the public municipal-centroid archive series."
+  },
+  "published_effects": {
+    "o3_lag2_rr_per_10_ug_m3": 1.061,
+    "o3_lag2_ci95": [1.016, 1.108],
+    "no2_lag3_rr_per_10_ug_m3": 1.125,
+    "no2_lag3_ci95": [1.05, 1.205]
+  }
+}

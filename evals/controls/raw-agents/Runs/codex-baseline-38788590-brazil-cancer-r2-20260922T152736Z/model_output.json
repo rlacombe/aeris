@@ -1,0 +1,6 @@
+{
+  "executed": false,
+  "reason": "Campaign policy termination: free disk was 12 GiB before data acquisition, below the required 20 GiB minimum.",
+  "effect": null,
+  "primary_contrast": "10 micrograms/m3 increase in lag 0-2 PM2.5; intended OR transformation exp(10*beta)"
+}

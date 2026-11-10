@@ -1,0 +1,121 @@
+{
+  "schema_version": "aeris-study-contract/v3",
+  "profile": "reanalysis",
+  "contract_id": "33398753-italy-cities-reanalysis-invariants",
+  "approved": true,
+  "author": "agent",
+  "objective": "Association of 2018 annual PM10 daily-limit exceedance days with cumulative COVID-19 infections among Italian provincial-capital cities, adjusted for 2019 population density.",
+  "allowed_tools": [
+    "estimate_boundary_exposure",
+    "estimate_boundary_exposure_batch",
+    "estimate_exposure"
+  ],
+  "pollutants": [
+    "pm10"
+  ],
+  "date_window": {
+    "start": "2018-01-01",
+    "end": "2020-04-27"
+  },
+  "temporal_resolutions": [
+    "daily",
+    "hourly"
+  ],
+  "allowed_fidelity_levels": [
+    "matched",
+    "source_substitution",
+    "reduced_coverage",
+    "reduced_adjustment",
+    "bounded",
+    "supported_sensitivity"
+  ],
+  "resource_limits": {
+    "wall_clock_hours": 8,
+    "maximum_infrastructure_restarts": 1,
+    "maximum_single_download_gib": 10,
+    "maximum_boundary_units": 6000,
+    "maximum_boundary_units_per_call": 25,
+    "maximum_static_units_per_call": 2
+  },
+  "scientific_invariants": {
+    "research_question": "Association of 2018 annual PM10 daily-limit exceedance days with cumulative COVID-19 infections among Italian provincial-capital cities, adjusted for 2019 population density.",
+    "target_outcome_and_population": "Cumulative confirmed COVID-19 infections among residents of randomly selected Italian provincial-capital cities (N=55), separately at 17 March, 7 April, and 27 April 2020.",
+    "pollutants": [
+      "pm10"
+    ],
+    "principal_contrast": "Outcome ratio for a doubling of annual 2018 PM10 daily-limit exceedance days, exp(beta*ln(2)) from log-log OLS.",
+    "principal_variants": [
+      "Adjusted log-log OLS for infections at 17 March, 7 April, and 27 April 2020, each with log 2019 population density."
+    ],
+    "broad_geography": "Italian provincial-capital cities; article reports random selection of 55.",
+    "target_geographic_units": 55,
+    "target_geographic_unit_type": "municipality/provincial capital",
+    "period": {
+      "start": "2018-01-01",
+      "end": "2020-04-27"
+    },
+    "prohibited_evidence": [
+      "published effect estimates",
+      "published exposure values",
+      "prior reanalysis code",
+      "prior source manifests",
+      "prior reanalysis results"
+    ]
+  },
+  "article_evidence": [
+    {
+      "artifact": "/study/article.md",
+      "finding": "Data/design and Table 6 specify N=55 provincial capitals, 2018 PM10/ozone exceedance days, March/April 2020 infection outcomes, 2019 density, and log-log OLS."
+    },
+    {
+      "artifact": "/run/contract/study-target.json",
+      "finding": "Task primary construct is PM10 >50 \u00b5g/m\u00b3 annual exceedance count and doubling contrast."
+    }
+  ],
+  "article_evidence_map": {
+    "ambiguity": "Article's methods largely say PM10 or ozone, whereas Table 6 says PM10. Primary analysis follows task PM10 construct; combined measure is sensitivity if recoverable."
+  },
+  "execution_design": {
+    "geographic_representation": "Provincial-capital coordinates supplied in the DPC provincial archive; fixed city-reference-point support, not personal exposure or population-weighted area concentration.",
+    "assignment_method": "Nearest available PM10 monitor within 100 km; one monitor per city after national catalog discovery.",
+    "source_strategy": "OpenAQ v3 discovery and public S3 historical archive fallback, with regulator/EEA recovery if insufficient.",
+    "exposure_metric": "Annual 2018 count of observed daily mean PM10 values strictly >50 \u00b5g/m\u00b3.",
+    "daily_aggregation": "Daily PM10 series supplied/retrieved at daily resolution; retain observation-level provenance and coverage.",
+    "analysis_aggregation": "Per-city count of threshold-exceedance days from 2018, joined to the 55-unit outcome/density table.",
+    "coverage_policy": "Report observed daily coverage and distances; no precommitted numeric exclusion threshold. Fit deterministic complete-case feasible subset only if variation and coverage support it.",
+    "intended_use": "Exposure covariate in locked log-log OLS COVID-19 city analysis."
+  },
+  "amendments": [
+    {
+      "sequence": 1,
+      "changed_dimensions": {
+        "geographic_representation": "Provincial-capital coordinates supplied in the DPC provincial archive; fixed city-reference-point support, not personal exposure or population-weighted area concentration.",
+        "assignment_method": "Nearest available PM10 monitor within 100 km; one monitor per city after national catalog discovery.",
+        "source_strategy": "OpenAQ v3 discovery and public S3 historical archive fallback, with regulator/EEA recovery if insufficient.",
+        "exposure_metric": "Annual 2018 count of observed daily mean PM10 values strictly >50 \u00b5g/m\u00b3.",
+        "daily_aggregation": "Daily PM10 series supplied/retrieved at daily resolution; retain observation-level provenance and coverage.",
+        "analysis_aggregation": "Per-city count of threshold-exceedance days from 2018, joined to the 55-unit outcome/density table.",
+        "coverage_policy": "Report observed daily coverage and distances; no precommitted numeric exclusion threshold. Fit deterministic complete-case feasible subset only if variation and coverage support it.",
+        "intended_use": "Exposure covariate in locked log-log OLS COVID-19 city analysis."
+      },
+      "evidence": [
+        {
+          "artifact": "/output/data/aeris_city_cohort.csv",
+          "finding": "55 fixed city-reference coordinates and the complete 2018 window loaded into AERIS."
+        },
+        {
+          "artifact": "run_exposure-plan_2026-09-25T221144.5595120000",
+          "finding": "AERIS catalog plan estimates 65 bounded calls and a public historical archive fallback."
+        },
+        {
+          "artifact": "/study/article.md",
+          "finding": "Article specifies annual days exceeding PM10 limits, city-level analysis."
+        }
+      ],
+      "scientific_justification": "This operationalizes the locked PM10 target using a transparent city-monitor assignment; it does not alter outcome, pollutant, period, contrast, or model family.",
+      "fidelity_impact": "source_substitution",
+      "agreement_independent": true
+    }
+  ],
+  "parent_contract_sha256": "6a19542b0d71c7d7130fb5b7fece3b4e09130408c8c09ff88f9b971c8edb2ec9"
+}

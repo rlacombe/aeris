@@ -1,0 +1,8 @@
+{
+  "valid": true,
+  "errors": [],
+  "warnings": [
+    "final analysis changes the locked pollutant construct without disclosure",
+    "aggregate coverage_diagnostics must explain eligible and included time coverage"
+  ]
+}

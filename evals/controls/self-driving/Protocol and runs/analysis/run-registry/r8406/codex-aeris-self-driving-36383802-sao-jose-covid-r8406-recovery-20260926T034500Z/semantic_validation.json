@@ -1,0 +1,8 @@
+{
+  "valid": true,
+  "errors": [],
+  "warnings": [
+    "locked contract lacks principal-analysis fields: intended_use",
+    "missing or external required artifact: fidelity_record"
+  ]
+}

@@ -1,0 +1,44 @@
+
+### cases
+                               GEE Regression Results                              
+===================================================================================
+Dep. Variable:                       cases   No. Observations:                  172
+Model:                                 GEE   No. clusters:                        2
+Method:                        Generalized   Min. cluster size:                  86
+                      Estimating Equations   Max. cluster size:                  86
+Family:                            Poisson   Mean cluster size:                86.0
+Dependence structure:       Autoregressive   Num. iterations:                    15
+Date:                     Fri, 25 Sep 2026   Scale:                           1.000
+Covariance type:                    robust   Time:                         22:25:58
+==============================================================================
+                 coef    std err          z      P>|z|      [0.025      0.975]
+------------------------------------------------------------------------------
+stap_no2       0.0064      0.001      5.357      0.000       0.004       0.009
+ltap_no2       0.2395      0.001    241.614      0.000       0.238       0.241
+lockdown      -0.8042      0.002   -405.555      0.000      -0.808      -0.800
+==============================================================================
+Skew:                          1.1389   Kurtosis:                       3.7943
+Centered skew:                 0.9692   Centered kurtosis:              3.5695
+==============================================================================
+
+### deaths
+                               GEE Regression Results                              
+===================================================================================
+Dep. Variable:                      deaths   No. Observations:                  172
+Model:                                 GEE   No. clusters:                        2
+Method:                        Generalized   Min. cluster size:                  86
+                      Estimating Equations   Max. cluster size:                  86
+Family:                            Poisson   Mean cluster size:                86.0
+Dependence structure:       Autoregressive   Num. iterations:                    13
+Date:                     Fri, 25 Sep 2026   Scale:                           1.000
+Covariance type:                    robust   Time:                         22:25:58
+==============================================================================
+                 coef    std err          z      P>|z|      [0.025      0.975]
+------------------------------------------------------------------------------
+stap_no2       0.0074      0.000     15.680      0.000       0.006       0.008
+ltap_no2       0.3287      0.000    819.712      0.000       0.328       0.330
+lockdown      -5.3336      0.001  -6220.252      0.000      -5.335      -5.332
+==============================================================================
+Skew:                          1.1505   Kurtosis:                       2.6028
+Centered skew:                 0.8880   Centered kurtosis:              2.3136
+==============================================================================

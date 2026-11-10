@@ -1,0 +1,54 @@
+                             OLS Regression Results                            
+===============================================================================
+Dep. Variable:     log_case_rate_day80   R-squared:                       0.526
+Model:                             OLS   Adj. R-squared:                  0.404
+Method:                  Least Squares   F-statistic:                     4.289
+Date:                 Sat, 19 Sep 2026   Prob (F-statistic):            0.00265
+Time:                         16:36:38   Log-Likelihood:                -39.672
+No. Observations:                   35   AIC:                             95.34
+Df Residuals:                       27   BIC:                             107.8
+Df Model:                            7                                         
+Covariance Type:             nonrobust                                         
+============================================================================================
+                               coef    std err          t      P>|t|      [0.025      0.975]
+--------------------------------------------------------------------------------------------
+const                        0.2647      1.483      0.178      0.860      -2.779       3.308
+elderly_pct_2018             0.0427      0.058      0.730      0.472      -0.077       0.163
+density_2019                 0.0011      0.001      0.730      0.472      -0.002       0.004
+gdp_per_capita_usd_2019   2.655e-05   9.46e-06      2.806      0.009    7.13e-06     4.6e-05
+physicians_per_1000          0.1719      0.204      0.841      0.408      -0.247       0.591
+beds_per_1000               -0.2763      0.079     -3.487      0.002      -0.439      -0.114
+pm25_2017                    0.0734      0.065      1.135      0.266      -0.059       0.206
+pm25_exceedance_pct_2017    -0.0014      0.008     -0.183      0.856      -0.017       0.014
+==============================================================================
+Omnibus:                        0.971   Durbin-Watson:                   2.121
+Prob(Omnibus):                  0.616   Jarque-Bera (JB):                1.001
+Skew:                          -0.305   Prob(JB):                        0.606
+Kurtosis:                       2.439   Cond. No.                     4.86e+05
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+[2] The condition number is large, 4.86e+05. This might indicate that there are
+strong multicollinearity or other numerical problems.
+
+{
+  "n_eligible_countries": 36,
+  "n_outcome_dates_available": 36,
+  "n_complete_model_rows": 35,
+  "dependent_variable": "log cases per 10,000 on day 80",
+  "pm25_coefficient": 0.07341496980495785,
+  "pm25_ci95_low": -0.05931746193216067,
+  "pm25_ci95_high": 0.20614740154207636,
+  "pm25_pvalue": 0.26640153156162183,
+  "r_squared": 0.5264845283124571,
+  "covariates": [
+    "elderly_pct_2018",
+    "density_2019",
+    "gdp_per_capita_usd_2019",
+    "physicians_per_1000",
+    "beds_per_1000",
+    "pm25_2017",
+    "pm25_exceedance_pct_2017"
+  ]
+}

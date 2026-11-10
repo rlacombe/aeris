@@ -1,0 +1,7 @@
+[
+  {"decision":"Use article-derived additive OLS contrast per 1 ug/m3", "basis":"Complete article contradicts supplied rate-ratio target."},
+  {"decision":"Use CDC Atlas 2020-2022 age-65+ ischemic and hemorrhagic county death-rate records", "basis":"Live application API returned usable county records; this is an explicit period substitution."},
+  {"decision":"Use EPA AQS annual monitor archive PM2.5", "basis":"Three annual archives decoded successfully; original PM2.5 source was not named."},
+  {"decision":"Fit unadjusted OLS only", "basis":"Census API public route returned Missing Key; article covariates were unavailable, and no fabricated substitutes were used."},
+  {"decision":"Retain observed-overlap counties without numeric coverage exclusion", "basis":"Article provides no numeric coverage threshold; coverage is reported."}
+]

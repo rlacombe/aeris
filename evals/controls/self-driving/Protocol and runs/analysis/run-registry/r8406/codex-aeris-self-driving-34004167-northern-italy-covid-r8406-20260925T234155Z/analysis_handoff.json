@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "study_id": "34004167-northern-italy-covid",
+  "status": "sensitivity",
+  "fidelity": "bounded",
+  "target": {
+    "outcome": "Daily reported COVID-19 cases and deaths",
+    "pollutant": "NO2 STAP; PM2.5 target was attempted but not fit",
+    "geography": "Lombardia and Veneto, Italy",
+    "population": "Residents of the two regions",
+    "period": "Article target 2020-02-21 to 2020-05-19; retained complete overlap 2020-05-05 to 2020-05-19",
+    "effect_scale": "Rate ratio per 1 µg/m3",
+    "exposure_assignment": "Unweighted mean of monitor daily means within each administrative polygon",
+    "model": "Log-link count models: AR(1) Poisson GEE for deaths; robust Poisson GLM fallback for cases after recorded GEE failure",
+    "covariates": ["None identifiable in bounded overlap; article lockdown is constant"],
+    "named_outcome_source": "Italian Civil Protection COVID-19 regional archive",
+    "specification_evidence": ["/study/article.md §§2.1–2.3", "/study/supplements/mmc1.docx Tables S1–S4"]
+  },
+  "sources": [
+    {"role":"outcome","url":"https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-regioni/dpc-covid19-ita-regioni.csv","route_origin":"agent_discovered","retrieved":true,"sha256":"3438a0a85bdb0bca56a48a2edd0c69f3005d6c1c20c4a2a75bed668a8f01ead7","evidence_artifact":"/output/reanalysis/dpc_regions.csv"},
+    {"role":"exposure","url":"OpenAQ archive S3 and OpenAQ v3 via AERIS","route_origin":"agent_discovered","retrieved":true,"sha256":"a35c688461fc3f322b0f7b2c346e2e40c122b5491df90d3ea4dcbf4269beb8f0","evidence_artifact":"/output/reanalysis/aeris_no2_stap_checkpoint.json.daily.csv"},
+    {"role":"boundary","url":"https://www.geoboundaries.org/api/current/gbOpen/ITA/ADM2/","route_origin":"agent_discovered","retrieved":true,"sha256":null,"evidence_artifact":"/output/reanalysis/italy_adm2.geojson"}
+  ],
+  "substitutions": [
+    {"dimension":"exposure","change_type":"source","published":"EEA database","reanalysis":"OpenAQ archive S3/v3 through AERIS","reason":"Article-named legacy EEA export URL returned HTTP 404; OpenAQ yielded usable NO2 records."},
+    {"dimension":"period","change_type":"coverage_subset","published":"89 daily dates","reanalysis":"16 complete-overlap dates","reason":"AERIS OpenAQ retrieval covered 22.47% of target dates."},
+    {"dimension":"exposure","change_type":"coverage_subset","published":"NO2, PM2.5 and LTAP","reanalysis":"NO2 STAP only","reason":"No PM2.5 records and no 8-year LTAP were recovered."},
+    {"dimension":"covariate","change_type":"covariate_omission","published":"lockdown and meteorology sensitivity","reanalysis":"omitted","reason":"Lockdown is constant and meteorology was not recovered."},
+    {"dimension":"model","change_type":"construct_change","published":"GEE AR(1)","reanalysis":"case GLM fallback; death GEE AR(1)","reason":"Case AR(1) GEE convergence failure retained in native output."}
+  ],
+  "coverage": {"eligible_units":2,"included_units":2,"eligible_times":89,"included_times":15,"rule":"Retain deterministic complete date-region overlap with recovered AERIS NO2; no imputation.","notes":"30 region-days across 5–19 May; dates outside the article end date were excluded."},
+  "effects": [
+    {"label":"NO2 STAP and daily cases, bounded model","primary":true,"estimate":1.1559907083,"ci_low":1.0725488935,"ci_high":1.2459241027,"scale":"ratio","contrast":"per 1 µg/m3","metric":"RR","native_estimate":0.1449577325,"native_ci_low":0.070058958,"native_ci_high":0.219856507,"native_scale":"log rate ratio","native_contrast":"per 1 µg/m3"},
+    {"label":"NO2 STAP and daily deaths, bounded model","primary":false,"estimate":0.9962815155,"ci_low":0.9844977775,"ci_high":1.0082062964,"scale":"ratio","contrast":"per 1 µg/m3","metric":"RR","native_estimate":-0.0037254153,"native_ci_low":-0.015623638,"native_ci_high":0.008172807,"native_scale":"log rate ratio","native_contrast":"per 1 µg/m3"}
+  ],
+  "analysis_diagnostics": {"observations":30,"estimated_parameters":2,"exposure_unique_values":30,"outcome_unique_values":30,"joined_rows":30,"unmatched_outcome_rows":148,"unmatched_exposure_rows":0,"contrast_transformation_verified":true,"reported_variants":["NO2 STAP cases bounded model","NO2 STAP deaths bounded model"]},
+  "artifacts": {"code":"/output/reanalysis/analyze.py","source_manifest":"/output/reanalysis/source_manifest.json","exposure":"/output/reanalysis/aeris_no2_stap_checkpoint.json.daily.csv","analysis_panel":"/output/reanalysis/analysis_panel.csv","model_output":"/output/reanalysis/model_output.json","decision_log":"/output/reanalysis/decision_log.json","research_notebook":"/output/aeris-workspace/.aeris/research-notebook.json","blocker_ledger":"/output/reanalysis/coverage_diagnostics.json","fidelity_record":"/output/aeris-workspace/.aeris/artifacts/reanalysis-fidelity_reanalysis-fidelity_2026-09-25T234702.2082860000.json","coverage_diagnostics":"/output/reanalysis/coverage_diagnostics.json","boundary_route_evidence":"/output/reanalysis/italy_adm2.geojson","study_contract":"/output/aeris-workspace/.aeris/contracts/reanalysis-invariants.json"},
+  "blockers":["OpenAQ NO2 covered only 16 common dates across the two regions.","PM2.5 had no retrieved observations.","LTAP, meteorology, and variable lockdown could not be included.","Bounded panel has only two region clusters and is not a credible published-effect replication." ]
+}

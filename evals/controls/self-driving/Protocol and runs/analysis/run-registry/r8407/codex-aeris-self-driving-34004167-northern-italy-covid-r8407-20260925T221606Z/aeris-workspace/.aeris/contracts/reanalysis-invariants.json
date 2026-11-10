@@ -1,0 +1,79 @@
+{
+  "schema_version": "aeris-study-contract/v3",
+  "profile": "reanalysis",
+  "contract_id": "34004167-northern-italy-covid-reanalysis-invariants",
+  "approved": true,
+  "author": "agent",
+  "objective": "Association of daily regional ambient NO2 short-term exposure and fixed 2013-01-01 to 2020-05-19 regional long-term NO2 exposure with daily COVID-19 incidence and mortality in Lombardia and Veneto during the first epidemic wave.",
+  "allowed_tools": [
+    "estimate_boundary_exposure",
+    "estimate_boundary_exposure_batch",
+    "estimate_exposure"
+  ],
+  "pollutants": [
+    "no2"
+  ],
+  "date_window": {
+    "start": "2020-02-21",
+    "end": "2020-05-19"
+  },
+  "temporal_resolutions": [
+    "daily",
+    "hourly"
+  ],
+  "allowed_fidelity_levels": [
+    "matched",
+    "source_substitution",
+    "reduced_coverage",
+    "reduced_adjustment",
+    "bounded",
+    "supported_sensitivity"
+  ],
+  "resource_limits": {
+    "wall_clock_hours": 8,
+    "maximum_infrastructure_restarts": 1,
+    "maximum_single_download_gib": 10,
+    "maximum_boundary_units": 6000,
+    "maximum_boundary_units_per_call": 25,
+    "maximum_static_units_per_call": 2
+  },
+  "scientific_invariants": {
+    "research_question": "Association of daily regional ambient NO2 short-term exposure and fixed 2013-01-01 to 2020-05-19 regional long-term NO2 exposure with daily COVID-19 incidence and mortality in Lombardia and Veneto during the first epidemic wave.",
+    "target_outcome_and_population": "Daily reported COVID-19 cases and deaths among residents of Lombardia and Veneto, Italy.",
+    "pollutants": [
+      "no2"
+    ],
+    "principal_contrast": "Rate ratio per 1 \u00b5g/m\u00b3 increase in NO2 STAP and per 1 \u00b5g/m\u00b3 increase in NO2 LTAP, separately for daily cases and daily deaths.",
+    "principal_variants": [
+      "single-pollutant model: STAP + LTAP + lockdown",
+      "meteorology-adjusted model",
+      "single co-pollutant plus meteorology sensitivity",
+      "multi-pollutant plus meteorology sensitivity"
+    ],
+    "broad_geography": "Lombardia and Veneto administrative regions, Italy",
+    "target_geographic_units": 2,
+    "target_geographic_unit_type": "administrative_area",
+    "period": {
+      "start": "2020-02-21",
+      "end": "2020-05-19"
+    },
+    "prohibited_evidence": [
+      "published_effect",
+      "prior_aeris_effect",
+      "prior_reanalysis_code",
+      "prior_exposure_values"
+    ]
+  },
+  "article_evidence": [
+    {
+      "artifact": "/output/evidence/article-specification.json",
+      "finding": "Complete article and supplement establish daily cases/deaths, regions, date period, STAP/LTAP construction, lockdown primary model, and sensitivity variants."
+    }
+  ],
+  "article_evidence_map": {
+    "article_extraction_artifact": "/output/evidence/article-specification.json",
+    "target_discrepancy": "Supplied target includes epidemic time, while the article primary equation specifies lockdown only; meteorology is supplement sensitivity."
+  },
+  "execution_design": {},
+  "amendments": []
+}

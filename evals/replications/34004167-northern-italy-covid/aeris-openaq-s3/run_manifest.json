@@ -1,0 +1,20 @@
+{
+  "study": "PMID 34004167",
+  "run": "AERIS/OpenAQ historical NO2 overlap reconstruction",
+  "artifacts": {
+    "article.xml": "433be8f2e91a16662553d8db321e75df334033e9f781462964cf70a90ad429ae",
+    "dpc-covid19-ita-regioni.csv": "3438a0a85bdb0bca56a48a2edd0c69f3005d6c1c20c4a2a75bed668a8f01ead7",
+    "geoboundaries_ita_adm2.json": "261bdd0059af62bf53c1e7ad1d19b7e5a4696fb209c511d6bac1fa9dd79b17e5",
+    "geoboundaries_ita_adm2_simplified.geojson": "a01b6408d7d9061318034f8f4f54b377b99b5f8dcf5a7f84c5fa1e8ee3c86549",
+    "run_aeris_no2_overlap.py": "9fb818a3a4ef2850c32ed969f525d916d5740f9911d2f54f40a0fd6c3d97b5d5",
+    "build_no2_overlap_panel.py": "45b9aba50e711c4861105fe788c7558c5b55e6ef56778f5529979e52997434de",
+    "fit_no2_overlap_gee.py": "8f1763efcb067b71c2e16a2ff481597f9a7972a1a55284bd74e84fbf3d0a84ec",
+    "aeris_no2_overlap_tool_trace.json": "40ae39f78f1a69bec94bd8db7abfec494fd894c63cc23530c25fc17965813f03",
+    "aeris_no2_overlap_provenance.json": "f4a0f6c6b54b4b7d3e19a710b2f78d100da12cb97d7e6829867907d413113292",
+    "aeris_no2_overlap_daily.csv": "69280b7b6562883732396e043b015479887873c882047a9c541ce4c22bcd72ca",
+    "aeris_no2_overlap_stations.csv": "eee8c91b26e7d5c072318f525b273419591281b35dfeb5868515fccbf1227b02",
+    "no2_overlap_panel.csv": "7bdfb4dce11ef94013570217e0d18b7c2c0ca23d2fec6f0924a67deea6b2f62e",
+    "no2_overlap_panel_manifest.json": "08ce1dcab2aa4bea71b3796480901ab11fca29dd769a461480fc720221622ada",
+    "no2_overlap_model_results.json": "dea854cfba67e1e6127545ee8de97111ea6eb200fce18b9bcd9b1d96e2a56a40"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "valid": false,
+  "errors": [
+    "reanalysis contract lacks an evidence-backed executable-design amendment",
+    "fewer than three outcome recovery routes attempted",
+    "public outcome bulk-data blocker lacks inspection of a public client or package catalog"
+  ],
+  "warnings": []
+}

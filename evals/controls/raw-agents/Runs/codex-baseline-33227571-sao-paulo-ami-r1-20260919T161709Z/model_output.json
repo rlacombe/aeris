@@ -1,0 +1,8 @@
+{
+  "status": "not_run",
+  "reason": "Published Ward hierarchical clustering requires daily PM2.5, PM10, and NO2. No independent, credential-free public historical source was successfully retrieved in this run; fitting clusters with missing pollutants would alter the scientific task.",
+  "n_days": 1461,
+  "outcome_sum": 51689,
+  "weather_complete_days": 1461,
+  "pollutant_complete_days": 0
+}

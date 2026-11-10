@@ -1,0 +1,86 @@
+{
+  "study_id": "PMC10770173",
+  "status": "completed_fit",
+  "target": {
+    "outcome": "instantaneous COVID-19 case fatality (retrospectively attributed deaths among newly confirmed cases)",
+    "pollutant": "PM2.5",
+    "geography": "England, Northern Ireland, Scotland, and Wales",
+    "period": "2020-03-26 to 2020-09-15",
+    "effect_scale": "odds ratio"
+  },
+  "sources": [
+    {
+      "role": "outcome_cases",
+      "url": "https://archive.ukhsa-dashboard.data.gov.uk/coronavirus-dashboard/cases.zip",
+      "retrieved": true,
+      "sha256": "9376efeb41f60df24ceb850d9b8359d9ac1417b88e4267efbbf71a23cefebf9e"
+    },
+    {
+      "role": "outcome_deaths",
+      "url": "https://archive.ukhsa-dashboard.data.gov.uk/coronavirus-dashboard/deaths.zip",
+      "retrieved": true,
+      "sha256": "fcb6b40fdb1b93e283b25e53093177d4c7acd848af969565992f8d3256ba1ea3"
+    },
+    {
+      "role": "exposure_and_weather",
+      "url": "https://air-quality-api.open-meteo.com/v1/air-quality",
+      "retrieved": true,
+      "sha256": "207bc81db86e01d895cf5ffdd680d70ce63976e514158e6af0eaf2836ca32541"
+    },
+    {
+      "role": "article",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10770173/",
+      "retrieved": true,
+      "sha256": "d88727b655e51183c8f8ece19f54c2e21e310c8e07e9ed839a349fcd352d132c"
+    }
+  ],
+  "substitutions": [
+    {
+      "dimension": "exposure",
+      "published": "DEFRA UK-Air country daily monitor averages",
+      "reanalysis": "Open-Meteo/CAMS hourly gridded PM2.5 at country centroids, daily mean",
+      "reason": "required independent public exposure source; author-derived exposure values prohibited"
+    },
+    {
+      "dimension": "covariate",
+      "published": "ECA&D stations and NOAA-derived humidity",
+      "reanalysis": "Open-Meteo archive hourly gridded temperature, RH, sunshine at country centroids",
+      "reason": "independent public covariates needed for adjusted reconstruction"
+    },
+    {
+      "dimension": "outcome",
+      "published": "backprojNP using gamma confirmation-to-death delay (mean 7.92; distribution shape not reported)",
+      "reanalysis": "reported deaths shifted back 8 days",
+      "reason": "insufficient published delay-distribution parameterization to recreate backprojection"
+    },
+    {
+      "dimension": "model",
+      "published": "binomial GLMM with DLNM cross-basis spline terms and country random effects",
+      "reanalysis": "binomial-logit GLM with country fixed effects, weekday, RH and lag-window means",
+      "reason": "closest fully executable model after the stated outcome/exposure substitution; exact spline specification and random-effects implementation unavailable"
+    }
+  ],
+  "coverage": {
+    "eligible_units": 4,
+    "included_units": 4,
+    "eligible_times": 174,
+    "included_times": 153,
+    "notes": "510 country-days retained after required lags, 2.5--97.5% predictor trimming, positive cases, and attributed deaths <= cases."
+  },
+  "effect": {
+    "estimate": 1.0959466737615946,
+    "ci_low": 1.0931197472594876,
+    "ci_high": 1.0987809110029583,
+    "scale": "odds ratio",
+    "contrast": "per 1 ug/m3 increase in mean PM2.5 across confirmation-day through 10 days before confirmation"
+  },
+  "artifacts": {
+    "code": "/output/reanalysis.py",
+    "source_manifest": "/output/source_manifest.json",
+    "exposure": "/output/exposure_table.csv",
+    "analysis_panel": "/output/analysis_panel.csv",
+    "model_output": "/output/model_output.txt",
+    "decision_log": "/output/decision_log.md"
+  },
+  "blockers": []
+}

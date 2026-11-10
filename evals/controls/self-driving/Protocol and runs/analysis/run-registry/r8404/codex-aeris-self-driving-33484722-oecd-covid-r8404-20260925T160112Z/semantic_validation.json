@@ -1,0 +1,7 @@
+{
+  "valid": true,
+  "errors": [],
+  "warnings": [
+    "source-substitution fit does not document an exposure substitution"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "valid": false,
+  "errors": [
+    "joined row count is smaller than fitted observations",
+    "analysis_panel has 365 rows; fitted result reports 68454"
+  ],
+  "warnings": []
+}

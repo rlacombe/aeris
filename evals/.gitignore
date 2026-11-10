@@ -1,0 +1,14 @@
+# Rebuildable public downloads, API caches, and derived analysis panels.
+.aeris_*.sqlite
+*.sqlite
+__pycache__/
+data/raw/
+data/derived/
+public-inputs/
+outputs/
+analysis_panel*.csv
+aeris_*.csv
+*.log
+
+.vendor/
+author-package-metadata/

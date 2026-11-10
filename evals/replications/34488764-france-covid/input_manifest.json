@@ -1,0 +1,27 @@
+{
+  "study": "PMID 34488764",
+  "boundaries": {
+    "url": "https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/FRA/ADM2/geoBoundaries-FRA-ADM2_simplified.geojson",
+    "geoBoundaries_release_commit": "9469f09",
+    "boundary_id": "FRA-ADM2-29444166",
+    "year_represented": 2022,
+    "features": 96,
+    "sha256": "a14ed131c86c802e5d546c7cbeccbd4daebc94a66fea413f563935a53504f251"
+  },
+  "outcome": {
+    "source_file": "ARTIFACT_INPUT/france_hospital_covid_all_departments.csv",
+    "source_url": "https://www.data.gouv.fr/fr/datasets/r/63352e38-d353-4b54-bfd1-f1b3ee1cabd7",
+    "sha256": "79945ede9e319d5d7289cdcbd4a686ff0e2d06ac9b4232fdde139b0b9e5cfc82"
+  },
+  "covariates": {
+    "source_url": "https://data.mendeley.com/public-files/datasets/2ghxnrkr9p/files/94c67954-cbf0-4e03-b109-6de6ab9d17cb/file_downloaded",
+    "dataset_doi": "10.17632/2ghxnrkr9p.4",
+    "source_file": "ARTIFACT_INPUT/authors_public_covariates.xlsx",
+    "sha256": "f52d15c5d2735642d0260c11182c134476574642424316e90e24fbb833c269b8"
+  },
+  "department_crosswalk": {
+    "source_url": "https://geo.api.gouv.fr/departements?fields=nom,code&format=json",
+    "source_file": "ARTIFACT_INPUT/france_department_codes.json",
+    "sha256": "f793a3df41a08974a31c1ab795e9a9dcf3c495bfef5d7b301ccb0a6475ce784e"
+  }
+}
